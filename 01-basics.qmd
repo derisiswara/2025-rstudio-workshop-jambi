@@ -1,0 +1,27 @@
+---
+title: "Introduction to Python"
+author: "Bella Ratmelia"
+format: revealjs
+---
+
+# Welcome!
+
+## Preamble
+
+-   About me:
+
+    -   Librarian, Research & Data Services team, SMU Libraries.
+
+    -   Bachelor of IT, MSc in Info Studies.
+
+    -   Have been with SMU since the pandemic era (2021).
+
+-   About this workshop:
+
+    -   Live-coding format; code along with me!
+
+    -   Goal of workshop: to give you enough fundamentals (at least to the point where ChatGPT can't bluff you so easily) and confidence to explore python on your own.
+
+    -   Don't be afraid to ask for help! We are all here to learn
+
+    -   Comes with quizzes!
