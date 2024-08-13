@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "SEIC x DSA Python for Macroeconomics Workshop 2024",
+    "section": "",
+    "text": "This site serves as a repository for the slides and codes developed for the ‘Macroeconomics with Python Workshop’ for SEIC x DSA club members at SMU.\nThe workshop aims to:\n\nIncrease students’ efficiency in the collection, analysis, and visualisation of data with Python.\nHelp SEIC students to be industry-ready as the banking and finance, macroeconomic research, and public sectors are increasingly demanding the use of Python.\nExpose DSA students to how Python can be integrated with macroeconomic research."
+  },
+  {
+    "objectID": "index.html#welcome",
+    "href": "index.html#welcome",
+    "title": "SEIC x DSA Python for Macroeconomics Workshop 2024",
+    "section": "",
+    "text": "This site serves as a repository for the slides and codes developed for the ‘Macroeconomics with Python Workshop’ for SEIC x DSA club members at SMU.\nThe workshop aims to:\n\nIncrease students’ efficiency in the collection, analysis, and visualisation of data with Python.\nHelp SEIC students to be industry-ready as the banking and finance, macroeconomic research, and public sectors are increasingly demanding the use of Python.\nExpose DSA students to how Python can be integrated with macroeconomic research."
+  },
+  {
+    "objectID": "index.html#schedule",
+    "href": "index.html#schedule",
+    "title": "SEIC x DSA Python for Macroeconomics Workshop 2024",
+    "section": "Schedule",
+    "text": "Schedule\nSlides will be progressively made available below.\n\n\n\n\n\n\n\n\n\n\nSession\nDate and Time\nVenue\nTopic\n\n\n\n\n1\nSat, 7 Sep 2024, 10 AM - 12 PM\nSOSS/CIS Seminar Room 3-1\nPython basics\n\n\n2\nSat, 14 Sep 2024, 10 AM - 12 PM\nSOSS/CIS Seminar Room 3-1\nData wrangling with numpy\n\n\n3\nSat, 28 Sep 2024, 10 AM - 12 PM\nSOSS/CIS Seminar Room 3-1\nData Wrangling and timeseries with Dataframe\n\n\n4\nSat, 5 Oct 2024, 10 AM - 12 PM\nSOSS/CIS Seminar Room 3-1\nPutting it all together"
+  },
+  {
+    "objectID": "index.html#pre-workshop-activities",
+    "href": "index.html#pre-workshop-activities",
+    "title": "SEIC x DSA Python for Macroeconomics Workshop 2024",
+    "section": "Pre-workshop activities",
+    "text": "Pre-workshop activities\n\nStep 1: Install Visual Studio Code\nThis workshop will use Visual Studio Code, or VS Code. It is a free, versatile code editor that supports many programming languages, including Python. It offers a user-friendly interface for writing and running Python code, and with the right extensions, it can also handle Jupyter notebooks.\n\nDownload and install VS Code here"
+  },
+  {
+    "objectID": "01-basics.html#preamble",
+    "href": "01-basics.html#preamble",
+    "title": "Introduction to Python",
+    "section": "Preamble",
+    "text": "Preamble\n\nAbout me:\n\nLibrarian, Research & Data Services team, SMU Libraries.\nBachelor of IT, MSc in Info Studies.\nHave been with SMU since the pandemic era (2021).\n\nAbout this workshop:\n\nLive-coding format; code along with me!\nGoal of workshop: to give you enough fundamentals (at least to the point where ChatGPT can’t bluff you so easily) and confidence to explore python on your own.\nDon’t be afraid to ask for help! We are all here to learn\nComes with quizzes!"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  }
+]
