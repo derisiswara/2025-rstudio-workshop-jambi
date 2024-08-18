@@ -1,0 +1,18 @@
+---
+title: "Code of conduct"
+format: html
+---
+
+In order to foster a positive and professional learning environment we encourage the following kinds of behaviours:
+
+-   Use welcoming and inclusive language
+
+-   Be respectful of different viewpoints and experiences
+
+-   Gracefully accept constructive criticism
+
+-   Focus on what is best for the community
+
+-   Show courtesy and respect towards other community members
+
+*(Adapted from [The Carpentries' Code of Conduct](https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html))*

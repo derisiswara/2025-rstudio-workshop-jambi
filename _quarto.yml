@@ -8,19 +8,24 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - href: about.qmd
+        text: About
+      - href: coc.qmd
+        text: Code of Conduct
 
 format:
   html:
-    theme: flatly
+    theme: zephyr
     css: styles.css
     toc: true
 
   revealjs: 
+    theme: [default, custom.scss]
     width: 1600
     height: 900
     slide-number: true
     logo: "images/smu logo.png"
+    footer: "[SEIC x DSA Python for Macroeconomics](https://bellaratmelia.github.io/2024-python-macroecons/)"
 
 
 

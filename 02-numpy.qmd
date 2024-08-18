@@ -1,0 +1,24 @@
+---
+title: "Data Wrangling with Numpy"
+author: "Bella Ratmelia"
+format: revealjs
+---
+
+## Recap from yesterday
+
+-  Introduction to Visual Studio
+
+-  Introduction to Python
+
+-  Handling Lists
+
+-  Handling Loops and Conditionals
+
+## Overview for today
+
+-  Python libraries / packages
+
+-  Introduction to Numpy & Numpy-financial
+
+-  Getting started with visualizations with matplotlib
+

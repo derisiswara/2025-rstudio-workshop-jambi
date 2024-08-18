@@ -8,6 +8,7 @@ format: revealjs
 
 ## Preamble
 
+::: incremental
 -   About me:
 
     -   Librarian, Research & Data Services team, SMU Libraries.
@@ -22,6 +23,275 @@ format: revealjs
 
     -   Goal of workshop: to give you enough fundamentals (at least to the point where ChatGPT can't bluff you so easily) and confidence to explore python on your own.
 
-    -   Don't be afraid to ask for help! We are all here to learn
+    -   Comes with 3 quizzes that you can do at home - one quiz after each session, except for the last one.
 
-    -   Comes with quizzes!
+    -   Don't be afraid to ask for help! We are all here to learn
+:::
+
+## Overview for today
+
+-   Introduction to Visual Studio
+
+-   Introduction to Python - objects, values, and types
+
+-   Handling Lists
+
+-   Handling Loops and Conditionals
+
+## Why Python?
+
+Q: What is Python, actually?
+
+A: Python is a general-purpose programming language used for a wide variety of applications. Website, games, CAD applications, web applications, AI, etc.
+
+Q: Why should I learn Python?
+
+A: It’s one of the most popular programming language and the most dominant language in AI, ML, and data analytics field. It's a useful skill to know if you plan to go into those fields or anything adjacent.
+
+## How do you run python?
+
+::::: columns
+::: {.column width="50%"}
+If it's a **.py** file...
+
+-   A regular python file.
+
+-   A plain text and contains just python codes
+
+-   Can be edited and run on Visual Studio Code, PyCharm, SPyder, etc or the terminal/command prompt.
+:::
+
+::: {.column width="50%"}
+If it's a **.ipynb** file...
+
+-   ipynb stands for Interactive Python Notebook file
+
+-   Contains the notebook code, the execution results and other internal settings in a specific format
+
+-   Can be edited and run on Jupyter Notebook/Lab, Google Colab, and also Visual Studio (with the Jupyter Notebook extension)
+:::
+:::::
+
+## What's .py and .ipynb??
+
+::::: columns
+::: {.column width="50%"}
+If it's a **.py** file...
+
+![](images/py-script.png)
+:::
+
+::: {.column width="50%"}
+If it's a **.ipynb** file...
+
+![](images/ipynb-script.png)
+:::
+:::::
+
+## Why the different file types?
+
+::::: columns
+::: {.column width="50%"}
+If it's a **.py** file...
+
+-   For "production" uses e.g., creating apps, industrial deployments
+
+-   Executing the file will run all the codes contained inside the file.
+:::
+
+::: {.column width="50%"}
+If it's a **.ipynb** file...
+
+-   Used a lot for academic / scientific purposes; great for quick experiments or teaching / presentation.
+
+-   Codes will be executed on per-block basis (we will see this in action later on)
+:::
+:::::
+
+# Getting Started: VS Code Workspace and Tour
+
+## (Suggested) structure of workspace directory
+
+1.  In your laptop, navigate to where you usually keep your files, and create a folder called `2024-09-python-workshop`. This folder will be our "workspace" where we keep our scripts and data files.
+
+2.  Inside your workspace folder, create the following sub-folders:
+
+    -   `data` - we will save our raw data here. **It's best practice to keep the data here untouched.**
+
+    -   `data-output` - if we need to modify raw data, store the modified version here.
+
+    -   `fig-output` - we will save all the graphics we created here!
+
+3.  Start VS Code.
+
+4.  Go to `File` \> `Open Folder`.
+
+5.  Open the `2024-09-python-workshop` folder we just created.
+
+## Best practice: Virtual Environment {.nostretch}
+
+::: {.callout-note appearance="simple"}
+Virtual environment helps us to ensure that any packages we install will be isolated from other environments, including the global interpreter. This helps prevent issues that can occur due to conflicting package versions - especially useful for reproducibility!
+:::
+
+1.  Open the **Command Palette** (`Ctrl` + `Shift` + `P` on Windows - `Cmd` + `Shift` + `P` on Macbook).
+
+2.  Type **Python: Create Environment**, and select the command. Choose `Venv`.
+
+![](images/create_environment_dropdown.png){width="50%"}
+
+3.  Select the Python interpreter that we installed in the pre-workshop activity. Give VS Code a few minutes to setup the environment.
+
+![](images/interpreters-list.png){width="50%"}
+
+## Create new file
+
+1.  Open the **Command Palette** (`Ctrl` + `Shift` + `P` on Windows - `Cmd` + `Shift` + `P` on Macbook).
+
+2.  Type **Python: New Python File**, and select the command.
+
+3.  Rename the file to `01-intro.py`
+
+# Let's Code!
+
+Hands on session - Make sure to open the `py` file we just created.
+
+## Refresher: Quantitative Data Types
+
+-   [**Non-Continuous Data**]{.underline}
+
+    -   **Nominal/Categorical**: Non-ordered, non-numerical data, used to represent qualitative attribute.
+
+        -   Example: nationality, neighborhood, employment status
+
+    -   **Ordinal**: Ordered non-numerical data.
+
+        -   Example: Nutri-grade ratings, frequency of exercise (daily, weekly, bi-weekly)
+
+    -   **Discrete**: Numerical data that can only take specific value (usually integers)
+
+        -   Example: Shoe size, clothing size
+
+    -   **Binary**: Nominal data with only two possible outcome
+
+        -   Example: pass/fail, yes/no, survive/not survive
+
+------------------------------------------------------------------------
+
+-   [**Continuous Data**]{.underline}
+
+    -   **Interval**: Numerical data that can take any value within a range. [It does not have a "true zero".]{.underline}
+
+        -   Example: Celsius scale. Temperature of 0 C does not represent absence of heat.
+
+    -   **Ratio**: Numerical data that can take any value within a range. [it has a "true zero".]{.underline}
+
+        -   Example: Annual income. annual income of 0 represents no income.
+
+## Basic data types in Python
+
+-   Integers (int)
+
+    -   Whole numbers without a decimal point. Examples: 5, -3, 0
+
+-   Floating-point numbers (float)
+
+    -   Numbers with a decimal point. Examples: 3.14, -0.5, 2.0
+
+-   Strings (str)
+
+    -   Sequences of characters enclosed in quotes. Examples: "Hello", 'Python'
+
+-   Booleans (bool)
+
+    -   Logical values representing `True` or `False`. Examples: True, False
+
+-   None
+
+    -   A special type representing the absence of a value
+
+## More data types
+
+-   Lists
+
+    -   Ordered, mutable sequences of elements. Examples: `[1, 2, 3]`, `['a', 'b', 'c']`
+
+-   Tuples
+
+    -   Ordered, immutable sequences of elements. Examples: `(1, 2, 3)`, `('a', 'b', 'c')`
+
+-   Dictionaries (dict)
+
+    -   Unordered collections of key-value pairs. Example: `{'name': 'John', 'age': 30}`
+
+-   Sets
+
+    -   Unordered collections of unique elements. Example: `{1, 2, 3}`
+
+## Even more data types
+
+We will explore these in the upcoming sessions!
+
+-   DateTime
+
+-   NumPy’s Arrays
+
+-   Panda’s DataFrame & Time series DataFrame
+
+## Consider this scenario
+
+-   The student club is setting up a tracker to track total number of attendance to their bi-weekly meeting in 2023.
+
+-   They have 33 meetings in total.
+
+-   If they are saving the attendees number to variables, they would have 33 variables!
+
+-   Very difficult to do any calculations on these...
+
+-   This is where a list will come in handy! List can store many values together in a single variable.
+
+## Glossary of Terms {.smaller}
+
+::::: columns
+::: {.column width="50%"}
+
+Objects
+
+:   In Python, everything is an object. An object is a piece of data that can have attributes and methods associated with it.
+
+Value
+
+:   The actual data stored in a variable or object. It can be a number, string, list, or any other data type.
+
+Variable
+
+:   A value that has a name associated with it.
+
+Assign
+
+:   To give a value to a variable. This is done using the equals sign (=).
+:::
+
+::: {.column width="50%"}
+
+Function
+
+:   A reusable block of code that performs a specific task. Functions can take inputs (arguments) and return outputs.
+
+Call
+
+:   To execute or run a function. This is done by using the function name followed by parentheses.
+
+Arguments
+
+:   Values passed to a function when it is called. These values are used by the function to perform its task.
+
+Options/Parameters
+
+:   Variables defined in a function's declaration that act as placeholders for arguments. They specify what kind of data the function expects to receive.
+
+Packages
+
+:   Collections of related modules that extend Python's capabilities. They can be installed and imported to add new functionalities within your workspace.
+:::
+:::::

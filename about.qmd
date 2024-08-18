@@ -1,6 +1,12 @@
 ---
-title: "About"
+title: "About the Workshop"
 format: html
 ---
 
-About this site
+The workshop is jointly organised by SEIC and DSA student clubs from SMU, in collaboration with SMU Libraries. The workshop aims to:
+
+-  Increase students’ efficiency in the collection, analysis, and visualisation of data with Python.
+
+-  Help SEIC students to be industry-ready as the banking and finance, macroeconomic research, and public sectors are increasingly demanding the use of Python.
+
+-  Expose DSA students to how Python can be integrated with macroeconomic research.
