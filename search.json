@@ -4,41 +4,160 @@
     "href": "index.html",
     "title": "SEIC x DSA Python for Macroeconomics Workshop 2024",
     "section": "",
-    "text": "This site serves as a repository for the slides and codes developed for the ‘Macroeconomics with Python Workshop’ for SEIC x DSA club members at SMU.\nThe workshop aims to:\n\nIncrease students’ efficiency in the collection, analysis, and visualisation of data with Python.\nHelp SEIC students to be industry-ready as the banking and finance, macroeconomic research, and public sectors are increasingly demanding the use of Python.\nExpose DSA students to how Python can be integrated with macroeconomic research."
+    "text": "This site serves as a repository for the slides and codes developed for the ‘Macroeconomics with Python Workshop’ for SEIC x DSA club members at SMU.\nInstructor: Bella Ratmelia, Research & Data Services, SMU Libraries"
   },
   {
     "objectID": "index.html#welcome",
     "href": "index.html#welcome",
     "title": "SEIC x DSA Python for Macroeconomics Workshop 2024",
     "section": "",
-    "text": "This site serves as a repository for the slides and codes developed for the ‘Macroeconomics with Python Workshop’ for SEIC x DSA club members at SMU.\nThe workshop aims to:\n\nIncrease students’ efficiency in the collection, analysis, and visualisation of data with Python.\nHelp SEIC students to be industry-ready as the banking and finance, macroeconomic research, and public sectors are increasingly demanding the use of Python.\nExpose DSA students to how Python can be integrated with macroeconomic research."
+    "text": "This site serves as a repository for the slides and codes developed for the ‘Macroeconomics with Python Workshop’ for SEIC x DSA club members at SMU.\nInstructor: Bella Ratmelia, Research & Data Services, SMU Libraries"
   },
   {
     "objectID": "index.html#schedule",
     "href": "index.html#schedule",
     "title": "SEIC x DSA Python for Macroeconomics Workshop 2024",
     "section": "Schedule",
-    "text": "Schedule\nSlides will be progressively made available below.\n\n\n\n\n\n\n\n\n\n\nSession\nDate and Time\nVenue\nTopic\n\n\n\n\n1\nSat, 7 Sep 2024, 10 AM - 12 PM\nSOSS/CIS Seminar Room 3-1\nPython basics\n\n\n2\nSat, 14 Sep 2024, 10 AM - 12 PM\nSOSS/CIS Seminar Room 3-1\nData wrangling with numpy\n\n\n3\nSat, 28 Sep 2024, 10 AM - 12 PM\nSOSS/CIS Seminar Room 3-1\nData Wrangling and timeseries with Dataframe\n\n\n4\nSat, 5 Oct 2024, 10 AM - 12 PM\nSOSS/CIS Seminar Room 3-1\nPutting it all together"
+    "text": "Schedule\nSlides will be progressively made available below.\n\n\n\n\n\n\n\n\n\n\nSession\nDate and Time\nVenue\nTopic\n\n\n\n\n1\nSat, 7 Sep 2024, 10 AM - 12 PM\nSOSS/CIS Seminar Room 3-1\nPython basics\n\n\n2\nSat, 14 Sep 2024, 10 AM - 12 PM\nSOSS/CIS Seminar Room 3-1\nData wrangling with numpy\n\n\n3\nSat, 28 Sep 2024, 10 AM - 12 PM\nSOSS/CIS Seminar Room 3-1\nData wrangling and timeseries with Dataframe\n\n\n4\nSat, 5 Oct 2024, 10 AM - 12 PM\nSOSS/CIS Seminar Room 3-1\nPutting it all together\n\n\n\n\n\n\n\n\n\n\n\nImportant - Please bring your laptop & charger to the workshop\n\n\n\nAs this is a hands-on workshop, please do bring your laptop. Tablets like Surface or iPad will not be sufficient as they could not run Visual Studio Code."
   },
   {
     "objectID": "index.html#pre-workshop-activities",
     "href": "index.html#pre-workshop-activities",
     "title": "SEIC x DSA Python for Macroeconomics Workshop 2024",
     "section": "Pre-workshop activities",
-    "text": "Pre-workshop activities\n\nStep 1: Install Visual Studio Code\nThis workshop will use Visual Studio Code, or VS Code. It is a free, versatile code editor that supports many programming languages, including Python. It offers a user-friendly interface for writing and running Python code, and with the right extensions, it can also handle Jupyter notebooks.\n\nDownload and install VS Code here"
+    "text": "Pre-workshop activities\nThis workshop will use Visual Studio Code, or VS Code. It is a free, versatile code editor that supports many programming languages, including Python. It offers a user-friendly interface for writing and running Python code, and with the right extensions, it can also handle Jupyter notebooks!\nPlease install the following things in your laptop before the workshop:\n\nDownload and install the latest python3 for your machine (should be version 3.12 or thereabouts).\n\nIf you are on Windows, at the start of the installation, tick the “Add Python 3.12 to PATH”\n\nDownload and install Visual Studio Code. Check out the setup instructions for Windows and macOS\nOnce you’ve installed Visual Studio code, start it up. Open the Extension tab on the left sidebar (Ctrl + Shift + X on Windows or Cmd + Shift + X on macOS) and install the Python and Jupyter extension. (The extension creator should be Microsoft)\n\n\n\nFill up the pre-workshop survey! Please fill this up before the beginning of session 1."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About the Workshop",
+    "section": "",
+    "text": "The workshop is jointly organised by SEIC and DSA student clubs from SMU, in collaboration with SMU Libraries. The workshop aims to:\n\nIncrease students’ efficiency in the collection, analysis, and visualisation of data with Python.\nHelp SEIC students to be industry-ready as the banking and finance, macroeconomic research, and public sectors are increasingly demanding the use of Python.\nExpose DSA students to how Python can be integrated with macroeconomic research."
   },
   {
     "objectID": "01-basics.html#preamble",
     "href": "01-basics.html#preamble",
     "title": "Introduction to Python",
     "section": "Preamble",
-    "text": "Preamble\n\nAbout me:\n\nLibrarian, Research & Data Services team, SMU Libraries.\nBachelor of IT, MSc in Info Studies.\nHave been with SMU since the pandemic era (2021).\n\nAbout this workshop:\n\nLive-coding format; code along with me!\nGoal of workshop: to give you enough fundamentals (at least to the point where ChatGPT can’t bluff you so easily) and confidence to explore python on your own.\nDon’t be afraid to ask for help! We are all here to learn\nComes with quizzes!"
+    "text": "Preamble\n\n\nAbout me:\n\nLibrarian, Research & Data Services team, SMU Libraries.\nBachelor of IT, MSc in Info Studies.\nHave been with SMU since the pandemic era (2021).\n\nAbout this workshop:\n\nLive-coding format; code along with me!\nGoal of workshop: to give you enough fundamentals (at least to the point where ChatGPT can’t bluff you so easily) and confidence to explore python on your own.\nComes with 3 quizzes that you can do at home - one quiz after each session, except for the last one.\nDon’t be afraid to ask for help! We are all here to learn"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "01-basics.html#overview-for-today",
+    "href": "01-basics.html#overview-for-today",
+    "title": "Introduction to Python",
+    "section": "Overview for today",
+    "text": "Overview for today\n\nIntroduction to Visual Studio\nIntroduction to Python - objects, values, and types\nHandling Lists\nHandling Loops and Conditionals"
+  },
+  {
+    "objectID": "01-basics.html#why-python",
+    "href": "01-basics.html#why-python",
+    "title": "Introduction to Python",
+    "section": "Why Python?",
+    "text": "Why Python?\nQ: What is Python, actually?\nA: Python is a general-purpose programming language used for a wide variety of applications. Website, games, CAD applications, web applications, AI, etc.\nQ: Why should I learn Python?\nA: It’s one of the most popular programming language and the most dominant language in AI, ML, and data analytics field. It’s a useful skill to know if you plan to go into those fields or anything adjacent."
+  },
+  {
+    "objectID": "01-basics.html#how-do-you-run-python",
+    "href": "01-basics.html#how-do-you-run-python",
+    "title": "Introduction to Python",
+    "section": "How do you run python?",
+    "text": "How do you run python?\n\n\nIf it’s a .py file…\n\nA regular python file.\nA plain text and contains just python codes\nCan be edited and run on Visual Studio Code, PyCharm, SPyder, etc or the terminal/command prompt.\n\n\nIf it’s a .ipynb file…\n\nipynb stands for Interactive Python Notebook file\nContains the notebook code, the execution results and other internal settings in a specific format\nCan be edited and run on Jupyter Notebook/Lab, Google Colab, and also Visual Studio (with the Jupyter Notebook extension)"
+  },
+  {
+    "objectID": "01-basics.html#whats-.py-and-.ipynb",
+    "href": "01-basics.html#whats-.py-and-.ipynb",
+    "title": "Introduction to Python",
+    "section": "What’s .py and .ipynb??",
+    "text": "What’s .py and .ipynb??\n\n\nIf it’s a .py file…\n\n\nIf it’s a .ipynb file…"
+  },
+  {
+    "objectID": "01-basics.html#why-the-different-file-types",
+    "href": "01-basics.html#why-the-different-file-types",
+    "title": "Introduction to Python",
+    "section": "Why the different file types?",
+    "text": "Why the different file types?\n\n\nIf it’s a .py file…\n\nFor “production” uses e.g., creating apps, industrial deployments\nExecuting the file will run all the codes contained inside the file.\n\n\nIf it’s a .ipynb file…\n\nUsed a lot for academic / scientific purposes; great for quick experiments or teaching / presentation.\nCodes will be executed on per-block basis (we will see this in action later on)"
+  },
+  {
+    "objectID": "01-basics.html#suggested-structure-of-workspace-directory",
+    "href": "01-basics.html#suggested-structure-of-workspace-directory",
+    "title": "Introduction to Python",
+    "section": "(Suggested) structure of workspace directory",
+    "text": "(Suggested) structure of workspace directory\n\nIn your laptop, navigate to where you usually keep your files, and create a folder called 2024-09-python-workshop. This folder will be our “workspace” where we keep our scripts and data files.\nInside your workspace folder, create the following sub-folders:\n\ndata - we will save our raw data here. It’s best practice to keep the data here untouched.\ndata-output - if we need to modify raw data, store the modified version here.\nfig-output - we will save all the graphics we created here!\n\nStart VS Code.\nGo to File &gt; Open Folder.\nOpen the 2024-09-python-workshop folder we just created."
+  },
+  {
+    "objectID": "01-basics.html#best-practice-virtual-environment",
+    "href": "01-basics.html#best-practice-virtual-environment",
+    "title": "Introduction to Python",
+    "section": "Best practice: Virtual Environment",
+    "text": "Best practice: Virtual Environment\n\n\n\n\n\n\nVirtual environment helps us to ensure that any packages we install will be isolated from other environments, including the global interpreter. This helps prevent issues that can occur due to conflicting package versions - especially useful for reproducibility!\n\n\n\n\nOpen the Command Palette (Ctrl + Shift + P on Windows - Cmd + Shift + P on Macbook).\nType Python: Create Environment, and select the command. Choose Venv.\n\n\n\nSelect the Python interpreter that we installed in the pre-workshop activity. Give VS Code a few minutes to setup the environment."
+  },
+  {
+    "objectID": "01-basics.html#create-new-file",
+    "href": "01-basics.html#create-new-file",
+    "title": "Introduction to Python",
+    "section": "Create new file",
+    "text": "Create new file\n\nOpen the Command Palette (Ctrl + Shift + P on Windows - Cmd + Shift + P on Macbook).\nType Python: New Python File, and select the command.\nRename the file to 01-intro.py"
+  },
+  {
+    "objectID": "01-basics.html#refresher-quantitative-data-types",
+    "href": "01-basics.html#refresher-quantitative-data-types",
+    "title": "Introduction to Python",
+    "section": "Refresher: Quantitative Data Types",
+    "text": "Refresher: Quantitative Data Types\n\nNon-Continuous Data\n\nNominal/Categorical: Non-ordered, non-numerical data, used to represent qualitative attribute.\n\nExample: nationality, neighborhood, employment status\n\nOrdinal: Ordered non-numerical data.\n\nExample: Nutri-grade ratings, frequency of exercise (daily, weekly, bi-weekly)\n\nDiscrete: Numerical data that can only take specific value (usually integers)\n\nExample: Shoe size, clothing size\n\nBinary: Nominal data with only two possible outcome\n\nExample: pass/fail, yes/no, survive/not survive"
+  },
+  {
+    "objectID": "01-basics.html#basic-data-types-in-python",
+    "href": "01-basics.html#basic-data-types-in-python",
+    "title": "Introduction to Python",
+    "section": "Basic data types in Python",
+    "text": "Basic data types in Python\n\nIntegers (int)\n\nWhole numbers without a decimal point. Examples: 5, -3, 0\n\nFloating-point numbers (float)\n\nNumbers with a decimal point. Examples: 3.14, -0.5, 2.0\n\nStrings (str)\n\nSequences of characters enclosed in quotes. Examples: “Hello”, ‘Python’\n\nBooleans (bool)\n\nLogical values representing True or False. Examples: True, False\n\nNone\n\nA special type representing the absence of a value"
+  },
+  {
+    "objectID": "01-basics.html#more-data-types",
+    "href": "01-basics.html#more-data-types",
+    "title": "Introduction to Python",
+    "section": "More data types",
+    "text": "More data types\n\nLists\n\nOrdered, mutable sequences of elements. Examples: [1, 2, 3], ['a', 'b', 'c']\n\nTuples\n\nOrdered, immutable sequences of elements. Examples: (1, 2, 3), ('a', 'b', 'c')\n\nDictionaries (dict)\n\nUnordered collections of key-value pairs. Example: {'name': 'John', 'age': 30}\n\nSets\n\nUnordered collections of unique elements. Example: {1, 2, 3}"
+  },
+  {
+    "objectID": "01-basics.html#even-more-data-types",
+    "href": "01-basics.html#even-more-data-types",
+    "title": "Introduction to Python",
+    "section": "Even more data types",
+    "text": "Even more data types\nWe will explore these in the upcoming sessions!\n\nDateTime\nNumPy’s Arrays\nPanda’s DataFrame & Time series DataFrame"
+  },
+  {
+    "objectID": "01-basics.html#consider-this-scenario",
+    "href": "01-basics.html#consider-this-scenario",
+    "title": "Introduction to Python",
+    "section": "Consider this scenario",
+    "text": "Consider this scenario\n\nThe student club is setting up a tracker to track total number of attendance to their bi-weekly meeting in 2023.\nThey have 33 meetings in total.\nIf they are saving the attendees number to variables, they would have 33 variables!\nVery difficult to do any calculations on these…\nThis is where a list will come in handy! List can store many values together in a single variable."
+  },
+  {
+    "objectID": "01-basics.html#glossary-of-terms",
+    "href": "01-basics.html#glossary-of-terms",
+    "title": "Introduction to Python",
+    "section": "Glossary of Terms",
+    "text": "Glossary of Terms\n\n\n\nObjects\n\nIn Python, everything is an object. An object is a piece of data that can have attributes and methods associated with it.\n\nValue\n\nThe actual data stored in a variable or object. It can be a number, string, list, or any other data type.\n\nVariable\n\nA value that has a name associated with it.\n\nAssign\n\nTo give a value to a variable. This is done using the equals sign (=).\n\n\n\n\nFunction\n\nA reusable block of code that performs a specific task. Functions can take inputs (arguments) and return outputs.\n\nCall\n\nTo execute or run a function. This is done by using the function name followed by parentheses.\n\nArguments\n\nValues passed to a function when it is called. These values are used by the function to perform its task.\n\nOptions/Parameters\n\nVariables defined in a function’s declaration that act as placeholders for arguments. They specify what kind of data the function expects to receive.\n\nPackages\n\nCollections of related modules that extend Python’s capabilities. They can be installed and imported to add new functionalities within your workspace.\n\n\n\n\n\n\n\nSEIC x DSA Python for Macroeconomics"
+  },
+  {
+    "objectID": "02-numpy.html#recap-from-yesterday",
+    "href": "02-numpy.html#recap-from-yesterday",
+    "title": "Data Wrangling with Numpy",
+    "section": "Recap from yesterday",
+    "text": "Recap from yesterday\n\nIntroduction to Visual Studio\nIntroduction to Python\nHandling Lists\nHandling Loops and Conditionals"
+  },
+  {
+    "objectID": "02-numpy.html#overview-for-today",
+    "href": "02-numpy.html#overview-for-today",
+    "title": "Data Wrangling with Numpy",
+    "section": "Overview for today",
+    "text": "Overview for today\n\nPython libraries / packages\nIntroduction to Numpy & Numpy-financial\nGetting started with visualizations with matplotlib\n\n\n\n\n\nSEIC x DSA Python for Macroeconomics"
+  },
+  {
+    "objectID": "coc.html",
+    "href": "coc.html",
+    "title": "Code of conduct",
     "section": "",
-    "text": "About this site"
+    "text": "In order to foster a positive and professional learning environment we encourage the following kinds of behaviours:\n\nUse welcoming and inclusive language\nBe respectful of different viewpoints and experiences\nGracefully accept constructive criticism\nFocus on what is best for the community\nShow courtesy and respect towards other community members\n\n(Adapted from The Carpentries’ Code of Conduct)"
   }
 ]

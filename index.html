@@ -96,6 +96,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="./about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./coc.html"> 
+<span class="menu-text">Code of Conduct</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -114,10 +118,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome">Welcome!</a></li>
   <li><a href="#schedule" id="toc-schedule" class="nav-link" data-scroll-target="#schedule">Schedule</a></li>
-  <li><a href="#pre-workshop-activities" id="toc-pre-workshop-activities" class="nav-link" data-scroll-target="#pre-workshop-activities">Pre-workshop activities</a>
-  <ul class="collapse">
-  <li><a href="#step-1-install-visual-studio-code" id="toc-step-1-install-visual-studio-code" class="nav-link" data-scroll-target="#step-1-install-visual-studio-code">Step 1: Install Visual Studio Code</a></li>
-  </ul></li>
+  <li><a href="#pre-workshop-activities" id="toc-pre-workshop-activities" class="nav-link" data-scroll-target="#pre-workshop-activities">Pre-workshop activities</a></li>
   </ul>
 </nav>
     </div>
@@ -146,12 +147,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="welcome" class="level2">
 <h2 class="anchored" data-anchor-id="welcome">Welcome!</h2>
 <p>This site serves as a repository for the slides and codes developed for the ‘Macroeconomics with Python Workshop’ for SEIC x DSA club members at <a href="https://www.smu.edu.sg/">SMU</a>.</p>
-<p>The workshop aims to:</p>
-<ul>
-<li><p>Increase students’ efficiency in the collection, analysis, and visualisation of data with Python.</p></li>
-<li><p>Help SEIC students to be industry-ready as the banking and finance, macroeconomic research, and public sectors are increasingly demanding the use of Python.</p></li>
-<li><p>Expose DSA students to how Python can be integrated with macroeconomic research.</p></li>
-</ul>
+<p><strong>Instructor</strong>: Bella Ratmelia, Research &amp; Data Services, SMU Libraries</p>
 </section>
 <section id="schedule" class="level2">
 <h2 class="anchored" data-anchor-id="schedule">Schedule</h2>
@@ -189,7 +185,7 @@ ul.task-list li input[type="checkbox"] {
 <td>3</td>
 <td>Sat, 28 Sep 2024, 10 AM - 12 PM</td>
 <td>SOSS/CIS Seminar Room 3-1</td>
-<td>Data Wrangling and timeseries with Dataframe</td>
+<td>Data wrangling and timeseries with Dataframe</td>
 </tr>
 <tr class="even">
 <td>4</td>
@@ -207,18 +203,38 @@ ul.task-list li input[type="checkbox"] {
     .table-schedule th:nth-child(3), .table-schedule td:nth-child(3) { width: 25%; }
     .table-schedule th:nth-child(4), .table-schedule td:nth-child(4) { width: 35%; }
 </style>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important - Please bring your laptop &amp; charger to the workshop
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>As this is a hands-on workshop, please do bring your laptop. Tablets like Surface or iPad will not be sufficient as they could not run Visual Studio Code.</p>
+</div>
+</div>
 </section>
 <section id="pre-workshop-activities" class="level2">
 <h2 class="anchored" data-anchor-id="pre-workshop-activities">Pre-workshop activities</h2>
-<section id="step-1-install-visual-studio-code" class="level3">
-<h3 class="anchored" data-anchor-id="step-1-install-visual-studio-code">Step 1: Install Visual Studio Code</h3>
-<p>This workshop will use Visual Studio Code, or VS Code. It is a free, versatile code editor that supports many programming languages, including Python. It offers a user-friendly interface for writing and running Python code, and with the right extensions, it can also handle Jupyter notebooks.</p>
+<p>This workshop will use Visual Studio Code, or VS Code. It is a free, versatile code editor that supports many programming languages, including Python. It offers a user-friendly interface for writing and running Python code, and with the right extensions, it can also handle Jupyter notebooks!</p>
+<p><strong>Please install the following things in your laptop before the workshop:</strong></p>
 <ol type="1">
-<li><a href="https://code.visualstudio.com/Download"><strong>Download and install VS Code here</strong></a></li>
+<li><p>Download and install the latest <a href="https://www.python.org/downloads/">python3</a> for your machine (should be version 3.12 or thereabouts).</p>
+<ul>
+<li>If you are on Windows, at the start of the installation, tick the “Add Python 3.12 to PATH”</li>
+</ul></li>
+<li><p>Download and install <a href="https://code.visualstudio.com/Download">Visual Studio Code</a>. Check out the setup instructions for <a href="https://code.visualstudio.com/docs/setup/windows">Windows</a> and <a href="https://code.visualstudio.com/docs/setup/mac">macOS</a></p></li>
+<li><p>Once you’ve installed Visual Studio code, start it up. Open the <strong>Extension</strong> tab on the left sidebar (<code>Ctrl + Shift + X</code> on Windows or <code>Cmd + Shift + X</code> on macOS) and install the <a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">Python</a> and <a href="https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter">Jupyter</a> extension. (The extension creator should be Microsoft)</p></li>
+</ol>
+<p><img src="images/vscode-extension-tab.jpg" class="img-fluid"></p>
+<ol start="4" type="1">
+<li>Fill up the <a href="https://smusg.asia.qualtrics.com/jfe/form/SV_1Nx06jl6oFCnNNY"><strong>pre-workshop survey</strong></a>! Please fill this up before the beginning of session 1.</li>
 </ol>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

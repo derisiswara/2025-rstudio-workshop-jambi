@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.5.55">
 
   <meta name="author" content="Bella Ratmelia">
-  <title>Python for Macroeconomics – Introduction to Python</title>
+  <title>Python for Macroeconomics – Data Wrangling with Numpy</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -326,7 +326,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Introduction to Python</h1>
+  <h1 class="title">Data Wrangling with Numpy</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -337,300 +337,22 @@ Bella Ratmelia
 </div>
 
 </section>
-<section>
-<section id="welcome" class="title-slide slide level1 center">
-<h1>Welcome!</h1>
-
-</section>
-<section id="preamble" class="slide level2">
-<h2>Preamble</h2>
-<div>
-<ul>
-<li class="fragment"><p>About me:</p>
-<ul>
-<li class="fragment"><p>Librarian, Research &amp; Data Services team, SMU Libraries.</p></li>
-<li class="fragment"><p>Bachelor of IT, MSc in Info Studies.</p></li>
-<li class="fragment"><p>Have been with SMU since the pandemic era (2021).</p></li>
-</ul></li>
-<li class="fragment"><p>About this workshop:</p>
-<ul>
-<li class="fragment"><p>Live-coding format; code along with me!</p></li>
-<li class="fragment"><p>Goal of workshop: to give you enough fundamentals (at least to the point where ChatGPT can’t bluff you so easily) and confidence to explore python on your own.</p></li>
-<li class="fragment"><p>Comes with 3 quizzes that you can do at home - one quiz after each session, except for the last one.</p></li>
-<li class="fragment"><p>Don’t be afraid to ask for help! We are all here to learn</p></li>
-</ul></li>
-</ul>
-</div>
-</section>
-<section id="overview-for-today" class="slide level2">
-<h2>Overview for today</h2>
+<section id="recap-from-yesterday" class="slide level2">
+<h2>Recap from yesterday</h2>
 <ul>
 <li><p>Introduction to Visual Studio</p></li>
-<li><p>Introduction to Python - objects, values, and types</p></li>
+<li><p>Introduction to Python</p></li>
 <li><p>Handling Lists</p></li>
 <li><p>Handling Loops and Conditionals</p></li>
 </ul>
 </section>
-<section id="why-python" class="slide level2">
-<h2>Why Python?</h2>
-<p>Q: What is Python, actually?</p>
-<p>A: Python is a general-purpose programming language used for a wide variety of applications. Website, games, CAD applications, web applications, AI, etc.</p>
-<p>Q: Why should I learn Python?</p>
-<p>A: It’s one of the most popular programming language and the most dominant language in AI, ML, and data analytics field. It’s a useful skill to know if you plan to go into those fields or anything adjacent.</p>
-</section>
-<section id="how-do-you-run-python" class="slide level2">
-<h2>How do you run python?</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>If it’s a <strong>.py</strong> file…</p>
+<section id="overview-for-today" class="slide level2">
+<h2>Overview for today</h2>
 <ul>
-<li><p>A regular python file.</p></li>
-<li><p>A plain text and contains just python codes</p></li>
-<li><p>Can be edited and run on Visual Studio Code, PyCharm, SPyder, etc or the terminal/command prompt.</p></li>
+<li><p>Python libraries / packages</p></li>
+<li><p>Introduction to Numpy &amp; Numpy-financial</p></li>
+<li><p>Getting started with visualizations with matplotlib</p></li>
 </ul>
-</div><div class="column" style="width:50%;">
-<p>If it’s a <strong>.ipynb</strong> file…</p>
-<ul>
-<li><p>ipynb stands for Interactive Python Notebook file</p></li>
-<li><p>Contains the notebook code, the execution results and other internal settings in a specific format</p></li>
-<li><p>Can be edited and run on Jupyter Notebook/Lab, Google Colab, and also Visual Studio (with the Jupyter Notebook extension)</p></li>
-</ul>
-</div></div>
-</section>
-<section id="whats-.py-and-.ipynb" class="slide level2">
-<h2>What’s .py and .ipynb??</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>If it’s a <strong>.py</strong> file…</p>
-<p><img data-src="images/py-script.png"></p>
-</div><div class="column" style="width:50%;">
-<p>If it’s a <strong>.ipynb</strong> file…</p>
-<p><img data-src="images/ipynb-script.png"></p>
-</div></div>
-</section>
-<section id="why-the-different-file-types" class="slide level2">
-<h2>Why the different file types?</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>If it’s a <strong>.py</strong> file…</p>
-<ul>
-<li><p>For “production” uses e.g., creating apps, industrial deployments</p></li>
-<li><p>Executing the file will run all the codes contained inside the file.</p></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p>If it’s a <strong>.ipynb</strong> file…</p>
-<ul>
-<li><p>Used a lot for academic / scientific purposes; great for quick experiments or teaching / presentation.</p></li>
-<li><p>Codes will be executed on per-block basis (we will see this in action later on)</p></li>
-</ul>
-</div></div>
-</section></section>
-<section>
-<section id="getting-started-vs-code-workspace-and-tour" class="title-slide slide level1 center">
-<h1>Getting Started: VS Code Workspace and Tour</h1>
-
-</section>
-<section id="suggested-structure-of-workspace-directory" class="slide level2">
-<h2>(Suggested) structure of workspace directory</h2>
-<ol type="1">
-<li><p>In your laptop, navigate to where you usually keep your files, and create a folder called <code>2024-09-python-workshop</code>. This folder will be our “workspace” where we keep our scripts and data files.</p></li>
-<li><p>Inside your workspace folder, create the following sub-folders:</p>
-<ul>
-<li><p><code>data</code> - we will save our raw data here. <strong>It’s best practice to keep the data here untouched.</strong></p></li>
-<li><p><code>data-output</code> - if we need to modify raw data, store the modified version here.</p></li>
-<li><p><code>fig-output</code> - we will save all the graphics we created here!</p></li>
-</ul></li>
-<li><p>Start VS Code.</p></li>
-<li><p>Go to <code>File</code> &gt; <code>Open Folder</code>.</p></li>
-<li><p>Open the <code>2024-09-python-workshop</code> folder we just created.</p></li>
-</ol>
-</section>
-<section id="best-practice-virtual-environment" class="slide level2 nostretch">
-<h2>Best practice: Virtual Environment</h2>
-<div class="callout callout-note callout-style-simple">
-<div class="callout-body">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-content">
-<p>Virtual environment helps us to ensure that any packages we install will be isolated from other environments, including the global interpreter. This helps prevent issues that can occur due to conflicting package versions - especially useful for reproducibility!</p>
-</div>
-</div>
-</div>
-<ol type="1">
-<li><p>Open the <strong>Command Palette</strong> (<code>Ctrl</code> + <code>Shift</code> + <code>P</code> on Windows - <code>Cmd</code> + <code>Shift</code> + <code>P</code> on Macbook).</p></li>
-<li><p>Type <strong>Python: Create Environment</strong>, and select the command. Choose <code>Venv</code>.</p></li>
-</ol>
-<p><img data-src="images/create_environment_dropdown.png" style="width:50.0%"></p>
-<ol start="3" type="1">
-<li>Select the Python interpreter that we installed in the pre-workshop activity. Give VS Code a few minutes to setup the environment.</li>
-</ol>
-<p><img data-src="images/interpreters-list.png" style="width:50.0%"></p>
-</section>
-<section id="create-new-file" class="slide level2">
-<h2>Create new file</h2>
-<ol type="1">
-<li><p>Open the <strong>Command Palette</strong> (<code>Ctrl</code> + <code>Shift</code> + <code>P</code> on Windows - <code>Cmd</code> + <code>Shift</code> + <code>P</code> on Macbook).</p></li>
-<li><p>Type <strong>Python: New Python File</strong>, and select the command.</p></li>
-<li><p>Rename the file to <code>01-intro.py</code></p></li>
-</ol>
-</section></section>
-<section>
-<section id="lets-code" class="title-slide slide level1 center">
-<h1>Let’s Code!</h1>
-<p>Hands on session - Make sure to open the <code>py</code> file we just created.</p>
-</section>
-<section id="refresher-quantitative-data-types" class="slide level2">
-<h2>Refresher: Quantitative Data Types</h2>
-<ul>
-<li><p><u><strong>Non-Continuous Data</strong></u></p>
-<ul>
-<li><p><strong>Nominal/Categorical</strong>: Non-ordered, non-numerical data, used to represent qualitative attribute.</p>
-<ul>
-<li>Example: nationality, neighborhood, employment status</li>
-</ul></li>
-<li><p><strong>Ordinal</strong>: Ordered non-numerical data.</p>
-<ul>
-<li>Example: Nutri-grade ratings, frequency of exercise (daily, weekly, bi-weekly)</li>
-</ul></li>
-<li><p><strong>Discrete</strong>: Numerical data that can only take specific value (usually integers)</p>
-<ul>
-<li>Example: Shoe size, clothing size</li>
-</ul></li>
-<li><p><strong>Binary</strong>: Nominal data with only two possible outcome</p>
-<ul>
-<li>Example: pass/fail, yes/no, survive/not survive</li>
-</ul></li>
-</ul></li>
-</ul>
-</section>
-<section class="slide level2">
-
-<ul>
-<li><p><u><strong>Continuous Data</strong></u></p>
-<ul>
-<li><p><strong>Interval</strong>: Numerical data that can take any value within a range. <u>It does not have a “true zero”.</u></p>
-<ul>
-<li>Example: Celsius scale. Temperature of 0 C does not represent absence of heat.</li>
-</ul></li>
-<li><p><strong>Ratio</strong>: Numerical data that can take any value within a range. <u>it has a “true zero”.</u></p>
-<ul>
-<li>Example: Annual income. annual income of 0 represents no income.</li>
-</ul></li>
-</ul></li>
-</ul>
-</section>
-<section id="basic-data-types-in-python" class="slide level2">
-<h2>Basic data types in Python</h2>
-<ul>
-<li><p>Integers (int)</p>
-<ul>
-<li>Whole numbers without a decimal point. Examples: 5, -3, 0</li>
-</ul></li>
-<li><p>Floating-point numbers (float)</p>
-<ul>
-<li>Numbers with a decimal point. Examples: 3.14, -0.5, 2.0</li>
-</ul></li>
-<li><p>Strings (str)</p>
-<ul>
-<li>Sequences of characters enclosed in quotes. Examples: “Hello”, ‘Python’</li>
-</ul></li>
-<li><p>Booleans (bool)</p>
-<ul>
-<li>Logical values representing <code>True</code> or <code>False</code>. Examples: True, False</li>
-</ul></li>
-<li><p>None</p>
-<ul>
-<li>A special type representing the absence of a value</li>
-</ul></li>
-</ul>
-</section>
-<section id="more-data-types" class="slide level2">
-<h2>More data types</h2>
-<ul>
-<li><p>Lists</p>
-<ul>
-<li>Ordered, mutable sequences of elements. Examples: <code>[1, 2, 3]</code>, <code>['a', 'b', 'c']</code></li>
-</ul></li>
-<li><p>Tuples</p>
-<ul>
-<li>Ordered, immutable sequences of elements. Examples: <code>(1, 2, 3)</code>, <code>('a', 'b', 'c')</code></li>
-</ul></li>
-<li><p>Dictionaries (dict)</p>
-<ul>
-<li>Unordered collections of key-value pairs. Example: <code>{'name': 'John', 'age': 30}</code></li>
-</ul></li>
-<li><p>Sets</p>
-<ul>
-<li>Unordered collections of unique elements. Example: <code>{1, 2, 3}</code></li>
-</ul></li>
-</ul>
-</section>
-<section id="even-more-data-types" class="slide level2">
-<h2>Even more data types</h2>
-<p>We will explore these in the upcoming sessions!</p>
-<ul>
-<li><p>DateTime</p></li>
-<li><p>NumPy’s Arrays</p></li>
-<li><p>Panda’s DataFrame &amp; Time series DataFrame</p></li>
-</ul>
-</section>
-<section id="consider-this-scenario" class="slide level2">
-<h2>Consider this scenario</h2>
-<ul>
-<li><p>The student club is setting up a tracker to track total number of attendance to their bi-weekly meeting in 2023.</p></li>
-<li><p>They have 33 meetings in total.</p></li>
-<li><p>If they are saving the attendees number to variables, they would have 33 variables!</p></li>
-<li><p>Very difficult to do any calculations on these…</p></li>
-<li><p>This is where a list will come in handy! List can store many values together in a single variable.</p></li>
-</ul>
-</section>
-<section id="glossary-of-terms" class="slide level2 smaller">
-<h2>Glossary of Terms</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<dl>
-<dt>Objects</dt>
-<dd>
-<p>In Python, everything is an object. An object is a piece of data that can have attributes and methods associated with it.</p>
-</dd>
-<dt>Value</dt>
-<dd>
-<p>The actual data stored in a variable or object. It can be a number, string, list, or any other data type.</p>
-</dd>
-<dt>Variable</dt>
-<dd>
-<p>A value that has a name associated with it.</p>
-</dd>
-<dt>Assign</dt>
-<dd>
-<p>To give a value to a variable. This is done using the equals sign (=).</p>
-</dd>
-</dl>
-</div><div class="column" style="width:50%;">
-<dl>
-<dt>Function</dt>
-<dd>
-<p>A reusable block of code that performs a specific task. Functions can take inputs (arguments) and return outputs.</p>
-</dd>
-<dt>Call</dt>
-<dd>
-<p>To execute or run a function. This is done by using the function name followed by parentheses.</p>
-</dd>
-<dt>Arguments</dt>
-<dd>
-<p>Values passed to a function when it is called. These values are used by the function to perform its task.</p>
-</dd>
-<dt>Options/Parameters</dt>
-<dd>
-<p>Variables defined in a function’s declaration that act as placeholders for arguments. They specify what kind of data the function expects to receive.</p>
-</dd>
-<dt>Packages</dt>
-<dd>
-<p>Collections of related modules that extend Python’s capabilities. They can be installed and imported to add new functionalities within your workspace.</p>
-</dd>
-</dl>
-</div></div>
 
 <div class="quarto-auto-generated-content">
 <p><img src="images/smu logo.png" class="slide-logo"></p>
@@ -638,7 +360,7 @@ Bella Ratmelia
 <p><a href="https://bellaratmelia.github.io/2024-python-macroecons/">SEIC x DSA Python for Macroeconomics</a></p>
 </div>
 </div>
-</section></section>
+</section>
     </div>
   </div>
 
