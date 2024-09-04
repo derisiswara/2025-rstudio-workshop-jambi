@@ -16,7 +16,7 @@ This site serves as a repository for the slides and codes developed for the 'Mac
 ::: table-schedule
 | Session | Date and Time                    | Venue                     | Topic                                         |
 |---------|----------------------------------|---------------------------|-----------------------------------------------|
-| 1       | Sat, 7 Sep 2024, 10 AM - 12 PM   | SOSS/CIS Seminar Room 3-1 | Python basics                                 |
+| 1       | Sat, 7 Sep 2024, 10 AM - 12 PM   | YPHSL Seminar Room 3-12 | Python basics                                 |
 | 2       | Sat, 14 Sep 2024, 10 AM - 12 PM  | SOSS/CIS Seminar Room 3-1 | Data wrangling with numpy                     |
 | 3       | Sat, 28 Sep 2024, 10 AM - 12 PM  | SOSS/CIS Seminar Room 3-1 | Data wrangling and timeseries with Dataframe  |
 | 4       | Sat, 5 Oct 2024, 10 AM - 12 PM   | SOSS/CIS Seminar Room 3-1 | Putting it all together                       |

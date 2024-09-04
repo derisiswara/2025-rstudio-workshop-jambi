@@ -57,7 +57,7 @@ It is a Python library that provides a multidimensional array object, various de
 :::
 :::::
 
-## performance comparison
+## Performance Comparison
 
 ```{python}
 import numpy as np
@@ -83,8 +83,15 @@ print(f"NumPy time: {numpy_time:.4f} seconds")
 ## Numpy operations
 
 Most of what we can do lists, we can also do to arrays!
+- Array slicing
+- Array indexing
+- Array axis for calculations
+
+## Learning Check #1
 
 ## Section 2: 2-dimensional Arrays
+
+## Learning Check #2
 
 ## Section 3: Numpy Financial
 
@@ -149,3 +156,5 @@ plt.show()
 -   Scatter plots: Relationships between variables
 -   Pie charts: Parts of a whole - Depending on who you asks, some may argue that percent barchart is better at this.
 -   Box plots: Distribution and outliers
+
+## Learning Check #3

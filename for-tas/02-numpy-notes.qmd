@@ -77,10 +77,15 @@ print("Shape of the array:", two_d_array.shape)
 print("Size of the array:", two_d_array.size)
 ```
 
-Loading a CSV file to 2D array
+Loading a CSV file to 2D array. 
+
+In this CSV, the rows represent different sectors and the columns represent the quarters starting from 2018. 
+
+Each cell contains the GDP growth of that sector for that quarter, compared to previous year's quarters.
 
 ``` python
 gdp_data = np.loadtxt('sg-gdp.csv', delimiter=',')
+
 print("GDP data shape:", gdp_data.shape)
 ```
 
