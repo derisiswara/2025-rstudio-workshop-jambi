@@ -18,7 +18,7 @@
     "href": "index.html#schedule",
     "title": "SEIC x DSA Python for Macroeconomics Workshop 2024",
     "section": "Schedule",
-    "text": "Schedule\nSlides will be progressively made available below.\n\n\n\n\n\n\n\n\n\n\nSession\nDate and Time\nVenue\nTopic\n\n\n\n\n1\nSat, 7 Sep 2024, 10 AM - 12 PM\nSOSS/CIS Seminar Room 3-1\nPython basics\n\n\n2\nSat, 14 Sep 2024, 10 AM - 12 PM\nSOSS/CIS Seminar Room 3-1\nData wrangling with numpy\n\n\n3\nSat, 28 Sep 2024, 10 AM - 12 PM\nSOSS/CIS Seminar Room 3-1\nData wrangling and timeseries with Dataframe\n\n\n4\nSat, 5 Oct 2024, 10 AM - 12 PM\nSOSS/CIS Seminar Room 3-1\nPutting it all together\n\n\n\n\n\n\n\n\n\n\n\nImportant - Please bring your laptop & charger to the workshop\n\n\n\nAs this is a hands-on workshop, please do bring your laptop. Tablets like Surface or iPad will not be sufficient as they could not run Visual Studio Code."
+    "text": "Schedule\nSlides will be progressively made available below.\n\n\n\n\n\n\n\n\n\n\nSession\nDate and Time\nVenue\nTopic\n\n\n\n\n1\nSat, 7 Sep 2024, 10 AM - 12 PM\nYPHSL Seminar Room 3-12\nPython basics\n\n\n2\nSat, 14 Sep 2024, 10 AM - 12 PM\nSOSS/CIS Seminar Room 3-1\nData wrangling with numpy\n\n\n3\nSat, 28 Sep 2024, 10 AM - 12 PM\nSOSS/CIS Seminar Room 3-1\nData wrangling and timeseries with Dataframe\n\n\n4\nSat, 5 Oct 2024, 10 AM - 12 PM\nSOSS/CIS Seminar Room 3-1\nPutting it all together\n\n\n\n\n\n\n\n\n\n\n\nImportant - Please bring your laptop & charger to the workshop\n\n\n\nAs this is a hands-on workshop, please do bring your laptop. Tablets like Surface or iPad will not be sufficient as they could not run Visual Studio Code."
   },
   {
     "objectID": "index.html#pre-workshop-activities",
@@ -157,15 +157,22 @@
     "objectID": "02-numpy.html#performance-comparison",
     "href": "02-numpy.html#performance-comparison",
     "title": "Introduction to Numpy & Matplotlib",
-    "section": "performance comparison",
-    "text": "performance comparison\n\n\nList time: 0.1099 seconds\nNumPy time: 0.0000 seconds"
+    "section": "Performance Comparison",
+    "text": "Performance Comparison\n\n\nList time: 0.0847 seconds\nNumPy time: 0.0000 seconds"
   },
   {
     "objectID": "02-numpy.html#numpy-operations",
     "href": "02-numpy.html#numpy-operations",
     "title": "Introduction to Numpy & Matplotlib",
     "section": "Numpy operations",
-    "text": "Numpy operations\nMost of what we can do lists, we can also do to arrays!"
+    "text": "Numpy operations\nMost of what we can do lists, we can also do to arrays! - Array slicing - Array indexing - Array axis for calculations"
+  },
+  {
+    "objectID": "02-numpy.html#learning-check-1",
+    "href": "02-numpy.html#learning-check-1",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Learning Check #1",
+    "text": "Learning Check #1"
   },
   {
     "objectID": "02-numpy.html#section-2-2-dimensional-arrays",
@@ -173,6 +180,13 @@
     "title": "Introduction to Numpy & Matplotlib",
     "section": "Section 2: 2-dimensional Arrays",
     "text": "Section 2: 2-dimensional Arrays"
+  },
+  {
+    "objectID": "02-numpy.html#learning-check-2",
+    "href": "02-numpy.html#learning-check-2",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Learning Check #2",
+    "text": "Learning Check #2"
   },
   {
     "objectID": "02-numpy.html#section-3-numpy-financial",
@@ -214,7 +228,14 @@
     "href": "02-numpy.html#chart-types-and-their-purposes",
     "title": "Introduction to Numpy & Matplotlib",
     "section": "Chart types and their purposes",
-    "text": "Chart types and their purposes\n\nBar charts: Comparing categories\nLine charts: Trends over time\nScatter plots: Relationships between variables\nPie charts: Parts of a whole - Depending on who you asks, some may argue that percent barchart is better at this.\nBox plots: Distribution and outliers\n\n\n\n\n\nSEIC x DSA Python for Macroeconomics"
+    "text": "Chart types and their purposes\n\nBar charts: Comparing categories\nLine charts: Trends over time\nScatter plots: Relationships between variables\nPie charts: Parts of a whole - Depending on who you asks, some may argue that percent barchart is better at this.\nBox plots: Distribution and outliers"
+  },
+  {
+    "objectID": "02-numpy.html#learning-check-3",
+    "href": "02-numpy.html#learning-check-3",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Learning Check #3",
+    "text": "Learning Check #3\n\n\n\n\nSEIC x DSA Python for Macroeconomics"
   },
   {
     "objectID": "01-basics.html#preamble",
@@ -452,7 +473,7 @@
     "href": "for-tas/02-numpy-notes.html#section-2-two-dimensional-arrays",
     "title": "Introduction to Numpy",
     "section": "Section 2: Two-dimensional arrays",
-    "text": "Section 2: Two-dimensional arrays\ntwo_d_array = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\nprint(two_d_array)\nprint(\"Shape of the array:\", two_d_array.shape)\nprint(\"Size of the array:\", two_d_array.size)\nLoading a CSV file to 2D array\ngdp_data = np.loadtxt('sg-gdp.csv', delimiter=',')\nprint(\"GDP data shape:\", gdp_data.shape)\nBasic statistical operations\nprint(\"Mean of GDP data:\", np.mean(gdp_data))\nprint(\"Standard deviation of GDP data:\", np.std(gdp_data))\nprint(\"Maximum value in GDP data:\", np.amax(gdp_data))\nprint(\"Minimum value in GDP data:\", np.amin(gdp_data))\nOperations along specific axis\nNumPy functions can operate along specific axes of multi-dimensional arrays.\nprint(\"Mean of each sector:\", np.mean(gdp_data, axis=0))\nprint(\"Mean of each quarter:\", np.mean(gdp_data, axis=1))\nnp.arange creates evenly spaced values within a given interval.\nrange_array = np.arange(0, 10, 0.5)\nprint(\"Range array:\", range_array)\nnp.transpose changes the shape of an array - rows become columns and vice versa\ntransposed_gdp = np.transpose(gdp_data)\nprint(\"Transposed GDP data shape:\", transposed_gdp.shape)\nFiltering with boolean arrays\nhigh_gdp = gdp_data &gt; 10  # Assuming 500 is a high GDP value\nprint(\"Sectors with high GDP:\\n\", gdp_data[high_gdp])"
+    "text": "Section 2: Two-dimensional arrays\ntwo_d_array = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\nprint(two_d_array)\nprint(\"Shape of the array:\", two_d_array.shape)\nprint(\"Size of the array:\", two_d_array.size)\nLoading a CSV file to 2D array.\nIn this CSV, the rows represent different sectors and the columns represent the quarters starting from 2018.\nEach cell contains the GDP growth of that sector for that quarter, compared to previous year’s quarters.\ngdp_data = np.loadtxt('sg-gdp.csv', delimiter=',')\n\nprint(\"GDP data shape:\", gdp_data.shape)\nBasic statistical operations\nprint(\"Mean of GDP data:\", np.mean(gdp_data))\nprint(\"Standard deviation of GDP data:\", np.std(gdp_data))\nprint(\"Maximum value in GDP data:\", np.amax(gdp_data))\nprint(\"Minimum value in GDP data:\", np.amin(gdp_data))\nOperations along specific axis\nNumPy functions can operate along specific axes of multi-dimensional arrays.\nprint(\"Mean of each sector:\", np.mean(gdp_data, axis=0))\nprint(\"Mean of each quarter:\", np.mean(gdp_data, axis=1))\nnp.arange creates evenly spaced values within a given interval.\nrange_array = np.arange(0, 10, 0.5)\nprint(\"Range array:\", range_array)\nnp.transpose changes the shape of an array - rows become columns and vice versa\ntransposed_gdp = np.transpose(gdp_data)\nprint(\"Transposed GDP data shape:\", transposed_gdp.shape)\nFiltering with boolean arrays\nhigh_gdp = gdp_data &gt; 10  # Assuming 500 is a high GDP value\nprint(\"Sectors with high GDP:\\n\", gdp_data[high_gdp])"
   },
   {
     "objectID": "for-tas/02-numpy-notes.html#section-3-numpy-financial-functions",
