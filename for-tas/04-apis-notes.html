@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Bella Ratmelia">
 
-<title>SEIC x DSA Python for Macroeconomics Workshop 2024 – Python for Macroeconomics</title>
+<title>Retrieving data from APIs + Putting it all together – Python for Macroeconomics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +24,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,7 +69,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -78,7 +79,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Python for Macroeconomics</span>
     </a>
   </div>
@@ -89,15 +90,15 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./coc.html"> 
+    <a class="nav-link" href="../coc.html"> 
 <span class="menu-text">Code of Conduct</span></a>
   </li>  
 </ul>
@@ -111,29 +112,28 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome">Welcome!</a></li>
-  <li><a href="#schedule" id="toc-schedule" class="nav-link" data-scroll-target="#schedule">Schedule</a></li>
-  <li><a href="#pre-workshop-activities" id="toc-pre-workshop-activities" class="nav-link" data-scroll-target="#pre-workshop-activities">Pre-workshop activities</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">SEIC x DSA Python for Macroeconomics Workshop 2024</h1>
+<h1 class="title">Retrieving data from APIs + Putting it all together</h1>
+<p class="subtitle lead">Notes for instructors &amp; TA</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Bella Ratmelia </p>
+          </div>
+  </div>
     
   
     
@@ -144,98 +144,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="welcome" class="level2">
-<h2 class="anchored" data-anchor-id="welcome">Welcome!</h2>
-<p>This site serves as a repository for the slides and codes developed for the ‘Macroeconomics with Python Workshop’ for SEIC x DSA club members at <a href="https://www.smu.edu.sg/">SMU</a>.</p>
-<p><strong>Instructor</strong>: Bella Ratmelia, Research &amp; Data Services, SMU Libraries</p>
-</section>
-<section id="schedule" class="level2">
-<h2 class="anchored" data-anchor-id="schedule">Schedule</h2>
-<p><em>Slides will be progressively made available below.</em></p>
-<div class="table-schedule">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 7%">
-<col style="width: 29%">
-<col style="width: 23%">
-<col style="width: 40%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Session</th>
-<th>Date and Time</th>
-<th>Venue</th>
-<th>Topic</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td>Sat, 7 Sep 2024, 10 AM - 12 PM</td>
-<td>SOSS/CIS Seminar Room 3-1</td>
-<td>Python basics</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td>Sat, 14 Sep 2024, 10 AM - 12 PM</td>
-<td>SOSS/CIS Seminar Room 3-1</td>
-<td>Data wrangling with numpy</td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td>Sat, 28 Sep 2024, 10 AM - 12 PM</td>
-<td>SOSS/CIS Seminar Room 3-1</td>
-<td>Data wrangling and timeseries with Dataframe</td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td>Sat, 5 Oct 2024, 10 AM - 12 PM</td>
-<td>SOSS/CIS Seminar Room 3-1</td>
-<td>Putting it all together</td>
-</tr>
-</tbody>
-</table>
-</div>
-<style type="text/css">
-    .table-schedule {width: 100%;}
-    .table-schedule th:nth-child(1), .table-schedule td:nth-child(1) { width: 8%; }
-    .table-schedule th:nth-child(2), .table-schedule td:nth-child(2) { width: 30%; }
-    .table-schedule th:nth-child(3), .table-schedule td:nth-child(3) { width: 25%; }
-    .table-schedule th:nth-child(4), .table-schedule td:nth-child(4) { width: 35%; }
-</style>
-<div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important - Please bring your laptop &amp; charger to the workshop
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>As this is a hands-on workshop, please do bring your laptop. Tablets like Surface or iPad will not be sufficient as they could not run Visual Studio Code.</p>
-</div>
-</div>
-</section>
-<section id="pre-workshop-activities" class="level2">
-<h2 class="anchored" data-anchor-id="pre-workshop-activities">Pre-workshop activities</h2>
-<p>This workshop will use Visual Studio Code, or VS Code. It is a free, versatile code editor that supports many programming languages, including Python. It offers a user-friendly interface for writing and running Python code, and with the right extensions, it can also handle Jupyter notebooks!</p>
-<p><strong>Please install the following things in your laptop before the workshop:</strong></p>
-<ol type="1">
-<li><p>Download and install the latest <a href="https://www.python.org/downloads/">python3</a> for your machine (should be version 3.12 or thereabouts).</p>
-<ul>
-<li>If you are on Windows, at the start of the installation, <strong>tick the “Add Python 3.12 to PATH”</strong>.</li>
-</ul></li>
-<li><p>Download and install <a href="https://code.visualstudio.com/Download">Visual Studio Code</a>. Check out the setup instructions for <a href="https://code.visualstudio.com/docs/setup/windows">Windows</a> and <a href="https://code.visualstudio.com/docs/setup/mac">macOS</a></p></li>
-<li><p>Once you’ve installed Visual Studio code, start it up. Open the <strong>Extension</strong> tab on the left sidebar (<code>Ctrl + Shift + X</code> on Windows or <code>Cmd + Shift + X</code> on macOS) and install the <a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">Python</a> and <a href="https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter">Jupyter</a> extension. (The extension creator should be Microsoft)</p></li>
-</ol>
-<p><img src="images/vscode-extension-tab.jpg" class="img-fluid"></p>
-<ol start="4" type="1">
-<li>Fill up the <a href="https://smusg.asia.qualtrics.com/jfe/form/SV_1Nx06jl6oFCnNNY"><strong>pre-workshop survey</strong></a>! Please fill this up before the beginning of session 1.</li>
-</ol>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

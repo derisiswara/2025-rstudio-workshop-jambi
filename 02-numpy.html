@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.5.55">
 
   <meta name="author" content="Bella Ratmelia">
-  <title>Python for Macroeconomics – Data Wrangling with Numpy</title>
+  <title>Python for Macroeconomics – Introduction to Numpy &amp; Matplotlib</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -326,7 +326,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Data Wrangling with Numpy</h1>
+  <h1 class="title">Introduction to Numpy &amp; Matplotlib</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -349,9 +349,126 @@ Bella Ratmelia
 <section id="overview-for-today" class="slide level2">
 <h2>Overview for today</h2>
 <ul>
-<li><p>Python libraries / packages</p></li>
-<li><p>Introduction to Numpy &amp; Numpy-financial</p></li>
-<li><p>Getting started with visualizations with matplotlib</p></li>
+<li><p>Python libraries: Extending Python’s functionality</p></li>
+<li><p>NumPy for more efficient numerical computing</p></li>
+<li><p>NumPy-financial - Financial calculations</p></li>
+<li><p>Matplotlib: Data visualization</p></li>
+</ul>
+</section>
+<section id="section-1-whats-numpy" class="slide level2">
+<h2>Section 1: What’s Numpy?</h2>
+<p>NumPy is the fundamental package for scientific computing in Python.</p>
+<p>It is a Python library that provides a multidimensional array object, various derived objects (such as masked arrays and matrices), and an assortment of routines for fast operations on arrays, including mathematical, logical, shape manipulation, sorting, selecting, I/O, discrete Fourier transforms, basic linear algebra, basic statistical operations, random simulation and much more.<sup>1</sup></p>
+<ul>
+<li><p>Faster and more memory-efficient than Python lists</p></li>
+<li><p>Optimized for large-scale numerical operations (better than list)</p></li>
+</ul>
+<aside><ol class="aside-footnotes"><li id="fn1"><p><a href="https://numpy.org/doc/stable/user/whatisnumpy.html" class="uri">https://numpy.org/doc/stable/user/whatisnumpy.html</a></p></li></ol></aside></section>
+<section id="numpy-vs-lists" class="slide level2">
+<h2>Numpy vs Lists</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Lists</strong></p>
+<ul>
+<li>dynamic size upon creation; you can change the size of a list anytime.</li>
+<li>all items inside list can be of different data types.</li>
+<li>not optimized for scientific/mathematical operations</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>NumPy Arrays</strong></p>
+<ul>
+<li>fixed size upon creation; changing the size will create new array and delete the original.</li>
+<li>all items inside arrays must be the same data types.</li>
+<li>facilitate advanced mathematical and other types of operations on large numbers of data, and thus more efficient.</li>
+<li>a lot scientific/mathematical libraries are build on top of numpy (including pandas!)</li>
+</ul>
+</div></div>
+</section>
+<section id="performance-comparison" class="slide level2">
+<h2>performance comparison</h2>
+<div id="903d0f0d" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-stdout">
+<pre><code>List time: 0.1099 seconds
+NumPy time: 0.0000 seconds</code></pre>
+</div>
+</div>
+</section>
+<section id="numpy-operations" class="slide level2">
+<h2>Numpy operations</h2>
+<p>Most of what we can do lists, we can also do to arrays!</p>
+</section>
+<section id="section-2-2-dimensional-arrays" class="slide level2">
+<h2>Section 2: 2-dimensional Arrays</h2>
+</section>
+<section id="section-3-numpy-financial" class="slide level2">
+<h2>Section 3: Numpy Financial</h2>
+</section>
+<section id="section-4-visualizing-array-contents" class="slide level2">
+<h2>Section 4: Visualizing Array contents</h2>
+</section>
+<section id="visualization-packages-matplotlib-vs-seaborn" class="slide level2">
+<h2>Visualization packages: Matplotlib vs Seaborn</h2>
+</section>
+<section id="anatomy-of-a-matplotlib-graph" class="slide level2">
+<h2>Anatomy of a matplotlib graph</h2>
+<div id="960cb28a" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="02-numpy_files/figure-revealjs/cell-3-output-1.png" width="832" height="523"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="data-types-in-social-sciences-and-economics-research" class="slide level2">
+<h2>Data types in social sciences and economics research</h2>
+<ul>
+<li><p><u><strong>Non-Continuous Data</strong></u></p>
+<ul>
+<li><p><strong>Nominal/Categorical</strong>: Non-ordered, non-numerical data, used to represent qualitative attribute.</p>
+<ul>
+<li>Example: country, sectors, industry</li>
+</ul></li>
+<li><p><strong>Ordinal</strong>: Ordered non-numerical data.</p>
+<ul>
+<li>Example: SES categories (high, medium, low)</li>
+</ul></li>
+<li><p><strong>Discrete</strong>: Numerical data that can only take specific value (usually integers)</p>
+<ul>
+<li>Example: population size</li>
+</ul></li>
+<li><p><strong>Binary</strong>: Nominal data with only two possible outcome</p>
+<ul>
+<li>Example: pass/fail, yes/no, survive/not survive</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li><p><u><strong>Continuous Data</strong></u></p>
+<ul>
+<li><p><strong>Interval</strong>: Numerical data that can take any value within a range. <u>It does not have a “true zero”.</u></p>
+<ul>
+<li>Example: GDP growth %</li>
+</ul></li>
+<li><p><strong>Ratio</strong>: Numerical data that can take any value within a range. <u>it has a “true zero”.</u></p>
+<ul>
+<li>Example: Annual income - annual income of 0 represents no income.</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="chart-types-and-their-purposes" class="slide level2">
+<h2>Chart types and their purposes</h2>
+<ul>
+<li>Bar charts: Comparing categories</li>
+<li>Line charts: Trends over time</li>
+<li>Scatter plots: Relationships between variables</li>
+<li>Pie charts: Parts of a whole - Depending on who you asks, some may argue that percent barchart is better at this.</li>
+<li>Box plots: Distribution and outliers</li>
 </ul>
 
 <div class="quarto-auto-generated-content">
@@ -361,6 +478,7 @@ Bella Ratmelia
 </div>
 </div>
 </section>
+
     </div>
   </div>
 
