@@ -1,0 +1,29 @@
+---
+title: "Dataframe with Pandas"
+author: "Bella Ratmelia"
+format: revealjs
+---
+
+## Recap from yesterday
+
+-  Python libraries / packages
+
+-  Introduction to Numpy & Numpy-financial
+
+-  Getting started with visualizations with matplotlib
+
+## Overview for today
+
+-  Introduction to Pandas dataframe
+
+-  Datetime in Python and Time Series with Pandas
+
+-  Analyzing and visualizing Time Series dataframe 
+
+## Section 1: What and Why Pandas
+
+## Section 2: Visualization with Seaborn
+
+## Section 3: DateTime object 
+
+## Section 4: Time Series with Pandas

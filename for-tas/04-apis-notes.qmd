@@ -1,0 +1,7 @@
+---
+title: "Retrieving data from APIs + Putting it all together"
+subtitle: "Notes for instructors & TA"
+author: "Bella Ratmelia"
+format: html
+---
+

@@ -45,7 +45,7 @@ This workshop will use Visual Studio Code, or VS Code. It is a free, versatile c
 
 1.  Download and install the latest [python3](https://www.python.org/downloads/) for your machine (should be version 3.12 or thereabouts). 
 
-    -  If you are on Windows, at the start of the installation, tick the "Add Python 3.12 to PATH" 
+    -  If you are on Windows, at the start of the installation, **tick the "Add Python 3.12 to PATH"**. 
 
 
 2.  Download and install [Visual Studio Code](https://code.visualstudio.com/Download). Check out the setup instructions for [Windows](https://code.visualstudio.com/docs/setup/windows) and [macOS](https://code.visualstudio.com/docs/setup/mac)

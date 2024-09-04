@@ -1,0 +1,411 @@
+---
+title: "Introduction to Python"
+subtitle: "Notes for instructors & TA"
+author: "Bella Ratmelia"
+format: html
+---
+
+## Section 1: Getting Started
+
+``` python
+print("Hello World!")
+5 + 5 
+```
+
+Python has a built-in function called print that prints things as text.
+
+Call the function (i.e., tell Python to run it) by using its name.
+
+``` python
+print(10 - 5)
+print(10 * 2)
+print("hello world")
+```
+
+Use comments to add a layer of documentation to your code. E.g., explain what a block of code does, etc.
+
+## Section 2: Variables and Assignment
+
+### How can I store data and perform simple calculations?
+
+Variables are names for values. \# In Python, the `=` symbol assigns the value on the right to the variable on the left. \# Once you declare a variable, you must assign value to it
+
+``` python
+greetings = "Hello World!"
+age = 25
+```
+
+``` python
+name  # This cell will give you an error because you tried to declare a variable without assigning a value to it. 
+```
+
+Variable names: don't start with a digit, alphanumeric only with underscore, case sensitive, should be meaningful
+
+You can also use print() to print out a variable's value
+
+Put the variable name inside the bracket.
+
+The things we passed to the function (the things inside the brackets) are called 'arguments' (more on this later)
+
+``` python
+print(greetings)
+print("today's greetings:", greetings)
+```
+
+Variables must be created before they are used.
+
+If a variable doesn't exist yet, or if the name has been mis-spelled, Python reports an error.
+
+Variables can be used in calculations! We can use variables in calculations just as if they were values.
+
+``` python
+age = age + 10
+print("Age in ten years from now:", age)
+```
+
+You can also assign a variable value to another variable
+
+``` python
+continent = "Asia"
+position = continent  # assign "sign" value to direction
+print(position, continent)  # now both direction and sign has the same value!
+```
+
+## Section 3: Data Types and Conversion
+
+``` python
+country = "Singapore"  # string
+public_holidays = 11  # integer
+avg_temp = 27.8  # float
+part_of_asean = True  # Boolean
+```
+
+Use the built-in function `type` to find out what type a value or a variable has.
+
+Remember, when you change the value of a variable to a new data type,
+
+the results of `print(type(your_variable))` will change accordingly.
+
+**Question: What is the type of part_of_asean?**
+
+``` python
+print(type(part_of_asean))  # this should print out Boolean
+```
+
+What would happen if we do this?
+
+``` python
+part_of_asean = "True"
+print(type(part_of_asean))  # now this should be a string!
+```
+
+Why care about data type?
+
+Because a value's data type determines what the program can do to it.
+
+The calculations below work on `int` data type
+
+``` python
+print(public_holidays - 5)  
+```
+
+But this won't work on a `string`
+``` python
+print(country - "pore") 
+```
+However you can use "+" and "\*" on strings
+
+``` python
+print(country + " best")  # this works for string, though.
+print(country * 4)  # this also works
+print("=" * 10)  # this also works
+print(len(country))  # this would print out the number of characters a string has
+```
+``` python
+len(public_holidays) \# this should give you an error
+```
+Some data types need to be converted before we can do some operations on them i.e. this will give you an error.
+``` python
+print("10" + 2) 
+```
+``` python
+print("10" + str(2))  # either we convert them all to string
+print(int(10) + 2)  # or we convert them to int
+```
+
+Take note of the execution order of your variables! They only change value when something is assigned to them.
+
+``` python
+public_holiday = 11  # initial value 
+new_holidays = public_holiday + 5
+public_holiday = 10  # we update the variable
+print(public_holiday, new_holidays) 
+```
+
+## Section 4: Built-in functions, Help, and Error Messages
+
+-   Explain how to pull the help function
+
+-   Some tips on error messages
+
+-   Refer to slides for full content
+
+## Section 5: List
+
+``` python
+quarterly_gdp_growth = [-2,-5.8, 2.8, 2.6, 7.3, 7.8]  # growth rates from 2023 Q1 to 2024 Q2
+print('GDP growth rates:', quarterly_gdp_growth)
+print('Number of quarters:', len(quarterly_gdp_growth))
+```
+
+Use square bracket and index number to retrieve an item from the list.
+
+Remember that index starts from 0 instead of 1.
+
+So if you want to retrieve the fourth item (2021's growth rate), the index will be 3.
+
+``` python
+print('GDP growth rate in 2023 Q1:', quarterly_gdp_growth[0])
+print('GDP growth rate in 2024 Q2:', quarterly_gdp_growth[5])
+```
+
+List values can be replaced by simply assigning a new value to them.
+
+Update the growth rate for 2023 Q3 (index 2) with the correct figure.
+
+``` python
+quarterly_gdp_growth[2] = -2.8
+print('Updated GDP growth rates:', quarterly_gdp_growth)
+```
+
+What happens if we try to retrieve an index that doesn't exist?
+
+``` python
+quarterly_gdp_growth[10] # This would cause an IndexError
+```
+
+You can append to the list (e.g., if we get data for 2024 Q3)
+
+``` python
+print('GDP growth rates initially:', quarterly_gdp_growth)
+quarterly_gdp_growth.append(3.2)  # Adding hypothetical  data
+print('GDP growth rates after adding 2024 Q3 prediction:', quarterly_gdp_growth)
+```
+
+adding item at the start e.e. 2022 Q4 was 9.4
+
+``` python
+print('GDP growth rates initially:', quarterly_gdp_growth)
+quarterly_gdp_growth.insert(len(quarterly_gdp_growth), 9.4) 
+print('GDP growth rates after adding 2022 Q4:', quarterly_gdp_growth)
+```
+
+remove the two items we added
+
+``` python
+print('GDP growth rates initially:', quarterly_gdp_growth)
+del quarterly_gdp_growth[0]  
+quarterly_gdp_growth.pop()
+print('GDP growth rates after removing projection:', quarterly_gdp_growth)
+```
+
+slicing list
+
+``` python
+print('Quarterly GDP growth rates in 2023:', quarterly_gdp_growth[0:4])  # Remember, the end index is exclusive
+print('Most recent growth rate:', quarterly_gdp_growth[-1])  # Get the last item in the list
+print('Growth rates for even quarters:', quarterly_gdp_growth[::2])  # Every other item
+# remember: list[start:end:stride]
+```
+
+You can also initialize an empty list to fill later
+
+``` python
+future_growth_rates = []
+```
+
+Print the average quarterly GDP growth rate
+
+``` python
+total_growth = sum(quarterly_gdp_growth)
+average_growth = total_growth / len(quarterly_gdp_growth)
+print(f"Average quarterly GDP growth: {average_growth:.2f}%")
+```
+
+You can include values of different types in a list, though for GDP data we'll stick to numbers
+
+``` python
+mixed_data = ["2024 growth", 3.0, "2023 growth", 2.7]
+print(mixed_data)
+```
+
+### Learning Check #3
+
+Write a code to print the growth rate for 2023 Q4 (remember, it's the 5th item but index 4)
+
+``` python
+print(quarterly_gdp_growth[4])
+```
+
+Write a code to print the growth rates for the first three quarters of 2023
+
+``` python
+print(quarterly_gdp_growth[0:3])
+```
+
+Add a projected growth rate of 3.3 and 3.6 for 2024 Q3 and Q4 respectively at the end of the list
+
+``` python
+quarterly_gdp_growth.insert(len(quarterly_gdp_growth), 3.3)
+quarterly_gdp_growth.insert(len(quarterly_gdp_growth), 3.6)
+print(quarterly_gdp_growth)
+```
+
+## Section 6: For Loops
+
+Basic loop example
+
+``` python
+for number in range(1, 7):  # 1 to 6, representing 6 quarters
+    print("Quarter", number)
+```
+
+You can also use `list` in a for loop!
+
+A for loop executes commands once for each value in a list/collection.
+
+It is basically telling python: "for each item in this list/collection, do these operations"
+
+``` python
+for growth in quarterly_gdp_growth:
+    print(f"Quarterly GDP growth: {growth}%")
+```
+
+Let's create a more informative output by combining the quarter information with the growth rate
+
+``` python
+quarters = ["2023 Q1", "2023 Q2", "2023 Q3", "2023 Q4", "2024 Q1", "2024 Q2", "2024 Q3 prediction", "2024 Q4 prediction"]
+len(quarterly_gdp_growth)
+for i in range(len(quarterly_gdp_growth)-1):
+    print(f"{quarters[i]}: {quarterly_gdp_growth[i]}% GDP growth")
+```
+
+Print out only the quarters with GDP growth rate above 1%
+
+``` python
+print(quarterly_gdp_growth)
+for i, growth in enumerate(quarterly_gdp_growth):
+    if growth > 1:
+        print(i, growth)
+        print(f"{quarters[i]} had positive growth: {growth}%")
+```
+
+## Section 7: Conditionals (If-Else)
+
+Let's categorize our GDP growth rates
+
+``` python
+latest_growth = quarterly_gdp_growth[-1]  # Get the most recent growth rate
+if latest_growth > 1:
+    print(f"The latest GDP growth of {latest_growth}% indicates strong economic expansion.")
+elif latest_growth > 0:
+    print(f"The latest GDP growth of {latest_growth}% shows moderate economic growth.")
+else:
+    print(f"The latest GDP growth of {latest_growth}% suggests economic contraction.")
+```
+
+Conditionals are often used inside loops.
+
+Let's categorize all our quarterly growth rates.
+
+``` python
+for i, growth in enumerate(quarterly_gdp_growth):
+    if growth > 1:
+        print(f"{quarters[i]}: Strong growth at {growth}%")
+    elif growth > 0.5:
+        print(f"{quarters[i]}: Moderate growth at {growth}%")
+    else:
+        print(f"{quarters[i]}: Slow growth at {growth}%")
+```
+
+You can add a catch-all statement, `else` in conditionals.
+
+The code inside this catch-all will be executed if none of the conditions are satisfied.
+
+Let's check if we've had any quarters with negative growth
+
+``` python
+for i, growth in enumerate(quarterly_gdp_growth):
+    if growth < 0:
+        print(f"{quarters[i]} showed economic contraction with {growth}% growth.")
+        break  # Exit the loop if we find a negative growth quarter
+    else:
+        print("No quarters showed economic contraction in this period.")
+```
+
+What if you have more than one condition?
+
+Use `elif` (short for "else if") to specify additional tests.
+
+`elif` must be placed between `if` and \`else
+
+Let's categorize growth rates more precisely
+
+``` python
+for i, growth in enumerate(quarterly_gdp_growth):
+    if growth > 10:
+        print(f"{quarters[i]}: Very strong growth at {growth}%")
+    elif growth > 5:
+        print(f"{quarters[i]}: Strong growth at {growth}%")
+    elif growth > 2:
+        print(f"{quarters[i]}: Moderate growth at {growth}%")
+    elif growth > 0:
+        print(f"{quarters[i]}: Slow growth at {growth}%")
+    else:
+        print(f"{quarters[i]}: Economic contraction at {growth}%")
+```
+
+**IMPORTANT**
+
+Python steps through the statements of the conditional in order,
+
+testing each in turn. So ordering matters!
+
+Let's see an example of why order matters:
+
+``` python
+for growth in quarterly_gdp_growth:
+    if growth > 0:
+        print(f"{growth}% is moderate growth")
+    elif growth > 5:  # This will never be reached for growth > 1
+        print(f"{growth}% is strong growth")
+    else:
+        print(f"{growth}% is negative growth")
+```
+
+The correct order would be:
+
+``` python
+for growth in quarterly_gdp_growth:
+    if growth > 5:
+        print(f"{growth}% is strong growth")
+    elif growth > 0:
+        print(f"{growth}% is moderate growth")
+    else:
+        print(f"{growth}% is negative growth")
+```
+
+### Learning check #4: Analyze GDP growth trends
+
+Write a script that identifies the highest and lowest growth quarters
+
+``` python
+highest_growth = max(quarterly_gdp_growth)
+lowest_growth = min(quarterly_gdp_growth)
+
+highest_quarter = quarters[quarterly_gdp_growth.index(highest_growth)]
+lowest_quarter = quarters[quarterly_gdp_growth.index(lowest_growth)]
+
+print(f"Highest growth: {highest_growth}% in {highest_quarter}")
+print(f"Lowest growth: {lowest_growth}% in {lowest_quarter}")
+```

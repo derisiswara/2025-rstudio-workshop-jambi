@@ -1,0 +1,163 @@
+---
+title: "Introduction to Numpy"
+subtitle: "Notes for instructors & TA"
+author: "Bella Ratmelia"
+format: html
+---
+
+## Section 1: Packages, What's Numpy and Why Numpy
+
+Importing necessary libraries
+
+``` python
+import numpy as np
+import matplotlib.pyplot as plt
+import numpy_financial as npf
+import csv
+```
+
+Ensure plots are displayed inline in the notebook
+
+``` python
+%matplotlib inline
+```
+
+**Introduction to NumPy**
+
+NumPy is a powerful library for numerical computing in Python. It provides support for large, multi-dimensional arrays and matrices, along with a collection of mathematical functions to operate on these arrays. 
+
+**Creating a NumPy array**
+
+``` python
+np_array = np.array([1, 2, 3, 4, 5])
+print("NumPy array:", np_array)
+```
+
+**Difference between NumPy arrays and lists**
+
+NumPy arrays are more efficient for numerical operations and have a fixed size, unlike Python lists which are dynamic but less efficient for numerical computations.
+
+``` python
+python_list = [1, 2, 3, 4, 5]
+print("Python list:", python_list)
+print("NumPy array:", np_array)
+print("List type:", type(python_list))
+print("NumPy array type:", type(np_array))
+```
+
+NumPy allows for efficient element-wise operations on arrays.
+
+``` python
+array1 = np.array([1, 2, 3])
+array2 = np.array([4, 5, 6])
+print("Array 1:", array1)
+print("Array 2:", array2)
+print("Sum of arrays:", array1 + array2)
+print("Product of arrays:", array1 * array2)
+```
+
+**Array indexing and slicing**
+
+NumPy arrays can be indexed and sliced similarly to Python lists, but with more advanced capabilities.
+
+``` python
+array = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+print("Original array:", array)
+print("First element:", array[0])
+print("Last element:", array[-1])
+print("Slicing (elements 3 to 7):", array[2:7])
+```
+
+## Section 2: Two-dimensional arrays
+
+``` python
+two_d_array = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+print(two_d_array)
+print("Shape of the array:", two_d_array.shape)
+print("Size of the array:", two_d_array.size)
+```
+
+Loading a CSV file to 2D array
+
+``` python
+gdp_data = np.loadtxt('sg-gdp.csv', delimiter=',')
+print("GDP data shape:", gdp_data.shape)
+```
+
+Basic statistical operations
+
+``` python
+print("Mean of GDP data:", np.mean(gdp_data))
+print("Standard deviation of GDP data:", np.std(gdp_data))
+print("Maximum value in GDP data:", np.amax(gdp_data))
+print("Minimum value in GDP data:", np.amin(gdp_data))
+```
+
+Operations along specific axis
+
+``` python
+NumPy functions can operate along specific axes of multi-dimensional arrays.
+print("Mean of each sector:", np.mean(gdp_data, axis=0))
+print("Mean of each quarter:", np.mean(gdp_data, axis=1))
+```
+
+np.arange creates evenly spaced values within a given interval.
+
+``` python
+range_array = np.arange(0, 10, 0.5)
+print("Range array:", range_array)
+```
+
+np.transpose changes the shape of an array - rows become columns and vice versa
+
+``` python
+transposed_gdp = np.transpose(gdp_data)
+print("Transposed GDP data shape:", transposed_gdp.shape)
+```
+
+Filtering with boolean arrays
+
+``` python
+high_gdp = gdp_data > 10  # Assuming 500 is a high GDP value
+print("Sectors with high GDP:\n", gdp_data[high_gdp])
+```
+
+## Section 3: NumPy financial functions
+
+``` python
+rate = 0.05
+nper = 10
+pmt = 1000
+print("Future value:", npf.fv(rate, nper, -pmt, 0))
+```
+
+To put more examples here
+
+## Section 4: Matplotlib
+
+``` python
+plt.figure(figsize=(12, 6))
+
+# put viz code here
+
+plt.title('GDP Movement by Sector')
+plt.xlabel('Quarters')
+plt.ylabel('GDP')
+plt.legend()
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+```
+
+Visualizing household earnings with a histogram
+
+``` python
+# Generating mock data for household earnings
+household_earnings = np.random.normal(5000, 1500, 1000)
+plt.figure(figsize=(10, 6))
+plt.hist(household_earnings, bins=30, edgecolor='black')
+plt.title('Distribution of Household Earnings')
+plt.xlabel('Earnings')
+plt.ylabel('Frequency')
+plt.show()
+```

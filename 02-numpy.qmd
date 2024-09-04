@@ -1,24 +1,151 @@
 ---
-title: "Data Wrangling with Numpy"
+title: "Introduction to Numpy & Matplotlib"
 author: "Bella Ratmelia"
 format: revealjs
 ---
 
 ## Recap from yesterday
 
--  Introduction to Visual Studio
+-   Introduction to Visual Studio
 
--  Introduction to Python
+-   Introduction to Python
 
--  Handling Lists
+-   Handling Lists
 
--  Handling Loops and Conditionals
+-   Handling Loops and Conditionals
 
 ## Overview for today
 
--  Python libraries / packages
+-   Python libraries: Extending Python's functionality
 
--  Introduction to Numpy & Numpy-financial
+-   NumPy for more efficient numerical computing
 
--  Getting started with visualizations with matplotlib
+-   NumPy-financial - Financial calculations
 
+-   Matplotlib: Data visualization
+
+## Section 1: What's Numpy?
+
+NumPy is the fundamental package for scientific computing in Python.
+
+It is a Python library that provides a multidimensional array object, various derived objects (such as masked arrays and matrices), and an assortment of routines for fast operations on arrays, including mathematical, logical, shape manipulation, sorting, selecting, I/O, discrete Fourier transforms, basic linear algebra, basic statistical operations, random simulation and much more.[^1]
+
+[^1]: <https://numpy.org/doc/stable/user/whatisnumpy.html>
+
+-   Faster and more memory-efficient than Python lists
+
+-   Optimized for large-scale numerical operations (better than list)
+
+## Numpy vs Lists
+
+::::: columns
+::: {.column width="50%"}
+**Lists**
+
+-   dynamic size upon creation; you can change the size of a list anytime.
+-   all items inside list can be of different data types.
+-   not optimized for scientific/mathematical operations
+:::
+
+::: {.column width="50%"}
+**NumPy Arrays**
+
+-   fixed size upon creation; changing the size will create new array and delete the original.
+-   all items inside arrays must be the same data types.
+-   facilitate advanced mathematical and other types of operations on large numbers of data, and thus more efficient.
+-   a lot scientific/mathematical libraries are build on top of numpy (including pandas!)
+:::
+:::::
+
+## performance comparison
+
+```{python}
+import numpy as np
+import time
+
+# Creating large datasets
+list_data = list(range(1000000))
+numpy_data = np.array(range(1000000))
+
+# Comparing operation speed
+start = time.time()
+list_result = [x**2 for x in list_data]
+list_time = time.time() - start
+
+start = time.time()
+numpy_result = numpy_data**2
+numpy_time = time.time() - start
+
+print(f"List time: {list_time:.4f} seconds")
+print(f"NumPy time: {numpy_time:.4f} seconds")
+```
+
+## Numpy operations
+
+Most of what we can do lists, we can also do to arrays!
+
+## Section 2: 2-dimensional Arrays
+
+## Section 3: Numpy Financial
+
+## Section 4: Visualizing Array contents
+
+## Visualization packages: Matplotlib vs Seaborn
+
+## Anatomy of a matplotlib graph
+
+```{python}
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+
+plt.figure(figsize=(10, 6))
+plt.plot(x, y)
+plt.title('Sine Wave')
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.grid(True)
+plt.show()
+```
+
+## Data types in social sciences and economics research
+
+-   [**Non-Continuous Data**]{.underline}
+
+    -   **Nominal/Categorical**: Non-ordered, non-numerical data, used to represent qualitative attribute.
+
+        -   Example: country, sectors, industry
+
+    -   **Ordinal**: Ordered non-numerical data.
+
+        -   Example: SES categories (high, medium, low)
+
+    -   **Discrete**: Numerical data that can only take specific value (usually integers)
+
+        -   Example: population size
+
+    -   **Binary**: Nominal data with only two possible outcome
+
+        -   Example: pass/fail, yes/no, survive/not survive
+
+------------------------------------------------------------------------
+
+-   [**Continuous Data**]{.underline}
+
+    -   **Interval**: Numerical data that can take any value within a range. [It does not have a "true zero".]{.underline}
+
+        -   Example: GDP growth %
+
+    -   **Ratio**: Numerical data that can take any value within a range. [it has a "true zero".]{.underline}
+
+        -   Example: Annual income - annual income of 0 represents no income.
+
+## Chart types and their purposes
+
+-   Bar charts: Comparing categories
+-   Line charts: Trends over time
+-   Scatter plots: Relationships between variables
+-   Pie charts: Parts of a whole - Depending on who you asks, some may argue that percent barchart is better at this.
+-   Box plots: Distribution and outliers

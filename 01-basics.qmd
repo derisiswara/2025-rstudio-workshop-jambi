@@ -152,9 +152,75 @@ Virtual environment helps us to ensure that any packages we install will be isol
 
 3.  Rename the file to `01-intro.py`
 
+## Some basic glossary (for your reference) {.smaller}
+
+::::: columns
+::: {.column width="50%"}
+
+Objects
+
+:   In Python, everything is an object. An object is a piece of data that can have attributes and methods associated with it.
+
+Value
+
+:   The actual data stored in a variable or object. It can be a number, string, list, or any other data type.
+
+Variable
+
+:   A value that has a name associated with it.
+
+Assign
+
+:   To give a value to a variable. This is done using the equals sign (=).
+:::
+
+::: {.column width="50%"}
+
+Function
+
+:   A reusable block of code that performs a specific task. Functions can take inputs (arguments) and return outputs.
+
+Call
+
+:   To execute or run a function. This is done by using the function name followed by parentheses.
+
+Arguments
+
+:   Values passed to a function when it is called. These values are used by the function to perform its task.
+
+Options/Parameters
+
+:   Variables defined in a function's declaration that act as placeholders for arguments. They specify what kind of data the function expects to receive.
+
+Packages
+
+:   Collections of related modules that extend Python's capabilities. They can be installed and imported to add new functionalities within your workspace.
+:::
+:::::
+
 # Let's Code!
 
 Hands on session - Make sure to open the `py` file we just created.
+
+## Learning Check #1
+
+### What is the final value of variable `position` below?
+
+``` python
+initial = "up"
+position = initial
+initial = "down"
+```
+
+### What is the final value of variable `country_1` below?
+
+``` python
+country_1 = "Australia"
+country_2 = "New Zealand"
+temp = country_1
+country_1 = country_2
+country_2 = temp
+```
 
 ## Refresher: Quantitative Data Types
 
@@ -210,6 +276,41 @@ Hands on session - Make sure to open the `py` file we just created.
 
     -   A special type representing the absence of a value
 
+## Learning Check #2
+
+What is the data type of each of this variable?
+
+``` python
+a = 50  
+b = "SMU Libraries"  
+c = 100.5  
+d = True  
+e = 10 * 2.54  
+f = int(5.5)  
+g = 10 < 15  
+h = len("The quick brown fox jumps over the lazy dog")  
+```
+
+## Python functions
+
+-   There are many built-in function that we can use, one of the common one is `round()` which will round a float number to the nearest integer.
+
+-   Some functions accept arguments, and we put them inside the brackets when we pass it to the function. It's like telling the function "do what you're supposed to do with this things I pass to you".
+
+``` python
+round(3.14)
+```
+
+formal definition, but often used interchangeably: - arguments = the value passed to a function - in this case, 3.14 - parameters = the variable passed to a function
+
+-   Some functions can take more than one arguments! we've seen this with `print()` earlier
+
+-   If you're not sure what kind of arguments are accepted, etc, use the `help()` function. This example below should tell you more about `round()` once executed
+
+``` python
+help(round)
+```
+
 ## More data types
 
 -   Lists
@@ -228,6 +329,113 @@ Hands on session - Make sure to open the `py` file we just created.
 
     -   Unordered collections of unique elements. Example: `{1, 2, 3}`
 
+## Lists
+
+Scenario: We want to keep track of Singapore's GDP year-over-year (YoY) growth rate from 2024 to 2018. 
+
+-  Using a list allows us to store multiple years of data efficiently in a single variable. 
+
+-  If we were saving each year's quarterly growth rate to separate variables, we would have dozens variables! 
+
+-  This would make it difficult to perform calculations or analyze trends across years. 
+
+-  A `list` will come in handy! List can store many values together in a single variable.
+
+``` python
+quarterly_gdp_growth = [-2,-5.8, 2.8, 2.6, 7.3, 1.1, 3.4]
+```
+
+## Learning Check #3
+
+Write a code to complete the following tasks:
+
+1.  Write a code to print the growth rate for 2023 Q4
+2.  Write a code to print the growth rates for the first three quarters of 2023
+3.  Add a projected growth rate of 3.3 and 3.6 for 2024 Q3 and Q4 respectively at the end of the list
+
+## Loops
+
+Scenario: We have Singapore's Quarterly GDP growth rates from 2023 Q1 to 2024 Q2.
+
+-  We want to process this data efficiently and present it in a readable format - this is where a `For` Loop comes in handy!
+
+-  Loop is useful for repetitive tasks. It also helps to keep your code succinct and easier to debug if there's an error
+
+```python
+for number in range(1, 7):  # 1 to 6, representing 6 quarters
+    print("Quarter", number)
+```
+
+-  The above code is much shorter than typing `print` 6 times!
+
+## Using list with For loop
+
+Here is how you can use list in a For loop:
+
+```python
+for growth in quarterly_gdp_growth: # <1>
+    print(f"Quarterly GDP growth: {growth}%") #<2>
+```
+
+Anatomy of loops explained using the example above:
+
+1.  `growth` is the loop variable, representing the value that changes with each iteration of the loop. You can think of it as the "current item" being processed. Meanwhile, `quarterly_gdp_growth` is the collection that the loop iterates over.
+
+2.  `print(f"Quarterly GDP growth: {growth}%")` is the body of the loop, specifying the action to take for each item in the collection.
+
+::: {.callout-note appearance="simple"}
+
+### Key things
+
+- The first line of the for loop must end with a colon, and the body must be indented.
+
+- Indentation is always meaningful in Python. (the common convention is to indent with 4 spaces or tabs)
+
+:::
+
+
+
+## Conditionals (If-Else)
+
+-  Conditionals or If-Else statements are used to control whether or not a block of code is executed.
+
+-  The structure is similar to a For Loop:
+
+    - First line opens with if and ends with a colon
+
+    - Body containing one or more statements is indented
+
+```python
+if growth > 10:
+    print("Strong economic growth!")
+```
+
+## Conditionals - Order does matter!
+Assuming variable `growth` has the value of 10, the conditionals below will give us the wrong result.
+
+```python
+growth = 10
+if growth > 0:
+    print(f"{growth}% is a moderate growth")
+elif growth > 5:  # This will never be reached for growth > 1
+    print(f"{growth}% is a strong growth")
+else:
+    print(f"{growth}% is a negative growth")
+```
+This ordering would give the correct result:
+```python
+if growth > 5:
+    print(f"{growth}% is strong growth")
+elif growth > 0:
+    print(f"{growth}% is moderate growth")
+else:
+    print(f"{growth}% is negative growth")
+```
+
+## Learning Check #4
+
+Write a script that identifies the highest and lowest growth quarters! (5 mins)
+
 ## Even more data types
 
 We will explore these in the upcoming sessions!
@@ -238,60 +446,6 @@ We will explore these in the upcoming sessions!
 
 -   Panda’s DataFrame & Time series DataFrame
 
-## Consider this scenario
+# End of Session 1!
 
--   The student club is setting up a tracker to track total number of attendance to their bi-weekly meeting in 2023.
-
--   They have 33 meetings in total.
-
--   If they are saving the attendees number to variables, they would have 33 variables!
-
--   Very difficult to do any calculations on these...
-
--   This is where a list will come in handy! List can store many values together in a single variable.
-
-## Glossary of Terms {.smaller}
-
-::::: columns
-::: {.column width="50%"}
-
-Objects
-
-:   In Python, everything is an object. An object is a piece of data that can have attributes and methods associated with it.
-
-Value
-
-:   The actual data stored in a variable or object. It can be a number, string, list, or any other data type.
-
-Variable
-
-:   A value that has a name associated with it.
-
-Assign
-
-:   To give a value to a variable. This is done using the equals sign (=).
-:::
-
-::: {.column width="50%"}
-
-Function
-
-:   A reusable block of code that performs a specific task. Functions can take inputs (arguments) and return outputs.
-
-Call
-
-:   To execute or run a function. This is done by using the function name followed by parentheses.
-
-Arguments
-
-:   Values passed to a function when it is called. These values are used by the function to perform its task.
-
-Options/Parameters
-
-:   Variables defined in a function's declaration that act as placeholders for arguments. They specify what kind of data the function expects to receive.
-
-Packages
-
-:   Collections of related modules that extend Python's capabilities. They can be installed and imported to add new functionalities within your workspace.
-:::
-:::::
+We have covered: variables, data types, list, loop, and conditional

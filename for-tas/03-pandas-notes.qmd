@@ -1,0 +1,424 @@
+---
+title: "Dataframe with Pandas"
+subtitle: "Notes for instructors & TA"
+author: "Bella Ratmelia"
+format: html
+---
+
+## Section 1: What and Why Pandas
+
+``` python
+import pandas as pd
+```
+
+Loading data to Python + prelim checks
+
+load/read CSV to Python via DataFrame
+
+``` python
+data = pd.read_csv('econs-scholar-perception-survey.csv')
+data
+```
+
+Prelim check
+
+find out more about a dataframe.
+
+``` python
+data.info()
+```
+
+Get the summary statistics of the columns that have numerical data.
+
+All other columns are ignored, unless you use the argument include='all'.
+
+``` python
+data.describe()
+```
+
+**Renaming columns**
+
+Sometimes column names need to be renamed to make it easier for us
+
+rename columns to be all lowercaps with no whitespace (replace whitespace with underscore)
+
+rename them to something more meaningful
+
+``` python
+data.rename(columns = {
+    "country workplace": "country_workplace",
+    "working abroad": "working_abroad",
+    "marital status": "marital_status",
+    "years of service": "years_of_service",
+    "professional position": "professional_position",
+    "proportion coauthored" : "proportion_coauthored"
+}, inplace=True)
+```
+
+data.columns \## Selecting specific columns of dataframe \# Selecting a subset ("slicing") \# get the age of participants
+
+``` python
+data["age"]
+data.age
+```
+
+Describe just a column
+
+``` python
+data.age.describe()
+```
+
+get the marital_status and age of participants
+
+``` python
+data[["marital_status", "age"]]
+```
+
+Describe the two columns
+
+``` python
+data[["marital_status", "age"]].describe()
+```
+
+Filtering the rows to fit specified criteria
+
+Filtering: Get all data from participants who thinks networking benefit is important
+
+``` python
+criteria = data["benefits_furthernetworks"] >= 2
+data_network = data[criteria]
+
+data_network
+```
+
+Get participants who thinks networking benefit is important AND is a professor
+
+``` python
+criteria = (data["benefits_furthernetworks"] >= 2) & (data["professional_position"] == "Professor")
+data_prof_network = data[criteria]
+
+data_prof_network
+```
+
+Filtering for both rows and columns
+
+Even more granular filtering with .loc, we can filter rows and columns criteria at one go
+
+``` python
+criteria = (data["professional_position"] == "Professor")
+workplace_professor = data.loc[criteria, "country_workplace"]
+
+workplace_professor
+```
+
+retrieve based on index number instead of column names or row values
+
+``` python
+data[6:11]
+# retrieve 2nd column of row 5 to 10
+```
+
+use .iloc to perform this filtering+slicing in one go
+
+``` python
+data.iloc[5:11, 2]
+```
+
+Handling empty values
+
+get participants whose age is known
+
+``` python
+criteria = data["professional_position"].notna()
+profession_known = data[criteria]
+
+profession_known
+```
+
+we can also update the values in dataframe, especially for the empty ones
+
+inplace = True so that the changes are applied to the dataframe itself
+
+``` python
+data["professional_position"].fillna("Unknown", inplace=True)
+data["professional_position"].describe()
+```
+
+Counting and Sorting
+
+Find out country workplace of participants
+
+``` python
+data["country_workplace"].value_counts()
+```
+
+Find out how many participants work in their home country for each country
+
+``` python
+data[["country_workplace", "nationality"]].value_counts()
+```
+
+sort the data by continent
+
+``` python
+data.sort_values(by="continent", inplace=True)
+data.head(15)
+```
+
+difference between gender when it comes to benefits_international
+
+``` python
+diff_gender = data.groupby(by=["gender"]).count()
+diff_gender["benefits_international"]
+```
+
+Creating and dropping columns
+
+create a new column
+
+``` python
+data["quali_rel"] = data["marital_status"] + "-" + data["qualification"]
+
+data.head(10)
+```
+
+drop a column
+
+``` python
+data.drop(columns=["quali_rel"], inplace=True)
+data.columns
+```
+
+Average, median, mode
+
+``` python
+data["benefits_international"].mean()
+data["benefits_international"].median()
+data["benefits_international"].mode()
+```
+
+difference between gender when it comes to benefits_international
+
+``` python
+grouped_data = data.groupby(by=["gender"]).mean()
+grouped_data['benefits_international']
+```
+
+Saving to CSV + simple visualizations
+
+saving the dataframe in its current state to a CSV
+
+``` python
+data.to_csv("econs-scholars-edited.csv")
+data['continent'].value_counts().plot(kind='bar', xlabel='Continent', ylabel='Count')
+```
+
+### Learning Check 
+
+1.  Get the country data of professors who rated benefits_qualityofpaper as important or above
+2.  Sort participants based on country name in descending order
+3.  Plot a bar chart that visualizes the data based on continent and gender
+
+answer to qn 1
+
+``` python
+criteria = (data["benefits_qualityofpaper"] >= 3)
+country_data = data.loc[criteria, "country_workplace"]
+
+country_data
+```
+
+answer to qn 2
+
+``` python
+sorted_by_country = data.sort_values(by="country_workplace", ascending=False)
+sorted_by_country.head(15)
+```
+
+answer to qn 3
+
+``` python
+data[['continent', 'gender']].value_counts().plot(kind='bar', xlabel='Continent, Gender', ylabel='Count')
+```
+
+## Section 2: Visualization with Seaborn
+
+## Section 3: DateTime object
+
+## Section 4: Time Series with Pandas
+
+Loading time series data + data prep
+
+``` python
+cocoa = pd.read_csv('cocoa-price-daily.csv')
+```
+
+check the loaded data
+
+``` python
+cocoa.info()
+```
+
+rename columns to make things easier
+
+``` python
+cocoa.rename(columns = {
+    "Date": "date",
+    "London futures (£ sterling/tonne)": "ldn_futures",
+    "New York futures (US$/tonne)": "ny_futures",
+    "ICCO daily price (US$/tonne)": "icco_daily_usd",
+    "ICCO daily price (Euro/tonne)": "icco_daily_euro"
+}, inplace=True)
+
+cocoa.info()
+```
+
+Set the date column as index
+
+set the date as a datetime object
+
+``` python
+cocoa['date'] = pd.to_datetime(cocoa['date'])
+cocoa.info()
+cocoa.set_index('date', inplace=True)
+cocoa.info()
+```
+
+check the data and the earliest date
+
+``` python
+cocoa.tail(10)
+```
+
+sort index if necessary. By default, it will sort in ascending order
+
+``` python
+cocoa.sort_index(inplace=True)
+cocoa.tail(10)
+```
+
+Convert strings to float (if the numbers are saved as string)
+
+the "," is hindering us from converting string to float
+
+replace the "," with empty space to remove it
+
+``` python
+cocoa = cocoa.replace(",", "", regex=True)
+
+cocoa.head(10)
+```
+
+convert the appropriate columns to float data type
+
+``` python
+price_columns = ['ldn_futures', 'ny_futures', 'icco_daily_usd', 'icco_daily_euro']
+cocoa[price_columns] = cocoa[price_columns].astype(float)
+
+cocoa.info()
+```
+
+Manipulating data
+
+retrieving data on a specific year / month / date
+
+``` python
+cocoa.loc['2015-10-11']
+cocoa.loc['2015-10']
+cocoa.loc['2015']
+cocoa.loc['2014':'2015']
+cocoa.loc['2014':'2015', 'ldn_futures']
+cocoa.loc['2014':'2015', ['ldn_futures', 'ny_futures']]
+```
+
+Visualizing time series
+
+``` python
+import matplotlib.pyplot as plt
+```
+
+visualize specific time period
+
+``` python
+cocoa.loc['2014':'2015', 'ldn_futures'].plot(figsize=(12, 6))
+plt.show()
+```
+
+Handling missing values and resampling
+
+``` python
+cocoa.loc['2015-10'].head(10)
+```
+
+fill in missing dates with resample
+
+``` python
+cocoa_daily = cocoa.resample('D').asfreq()
+cocoa_daily.loc['2015-10'].head(10)
+```
+
+The graph will look odd if we do not fill the missing values
+
+``` python
+cocoa_daily.loc['2015-10'].plot(figsize=(12, 6))
+plt.show()
+```
+
+fill in the missing value with forward fill/ backward fill/ interpolation
+
+``` python
+cocoa_daily = cocoa.resample('1D').ffill()
+cocoa_daily.loc['2015-10'].head(10)
+```
+
+Get monthly average with resampling
+
+``` python
+monthly_cocoa = cocoa.resample('M').mean()
+monthly_cocoa.loc['2015'].head(12)
+```
+
+Calculating changes
+
+create new column to calculate changes to daily price in USD
+
+``` python
+cocoa_daily['changes_usd'] = cocoa_daily['icco_daily_usd'].diff()
+cocoa_daily.loc['2015-10'].head(10)
+```
+
+create new column to calculate changes to daily price in USD, but capture in percentage
+
+``` python
+cocoa_daily['changes_usd_pct'] = cocoa_daily['icco_daily_usd'].pct_change().multiply(100)
+cocoa_daily.loc['2015-10'].head(10)
+```
+
+### Learning Check
+
+*hint: check out pandas documentation on which function to use!* 1. Find the 6 months rolling average and rolling standard deviation for icco_daily_euro 2. plot the rolling average and the rolling standard deviation with the original value \# answer to qn1 \# use the .rolling function and specify the rolling window \# use .agg function as a short cut to apply multiple functions (in this case mean() and std()) to the dataframe \# save the result to cocoa_roll_mean_std
+
+``` python
+cocoa_roll_mean_std = cocoa_daily['icco_daily_euro'].rolling(window='180D').agg(['mean', 'std'])
+```
+
+check our dataframe
+
+``` python
+cocoa_roll_mean_std.head(10)
+```
+
+answer to qn2
+
+as we also want to plot the actual price of the day, let's add the original value from cocoa_daily to cocoa_roll_mean_std
+
+``` python
+cocoa_roll_mean_std['actual_price'] = cocoa_daily['icco_daily_euro']
+```
+
+plot the data. subplots=True will plot each column in different sub plot. this is completely optional btw.
+
+``` python
+cocoa_roll_mean_std.plot(figsize=(15, 9), subplots=True)
+plt.show()
+```
