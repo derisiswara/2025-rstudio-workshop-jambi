@@ -427,6 +427,18 @@ Bella Ratmelia
 </ul>
 </div>
 </section>
+<section id="about-the-workshop" class="slide level2">
+<h2>About the workshop</h2>
+<ul>
+<li><p>Live coding &amp; lots of hands-on</p></li>
+<li><p>Take-home quiz after session 1, 2, and 3 to reinforce the learning - Link will be put on the course website.</p></li>
+<li><p>Only for session 4: a small group activity at the second half of the session.</p>
+<ul>
+<li><p>Choose an economic indicator from Federal Reserve Economic Data (FRED) e.g.&nbsp;Civilian Unemployment Rate.</p></li>
+<li><p>Apply your Python knowledge to create a “storyboard” with visualizations to derive your economic outlook.</p></li>
+</ul></li>
+</ul>
+</section>
 <section id="overview-for-today" class="slide level2">
 <h2>Overview for today</h2>
 <ul>
@@ -1131,7 +1143,7 @@ Bella Ratmelia
       }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp("https:\/\/bellaratmelia\.github\.io\/2024-python-macroecons\/");
+          var filterRegex = new RegExp('/' + window.location.host + '/');
         var isInternal = (href) => {
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
