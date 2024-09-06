@@ -5,7 +5,7 @@ format: html
 
 ## Welcome!
 
-This site serves as a repository for the slides and codes developed for the 'Macroeconomics with Python Workshop' for SEIC x DSA club members at [SMU](https://www.smu.edu.sg/). 
+This site serves as a repository for the slides and codes developed for the 'Macroeconomics with Python Workshop' for SEIC x DSA club members at [SMU](https://www.smu.edu.sg/).
 
 **Instructor**: Bella Ratmelia, Research & Data Services, SMU Libraries
 
@@ -14,15 +14,14 @@ This site serves as a repository for the slides and codes developed for the 'Mac
 *Slides will be progressively made available below.*
 
 ::: table-schedule
-| Session | Date and Time                    | Venue                     | Topic                                         |
-|---------|----------------------------------|---------------------------|-----------------------------------------------|
-| 1       | Sat, 7 Sep 2024, 10 AM - 12 PM   | YPHSL Seminar Room 3-12 | Python basics                                 |
-| 2       | Sat, 14 Sep 2024, 10 AM - 12 PM  | SOSS/CIS Seminar Room 3-1 | Data wrangling with numpy                     |
-| 3       | Sat, 28 Sep 2024, 10 AM - 12 PM  | SOSS/CIS Seminar Room 3-1 | Data wrangling and timeseries with Dataframe  |
-| 4       | Sat, 5 Oct 2024, 10 AM - 12 PM   | SOSS/CIS Seminar Room 3-1 | Putting it all together                       |
+| Session | Date and Time | Venue | Topic |
+|---------------|------------------|---------------|-------------------------|
+| 1 | Sat, 7 Sep 2024, 10 AM - 12 PM | YPHSL Seminar Room 3-12 | [Python basics](01-basics.html) |
+| 2 | Sat, 14 Sep 2024, 10 AM - 12 PM | SOSS/CIS Seminar Room 3-1 | Data wrangling with numpy |
+| 3 | Sat, 28 Sep 2024, 10 AM - 12 PM | SOSS/CIS Seminar Room 3-1 | Data wrangling and timeseries with Dataframe |
+| 4 | Sat, 5 Oct 2024, 10 AM - 12 PM | SOSS/CIS Seminar Room 3-1 | Putting it all together |
 :::
 
-```{=html5}
 <style type="text/css">
     .table-schedule {width: 100%;}
     .table-schedule th:nth-child(1), .table-schedule td:nth-child(1) { width: 8%; }
@@ -30,12 +29,12 @@ This site serves as a repository for the slides and codes developed for the 'Mac
     .table-schedule th:nth-child(3), .table-schedule td:nth-child(3) { width: 25%; }
     .table-schedule th:nth-child(4), .table-schedule td:nth-child(4) { width: 35%; }
 </style>
-```
 
 ::: {.callout-note appearance="simple"}
 ## Important - Please bring your laptop & charger to the workshop
+
 As this is a hands-on workshop, please do bring your laptop. Tablets like Surface or iPad will not be sufficient as they could not run Visual Studio Code.
-::: 
+:::
 
 ## Pre-workshop activities
 
@@ -43,14 +42,13 @@ This workshop will use Visual Studio Code, or VS Code. It is a free, versatile c
 
 **Please install the following things in your laptop before the workshop:**
 
-1.  Download and install the latest [python3](https://www.python.org/downloads/) for your machine (should be version 3.12 or thereabouts). 
+1.  Download and install the latest [python3](https://www.python.org/downloads/) for your machine (should be version 3.12 or thereabouts).
 
-    -  If you are on Windows, at the start of the installation, **tick the "Add Python 3.12 to PATH"**. 
-
+    -   If you are on Windows, at the start of the installation, **tick the "Add Python 3.12 to PATH"**.
 
 2.  Download and install [Visual Studio Code](https://code.visualstudio.com/Download). Check out the setup instructions for [Windows](https://code.visualstudio.com/docs/setup/windows) and [macOS](https://code.visualstudio.com/docs/setup/mac)
 
-3.  Once you've installed Visual Studio code, start it up. Open the **Extension** tab on the left sidebar (`Ctrl + Shift + X` on Windows or `Cmd + Shift + X` on macOS) and install the [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and [Jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) extension. (The extension creator should be Microsoft) 
+3.  Once you've installed Visual Studio code, start it up. Open the **Extension** tab on the left sidebar (`Ctrl + Shift + X` on Windows or `Cmd + Shift + X` on macOS) and install the [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and [Jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) extension. (The extension creator should be Microsoft)
 
 ![](images/vscode-extension-tab.jpg)
 
