@@ -18,7 +18,7 @@
     "href": "index.html#schedule",
     "title": "SEIC x DSA Python for Macroeconomics Workshop 2024",
     "section": "Schedule",
-    "text": "Schedule\nSlides will be progressively made available below.\n\n\n\n\n\n\n\n\n\n\nSession\nDate and Time\nVenue\nTopic\n\n\n\n\n1\nSat, 7 Sep 2024, 10 AM - 12 PM\nYPHSL Seminar Room 3-12\nPython basics\n\n\n2\nSat, 14 Sep 2024, 10 AM - 12 PM\nSOSS/CIS Seminar Room 3-1\nData wrangling with numpy\n\n\n3\nSat, 28 Sep 2024, 10 AM - 12 PM\nSOSS/CIS Seminar Room 3-1\nData wrangling and timeseries with Dataframe\n\n\n4\nSat, 5 Oct 2024, 10 AM - 12 PM\nSOSS/CIS Seminar Room 3-1\nPutting it all together\n\n\n\n\n\n\n\n\n\n\n\nImportant - Please bring your laptop & charger to the workshop\n\n\n\nAs this is a hands-on workshop, please do bring your laptop. Tablets like Surface or iPad will not be sufficient as they could not run Visual Studio Code."
+    "text": "Schedule\nSlides will be progressively made available below.\n\n\n\n\nSession\nDate and Time\nVenue\nTopic\n\n\n\n\n1\nSat, 7 Sep 2024, 10 AM - 12 PM\nYPHSL Seminar Room 3-12\nPython basics\n\n\n2\nSat, 14 Sep 2024, 10 AM - 12 PM\nSOSS/CIS Seminar Room 3-1\nData wrangling with numpy\n\n\n3\nSat, 28 Sep 2024, 10 AM - 12 PM\nSOSS/CIS Seminar Room 3-1\nData wrangling and timeseries with Dataframe\n\n\n4\nSat, 5 Oct 2024, 10 AM - 12 PM\nSOSS/CIS Seminar Room 3-1\nPutting it all together\n\n\n\n\n\n\n\n\n\n\n\nImportant - Please bring your laptop & charger to the workshop\n\n\n\nAs this is a hands-on workshop, please do bring your laptop. Tablets like Surface or iPad will not be sufficient as they could not run Visual Studio Code."
   },
   {
     "objectID": "index.html#pre-workshop-activities",
@@ -158,7 +158,7 @@
     "href": "02-numpy.html#performance-comparison",
     "title": "Introduction to Numpy & Matplotlib",
     "section": "Performance Comparison",
-    "text": "Performance Comparison\n\n\nList time: 0.0847 seconds\nNumPy time: 0.0000 seconds"
+    "text": "Performance Comparison\n\n\nList time: 0.1917 seconds\nNumPy time: 0.0010 seconds"
   },
   {
     "objectID": "02-numpy.html#numpy-operations",
