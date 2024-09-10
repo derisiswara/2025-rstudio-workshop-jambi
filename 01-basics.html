@@ -744,10 +744,23 @@ Bella Ratmelia
 <h2>Learning Check #3</h2>
 <p>Write a code to complete the following tasks:</p>
 <ol type="1">
-<li>Write a code to print the growth rate for 2023 Q4</li>
-<li>Write a code to print the growth rates for the first three quarters of 2023</li>
-<li>Add a projected growth rate of 3.3 and 3.6 for 2024 Q3 and Q4 respectively at the end of the list</li>
+<li>Write a code to print the growth rate for 2023 Q4 (remember, it’s the 5th item but index 4)</li>
 </ol>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="bu">print</span>(quarterly_gdp_growth[<span class="dv">4</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li>Write a code to print the growth rates for the first three quarters of 2023</li>
+</ol>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="bu">print</span>(quarterly_gdp_growth[<span class="dv">0</span>:<span class="dv">3</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li>Add a projected growth rate of 3.3 and 3.6 the next two quarters at the end of the list</li>
+</ol>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="co"># method 1 using insert</span></span>
+<span id="cb9-2"><a></a>quarterly_gdp_growth.insert(<span class="bu">len</span>(quarterly_gdp_growth), <span class="fl">3.3</span>)</span>
+<span id="cb9-3"><a></a></span>
+<span id="cb9-4"><a></a><span class="co"># method 2 using append</span></span>
+<span id="cb9-5"><a></a>quarterly_gdp_growth.append(<span class="fl">3.6</span>)</span>
+<span id="cb9-6"><a></a></span>
+<span id="cb9-7"><a></a><span class="bu">print</span>(quarterly_gdp_growth)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="loops" class="slide level2">
 <h2>Loops</h2>
@@ -756,8 +769,8 @@ Bella Ratmelia
 <li><p>We want to process this data efficiently and present it in a readable format - this is where a <code>For</code> Loop comes in handy!</p></li>
 <li><p>Loop is useful for repetitive tasks. It also helps to keep your code succinct and easier to debug if there’s an error</p></li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="cf">for</span> number <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">7</span>):  <span class="co"># 1 to 6, representing 6 quarters</span></span>
-<span id="cb7-2"><a></a>    <span class="bu">print</span>(<span class="st">"Quarter"</span>, number)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="cf">for</span> number <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">7</span>):  <span class="co"># 1 to 6, representing 6 quarters</span></span>
+<span id="cb10-2"><a></a>    <span class="bu">print</span>(<span class="st">"Quarter"</span>, number)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>The above code is much shorter than typing <code>print</code> 6 times!</li>
 </ul>
@@ -765,8 +778,8 @@ Bella Ratmelia
 <section id="using-list-with-for-loop" class="slide level2">
 <h2>Using list with For loop</h2>
 <p>Here is how you can use list in a For loop:</p>
-<div class="sourceCode" id="annotated-cell-8"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy"><code class="sourceCode python"><span id="annotated-cell-8-1"><a href="#annotated-cell-8-1"></a><span class="cf">for</span> growth <span class="kw">in</span> quarterly_gdp_growth:</span>
-<span id="annotated-cell-8-2"><a href="#annotated-cell-8-2"></a>    <span class="bu">print</span>(<span class="ss">f"Quarterly GDP growth: </span><span class="sc">{</span>growth<span class="sc">}</span><span class="ss">%"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="annotated-cell-11"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy"><code class="sourceCode python"><span id="annotated-cell-11-1"><a href="#annotated-cell-11-1"></a><span class="cf">for</span> growth <span class="kw">in</span> quarterly_gdp_growth:</span>
+<span id="annotated-cell-11-2"><a href="#annotated-cell-11-2"></a>    <span class="bu">print</span>(<span class="ss">f"Quarterly GDP growth: </span><span class="sc">{</span>growth<span class="sc">}</span><span class="ss">%"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Anatomy of loops explained using the example above:</p>
 <ol type="1">
 <li><p><code>growth</code> is the loop variable, representing the value that changes with each iteration of the loop. You can think of it as the “current item” being processed. Meanwhile, <code>quarterly_gdp_growth</code> is the collection that the loop iterates over.</p></li>
@@ -799,30 +812,33 @@ Bella Ratmelia
 <li><p>Body containing one or more statements is indented</p></li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="cf">if</span> growth <span class="op">&gt;</span> <span class="dv">10</span>:</span>
-<span id="cb8-2"><a></a>    <span class="bu">print</span>(<span class="st">"Strong economic growth!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a><span class="cf">if</span> growth <span class="op">&gt;</span> <span class="dv">10</span>:</span>
+<span id="cb11-2"><a></a>    <span class="bu">print</span>(<span class="st">"Strong economic growth!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="conditionals---order-does-matter" class="slide level2">
 <h2>Conditionals - Order does matter!</h2>
 <p>Assuming variable <code>growth</code> has the value of 10, the conditionals below will give us the wrong result.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>growth <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb9-2"><a></a><span class="cf">if</span> growth <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb9-3"><a></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>growth<span class="sc">}</span><span class="ss">% is a moderate growth"</span>)</span>
-<span id="cb9-4"><a></a><span class="cf">elif</span> growth <span class="op">&gt;</span> <span class="dv">5</span>:  <span class="co"># This will never be reached for growth &gt; 1</span></span>
-<span id="cb9-5"><a></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>growth<span class="sc">}</span><span class="ss">% is a strong growth"</span>)</span>
-<span id="cb9-6"><a></a><span class="cf">else</span>:</span>
-<span id="cb9-7"><a></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>growth<span class="sc">}</span><span class="ss">% is a negative growth"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>growth <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb12-2"><a></a><span class="cf">if</span> growth <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb12-3"><a></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>growth<span class="sc">}</span><span class="ss">% is a moderate growth"</span>)</span>
+<span id="cb12-4"><a></a><span class="cf">elif</span> growth <span class="op">&gt;</span> <span class="dv">5</span>:  <span class="co"># This will never be reached for growth &gt; 1</span></span>
+<span id="cb12-5"><a></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>growth<span class="sc">}</span><span class="ss">% is a strong growth"</span>)</span>
+<span id="cb12-6"><a></a><span class="cf">else</span>:</span>
+<span id="cb12-7"><a></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>growth<span class="sc">}</span><span class="ss">% is a negative growth"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This ordering would give the correct result:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="cf">if</span> growth <span class="op">&gt;</span> <span class="dv">5</span>:</span>
-<span id="cb10-2"><a></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>growth<span class="sc">}</span><span class="ss">% is strong growth"</span>)</span>
-<span id="cb10-3"><a></a><span class="cf">elif</span> growth <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb10-4"><a></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>growth<span class="sc">}</span><span class="ss">% is moderate growth"</span>)</span>
-<span id="cb10-5"><a></a><span class="cf">else</span>:</span>
-<span id="cb10-6"><a></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>growth<span class="sc">}</span><span class="ss">% is negative growth"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a><span class="cf">if</span> growth <span class="op">&gt;</span> <span class="dv">5</span>:</span>
+<span id="cb13-2"><a></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>growth<span class="sc">}</span><span class="ss">% is strong growth"</span>)</span>
+<span id="cb13-3"><a></a><span class="cf">elif</span> growth <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb13-4"><a></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>growth<span class="sc">}</span><span class="ss">% is moderate growth"</span>)</span>
+<span id="cb13-5"><a></a><span class="cf">else</span>:</span>
+<span id="cb13-6"><a></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>growth<span class="sc">}</span><span class="ss">% is negative growth"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="learning-check-4" class="slide level2">
 <h2>Learning Check #4</h2>
-<p>Write a script that identifies the highest and lowest growth quarters! (5 mins)</p>
+<p>Write a script that identifies the highest and lowest growth quarters (5 mins)</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a><span class="co"># get the value of the highest and the lowest with max and min</span></span>
+<span id="cb14-2"><a></a>highest_growth <span class="op">=</span> <span class="bu">max</span>(quarterly_gdp_growth)</span>
+<span id="cb14-3"><a></a>lowest_growth <span class="op">=</span> <span class="bu">min</span>(quarterly_gdp_growth)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="even-more-data-types" class="slide level2">
 <h2>Even more data types</h2>

@@ -29,6 +29,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -349,14 +414,37 @@ Bella Ratmelia
 <section id="overview-for-today" class="slide level2">
 <h2>Overview for today</h2>
 <ul>
+<li><p>Introduction to Jupyter Notebook</p></li>
 <li><p>Python libraries: Extending Python’s functionality</p></li>
 <li><p>NumPy for more efficient numerical computing</p></li>
-<li><p>NumPy-financial - Financial calculations</p></li>
 <li><p>Matplotlib: Data visualization</p></li>
 </ul>
 </section>
-<section id="section-1-whats-numpy" class="slide level2">
-<h2>Section 1: What’s Numpy?</h2>
+<section>
+<section id="section-1-jupyter-notebook" class="title-slide slide level1 center">
+<h1>Section 1: Jupyter Notebook</h1>
+
+</section>
+<section id="refresher-.py-and-.ipynb" class="slide level2">
+<h2>Refresher: .py and .ipynb</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p>If it’s a <strong>.py</strong> file…</p>
+<p><img data-src="images/py-script.png"></p>
+<p>For “production” uses e.g., creating apps, industrial deployments; Executing the file will run all the codes inside the file.</p>
+</div><div class="column" style="width:45%;">
+<p>If it’s a <strong>.ipynb</strong> file…</p>
+<p><img data-src="images/ipynb-script.png"></p>
+<p>Great for quick experiments or teaching / presentation; Codes will be executed on per-block basis</p>
+</div></div>
+</section></section>
+<section>
+<section id="section-2-numpy-arrays" class="title-slide slide level1 center">
+<h1>Section 2: Numpy Arrays</h1>
+
+</section>
+<section id="whats-numpy" class="slide level2">
+<h2>What’s Numpy?</h2>
 <p>NumPy is the fundamental package for scientific computing in Python.</p>
 <p>It is a Python library that provides a multidimensional array object, various derived objects (such as masked arrays and matrices), and an assortment of routines for fast operations on arrays, including mathematical, logical, shape manipulation, sorting, selecting, I/O, discrete Fourier transforms, basic linear algebra, basic statistical operations, random simulation and much more.<sup>1</sup></p>
 <ul>
@@ -364,6 +452,18 @@ Bella Ratmelia
 <li><p>Optimized for large-scale numerical operations (better than list)</p></li>
 </ul>
 <aside><ol class="aside-footnotes"><li id="fn1"><p><a href="https://numpy.org/doc/stable/user/whatisnumpy.html" class="uri">https://numpy.org/doc/stable/user/whatisnumpy.html</a></p></li></ol></aside></section>
+<section id="whats-a-python-library" class="slide level2">
+<h2>What’s a Python library?</h2>
+<ul>
+<li>Python libraries or packages are essentially reusable sets of code that can be imported into your environment to extend functionality.</li>
+<li>Before using them, most libraries must first be installed and then imported.</li>
+<li>However, some libraries are part of the Python Standard Library, meaning they don’t need to be installed—just imported. For example, <code>time</code>.</li>
+</ul>
+<div id="4bc23ca5" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np <span class="co"># giving numpy a shorter "nickname"</span></span>
+<span id="cb1-2"><a></a><span class="im">import</span> time</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
 <section id="numpy-vs-lists" class="slide level2">
 <h2>Numpy vs Lists</h2>
 <div class="columns">
@@ -371,114 +471,396 @@ Bella Ratmelia
 <p><strong>Lists</strong></p>
 <ul>
 <li>dynamic size upon creation; you can change the size of a list anytime.</li>
-<li>all items inside list can be of different data types.</li>
+<li>all items inside list can be of <strong>different</strong> data types.</li>
 <li>not optimized for scientific/mathematical operations</li>
 </ul>
 </div><div class="column" style="width:50%;">
 <p><strong>NumPy Arrays</strong></p>
 <ul>
 <li>fixed size upon creation; changing the size will create new array and delete the original.</li>
-<li>all items inside arrays must be the same data types.</li>
+<li>all items inside arrays must be the <strong>same</strong> data types.</li>
 <li>facilitate advanced mathematical and other types of operations on large numbers of data, and thus more efficient.</li>
 <li>a lot scientific/mathematical libraries are build on top of numpy (including pandas!)</li>
 </ul>
 </div></div>
 </section>
-<section id="performance-comparison" class="slide level2">
-<h2>Performance Comparison</h2>
-<div id="23e55000" class="cell" data-execution_count="1">
+<section id="numpy-vs-lists-performance-comparison" class="slide level2">
+<h2>Numpy vs Lists: Performance comparison</h2>
+<p>Imagine we have a million numbers to square. We’ll store them in both a list and an array, then compare their processing speeds.</p>
+<div id="79ad815b" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="co"># Creating large datasets</span></span>
+<span id="cb2-2"><a></a>list_data <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1000000</span>))</span>
+<span id="cb2-3"><a></a>numpy_data <span class="op">=</span> np.arange(<span class="dv">1000000</span>)</span>
+<span id="cb2-4"><a></a></span>
+<span id="cb2-5"><a></a><span class="co"># Comparing operation speed</span></span>
+<span id="cb2-6"><a></a>start <span class="op">=</span> time.time()</span>
+<span id="cb2-7"><a></a>list_result <span class="op">=</span> [x<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> x <span class="kw">in</span> list_data]</span>
+<span id="cb2-8"><a></a>list_time <span class="op">=</span> time.time() <span class="op">-</span> start</span>
+<span id="cb2-9"><a></a></span>
+<span id="cb2-10"><a></a>start <span class="op">=</span> time.time()</span>
+<span id="cb2-11"><a></a>numpy_result <span class="op">=</span> numpy_data<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb2-12"><a></a>numpy_time <span class="op">=</span> time.time() <span class="op">-</span> start</span>
+<span id="cb2-13"><a></a></span>
+<span id="cb2-14"><a></a><span class="bu">print</span>(<span class="ss">f"List took </span><span class="sc">{</span>list_time<span class="sc">:.4f}</span><span class="ss"> seconds to finish the operation."</span>)</span>
+<span id="cb2-15"><a></a><span class="bu">print</span>(<span class="ss">f"NumPy took </span><span class="sc">{</span>numpy_time<span class="sc">:.4f}</span><span class="ss"> seconds to finish the operation."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>List time: 0.2091 seconds
-NumPy time: 0.0036 seconds</code></pre>
+<pre><code>List took 0.1455 seconds to finish the operation.
+NumPy took 0.0026 seconds to finish the operation.</code></pre>
 </div>
 </div>
 </section>
-<section id="numpy-operations" class="slide level2">
-<h2>Numpy operations</h2>
-<p>Most of what we can do lists, we can also do to arrays! - Array slicing - Array indexing - Array axis for calculations</p>
+<section id="numpy-vs-lists-sum-and-products" class="slide level2">
+<h2>Numpy vs Lists: Sum and products</h2>
+<ul>
+<li>When you add two lists together, the contents will be concatenated</li>
+<li>When you do add two arrays together, the contents will be summed</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Lists</p>
+<div id="3a31627e" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a>list_1 <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
+<span id="cb4-2"><a></a>list_2 <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>]</span>
+<span id="cb4-3"><a></a></span>
+<span id="cb4-4"><a></a><span class="bu">print</span>(list_1 <span class="op">+</span> list_2)</span>
+<span id="cb4-5"><a></a><span class="co"># list_1 * list_2 will give an error</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1, 2, 3, 4, 5, 10, 20, 30, 40, 50]</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p>Numpy Arrays</p>
+<div id="7d7cae97" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a>array_1 <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
+<span id="cb6-2"><a></a>array_2 <span class="op">=</span> np.array([<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>])</span>
+<span id="cb6-3"><a></a></span>
+<span id="cb6-4"><a></a><span class="bu">print</span>(<span class="st">"Sum:"</span>, array_1 <span class="op">+</span> array_2)</span>
+<span id="cb6-5"><a></a><span class="bu">print</span>(<span class="st">"Product:"</span>, array_1 <span class="op">*</span> array_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Sum: [11 22 33 44 55]
+Product: [ 10  40  90 160 250]</code></pre>
+</div>
+</div>
+</div></div>
+</section>
+<section id="numpy-creation-and-operations" class="slide level2">
+<h2>Numpy creation and operations</h2>
+<p>As seen in the example, we can use <code>np.arange()</code> to create an array from scratch. We can also create an array from a list using <code>np.array()</code> like this: <code>np.array([1, 2, 3, 4, 5])</code></p>
+<p>Most operations we perform on lists can also be done with arrays, including:</p>
+<ul>
+<li>Slicing</li>
+<li>Indexing</li>
+<li>Sorting</li>
+<li>Creating copies or views (with important differences between them!)</li>
+</ul>
+<p>Let’s try these!</p>
 </section>
 <section id="learning-check-1" class="slide level2">
 <h2>Learning Check #1</h2>
+<p>Create two arrays called <code>odd_numbers</code> and <code>even_numbers</code> that only contains odd numbers and even numbers from 1 to 20 respectively.</p>
+<div id="ce3c8105" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a>odd_numbers <span class="op">=</span> np.arange(<span class="dv">1</span>, <span class="dv">21</span>, <span class="dv">2</span>)</span>
+<span id="cb8-2"><a></a>even_numbers <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">21</span>, <span class="dv">2</span>)</span>
+<span id="cb8-3"><a></a><span class="bu">print</span>(<span class="st">"Odd numbers:"</span>, odd_numbers)</span>
+<span id="cb8-4"><a></a><span class="bu">print</span>(<span class="st">"Even numbers:"</span>, even_numbers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Odd numbers: [ 1  3  5  7  9 11 13 15 17 19]
+Even numbers: [ 0  2  4  6  8 10 12 14 16 18 20]</code></pre>
+</div>
+</div>
+</section></section>
+<section>
+<section id="section-3-2-dimensional-arrays" class="title-slide slide level1 center">
+<h1>Section 3: 2-dimensional Arrays</h1>
+
 </section>
-<section id="section-2-2-dimensional-arrays" class="slide level2">
-<h2>Section 2: 2-dimensional Arrays</h2>
+<section id="array-can-contain-columns-and-rows-too" class="slide level2">
+<h2>Array can contain columns and rows too!</h2>
+<div id="1a6dba5d" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a>array_2d <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>], [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]])</span>
+<span id="cb10-2"><a></a><span class="bu">print</span>(array_2d)</span>
+<span id="cb10-3"><a></a><span class="bu">print</span>(<span class="st">"Shape of the array:"</span>, array_2d.shape)</span>
+<span id="cb10-4"><a></a><span class="bu">print</span>(<span class="st">"Size of the array:"</span>, array_2d.size)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+Shape of the array: (3, 3)
+Size of the array: 9</code></pre>
+</div>
+</div>
+</section>
+<section id="indices-in-a-2d-array" class="slide level2">
+<h2>Indices in a 2D array</h2>
+
+<img data-src="images/numpy_indices.png" class="r-stretch"></section>
+<section id="loading-from-a-csv-into-a-2d-array" class="slide level2">
+<h2>Loading from a CSV into a 2D array</h2>
+<p>Let’s load our data <code>sg-gdp.csv</code> into a 2D array!</p>
+<p>In this CSV:</p>
+<ul>
+<li>The rows represent 7 different sectors</li>
+<li>The columns represent the quarters from 2023 Q4, dating back all the way to 2019 Q1.</li>
+<li>Each cell contains the GDP growth of that sector for that quarter, compared to previous year’s quarters.</li>
+</ul>
+<div id="4c6e5f1b" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>gdp_data <span class="op">=</span> np.loadtxt(<span class="st">'data/sg-gdp.csv'</span>, delimiter<span class="op">=</span><span class="st">','</span>, dtype<span class="op">=</span><span class="st">"float16"</span>)</span>
+<span id="cb12-2"><a></a>np.set_printoptions(suppress<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb12-3"><a></a></span>
+<span id="cb12-4"><a></a><span class="bu">print</span>(<span class="st">"GDP data"</span>)</span>
+<span id="cb12-5"><a></a><span class="bu">print</span>(gdp_data)</span>
+<span id="cb12-6"><a></a><span class="bu">print</span>(<span class="st">"GDP data shape:"</span>, gdp_data.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+<p>Remember, the shape will be printed as <code>(row, column)</code>.</p>
+</section>
+<section id="loading-from-a-csv-into-a-2d-array-output" class="slide level2 output-location-slide"><h2>Loading from a CSV into a 2D array</h2><div class="cell output-location-slide" data-execution_count="7">
+<div class="cell-output cell-output-stdout">
+<pre><code>GDP data
+[[  2.6  -2.8  -5.8  -2.    9.4  17.5  24.5  20.9  22.9  23.1  31.6   7.7
+   -2.8  -7.4 -14.4  -0.4  -1.8   0.3   2.1   4.3]
+ [ -2.   -7.6 -12.7  -7.2   7.1   9.6  20.9  24.1  27.7  29.8  43.3   8.3
+   -6.5  -9.5 -19.3  -2.1 -16.2  -6.3  -0.1   8. ]
+ [ -5.5 -12.3 -18.2 -11.9   4.2   7.6  21.9  25.3  27.   25.4  37.7  11.4
+   -3.2  -2.7 -12.6  -1.2 -19.3  -7.9  -0.5   9.3]
+ [ 11.6  11.3  15.5  15.6  17.6  17.7  12.6  16.   45.1 106.3 174.   -6.1
+  -29.2 -52.9 -66.1 -10.1  -1.8   0.2   3.    3.4]
+ [ 12.9  25.   27.3  21.6  28.4  27.6  22.8  24.7   3.9   0.3  -1.3  -1.1
+   10.1  -1.2   5.3  10.1  -0.5   3.3  -2.5   1.3]
+ [  7.4   9.7   4.4   7.6   2.7   1.5   0.7   1.9   8.   11.   34.3   4.8
+    5.4  -7.1 -15.5  -1.5   4.7  10.5   5.3  11.8]
+ [  3.   -2.7  -4.7  -1.5  10.9  21.7  27.9  21.9  22.8  21.6  25.7   7.3
+   -2.2  -6.8 -10.8   0.3   3.4   2.5   3.6   3.9]]
+GDP data shape: (7, 20)</code></pre>
+</div>
+</div></section><section id="d-array-operations" class="slide level2">
+<h2>2D array operations</h2>
+<p>Let’s see if we can complete the following tasks:</p>
+<ol type="1">
+<li>Find out the mean, standard deviation, max, and mean values.</li>
+<li>Find the mean for each quarter (column-wise operation)</li>
+<li>Find the mean for each sector (row-wise operation)</li>
+<li>Transpose the array</li>
+<li>Retrieve all the negative values.</li>
+<li>Calculate the changes every quarter for Sector 1.</li>
+</ol>
+</section>
+<section id="axis-operations" class="slide level2">
+<h2>Axis Operations</h2>
+
+<img data-src="images/axes_operations.png" class="r-stretch"></section>
+<section id="numpy-financial" class="slide level2">
+<h2>Numpy Financial</h2>
+<p>The <code>numpy-financial</code> package is a collection of elementary financial functions. It’s a relatively tiny package, but useful if you need to do some financial calculations.</p>
+
+<img data-src="images/numpy-financial.jpg" class="r-stretch"><p>Let’s try some of these!</p>
 </section>
 <section id="learning-check-2" class="slide level2">
 <h2>Learning Check #2</h2>
-</section>
-<section id="section-3-numpy-financial" class="slide level2">
-<h2>Section 3: Numpy Financial</h2>
-</section>
-<section id="section-4-visualizing-array-contents" class="slide level2">
-<h2>Section 4: Visualizing Array contents</h2>
-</section>
-<section id="visualization-packages-matplotlib-vs-seaborn" class="slide level2">
-<h2>Visualization packages: Matplotlib vs Seaborn</h2>
-</section>
-<section id="anatomy-of-a-matplotlib-graph" class="slide level2">
-<h2>Anatomy of a matplotlib graph</h2>
-<div id="e3354daf" class="cell" data-execution_count="2">
-<div class="cell-output cell-output-display">
-<div>
-<figure>
-<p><img data-src="02-numpy_files/figure-revealjs/cell-3-output-1.png" width="832" height="523"></p>
-</figure>
+<p>The <code>gdp_data</code> is longitudinal, with each row representing observations for a specific sector over time. This makes growth and contraction trends meaningful to analyze. To calculate changes in the data using NumPy, we can use the numpy.diff() function, which computes the differences between successive values in an array.</p>
+<ol type="1">
+<li>Calculate the changes for each quarter for all sector. Save this into an array called <code>sector_changes</code>.</li>
+<li>Afterwards, find the largest changes in <code>sector_changes</code>.</li>
+</ol>
+<div id="c01ffef8" class="cell" data-execution_count="8">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a>sector_changes <span class="op">=</span> np.diff(gdp_data)</span>
+<span id="cb14-2"><a></a><span class="bu">print</span>(<span class="st">"sector_changes:"</span>, sector_changes)</span>
+<span id="cb14-3"><a></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">sector_changes shape:"</span>, sector_changes.shape)</span>
+<span id="cb14-4"><a></a></span>
+<span id="cb14-5"><a></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Largest change:"</span>, np.amax(sector_changes))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
-</div>
-</div>
-</section>
-<section id="data-types-in-social-sciences-and-economics-research" class="slide level2">
-<h2>Data types in social sciences and economics research</h2>
-<ul>
-<li><p><u><strong>Non-Continuous Data</strong></u></p>
-<ul>
-<li><p><strong>Nominal/Categorical</strong>: Non-ordered, non-numerical data, used to represent qualitative attribute.</p>
-<ul>
-<li>Example: country, sectors, industry</li>
-</ul></li>
-<li><p><strong>Ordinal</strong>: Ordered non-numerical data.</p>
-<ul>
-<li>Example: SES categories (high, medium, low)</li>
-</ul></li>
-<li><p><strong>Discrete</strong>: Numerical data that can only take specific value (usually integers)</p>
-<ul>
-<li>Example: population size</li>
-</ul></li>
-<li><p><strong>Binary</strong>: Nominal data with only two possible outcome</p>
-<ul>
-<li>Example: pass/fail, yes/no, survive/not survive</li>
-</ul></li>
-</ul></li>
-</ul>
-</section>
-<section class="slide level2">
 
+</section><section id="learning-check-2-output" class="slide level2 output-location-slide"><h2>Learning Check #2</h2><div class="cell output-location-slide" data-execution_count="8">
+<div class="cell-output cell-output-stdout">
+<pre><code>sector_changes: [[  -5.4       -3.         3.8       11.4        8.1        7.
+    -3.594      2.         0.1875     8.5      -23.89     -10.5
+    -4.598     -7.        14.        -1.4        2.1        1.8
+     2.201  ]
+ [  -5.6       -5.1        5.504     14.3        2.5       11.305
+     3.188      3.61       2.094     13.516    -35.       -14.8
+    -3.        -9.8       17.2      -14.1        9.91       6.2
+     8.1    ]
+ [  -6.797     -5.906      6.305     16.1        3.402     14.305
+     3.39       1.703     -1.594     12.28     -26.28     -14.59
+     0.5       -9.91      11.4      -18.1       11.4        7.4
+     9.8    ]
+ [  -0.3047     4.203      0.10156    1.992      0.1094    -5.1
+     3.398     29.1       61.22      67.7     -180.1      -23.1
+   -23.7      -13.22      56.03       8.305      2.         2.8
+     0.4004 ]
+ [  12.1        2.297     -5.703      6.812     -0.8125    -4.797
+     1.906    -20.8       -3.6       -1.6        0.2002    11.2
+   -11.305      6.5        4.8      -10.6        3.8       -5.8
+     3.8    ]
+ [   2.305     -5.305      3.203     -4.902     -1.199     -0.8
+     1.2        6.1        3.        23.31     -29.52       0.5977
+   -12.5       -8.4       14.         6.2        5.8       -5.2
+     6.496  ]
+ [  -5.7       -2.         3.2       12.4       10.805      6.203
+    -6.         0.8906    -1.203      4.11     -18.4       -9.5
+    -4.6       -3.996     11.09       3.1       -0.9004     1.1
+     0.3008 ]]
+
+sector_changes shape: (7, 19)
+
+Largest change: 67.7</code></pre>
+</div>
+</div></section></section>
+<section>
+<section id="section-4-visualizing-array-contents" class="title-slide slide level1 center">
+<h1>Section 4: Visualizing Array contents</h1>
+
+</section>
+<section id="visualization-libraries-matplotlib-and-seaborn" class="slide level2">
+<h2>Visualization libraries: Matplotlib and Seaborn</h2>
+<p>There are multiple visualization libraries for python. We will try out Matplotlib and Seaborn (for next session)</p>
+<p>Primary differences between the two:</p>
+<div class="columns">
+<div class="column" style="width:50%; font-size:0.8em;">
+<p><strong>Matplotlib</strong></p>
 <ul>
-<li><p><u><strong>Continuous Data</strong></u></p>
-<ul>
-<li><p><strong>Interval</strong>: Numerical data that can take any value within a range. <u>It does not have a “true zero”.</u></p>
-<ul>
-<li>Example: GDP growth %</li>
-</ul></li>
-<li><p><strong>Ratio</strong>: Numerical data that can take any value within a range. <u>it has a “true zero”.</u></p>
-<ul>
-<li>Example: Annual income - annual income of 0 represents no income.</li>
-</ul></li>
-</ul></li>
+<li>A foundational Python library for static, interactive, and animated visualizations.</li>
+<li>Highly customizable, offering full control over plot elements (axes, ticks, legends).</li>
+<li>Supports a wide range of plots, from simple line charts to complex 3D visualizations and heatmaps.</li>
+<li>Can be challenging for beginners due to its flexibility.</li>
+<li>Ideal for precise control and building complex plots.</li>
 </ul>
+</div><div class="column" style="width:50%; font-size:0.8em;">
+<p><strong>Seaborn</strong></p>
+<ul>
+<li>Built on Matplotlib to simplify statistical visualization with attractive designs.</li>
+<li>Offers high-level abstractions for complex plots (e.g., pair plots, heatmaps) with minimal effort.</li>
+<li>Supports visualizing variable relationships and statistical summaries (e.g., regression, categorical plots).</li>
+<li>Easier for beginners to create high-quality visuals quickly.</li>
+<li>Best for data exploration and statistical analysis with minimal setup.</li>
+</ul>
+</div></div>
+</section>
+<section id="refresher-data-types-in-social-sciences-and-economics-research" class="slide level2">
+<h2>Refresher: Data types in social sciences and economics research</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Non-Continuous Data</p>
+<ul>
+<li>Nominal/Categorical: Non-ordered, non-numerical data, used to represent qualitative attribute.</li>
+<li>Ordinal: Ordered non-numerical data.</li>
+<li>Discrete: Numerical data that can only take specific value (usually integers)</li>
+<li>Binary: Nominal data with only two possible outcome.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p>Continuous Data</p>
+<ul>
+<li>Interval: Numerical data that can take any value within a range. <u>It does not have a “true zero”.</u></li>
+<li>Ratio: Numerical data that can take any value within a range. <u>it has a “true zero”.</u></li>
+</ul>
+</div></div>
 </section>
 <section id="chart-types-and-their-purposes" class="slide level2">
 <h2>Chart types and their purposes</h2>
 <ul>
 <li>Bar charts: Comparing categories</li>
-<li>Line charts: Trends over time</li>
-<li>Scatter plots: Relationships between variables</li>
-<li>Pie charts: Parts of a whole - Depending on who you asks, some may argue that percent barchart is better at this.</li>
+<li>Line charts: Trends or progress over time</li>
+<li>Scatter plots: Relationships between (continuous) variables</li>
+<li>Pie charts: Parts of a whole
+<ul>
+<li>Depending on who you ask, some may argue that percent barchart is better at this.</li>
+</ul></li>
 <li>Box plots: Distribution and outliers</li>
 </ul>
 </section>
+<section id="anatomy-of-a-matplotlib-graph" class="slide level2">
+<h2>Anatomy of a matplotlib graph</h2>
+<div class="columns">
+<div class="column">
+<p><img data-src="images/matplotlib-anatomy.webp"></p>
+</div><div class="column">
+<p><strong>Useful resources:</strong></p>
+<ul>
+<li><a href="https://matplotlib.org/cheatsheets/">Matplotlib cheatsheets</a> - This is more beginner-friendly</li>
+<li><a href="https://matplotlib.org/stable/users/explain/quick_start.html">Quick start guide</a></li>
+<li><a href="https://python-graph-gallery.com/matplotlib/">Python Graph Gallery</a></li>
+</ul>
+</div></div>
+</section>
+<section id="matplotlib-simple-lineplot" class="slide level2">
+<h2>Matplotlib: Simple Lineplot</h2>
+<p>Let’s try to visualize the contents of <code>gdp_data</code>!</p>
+<div id="9dc47113" class="cell" data-execution_count="9">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="02-numpy_files/figure-revealjs/cell-10-output-1.png" width="819" height="449"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="matplotlib-individual-line-plots" class="slide level2">
+<h2>Matplotlib: Individual Line Plots</h2>
+<p>Let’s create different lines for each sector!</p>
+<div id="e546432d" class="cell" data-execution_count="10">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="02-numpy_files/figure-revealjs/cell-11-output-1.png" width="801" height="411"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="matplotlib-histogram" class="slide level2">
+<h2>Matplotlib: Histogram</h2>
+<p>Let’s see if there’s any outlier growths or contractions on each sectors over the quarters!</p>
+<div id="01341999" class="cell" data-execution_count="11">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="02-numpy_files/figure-revealjs/cell-12-output-1.png" width="801" height="411"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
 <section id="learning-check-3" class="slide level2">
 <h2>Learning Check #3</h2>
+<p>Using the <code>sg-gdp.csv</code> data loaded into a NumPy array:</p>
+<ol type="1">
+<li>Create a line plot showing the GDP growth over time for the first two sectors only</li>
+<li>Add appropriate labels, a title, and a legend to the plot.</li>
+</ol>
+<div id="7dedb74f" class="cell" data-execution_count="12">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a>two_sectors <span class="op">=</span> gdp_data[:<span class="dv">2</span>, :] <span class="co">#[first two rows, all columns]</span></span>
+<span id="cb16-2"><a></a>sector_number <span class="op">=</span> <span class="dv">1</span> </span>
+<span id="cb16-3"><a></a><span class="cf">for</span> sector <span class="kw">in</span> two_sectors:</span>
+<span id="cb16-4"><a></a>    plt.plot(sector, label <span class="op">=</span> <span class="st">"Sector "</span> <span class="op">+</span> <span class="bu">str</span>(sector_number))</span>
+<span id="cb16-5"><a></a>    sector_number <span class="op">=</span> sector_number <span class="op">+</span> <span class="dv">1</span> <span class="co">#increase sector number by 1</span></span>
+<span id="cb16-6"><a></a></span>
+<span id="cb16-7"><a></a>plt.legend()</span>
+<span id="cb16-8"><a></a>plt.grid()</span>
+<span id="cb16-9"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+
+</section><section id="learning-check-3-output" class="slide level2 output-location-slide"><h2>Learning Check #3</h2><div class="cell output-location-slide" data-execution_count="12">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="02-numpy_files/figure-revealjs/cell-13-output-1.png" width="801" height="411"></p>
+</figure>
+</div>
+</div>
+</div></section></section>
+<section id="end-of-session-2" class="title-slide slide level1 center">
+<h1>End of Session 2!</h1>
+<p>We have covered: jupyter notebook, numpy, and matplotlib!</p>
 
 <div class="quarto-auto-generated-content">
 <p><img src="images/smu logo.png" class="slide-logo"></p>
@@ -487,6 +869,7 @@ NumPy time: 0.0036 seconds</code></pre>
 </div>
 </div>
 </section>
+
 
     </div>
   </div>
