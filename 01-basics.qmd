@@ -28,6 +28,19 @@ format: revealjs
     -   Don't be afraid to ask for help! We are all here to learn
 :::
 
+## About the workshop
+
+-  Live coding & lots of hands-on
+
+-  Take-home quiz after session 1, 2, and 3 to reinforce the learning - Link will be put on the course website.
+
+-  Only for session 4: a small group activity at the second half of the session.
+
+    -  Choose an economic indicator from Federal Reserve Economic Data (FRED) e.g. Civilian Unemployment Rate.
+    
+    -  Apply your Python knowledge to create a "storyboard" with visualizations to derive your economic outlook. 
+
+
 ## Overview for today
 
 -   Introduction to Visual Studio
@@ -349,9 +362,29 @@ quarterly_gdp_growth = [-2,-5.8, 2.8, 2.6, 7.3, 1.1, 3.4]
 
 Write a code to complete the following tasks:
 
-1.  Write a code to print the growth rate for 2023 Q4
-2.  Write a code to print the growth rates for the first three quarters of 2023
-3.  Add a projected growth rate of 3.3 and 3.6 for 2024 Q3 and Q4 respectively at the end of the list
+1. Write a code to print the growth rate for 2023 Q4 (remember, it's the 5th item but index 4)
+
+``` python
+print(quarterly_gdp_growth[4])
+```
+
+2. Write a code to print the growth rates for the first three quarters of 2023
+
+``` python
+print(quarterly_gdp_growth[0:3])
+```
+
+3. Add a projected growth rate of 3.3 and 3.6 the next two quarters at the end of the list
+
+``` python
+# method 1 using insert
+quarterly_gdp_growth.insert(len(quarterly_gdp_growth), 3.3)
+
+# method 2 using append
+quarterly_gdp_growth.append(3.6)
+
+print(quarterly_gdp_growth)
+```
 
 ## Loops
 
@@ -434,7 +467,14 @@ else:
 
 ## Learning Check #4
 
-Write a script that identifies the highest and lowest growth quarters! (5 mins)
+Write a script that identifies the highest and lowest growth quarters (5 mins)
+
+``` python
+# get the value of the highest and the lowest with max and min
+highest_growth = max(quarterly_gdp_growth)
+lowest_growth = min(quarterly_gdp_growth)
+
+```
 
 ## Even more data types
 

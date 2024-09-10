@@ -1,5 +1,5 @@
 ---
-title: "Dataframe with Pandas"
+title: "Introduction to Pandas and Seaborn"
 author: "Bella Ratmelia"
 format: revealjs
 ---

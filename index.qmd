@@ -14,20 +14,20 @@ This site serves as a repository for the slides and codes developed for the 'Mac
 *Slides will be progressively made available below.*
 
 ::: table-schedule
-| Session | Date and Time | Venue | Topic |
-|---------------|------------------|---------------|-------------------------|
-| 1 | Sat, 7 Sep 2024, 10 AM - 12 PM | YPHSL Seminar Room 3-12 | [Python basics](01-basics.html) |
-| 2 | Sat, 14 Sep 2024, 10 AM - 12 PM | SOSS/CIS Seminar Room 3-1 | Data wrangling with numpy |
-| 3 | Sat, 28 Sep 2024, 10 AM - 12 PM | SOSS/CIS Seminar Room 3-1 | Data wrangling and timeseries with Dataframe |
-| 4 | Sat, 5 Oct 2024, 10 AM - 12 PM | SOSS/CIS Seminar Room 3-1 | Putting it all together |
+| Date and Time | Venue | Topic & Slides | Quiz |
+|-----------------|-----------------|---------------------|-----------------|
+| Sat, 7 Sep 2024, 10 AM - 12 PM | YPHSL Seminar Room 3-12 | [Python basics](01-basics.html) | [Quiz 1 - Python basics](https://forms.gle/1QAdCiqtpPX6zGBn9){target="_blank"} |
+| Sat, 14 Sep 2024, 10 AM - 12 PM | SOSS/CIS Seminar Room 3-1 | Data wrangling with numpy |  |
+| Sat, 28 Sep 2024, 10 AM - 12 PM | SOSS/CIS Seminar Room 3-1 | Data wrangling and timeseries with Dataframe |  |
+| Sat, 5 Oct 2024, 10 AM - 12 PM | SOSS/CIS Seminar Room 3-1 | Retrieve data with APIs and putting it all together |  |
 :::
 
 <style type="text/css">
-    .table-schedule {width: 100%;}
-    .table-schedule th:nth-child(1), .table-schedule td:nth-child(1) { width: 8%; }
-    .table-schedule th:nth-child(2), .table-schedule td:nth-child(2) { width: 30%; }
-    .table-schedule th:nth-child(3), .table-schedule td:nth-child(3) { width: 25%; }
-    .table-schedule th:nth-child(4), .table-schedule td:nth-child(4) { width: 35%; }
+    .table-schedule table thead tr {width: 100%;}
+    .table-schedule table thead tr th:nth-child(1) { width: 22%; }
+    .table-schedule table thead tr th:nth-child(2) { width: 23%; }
+    .table-schedule table thead tr th:nth-child(3) { width: 30%; }
+    .table-schedule table thead tr th:nth-child(4) { width: 20%; }
 </style>
 
 ::: {.callout-note appearance="simple"}

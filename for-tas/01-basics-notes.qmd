@@ -192,11 +192,11 @@ quarterly_gdp_growth.append(3.2)  # Adding hypothetical  data
 print('GDP growth rates after adding 2024 Q3 prediction:', quarterly_gdp_growth)
 ```
 
-adding item at the start e.e. 2022 Q4 was 9.4
+adding item at the start e.g. 2022 Q4 was 9.4
 
 ``` python
 print('GDP growth rates initially:', quarterly_gdp_growth)
-quarterly_gdp_growth.insert(len(quarterly_gdp_growth), 9.4) 
+quarterly_gdp_growth.insert(0, 9.4) 
 print('GDP growth rates after adding 2022 Q4:', quarterly_gdp_growth)
 ```
 

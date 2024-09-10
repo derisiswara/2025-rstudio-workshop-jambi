@@ -1,95 +1,123 @@
 ---
-title: "Introduction to Numpy"
+title: "Introduction to Numpy & Matplotlib"
 subtitle: "Notes for instructors & TA"
 author: "Bella Ratmelia"
 format: html
 ---
 
-## Section 1: Packages, What's Numpy and Why Numpy
+## Section 1: Jupyter Notebook
 
-Importing necessary libraries
+-  Create .ipynb in VS Code 
+-  Difference between markdown cells and code cells
+-  Markdown (very briefly)
+
+## Section 2: Numpy arrays
+
+Installing Numpy (can run in the code cells)
+
+`pip install numpy`
+
+Importing numpy
+
+`import numpy as np`
+
+**Numpy creation and operations**
+
+np.arange creates evenly spaced values within a given interval:
 
 ``` python
-import numpy as np
-import matplotlib.pyplot as plt
-import numpy_financial as npf
-import csv
+range_array = np.arange(0, 10, 0.5)
+print("Range array:", range_array)
 ```
 
-Ensure plots are displayed inline in the notebook
+From list to array:
 
 ``` python
-%matplotlib inline
-```
-
-**Introduction to NumPy**
-
-NumPy is a powerful library for numerical computing in Python. It provides support for large, multi-dimensional arrays and matrices, along with a collection of mathematical functions to operate on these arrays. 
-
-**Creating a NumPy array**
-
-``` python
-np_array = np.array([1, 2, 3, 4, 5])
+list_array = np.array([1, 2, 3, 4, 5])
 print("NumPy array:", np_array)
 ```
 
-**Difference between NumPy arrays and lists**
-
-NumPy arrays are more efficient for numerical operations and have a fixed size, unlike Python lists which are dynamic but less efficient for numerical computations.
+Indexing and slicing
 
 ``` python
-python_list = [1, 2, 3, 4, 5]
-print("Python list:", python_list)
-print("NumPy array:", np_array)
-print("List type:", type(python_list))
-print("NumPy array type:", type(np_array))
+print("Original array:", range_array)
+print("First element:", range_array[0])
+print("Last element:", range_array[-1])
+print("Slicing (elements 3 to 7):", range_array[2:7])
+range_array[0] = 99
+print("Update value of first element:", range_array[0])
 ```
 
-NumPy allows for efficient element-wise operations on arrays.
+Copies vs Views
+
+-  Changes in original will be reflected in view and vice versa
+-  Changes in original will NOT be reflected in copy
 
 ``` python
-array1 = np.array([1, 2, 3])
-array2 = np.array([4, 5, 6])
-print("Array 1:", array1)
-print("Array 2:", array2)
-print("Sum of arrays:", array1 + array2)
-print("Product of arrays:", array1 * array2)
+# original array
+original = np.array([1, 2, 3, 4, 5])
+print("Original array:", original)
+
+# view of the original array
+view = original.view()
+print("View:", view)
+
+# copy of the original array
+copy = original.copy()
+print("Copy:", copy)
+
+# Modify the original array
+original[0] = 99
+print("\nAfter modifying the original array:")
+print("Original array:", original)
+print("View now:", view)  # reflects the changes
+print("Copy now:", copy)  # remains unchanged
+
+# Modify the view
+view[1] = 100
+print("\nAfter modifying the view:")
+print("Original array:", original)  # affected
+print("View now:", view)
+print("Copy now:", copy)  # remains unchanged
+
+# Modify the copy
+copy[2] = 200
+print("\nAfter modifying the copy:")
+print("Original array:", original)  # not affected
+print("View now:", view)  # not affected
+print("Copy now:", copy)
 ```
 
-**Array indexing and slicing**
-
-NumPy arrays can be indexed and sliced similarly to Python lists, but with more advanced capabilities.
+## Section 3: Two-dimensional arrays
 
 ``` python
-array = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-print("Original array:", array)
-print("First element:", array[0])
-print("Last element:", array[-1])
-print("Slicing (elements 3 to 7):", array[2:7])
+array_2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+print(array_2d)
+print("Shape of the array:", array_2d.shape)
+print("Size of the array:", array_2d.size)
 ```
 
-## Section 2: Two-dimensional arrays
-
+Indices in a 2D array:
 ``` python
-two_d_array = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
-print(two_d_array)
-print("Shape of the array:", two_d_array.shape)
-print("Size of the array:", two_d_array.size)
+array_2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+print(array_2d[0,0])
 ```
 
 Loading a CSV file to 2D array. 
 
-In this CSV, the rows represent different sectors and the columns represent the quarters starting from 2018. 
+In this CSV, the rows represent 7 different sectors and the columns represent the quarters from 2023 Q4, dating back all the way to 2019 Q1. 
 
 Each cell contains the GDP growth of that sector for that quarter, compared to previous year's quarters.
 
 ``` python
-gdp_data = np.loadtxt('sg-gdp.csv', delimiter=',')
+gdp_data = np.loadtxt('data/sg-gdp.csv', delimiter=',', dtype="float16")
+np.set_printoptions(suppress=True)
 
+print("GDP data")
+print(gdp_data)
 print("GDP data shape:", gdp_data.shape)
 ```
-
-Basic statistical operations
+1.  Find out the mean, standard deviation, max, and mean values.
 
 ``` python
 print("Mean of GDP data:", np.mean(gdp_data))
@@ -98,36 +126,41 @@ print("Maximum value in GDP data:", np.amax(gdp_data))
 print("Minimum value in GDP data:", np.amin(gdp_data))
 ```
 
-Operations along specific axis
+2.  Find the mean for each quarter (column-wise operation)
+3.  Find the mean for each sector (row-wise operation)
 
 ``` python
-NumPy functions can operate along specific axes of multi-dimensional arrays.
-print("Mean of each sector:", np.mean(gdp_data, axis=0))
-print("Mean of each quarter:", np.mean(gdp_data, axis=1))
+print("Mean of each quarter:", np.mean(gdp_data, axis=0))
+print("Mean of each sector:", np.mean(gdp_data, axis=1))
 ```
 
-np.arange creates evenly spaced values within a given interval.
+4.  Transpose the array
 
-``` python
-range_array = np.arange(0, 10, 0.5)
-print("Range array:", range_array)
-```
-
-np.transpose changes the shape of an array - rows become columns and vice versa
-
-``` python
+```python
 transposed_gdp = np.transpose(gdp_data)
 print("Transposed GDP data shape:", transposed_gdp.shape)
 ```
+5.  Retrieve all the negative values.
 
-Filtering with boolean arrays
-
-``` python
-high_gdp = gdp_data > 10  # Assuming 500 is a high GDP value
-print("Sectors with high GDP:\n", gdp_data[high_gdp])
+```python
+negative_growth = gdp_data < 0  
+print("Sectors with negative growth:\n", gdp_data[negative_growth])
 ```
 
-## Section 3: NumPy financial functions
+6.  Calculate the changes every quarter for Sector 1.
+
+The `gdp_data` is longitudinal, with each row representing observations for a specific sector over time. This makes growth and contraction trends meaningful to analyze. To calculate changes in the data using NumPy, we can use the numpy.diff() function, which computes the differences between successive values in an array.
+
+``` python
+sector1_array = gdp_data[0, :] # first row, all columns
+print("sector1_array:", sector1_array)
+
+sector1_changes = np.diff(sector1_array)
+print("\nsector1_changes:", sector1_changes)
+print("\nsector1_changes absolute change:", np.absolute(sector1_changes))
+```
+
+NumPy financial functions
 
 ``` python
 rate = 0.05
@@ -136,33 +169,38 @@ pmt = 1000
 print("Future value:", npf.fv(rate, nper, -pmt, 0))
 ```
 
-To put more examples here
+## Section 4: Visualizing Array contents (Matplotlib)
 
-## Section 4: Matplotlib
+Simple Lineplot
 
 ``` python
-plt.figure(figsize=(12, 6))
-
-# put viz code here
-
-plt.title('GDP Movement by Sector')
-plt.xlabel('Quarters')
-plt.ylabel('GDP')
+plt.plot(gdp_data)
+plt.xlabel('Values')
+plt.ylabel('Sectors')
+plt.title('Values Over Quarters')
 plt.legend()
-plt.xticks(rotation=45)
-plt.tight_layout()
+plt.grid()
 plt.show()
 ```
 
-Visualizing household earnings with a histogram
+Lineplot for each sector
 
 ``` python
-# Generating mock data for household earnings
-household_earnings = np.random.normal(5000, 1500, 1000)
-plt.figure(figsize=(10, 6))
-plt.hist(household_earnings, bins=30, edgecolor='black')
-plt.title('Distribution of Household Earnings')
-plt.xlabel('Earnings')
-plt.ylabel('Frequency')
+transposed = gdp_data.T
+for sector in range(7):
+    plt.plot(transposed[:, sector], label=f'Sector {sector + 1}')
+
+plt.legend()
+plt.grid()
+plt.show()
+```
+
+Boxplot
+
+``` python
+transposed = gdp_data.T
+
+plt.boxplot(transposed)
+plt.grid()
 plt.show()
 ```
