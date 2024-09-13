@@ -4,21 +4,21 @@
     "href": "index.html",
     "title": "SEIC x DSA Python for Macroeconomics Workshop 2024",
     "section": "",
-    "text": "This site serves as a repository for the slides and codes developed for the ‘Macroeconomics with Python Workshop’ for SEIC x DSA club members at SMU.\nInstructor: Bella Ratmelia, Research & Data Services, SMU Libraries"
+    "text": "This site serves as a repository for the slides and codes developed for the ‘Macroeconomics with Python Workshop’ for SEIC x DSA club members at SMU.\nInstructor: Bella Ratmelia, Research & Data Services, SMU Libraries\nTeaching Assistants:\n\nRein Alfri (SOE)\nAnya Dharsan (SCIS)\nSomesh Balamurugan (SOE)\nTay Mui Yen (SMU Libraries)\nTee Lip Hwee (SMU Libraries)"
   },
   {
     "objectID": "index.html#welcome",
     "href": "index.html#welcome",
     "title": "SEIC x DSA Python for Macroeconomics Workshop 2024",
     "section": "",
-    "text": "This site serves as a repository for the slides and codes developed for the ‘Macroeconomics with Python Workshop’ for SEIC x DSA club members at SMU.\nInstructor: Bella Ratmelia, Research & Data Services, SMU Libraries"
+    "text": "This site serves as a repository for the slides and codes developed for the ‘Macroeconomics with Python Workshop’ for SEIC x DSA club members at SMU.\nInstructor: Bella Ratmelia, Research & Data Services, SMU Libraries\nTeaching Assistants:\n\nRein Alfri (SOE)\nAnya Dharsan (SCIS)\nSomesh Balamurugan (SOE)\nTay Mui Yen (SMU Libraries)\nTee Lip Hwee (SMU Libraries)"
   },
   {
     "objectID": "index.html#schedule",
     "href": "index.html#schedule",
     "title": "SEIC x DSA Python for Macroeconomics Workshop 2024",
     "section": "Schedule",
-    "text": "Schedule\nSlides will be progressively made available below.\n\n\n\n\nDate and Time\nVenue\nTopic & Slides\nQuiz\n\n\n\n\nSat, 7 Sep 2024, 10 AM - 12 PM\nYPHSL Seminar Room 3-12\nPython basics\nQuiz 1 - Python basics\n\n\nSat, 14 Sep 2024, 10 AM - 12 PM\nSOSS/CIS Seminar Room 3-1\nData wrangling with numpy\n\n\n\nSat, 28 Sep 2024, 10 AM - 12 PM\nSOSS/CIS Seminar Room 3-1\nData wrangling and timeseries with Dataframe\n\n\n\nSat, 5 Oct 2024, 10 AM - 12 PM\nSOSS/CIS Seminar Room 3-1\nRetrieve data with APIs and putting it all together\n\n\n\n\n\n\n\n\n\n\n\n\nImportant - Please bring your laptop & charger to the workshop\n\n\n\nAs this is a hands-on workshop, please do bring your laptop. Tablets like Surface or iPad will not be sufficient as they could not run Visual Studio Code."
+    "text": "Schedule\nSlides will be progressively made available below.\n\n\n\n\nDate and Time\nVenue\nTopic & Slides\nQuiz\n\n\n\n\nSat, 7 Sep 2024, 10 AM - 12 PM\nYPHSL Seminar Room 3-12\nPython basics\nQuiz 1\n\n\nSat, 14 Sep 2024, 10 AM - 12 PM\nSOSS/CIS Seminar Room 3-1\nIntroduction to Numpy and Matplotlib\nQuiz 2\n\n\nSat, 28 Sep 2024, 10 AM - 12 PM\nSOSS/CIS Seminar Room 3-1\nData wrangling and timeseries with Dataframe\n\n\n\nSat, 5 Oct 2024, 10 AM - 12 PM\nSOSS/CIS Seminar Room 3-1\nRetrieve data with APIs and putting it all together\n\n\n\n\n\n\n\n\n\n\n\n\nImportant - Please bring your laptop & charger to the workshop\n\n\n\nAs this is a hands-on workshop, please do bring your laptop. Tablets like Surface or iPad will not be sufficient as they could not run Visual Studio Code."
   },
   {
     "objectID": "index.html#pre-workshop-activities",
@@ -26,6 +26,13 @@
     "title": "SEIC x DSA Python for Macroeconomics Workshop 2024",
     "section": "Pre-workshop activities",
     "text": "Pre-workshop activities\nThis workshop will use Visual Studio Code, or VS Code. It is a free, versatile code editor that supports many programming languages, including Python. It offers a user-friendly interface for writing and running Python code, and with the right extensions, it can also handle Jupyter notebooks!\nPlease install the following things in your laptop before the workshop:\n\nDownload and install the latest python3 for your machine (should be version 3.12 or thereabouts).\n\nIf you are on Windows, at the start of the installation, tick the “Add Python 3.12 to PATH”.\n\nDownload and install Visual Studio Code. Check out the setup instructions for Windows and macOS\nOnce you’ve installed Visual Studio code, start it up. Open the Extension tab on the left sidebar (Ctrl + Shift + X on Windows or Cmd + Shift + X on macOS) and install the Python and Jupyter extension. (The extension creator should be Microsoft)\n\n\n\nFill up the pre-workshop survey! Please fill this up before the beginning of session 1."
+  },
+  {
+    "objectID": "index.html#dataset",
+    "href": "index.html#dataset",
+    "title": "SEIC x DSA Python for Macroeconomics Workshop 2024",
+    "section": "Dataset",
+    "text": "Dataset\nFor this workshop, we will be using small dataset stored in a CSV file called sg-gdp.csv.\nClick here to open sg-gdp.csv, and then Ctrl + S / Cmd + S to save it locally into your data folder\n\n\n\n\n\n\nWhat is a CSV?\n\n\n\nA CSV (Comma-Separated Values) file is a type of file that stores data in a plain text format. Each line in the file represents a row of data, and within each row, individual pieces of data (like numbers or words) are separated by commas.\nThis format is commonly used for storing and transferring data, especially in spreadsheets and databases. Because it is literally just plain text, it is an ideal format if you have large amount of data.\nYou can open CSV files in Excel, Google Sheets, or even Notepad!"
   },
   {
     "objectID": "for-tas/03-pandas-notes.html",
@@ -129,8 +136,8 @@
     "objectID": "02-numpy.html#recap-from-yesterday",
     "href": "02-numpy.html#recap-from-yesterday",
     "title": "Introduction to Numpy & Matplotlib",
-    "section": "",
-    "text": "Introduction to Visual Studio\nIntroduction to Python\nHandling Lists\nHandling Loops and Conditionals"
+    "section": "Recap from yesterday",
+    "text": "Recap from yesterday\n\nIntroduction to Visual Studio\nIntroduction to Python\nHandling Lists\nHandling Loops and Conditionals"
   },
   {
     "objectID": "02-numpy.html#overview-for-today",
@@ -151,7 +158,7 @@
     "href": "02-numpy.html#whats-numpy",
     "title": "Introduction to Numpy & Matplotlib",
     "section": "What’s Numpy?",
-    "text": "What’s Numpy?\nNumPy is the fundamental package for scientific computing in Python.\nIt is a Python library that provides a multidimensional array object, various derived objects (such as masked arrays and matrices), and an assortment of routines for fast operations on arrays, including mathematical, logical, shape manipulation, sorting, selecting, I/O, discrete Fourier transforms, basic linear algebra, basic statistical operations, random simulation and much more.1\n\nFaster and more memory-efficient than Python lists\nOptimized for large-scale numerical operations (better than list)"
+    "text": "What’s Numpy?\nNumPy is the fundamental package for scientific computing in Python.\nIt is a Python library that provides a multidimensional array object, various derived objects (such as masked arrays and matrices), and an assortment of routines for fast operations on arrays, including mathematical, logical, shape manipulation, sorting, selecting, I/O, discrete Fourier transforms, basic linear algebra, basic statistical operations, random simulation and much more.1\n\nFaster and more memory-efficient than Python lists\nOptimized for large-scale numerical operations (better than list)\n\nhttps://numpy.org/doc/stable/user/whatisnumpy.html"
   },
   {
     "objectID": "02-numpy.html#whats-a-python-library",
@@ -172,7 +179,7 @@
     "href": "02-numpy.html#numpy-vs-lists-performance-comparison",
     "title": "Introduction to Numpy & Matplotlib",
     "section": "Numpy vs Lists: Performance comparison",
-    "text": "Numpy vs Lists: Performance comparison\nImagine we have a million numbers to square. We’ll store them in both a list and an array, then compare their processing speeds.\n\n# Creating large datasets\nlist_data = list(range(1000000))\nnumpy_data = np.arange(1000000)\n\n# Comparing operation speed\nstart = time.time()\nlist_result = [x**2 for x in list_data]\nlist_time = time.time() - start\n\nstart = time.time()\nnumpy_result = numpy_data**2\nnumpy_time = time.time() - start\n\nprint(f\"List took {list_time:.4f} seconds to finish the operation.\")\nprint(f\"NumPy took {numpy_time:.4f} seconds to finish the operation.\")\n\nList took 0.1455 seconds to finish the operation.\nNumPy took 0.0026 seconds to finish the operation."
+    "text": "Numpy vs Lists: Performance comparison\nImagine we have a million numbers to square. We’ll store them in both a list and an array, then compare their processing speeds.\n\n# Creating large datasets\nlist_data = list(range(1000000))\nnumpy_data = np.arange(1000000)\n\n# Comparing operation speed\nstart = time.time()\nlist_result = [x**2 for x in list_data]\nlist_time = time.time() - start\n\nstart = time.time()\nnumpy_result = numpy_data**2\nnumpy_time = time.time() - start\n\nprint(f\"List took {list_time:.4f} seconds to finish the operation.\")\nprint(f\"NumPy took {numpy_time:.4f} seconds to finish the operation.\")\n\nList took 0.2715 seconds to finish the operation.\nNumPy took 0.0083 seconds to finish the operation."
   },
   {
     "objectID": "02-numpy.html#numpy-vs-lists-sum-and-products",
@@ -214,7 +221,7 @@
     "href": "02-numpy.html#loading-from-a-csv-into-a-2d-array",
     "title": "Introduction to Numpy & Matplotlib",
     "section": "Loading from a CSV into a 2D array",
-    "text": "Loading from a CSV into a 2D array\nLet’s load our data sg-gdp.csv into a 2D array!\nIn this CSV:\n\nThe rows represent 7 different sectors\nThe columns represent the quarters from 2023 Q4, dating back all the way to 2019 Q1.\nEach cell contains the GDP growth of that sector for that quarter, compared to previous year’s quarters.\n\n\ngdp_data = np.loadtxt('data/sg-gdp.csv', delimiter=',', dtype=\"float16\")\nnp.set_printoptions(suppress=True)\n\nprint(\"GDP data\")\nprint(gdp_data)\nprint(\"GDP data shape:\", gdp_data.shape)\n\nGDP data\n[[  2.6  -2.8  -5.8  -2.    9.4  17.5  24.5  20.9  22.9  23.1  31.6   7.7\n   -2.8  -7.4 -14.4  -0.4  -1.8   0.3   2.1   4.3]\n [ -2.   -7.6 -12.7  -7.2   7.1   9.6  20.9  24.1  27.7  29.8  43.3   8.3\n   -6.5  -9.5 -19.3  -2.1 -16.2  -6.3  -0.1   8. ]\n [ -5.5 -12.3 -18.2 -11.9   4.2   7.6  21.9  25.3  27.   25.4  37.7  11.4\n   -3.2  -2.7 -12.6  -1.2 -19.3  -7.9  -0.5   9.3]\n [ 11.6  11.3  15.5  15.6  17.6  17.7  12.6  16.   45.1 106.3 174.   -6.1\n  -29.2 -52.9 -66.1 -10.1  -1.8   0.2   3.    3.4]\n [ 12.9  25.   27.3  21.6  28.4  27.6  22.8  24.7   3.9   0.3  -1.3  -1.1\n   10.1  -1.2   5.3  10.1  -0.5   3.3  -2.5   1.3]\n [  7.4   9.7   4.4   7.6   2.7   1.5   0.7   1.9   8.   11.   34.3   4.8\n    5.4  -7.1 -15.5  -1.5   4.7  10.5   5.3  11.8]\n [  3.   -2.7  -4.7  -1.5  10.9  21.7  27.9  21.9  22.8  21.6  25.7   7.3\n   -2.2  -6.8 -10.8   0.3   3.4   2.5   3.6   3.9]]\nGDP data shape: (7, 20)\n\n\nRemember, the shape will be printed as (row, column)."
+    "text": "Loading from a CSV into a 2D array\nLet’s load our data sg-gdp.csv into a 2D array!\nIn this CSV:\n\nThe rows represent 7 different sectors\nThe columns represent the quarters from 2023 Q4, dating back all the way to 2019 Q1.\nEach cell contains the GDP growth of that sector for that quarter, compared to previous year’s quarters.\n\n\ngdp_data = np.loadtxt('data/sg-gdp.csv', delimiter=',', dtype=\"float16\")\nnp.set_printoptions(suppress=True)\n\nprint(\"GDP data\")\nprint(gdp_data)\nprint(\"GDP data shape:\", gdp_data.shape)\n\n\nRemember, the shape will be printed as (row, column)."
   },
   {
     "objectID": "02-numpy.html#loading-from-a-csv-into-a-2d-array-output",
@@ -228,7 +235,7 @@
     "href": "02-numpy.html#d-array-operations",
     "title": "Introduction to Numpy & Matplotlib",
     "section": "2D array operations",
-    "text": "2D array operations\nLet’s see if we can complete the following tasks:\n\nFind out the mean, standard deviation, max, and mean values.\nFind the mean for each quarter (column-wise operation)\nFind the mean for each sector (row-wise operation)\nTranspose the array\nRetrieve all the negative values.\nCalculate the changes every quarter for Sector 1."
+    "text": "2D array operations\nLet’s see if we can complete the following tasks:\n\nFind out the mean, standard deviation, max, and min values.\nFind the mean for each quarter (column-wise operation)\nFind the mean for each sector (row-wise operation)\nTranspose the array\nRetrieve all the negative values.\nCalculate the changes every quarter for Sector 1."
   },
   {
     "objectID": "02-numpy.html#axis-operations",
@@ -249,7 +256,7 @@
     "href": "02-numpy.html#learning-check-2",
     "title": "Introduction to Numpy & Matplotlib",
     "section": "Learning Check #2",
-    "text": "Learning Check #2\nThe gdp_data is longitudinal, with each row representing observations for a specific sector over time. This makes growth and contraction trends meaningful to analyze. To calculate changes in the data using NumPy, we can use the numpy.diff() function, which computes the differences between successive values in an array.\n\nCalculate the changes for each quarter for all sector. Save this into an array called sector_changes.\nAfterwards, find the largest changes in sector_changes.\n\n\n\nCode\nsector_changes = np.diff(gdp_data)\nprint(\"sector_changes:\", sector_changes)\nprint(\"\\nsector_changes shape:\", sector_changes.shape)\n\nprint(\"\\nLargest change:\", np.amax(sector_changes))\n\n\nsector_changes: [[  -5.4       -3.         3.8       11.4        8.1        7.\n    -3.594      2.         0.1875     8.5      -23.89     -10.5\n    -4.598     -7.        14.        -1.4        2.1        1.8\n     2.201  ]\n [  -5.6       -5.1        5.504     14.3        2.5       11.305\n     3.188      3.61       2.094     13.516    -35.       -14.8\n    -3.        -9.8       17.2      -14.1        9.91       6.2\n     8.1    ]\n [  -6.797     -5.906      6.305     16.1        3.402     14.305\n     3.39       1.703     -1.594     12.28     -26.28     -14.59\n     0.5       -9.91      11.4      -18.1       11.4        7.4\n     9.8    ]\n [  -0.3047     4.203      0.10156    1.992      0.1094    -5.1\n     3.398     29.1       61.22      67.7     -180.1      -23.1\n   -23.7      -13.22      56.03       8.305      2.         2.8\n     0.4004 ]\n [  12.1        2.297     -5.703      6.812     -0.8125    -4.797\n     1.906    -20.8       -3.6       -1.6        0.2002    11.2\n   -11.305      6.5        4.8      -10.6        3.8       -5.8\n     3.8    ]\n [   2.305     -5.305      3.203     -4.902     -1.199     -0.8\n     1.2        6.1        3.        23.31     -29.52       0.5977\n   -12.5       -8.4       14.         6.2        5.8       -5.2\n     6.496  ]\n [  -5.7       -2.         3.2       12.4       10.805      6.203\n    -6.         0.8906    -1.203      4.11     -18.4       -9.5\n    -4.6       -3.996     11.09       3.1       -0.9004     1.1\n     0.3008 ]]\n\nsector_changes shape: (7, 19)\n\nLargest change: 67.7"
+    "text": "Learning Check #2\nThe gdp_data is longitudinal, with each row representing observations for a specific sector over time. This makes growth and contraction trends meaningful to analyze. To calculate changes in the data using NumPy, we can use the numpy.diff() function, which computes the differences between successive values in an array.\n\nCalculate the changes for each quarter for all sector. Save this into an array called sector_changes.\nAfterwards, find the largest changes in sector_changes.\n\n\n\nCode\nsector_changes = np.diff(gdp_data)\nprint(\"sector_changes:\", sector_changes)\nprint(\"\\nsector_changes shape:\", sector_changes.shape)\n\nprint(\"\\nLargest change:\", np.amax(sector_changes))"
   },
   {
     "objectID": "02-numpy.html#learning-check-2-output",
@@ -571,7 +578,7 @@
     "href": "for-tas/02-numpy-notes.html#section-3-two-dimensional-arrays",
     "title": "Introduction to Numpy & Matplotlib",
     "section": "Section 3: Two-dimensional arrays",
-    "text": "Section 3: Two-dimensional arrays\narray_2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\nprint(array_2d)\nprint(\"Shape of the array:\", array_2d.shape)\nprint(\"Size of the array:\", array_2d.size)\nIndices in a 2D array:\narray_2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\nprint(array_2d[0,0])\nLoading a CSV file to 2D array.\nIn this CSV, the rows represent 7 different sectors and the columns represent the quarters from 2023 Q4, dating back all the way to 2019 Q1.\nEach cell contains the GDP growth of that sector for that quarter, compared to previous year’s quarters.\ngdp_data = np.loadtxt('data/sg-gdp.csv', delimiter=',', dtype=\"float16\")\nnp.set_printoptions(suppress=True)\n\nprint(\"GDP data\")\nprint(gdp_data)\nprint(\"GDP data shape:\", gdp_data.shape)\n\nFind out the mean, standard deviation, max, and mean values.\n\nprint(\"Mean of GDP data:\", np.mean(gdp_data))\nprint(\"Standard deviation of GDP data:\", np.std(gdp_data))\nprint(\"Maximum value in GDP data:\", np.amax(gdp_data))\nprint(\"Minimum value in GDP data:\", np.amin(gdp_data))\n\nFind the mean for each quarter (column-wise operation)\nFind the mean for each sector (row-wise operation)\n\nprint(\"Mean of each quarter:\", np.mean(gdp_data, axis=0))\nprint(\"Mean of each sector:\", np.mean(gdp_data, axis=1))\n\nTranspose the array\n\ntransposed_gdp = np.transpose(gdp_data)\nprint(\"Transposed GDP data shape:\", transposed_gdp.shape)\n\nRetrieve all the negative values.\n\nnegative_growth = gdp_data &lt; 0  \nprint(\"Sectors with negative growth:\\n\", gdp_data[negative_growth])\n\nCalculate the changes every quarter for Sector 1.\n\nThe gdp_data is longitudinal, with each row representing observations for a specific sector over time. This makes growth and contraction trends meaningful to analyze. To calculate changes in the data using NumPy, we can use the numpy.diff() function, which computes the differences between successive values in an array.\nsector1_array = gdp_data[0, :] # first row, all columns\nprint(\"sector1_array:\", sector1_array)\n\nsector1_changes = np.diff(sector1_array)\nprint(\"\\nsector1_changes:\", sector1_changes)\nprint(\"\\nsector1_changes absolute change:\", np.absolute(sector1_changes))\nNumPy financial functions\nrate = 0.05\nnper = 10\npmt = 1000\nprint(\"Future value:\", npf.fv(rate, nper, -pmt, 0))"
+    "text": "Section 3: Two-dimensional arrays\narray_2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\nprint(array_2d)\nprint(\"Shape of the array:\", array_2d.shape)\nprint(\"Size of the array:\", array_2d.size)\nIndices in a 2D array:\narray_2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\nprint(array_2d[0,0])\nLoading a CSV file to 2D array.\nIn this CSV, the rows represent 7 different sectors and the columns represent the quarters from 2023 Q4, dating back all the way to 2019 Q1.\nEach cell contains the GDP growth of that sector for that quarter, compared to previous year’s quarters.\ngdp_data = np.loadtxt('data/sg-gdp.csv', delimiter=',', dtype=\"float16\")\nnp.set_printoptions(suppress=True)\n\nprint(\"GDP data\")\nprint(gdp_data)\nprint(\"GDP data shape:\", gdp_data.shape)\n\nFind out the mean, standard deviation, max, and mean values.\n\nprint(\"Mean of GDP data:\", np.mean(gdp_data))\nprint(\"Standard deviation of GDP data:\", np.std(gdp_data))\nprint(\"Maximum value in GDP data:\", np.amax(gdp_data))\nprint(\"Minimum value in GDP data:\", np.amin(gdp_data))\n\nFind the mean for each quarter (column-wise operation)\nFind the mean for each sector (row-wise operation)\n\nprint(\"Mean of each quarter:\", np.mean(gdp_data, axis=0))\nprint(\"Mean of each sector:\", np.mean(gdp_data, axis=1))\n\nTranspose the array\n\ntransposed_gdp = np.transpose(gdp_data)\nprint(\"Transposed GDP data shape:\", transposed_gdp.shape)\n\nRetrieve all the negative values.\n\nnegative_growth = gdp_data &lt; 0  \nprint(\"Sectors with negative growth:\\n\", gdp_data[negative_growth])\n\nCalculate the changes every quarter for Sector 1.\n\nThe gdp_data is longitudinal, with each row representing observations for a specific sector over time. This makes growth and contraction trends meaningful to analyze. To calculate changes in the data using NumPy, we can use the numpy.diff() function, which computes the differences between successive values in an array.\nsector1_array = gdp_data[0, :] # first row, all columns\nprint(\"sector1_array:\", sector1_array)\n\nsector1_changes = np.diff(sector1_array)\nprint(\"\\nsector1_changes:\", sector1_changes)\nprint(\"\\nsector1_changes absolute change:\", np.absolute(sector1_changes))\nNumPy financial functions\nCalculate the future value of $1000 invested for 3 years at a 5.0% average annual rate of return.\nnp.fv(rate=0.05, nper=3, pmt=0, pv=-1000)\nBy convention, the negative sign represents cash flow out (i.e. money not available today).\nExample 2:\nYou have a loan of 10,000 SGD at 9% annual interest. How long would it take to pay-off the load if your monthly payment is at 750?\nnp.round(npf.nper(0.09/12, -750, 10000), 5)\n# divided by 12, because the interest is annual but the payment is monthly"
   },
   {
     "objectID": "for-tas/02-numpy-notes.html#section-4-visualizing-array-contents-matplotlib",
@@ -579,26 +586,5 @@
     "title": "Introduction to Numpy & Matplotlib",
     "section": "Section 4: Visualizing Array contents (Matplotlib)",
     "text": "Section 4: Visualizing Array contents (Matplotlib)\nSimple Lineplot\nplt.plot(gdp_data)\nplt.xlabel('Values')\nplt.ylabel('Sectors')\nplt.title('Values Over Quarters')\nplt.legend()\nplt.grid()\nplt.show()\nLineplot for each sector\ntransposed = gdp_data.T\nfor sector in range(7):\n    plt.plot(transposed[:, sector], label=f'Sector {sector + 1}')\n\nplt.legend()\nplt.grid()\nplt.show()\nBoxplot\ntransposed = gdp_data.T\n\nplt.boxplot(transposed)\nplt.grid()\nplt.show()"
-  },
-  {
-    "objectID": "index.html#dataset",
-    "href": "index.html#dataset",
-    "title": "SEIC x DSA Python for Macroeconomics Workshop 2024",
-    "section": "Dataset",
-    "text": "Dataset\nFor this workshop, we will be using small dataset stored in a CSV file called sg-gdp.csv.\nClick here to open sg-gdp.csv, and then Ctrl + S / Cmd + S to save it locally into your data folder\n\n\n\n\n\n\nWhat is a CSV?\n\n\n\nA CSV (Comma-Separated Values) file is a type of file that stores data in a plain text format. Each line in the file represents a row of data, and within each row, individual pieces of data (like numbers or words) are separated by commas.\nThis format is commonly used for storing and transferring data, especially in spreadsheets and databases. Because it is literally just plain text, it is an ideal format if you have large amount of data.\nYou can open CSV files in Excel, Google Sheets, or even Notepad!"
-  },
-  {
-    "objectID": "02-numpy.html",
-    "href": "02-numpy.html",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "",
-    "text": "Introduction to Visual Studio\nIntroduction to Python\nHandling Lists\nHandling Loops and Conditionals"
-  },
-  {
-    "objectID": "02-numpy.html#footnotes",
-    "href": "02-numpy.html#footnotes",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nhttps://numpy.org/doc/stable/user/whatisnumpy.html↩︎"
   }
 ]

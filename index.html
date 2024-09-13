@@ -149,6 +149,14 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="welcome">Welcome!</h2>
 <p>This site serves as a repository for the slides and codes developed for the ‘Macroeconomics with Python Workshop’ for SEIC x DSA club members at <a href="https://www.smu.edu.sg/">SMU</a>.</p>
 <p><strong>Instructor</strong>: Bella Ratmelia, Research &amp; Data Services, SMU Libraries</p>
+<p><strong>Teaching Assistants</strong>:</p>
+<ul>
+<li>Rein Alfri (SOE)</li>
+<li>Anya Dharsan (SCIS)</li>
+<li>Somesh Balamurugan (SOE)</li>
+<li>Tay Mui Yen (SMU Libraries)</li>
+<li>Tee Lip Hwee (SMU Libraries)</li>
+</ul>
 </section>
 <section id="schedule" class="level2">
 <h2 class="anchored" data-anchor-id="schedule">Schedule</h2>
@@ -168,13 +176,13 @@ ul.task-list li input[type="checkbox"] {
 <td>Sat, 7 Sep 2024, 10 AM - 12 PM</td>
 <td>YPHSL Seminar Room 3-12</td>
 <td><a href="01-basics.html">Python basics</a></td>
-<td><a href="https://forms.gle/1QAdCiqtpPX6zGBn9" target="_blank">Quiz 1 - Python basics</a></td>
+<td><a href="https://forms.gle/1QAdCiqtpPX6zGBn9" target="_blank">Quiz 1</a></td>
 </tr>
 <tr class="even">
 <td>Sat, 14 Sep 2024, 10 AM - 12 PM</td>
 <td>SOSS/CIS Seminar Room 3-1</td>
-<td>Data wrangling with numpy</td>
-<td></td>
+<td><a href="02-numpy.html">Introduction to Numpy and Matplotlib</a></td>
+<td><a href="https://forms.gle/AEXQi2hScPRTPtFh8" target="_blank">Quiz 2</a></td>
 </tr>
 <tr class="odd">
 <td>Sat, 28 Sep 2024, 10 AM - 12 PM</td>
@@ -345,7 +353,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/bellaratmelia\.github\.io\/2024-python-macroecons\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
