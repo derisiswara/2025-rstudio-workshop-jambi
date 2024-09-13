@@ -119,6 +119,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome">Welcome!</a></li>
   <li><a href="#schedule" id="toc-schedule" class="nav-link" data-scroll-target="#schedule">Schedule</a></li>
   <li><a href="#pre-workshop-activities" id="toc-pre-workshop-activities" class="nav-link" data-scroll-target="#pre-workshop-activities">Pre-workshop activities</a></li>
+  <li><a href="#dataset" id="toc-dataset" class="nav-link" data-scroll-target="#dataset">Dataset</a></li>
   </ul>
 </nav>
     </div>
@@ -227,6 +228,26 @@ Important - Please bring your laptop &amp; charger to the workshop
 <ol start="4" type="1">
 <li>Fill up the <a href="https://smusg.asia.qualtrics.com/jfe/form/SV_1Nx06jl6oFCnNNY"><strong>pre-workshop survey</strong></a>! Please fill this up before the beginning of session 1.</li>
 </ol>
+</section>
+<section id="dataset" class="level2">
+<h2 class="anchored" data-anchor-id="dataset">Dataset</h2>
+<p>For this workshop, we will be using small dataset stored in a CSV file called <code>sg-gdp.csv</code>.</p>
+<a href="https://raw.githubusercontent.com/bellaratmelia/2024-python-macroecons/main/data/sg-gdp.csv" type="button" class="btn btn-success">Click here to open sg-gdp.csv, and then Ctrl + S / Cmd + S to save it locally into your data folder</a>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What is a CSV?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A CSV (Comma-Separated Values) file is a type of file that stores data in a plain text format. Each line in the file represents a row of data, and within each row, individual pieces of data (like numbers or words) are separated by commas.</p>
+<p>This format is commonly used for storing and transferring data, especially in spreadsheets and databases. Because it is literally just plain text, it is an ideal format if you have large amount of data.</p>
+<p>You can open CSV files in Excel, Google Sheets, or even Notepad!</p>
+</div>
+</div>
 
 
 </section>
@@ -324,7 +345,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/bellaratmelia\.github\.io\/2024-python-macroecons\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
