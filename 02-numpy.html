@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="site_libs/cookie-consent/cookie-consent.js"></script>
-<link href="site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-html/tabby.min.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -100,31 +98,13 @@
   <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto.css">
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-Y8S6TK2GEH"></script>
 
-  <script type="text/plain" cookie-consent="tracking">
+  <script type="text/javascript">
 
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-Y8S6TK2GEH', { 'anonymize_ip': true});
   </script>
-  
-  <script type="text/javascript" charset="UTF-8">
-  document.addEventListener('DOMContentLoaded', function () {
-  cookieconsent.run({
-    "notice_banner_type":"simple",
-    "consent_type":"express",
-    "palette":"light",
-    "language":"en",
-    "page_load_consent_levels":["strictly-necessary"],
-    "notice_banner_reject_button_hide":false,
-    "preferences_center_close_button_hide":false,
-    "website_name":""
-    ,
-  "language":"en"
-    });
-  });
-  </script> 
-    
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -514,7 +494,7 @@ Bella Ratmelia
 <li>After it is installed, we have to import them to “activate” it in our notebook so that we can use it!</li>
 <li>Note: some libraries are part of the Python Standard Library, meaning they are already installed and ready to be imported straight away! For example, <code>time</code> library.</li>
 </ul>
-<div id="bf5fcd0c" class="cell" data-execution_count="1">
+<div id="6d309584" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np <span class="co"># giving numpy a shorter "nickname"</span></span>
 <span id="cb2-2"><a></a><span class="im">import</span> time</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -547,7 +527,7 @@ Bella Ratmelia
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Lists</p>
-<div id="ffa354a1" class="cell" data-execution_count="2">
+<div id="fcbbda57" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a>list_data <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1000000</span>))</span>
 <span id="cb4-2"><a></a></span>
 <span id="cb4-3"><a></a>start <span class="op">=</span> time.time()</span>
@@ -556,12 +536,12 @@ Bella Ratmelia
 <span id="cb4-6"><a></a></span>
 <span id="cb4-7"><a></a><span class="bu">print</span>(<span class="ss">f"List took </span><span class="sc">{</span>list_time<span class="sc">:.4f}</span><span class="ss"> seconds to finish the operation."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>List took 0.0996 seconds to finish the operation.</code></pre>
+<pre><code>List took 0.0900 seconds to finish the operation.</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
 <p>Numpy Arrays</p>
-<div id="48ec1fbe" class="cell" data-execution_count="3">
+<div id="508e0c1d" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a>numpy_data <span class="op">=</span> np.arange(<span class="dv">1000000</span>)</span>
 <span id="cb6-2"><a></a></span>
 <span id="cb6-3"><a></a>start <span class="op">=</span> time.time()</span>
@@ -584,7 +564,7 @@ Bella Ratmelia
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Lists</p>
-<div id="9b2cd834" class="cell" data-execution_count="4">
+<div id="06388b4a" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a>list_1 <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
 <span id="cb8-2"><a></a>list_2 <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>]</span>
 <span id="cb8-3"><a></a></span>
@@ -596,7 +576,7 @@ Bella Ratmelia
 </div>
 </div><div class="column" style="width:50%;">
 <p>Numpy Arrays</p>
-<div id="96693b32" class="cell" data-execution_count="5">
+<div id="2e34dd32" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a>array_1 <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
 <span id="cb10-2"><a></a>array_2 <span class="op">=</span> np.array([<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>])</span>
 <span id="cb10-3"><a></a></span>
@@ -613,7 +593,7 @@ Product: [ 10  40  90 160 250]</code></pre>
 <h2>Numpy creation and operations</h2>
 <p>we can use <code>np.arange()</code> to create an array from scratch. We can also create an array from a list using <code>np.array()</code></p>
 <p><code>np.arange</code> creates evenly spaced values within a given interval:</p>
-<div id="1da92bf4" class="cell" data-execution_count="6">
+<div id="e813f3fd" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>range_array <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">10</span>, <span class="fl">0.5</span>)</span>
 <span id="cb12-2"><a></a><span class="bu">print</span>(<span class="st">"Range array:"</span>, range_array)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -622,7 +602,7 @@ Product: [ 10  40  90 160 250]</code></pre>
 </div>
 </div>
 <p><code>np.array</code> will transform a list (denoted in square brackets) to array:</p>
-<div id="6adc879c" class="cell" data-execution_count="7">
+<div id="d44a41e4" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a>list_array <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
 <span id="cb14-2"><a></a><span class="bu">print</span>(<span class="st">"NumPy array:"</span>, list_array)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -644,7 +624,7 @@ Product: [ 10  40  90 160 250]</code></pre>
 <section id="indexing-and-slicing" class="slide level2">
 <h2>Indexing and Slicing</h2>
 <p>for indexing and slicing, it’s pretty much the same as list!</p>
-<div id="ff5d3fd2" class="cell" data-execution_count="8">
+<div id="de6ccd02" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a><span class="bu">print</span>(<span class="st">"Original array:"</span>, range_array)</span>
 <span id="cb16-2"><a></a><span class="bu">print</span>(<span class="st">"First element:"</span>, range_array[<span class="dv">0</span>])</span>
 <span id="cb16-3"><a></a><span class="bu">print</span>(<span class="st">"Last element:"</span>, range_array[<span class="op">-</span><span class="dv">1</span>])</span>
@@ -667,7 +647,7 @@ Sorting array: [ 0.5  1.   1.5  2.   2.5  3.   3.5  4.   4.5  5.   5.5  6.   6.5
 <section id="copy-vs-views" class="slide level2">
 <h2>Copy vs Views</h2>
 <p>Let’s create 3 arrays:</p>
-<div id="b81474ba" class="cell columns column-output-location" data-execution_count="9">
+<div id="4c222b4d" class="cell columns column-output-location" data-execution_count="9">
 <div class="column">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a></a>original <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
 <span id="cb18-2"><a></a><span class="bu">print</span>(<span class="st">"Original array:"</span>, original)</span>
@@ -691,7 +671,7 @@ Copy: [1 2 3 4 5]</code></pre>
 <li>Changes in original will be reflected in View and vice versa</li>
 <li>Changes in original will NOT be reflected in copy</li>
 </ul>
-<div id="e60765f8" class="cell columns column-output-location" data-execution_count="10">
+<div id="9db15b96" class="cell columns column-output-location" data-execution_count="10">
 <div class="column">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a>original[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">99</span></span>
 <span id="cb20-2"><a></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">After modifying the original array:"</span>)</span>
@@ -735,7 +715,7 @@ Copy now: [  1   2 200   4   5]</code></pre>
 <section id="learning-check-1" class="slide level2">
 <h2>Learning Check #1</h2>
 <p>Create two arrays called <code>odd_numbers</code> and <code>even_numbers</code> that only contains odd numbers and even numbers from 1 to 20 respectively.</p>
-<div id="04b60529" class="cell" data-execution_count="11">
+<div id="44134f7c" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a>odd_numbers <span class="op">=</span> np.arange(<span class="dv">1</span>, <span class="dv">21</span>, <span class="dv">2</span>)</span>
@@ -756,7 +736,7 @@ Even numbers: [ 0  2  4  6  8 10 12 14 16 18 20]</code></pre>
 </section>
 <section id="array-can-contain-columns-and-rows-too" class="slide level2">
 <h2>Array can contain columns and rows too!</h2>
-<div id="f74fcd63" class="cell" data-execution_count="12">
+<div id="40d65361" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a></a>array_2d <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>], [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]])</span>
 <span id="cb24-2"><a></a><span class="bu">print</span>(array_2d)</span>
 <span id="cb24-3"><a></a><span class="bu">print</span>(<span class="st">"Shape of the array:"</span>, array_2d.shape)</span>
@@ -787,7 +767,7 @@ Size of the array: 9</code></pre>
 <li>The columns represent the quarters from 2023 Q4, dating back all the way to 2019 Q1.</li>
 <li>Each cell contains the GDP growth of that sector for that quarter, compared to previous year’s quarters.</li>
 </ul>
-<div id="9b016a2a" class="cell" data-execution_count="13">
+<div id="c19d05a4" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a></a>gdp_data <span class="op">=</span> np.loadtxt(<span class="st">'data/sg-gdp.csv'</span>, delimiter<span class="op">=</span><span class="st">','</span>, dtype<span class="op">=</span><span class="st">"float16"</span>)</span>
 <span id="cb26-2"><a></a>np.set_printoptions(suppress<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb26-3"><a></a></span>
@@ -831,7 +811,7 @@ GDP data shape: (7, 20)</code></pre>
 </section>
 <section id="task-1-find-out-the-mean-standard-deviation-max-and-mean-values." class="slide level2">
 <h2>Task 1: Find out the mean, standard deviation, max, and mean values.</h2>
-<div id="ac403d3e" class="cell" data-execution_count="14">
+<div id="c98a3646" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a></a><span class="bu">print</span>(<span class="st">"Mean of GDP data:"</span>, np.mean(gdp_data))</span>
 <span id="cb28-2"><a></a><span class="bu">print</span>(<span class="st">"Standard deviation of GDP data:"</span>, np.std(gdp_data))</span>
 <span id="cb28-3"><a></a><span class="bu">print</span>(<span class="st">"Maximum value in GDP data:"</span>, np.amax(gdp_data))</span>
@@ -850,7 +830,7 @@ Minimum value in GDP data: -66.1</code></pre>
 <img data-src="images/axes_operations.png" class="r-stretch"></section>
 <section id="task-2-3-find-the-mean-for-each-quarter-and-each-sector" class="slide level2">
 <h2>Task 2 &amp; 3: Find the mean for each quarter and each sector</h2>
-<div id="5c022e7d" class="cell" data-execution_count="15">
+<div id="43c62c38" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a></a><span class="bu">print</span>(<span class="st">"Mean of each quarter:"</span>, np.mean(gdp_data, axis<span class="op">=</span><span class="dv">0</span>))</span>
 <span id="cb30-2"><a></a><span class="bu">print</span>(<span class="st">"Mean of each sector:"</span>, np.mean(gdp_data, axis<span class="op">=</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -863,7 +843,7 @@ Mean of each sector: [ 6.477  4.465  3.725 14.18  10.9    5.38   7.39 ]</code></
 </section>
 <section id="task-4-transpose-the-array" class="slide level2">
 <h2>Task 4: Transpose the array</h2>
-<div id="356f868a" class="cell" data-execution_count="16">
+<div id="283bf641" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a></a>transposed_gdp <span class="op">=</span> np.transpose(gdp_data)</span>
 <span id="cb32-2"><a></a><span class="bu">print</span>(<span class="st">"Transposed GDP data shape:"</span>, transposed_gdp.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -871,7 +851,7 @@ Mean of each sector: [ 6.477  4.465  3.725 14.18  10.9    5.38   7.39 ]</code></
 </div>
 </div>
 <p>Alternatively, you can also do it this way:</p>
-<div id="2716e2d5" class="cell" data-execution_count="17">
+<div id="9cf7e57c" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a></a>transposed <span class="op">=</span> gdp_data.T</span>
 <span id="cb34-2"><a></a><span class="bu">print</span>(transposed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -900,7 +880,7 @@ Mean of each sector: [ 6.477  4.465  3.725 14.18  10.9    5.38   7.39 ]</code></
 </section>
 <section id="task-5-retrieve-all-the-negative-values." class="slide level2">
 <h2>Task 5: Retrieve all the negative values.</h2>
-<div id="52acdf47" class="cell" data-execution_count="18">
+<div id="b8f2f96b" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a></a>negative_growth <span class="op">=</span> gdp_data <span class="op">&lt;</span> <span class="dv">0</span>  </span>
 <span id="cb36-2"><a></a><span class="bu">print</span>(<span class="st">"negative growth array:"</span>, negative_growth)</span>
 <span id="cb36-3"><a></a><span class="bu">print</span>(<span class="st">"use the above array to retrieve items whose position is TRUE:</span><span class="ch">\n</span><span class="st">"</span>, gdp_data[negative_growth])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -931,7 +911,7 @@ use the above array to retrieve items whose position is TRUE:
 <section id="task-6-calculate-the-changes-every-quarter-for-sector-1." class="slide level2">
 <h2>Task 6: Calculate the changes every quarter for Sector 1.</h2>
 <p>The <code>gdp_data</code> is longitudinal, with each row representing observations for a specific sector over time. This makes growth and contraction trends meaningful to analyze. To calculate changes in the data using NumPy, we can use the numpy.diff() function, which computes the differences between successive values in an array.</p>
-<div id="52437fbf" class="cell" data-execution_count="19">
+<div id="74ed6d9c" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a></a>sector1_array <span class="op">=</span> gdp_data[<span class="dv">0</span>, :] <span class="co"># first row, all columns</span></span>
 <span id="cb38-2"><a></a><span class="bu">print</span>(<span class="st">"sector1_array:"</span>, sector1_array)</span>
 <span id="cb38-3"><a></a></span>
@@ -955,14 +935,14 @@ sector1_changes: [ -5.4     -3.       3.8     11.4      8.1      7.      -3.594 
 <p>Install numpy financial</p>
 <div class="sourceCode" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a></a>pip install numpy<span class="op">-</span>financial</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Import it to your notebook to “toggle it on”</p>
-<div id="778ec03d" class="cell" data-execution_count="20">
+<div id="166fbc2b" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a></a><span class="im">import</span> numpy_financial <span class="im">as</span> npf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="calculating-future-value" class="slide level2">
 <h2>Calculating future value</h2>
 <p>Calculate the future value of $1000 invested for 3 years at a 5.0% average annual rate of return.</p>
-<div id="5f505d35" class="cell" data-execution_count="21">
+<div id="3ab860c1" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a></a><span class="bu">print</span>(npf.fv(rate<span class="op">=</span><span class="fl">0.05</span>, nper<span class="op">=</span><span class="dv">3</span>, pmt<span class="op">=</span><span class="dv">0</span>, pv<span class="op">=-</span><span class="dv">1000</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>1157.6250000000002</code></pre>
@@ -973,7 +953,7 @@ sector1_changes: [ -5.4     -3.       3.8     11.4      8.1      7.      -3.594 
 <section id="calculatine-number-of-payment-period" class="slide level2">
 <h2>Calculatine number of payment period</h2>
 <p>You have a loan of 10,000 SGD at 9% annual interest. How long would it take to pay-off the load if your monthly payment is at 750?</p>
-<div id="afa58b4c" class="cell" data-execution_count="22">
+<div id="84d6bc0e" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a></a><span class="bu">print</span>(npf.nper(<span class="fl">0.09</span><span class="op">/</span><span class="dv">12</span>, <span class="op">-</span><span class="dv">750</span>, <span class="dv">10000</span>))</span>
 <span id="cb44-2"><a></a><span class="co"># divided by 12, because the interest is annual but the payment is monthly</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -987,7 +967,7 @@ sector1_changes: [ -5.4     -3.       3.8     11.4      8.1      7.      -3.594 
 <li>Calculate the changes for each quarter for all sector. Save this into an array called <code>sector_changes</code>.</li>
 <li>Afterwards, find the largest changes in <code>sector_changes</code>.</li>
 </ol>
-<div id="0d6109f8" class="cell" data-execution_count="23">
+<div id="e8fc6802" class="cell" data-execution_count="23">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a></a>sector_changes <span class="op">=</span> np.diff(gdp_data)</span>
@@ -1115,14 +1095,14 @@ Largest change: 67.7</code></pre>
 <p>As with the other libraries, let’s install the library and then import it.</p>
 <div class="sourceCode" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a></a>pip install matplotlib</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Import the library and give it a nickname called <code>plt</code>.</p>
-<div id="974edbc1" class="cell" data-execution_count="24">
+<div id="19fdcc1e" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="matplotlib-simple-lineplot" class="slide level2">
 <h2>Matplotlib: Simple Lineplot</h2>
 <p>Let’s visualize the content of <code>gdp_data</code>.</p>
-<div id="577874a4" class="cell" data-execution_count="25">
+<div id="d934efa4" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="annotated-cell-25" data-code-line-numbers="1|2|3|4|5|6"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-25" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-25-1" class="code-annotation-target"><a href="#annotated-cell-25-1"></a>plt.plot(gdp_data)</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-25" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-25-2" class="code-annotation-target"><a href="#annotated-cell-25-2"></a>plt.xlabel(<span class="st">'Quarters'</span>)</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-25" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-25-3" class="code-annotation-target"><a href="#annotated-cell-25-3"></a>plt.ylabel(<span class="st">'Sectors'</span>)</span>
@@ -1175,7 +1155,7 @@ Largest change: 67.7</code></pre>
 <li>This is because of the way our data is structured: rows representing sectors and columns representing quarters. The rows info is passed to the X coord and the columns are passed to Y coord.</li>
 <li>We can fix this by transposing the table, so that the rows represent quarters and columns represent sectors.</li>
 </ul>
-<div id="aee6ef46" class="cell" data-execution_count="26">
+<div id="7885aa80" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a></a>transposed <span class="op">=</span> gdp_data.T</span>
 <span id="cb50-2"><a></a><span class="bu">print</span>(transposed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1207,7 +1187,7 @@ Largest change: 67.7</code></pre>
 </div></section><section id="visualize-the-transposed-data" class="slide level2">
 <h2>Visualize the transposed data</h2>
 <p>Same code, but this time we pass in the transposed data.</p>
-<div id="53c8c6ec" class="cell" data-execution_count="27">
+<div id="8c891119" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="annotated-cell-27" data-code-line-numbers="1|2|3|4|5|6"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-27" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-27-1" class="code-annotation-target"><a href="#annotated-cell-27-1"></a>plt.plot(transposed)</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-27" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-27-2" class="code-annotation-target"><a href="#annotated-cell-27-2"></a>plt.xlabel(<span class="st">'Quarters'</span>)</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-27" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-27-3" class="code-annotation-target"><a href="#annotated-cell-27-3"></a>plt.ylabel(<span class="st">'Sectors'</span>)</span>
@@ -1256,7 +1236,7 @@ Largest change: 67.7</code></pre>
 </div></section><section id="fixing-the-x-axis-labels" class="slide level2">
 <h2>Fixing the X-axis labels</h2>
 <p>It is still not very readable, so let’s give it proper x-axis labeling!</p>
-<div id="990e4ef9" class="cell" data-execution_count="28">
+<div id="e76218c7" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="annotated-cell-28" data-code-line-numbers="1,2,3|5|6,7,8,9|13"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-28-1"><a href="#annotated-cell-28-1"></a>quarters <span class="op">=</span> [<span class="st">'2019 Q1'</span>, <span class="st">'2019 Q2'</span>, <span class="st">'2019 Q3'</span>, <span class="st">'2019 Q4'</span>, <span class="st">'2020 Q1'</span>, <span class="st">'2020 Q2'</span>, <span class="st">'2020 Q3'</span>, </span>
 <span id="annotated-cell-28-2"><a href="#annotated-cell-28-2"></a><span class="st">'2020 Q4'</span>,  <span class="st">'2021 Q1'</span>, <span class="st">'2021 Q2'</span>, <span class="st">'2021 Q3'</span>, <span class="st">'2021 Q4'</span>, <span class="st">'2022 Q1'</span>, <span class="st">'2022 Q2'</span>, <span class="st">'2022 Q3'</span>, </span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-28" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-28-3" class="code-annotation-target"><a href="#annotated-cell-28-3"></a><span class="st">'2022 Q4'</span>,  <span class="st">'2023 Q1'</span>, <span class="st">'2023 Q2'</span>, <span class="st">'2023 Q3'</span>, <span class="st">'2023 Q4'</span>]</span>
@@ -1307,7 +1287,7 @@ Largest change: 67.7</code></pre>
 </div></section><section id="adding-individual-labels" class="slide level2 scrollable">
 <h2>Adding individual labels</h2>
 <p>We can utilize the for loop to add plot the lines and label them one by one.</p>
-<div id="a228b622" class="cell" data-execution_count="29">
+<div id="73ea5f7e" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="annotated-cell-29" data-code-line-numbers="1|2|3|4|6"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-29" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-29-1" class="code-annotation-target"><a href="#annotated-cell-29-1"></a><span class="cf">for</span> sector_num <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">7</span>):</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-29" data-target-annotation="5" onclick="event.preventDefault();">5</a><span id="annotated-cell-29-2" class="code-annotation-target"><a href="#annotated-cell-29-2"></a>    <span class="bu">print</span>(<span class="st">"plotting sector_num:"</span>, sector_num)</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-29" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-29-3" class="code-annotation-target"><a href="#annotated-cell-29-3"></a>    plt.plot(transposed[:, sector_num],</span>
@@ -1366,7 +1346,7 @@ plotting sector_num: 6</code></pre>
 </div></section><section id="matplotlib-histogram" class="slide level2">
 <h2>Matplotlib: Histogram</h2>
 <p>Let’s see if there’s any outlier growths or contractions on each sectors over the quarters! Histogram is the best visualization for this purpose.</p>
-<div id="ec87cfcd" class="cell" data-execution_count="30">
+<div id="5f18b674" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a></a>plt.boxplot(transposed)</span>
 <span id="cb53-2"><a></a></span>
 <span id="cb53-3"><a></a>plt.xlabel(<span class="st">'Sectors'</span>) </span>
@@ -1393,7 +1373,7 @@ plotting sector_num: 6</code></pre>
 <li>Create a line plot showing the GDP growth over time for the first two sectors only</li>
 <li>Add appropriate labels, a title, and a legend to the plot.</li>
 </ol>
-<div id="03ba2855" class="cell" data-execution_count="31">
+<div id="b8c282b5" class="cell" data-execution_count="31">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a></a>two_sectors <span class="op">=</span> gdp_data[:<span class="dv">2</span>, :] <span class="co">#[first two rows, all columns]</span></span>
@@ -1733,7 +1713,7 @@ plotting sector_num: 6</code></pre>
       }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp('/' + window.location.host + '/');
+          var filterRegex = new RegExp("https:\/\/bellaratmelia\.github\.io\/2024-python-macroecons\/");
         var isInternal = (href) => {
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }

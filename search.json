@@ -207,7 +207,7 @@
     "href": "02-numpy.html#numpy-vs-lists-performance-comparison",
     "title": "Introduction to Numpy & Matplotlib",
     "section": "Numpy vs Lists: Performance comparison",
-    "text": "Numpy vs Lists: Performance comparison\nImagine we have a million numbers to square. We’ll store them in both a list and an array, then compare their processing speeds.\n\n\nLists\n\nlist_data = list(range(1000000))\n\nstart = time.time()\nlist_result = [x**2 for x in list_data]\nlist_time = time.time() - start\n\nprint(f\"List took {list_time:.4f} seconds to finish the operation.\")\n\nList took 0.0996 seconds to finish the operation.\n\n\n\nNumpy Arrays\n\nnumpy_data = np.arange(1000000)\n\nstart = time.time()\nnumpy_result = numpy_data**2\nnumpy_time = time.time() - start\n\nprint(f\"NumPy took {numpy_time:.4f} seconds to finish the operation.\")\n\nNumPy took 0.0020 seconds to finish the operation."
+    "text": "Numpy vs Lists: Performance comparison\nImagine we have a million numbers to square. We’ll store them in both a list and an array, then compare their processing speeds.\n\n\nLists\n\nlist_data = list(range(1000000))\n\nstart = time.time()\nlist_result = [x**2 for x in list_data]\nlist_time = time.time() - start\n\nprint(f\"List took {list_time:.4f} seconds to finish the operation.\")\n\nList took 0.0900 seconds to finish the operation.\n\n\n\nNumpy Arrays\n\nnumpy_data = np.arange(1000000)\n\nstart = time.time()\nnumpy_result = numpy_data**2\nnumpy_time = time.time() - start\n\nprint(f\"NumPy took {numpy_time:.4f} seconds to finish the operation.\")\n\nNumPy took 0.0020 seconds to finish the operation."
   },
   {
     "objectID": "02-numpy.html#numpy-vs-lists-sum-and-products",
