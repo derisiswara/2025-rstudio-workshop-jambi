@@ -34,7 +34,7 @@ From list to array:
 
 ``` python
 list_array = np.array([1, 2, 3, 4, 5])
-print("NumPy array:", np_array)
+print("NumPy array:", list_array)
 ```
 
 Indexing and slicing
@@ -162,11 +162,20 @@ print("\nsector1_changes absolute change:", np.absolute(sector1_changes))
 
 NumPy financial functions
 
+Calculate the future value of $1000 invested for 3 years at a 5.0% average annual rate of return.
+
 ``` python
-rate = 0.05
-nper = 10
-pmt = 1000
-print("Future value:", npf.fv(rate, nper, -pmt, 0))
+np.fv(rate=0.05, nper=3, pmt=0, pv=-1000)
+```
+By convention, the negative sign represents cash flow out (i.e. money not available today).
+
+Example 2:
+
+You have a loan of 10,000 SGD at 9% annual interest. How long would it take to pay-off the load if your monthly payment is at 750?
+
+``` python
+np.round(npf.nper(0.09/12, -750, 10000), 5)
+# divided by 12, because the interest is annual but the payment is monthly
 ```
 
 ## Section 4: Visualizing Array contents (Matplotlib)

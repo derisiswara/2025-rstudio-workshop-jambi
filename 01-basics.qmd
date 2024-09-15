@@ -211,13 +211,118 @@ Packages
 :::
 :::::
 
-# Let's Code!
+# Section 1: Getting Started
 
 Hands on session - Make sure to open the `py` file we just created.
 
+## Running your python code  {.nostretch}
+
+Type the following in your `.py` file...
+
+```{python}
+#| echo: true
+#| output: false
+print("Hello World!")
+5 + 5 
+```
+
+...and then click on the run button to run the script
+
+![](images/py-run-button.jpg){width="40%"}
+
+You should see "Hello World!" and a 10 printed at the Terminal window at the bottom
+
+## Built-in functions
+
+-  Functions will typically have brackets `()` at the end of their name.
+-  Python has a built-in function called `print()` that prints things as text. 
+-  Call the function (i.e., tell Python to run it) by using its name.
+
+```{python}
+#| echo: true
+print(10 - 5)
+print(10 * 2)
+print("hello world")
+```
+
+## Comments 
+Use comments to add a layer of documentation to your code. E.g., explain what a block of code does, etc.
+
+Comments always start with a hashtag \#
+
+```{python}
+#| echo: true
+print(10 - 5)
+print(10 * 2)
+print("hello world")
+# print("python won't print this!")
+```
+
+Feel free to use this method to add your own notes throughout the workshop! 
+
+# Section 2: Variables and assignment
+
+## What's a variable?
+
+Variables are names for values. \# In Python, the `=` symbol assigns the value on the right to the variable on the left. 
+
+Once you declare a variable, you must assign value to it.
+
+```{python}
+#| echo: true
+greetings = "Hello World!"
+age = 25
+```
+
+Variable names criteria:
+
+- cannot start with a digit
+- alphanumeric only (underscores are a-OK)
+- case sensitive
+- should be meaningful (e.g. `quarter1_growth` instead of just `q1g`)
+
+## On creating variables
+Variables must be created before they are used.
+
+If a variable doesn't exist yet, or if the name has been mis-spelled, Python reports an error. e.g. if you try to simply declare a variable called `name` but didn't assign any value to it, Python will not like that and reports an error!
+
+``` python
+name  # This  will give you an error. 
+```
+
+## Things we can do with variables
+
+We can pass variables to functions, e.g. let's pass the `greetings` variable to `print()` function. This should print out the value of `greetings`.
+
+```{python}
+#| echo: true
+#| output-location: column
+print(greetings)
+print("today's greetings:", greetings)
+```
+
+We can also update the value contained inside a variable. Let's try adding 10 to variable `age`.
+```{python}
+#| echo: true
+#| output-location: column
+age = age + 10
+print("Age in ten years from now:", age)
+```
+
+You can also assign a variable value to another variable
+
+```{python}
+#| echo: true
+#| output-location: column
+continent = "Asia"
+position = continent  
+print("Position:", position)  
+print("Continent:", continent)  
+```
+
 ## Learning Check #1
 
-### What is the final value of variable `position` below?
+**What is the final value of variable `position` below?**
 
 ``` python
 initial = "up"
@@ -225,7 +330,7 @@ position = initial
 initial = "down"
 ```
 
-### What is the final value of variable `country_1` below?
+**What is the final value of variable `country_1` below?**
 
 ``` python
 country_1 = "Australia"
@@ -235,59 +340,99 @@ country_1 = country_2
 country_2 = temp
 ```
 
-## Refresher: Quantitative Data Types
+# Section 3: Data Types and Conversion
 
--   [**Non-Continuous Data**]{.underline}
+## Refresher: Quantitative Data Types in Econs and Social Sciences
 
-    -   **Nominal/Categorical**: Non-ordered, non-numerical data, used to represent qualitative attribute.
+::::: columns
+::: {.column width="50%"}
+Non-Continuous Data
 
-        -   Example: nationality, neighborhood, employment status
+-   Nominal/Categorical: Non-ordered, non-numerical data, used to represent qualitative attribute. e.g. Country, Employment status
+-   Ordinal: Ordered non-numerical data. e.g. Nutri-grade ratings
+-   Discrete: Numerical data that can only take specific value (usually integers) e.g. Shoe size, clothing size
+-   Binary: Nominal data with only two possible outcome. e.g. pass/fail, yes/no, survive/not survive
+:::
 
-    -   **Ordinal**: Ordered non-numerical data.
+::: {.column width="50%"}
+Continuous Data
 
-        -   Example: Nutri-grade ratings, frequency of exercise (daily, weekly, bi-weekly)
-
-    -   **Discrete**: Numerical data that can only take specific value (usually integers)
-
-        -   Example: Shoe size, clothing size
-
-    -   **Binary**: Nominal data with only two possible outcome
-
-        -   Example: pass/fail, yes/no, survive/not survive
-
-------------------------------------------------------------------------
-
--   [**Continuous Data**]{.underline}
-
-    -   **Interval**: Numerical data that can take any value within a range. [It does not have a "true zero".]{.underline}
-
-        -   Example: Celsius scale. Temperature of 0 C does not represent absence of heat.
-
-    -   **Ratio**: Numerical data that can take any value within a range. [it has a "true zero".]{.underline}
-
-        -   Example: Annual income. annual income of 0 represents no income.
+-   Interval: Numerical data that can take any value within a range. [It does not have a "true zero".]{.underline} e.g. Temperature of 0 C does not represent absence of heat.
+-   Ratio: Numerical data that can take any value within a range. [it has a "true zero".]{.underline} e.g. annual income of 0 represents no income.
+:::
+:::::
 
 ## Basic data types in Python
 
--   Integers (int)
+-   Integers (int): Whole numbers without a decimal point. Examples: 5, -3, 0
+-   Floating-point numbers (float): Numbers with a decimal point. Examples: 3.14, -0.5, 2.0
+-   Strings (str): Sequences of characters enclosed in quotes. Examples: "Hello", 'Python'
+-   Booleans (bool): Logical values representing `True` or `False`. Examples: True, False
+-   None: A special type representing the absence of a value
 
-    -   Whole numbers without a decimal point. Examples: 5, -3, 0
+```{python}
+#| echo: true
+country = "Singapore"  # string
+public_holidays = 11  # integer
+avg_temp = 27.8  # float
+part_of_asean = True  # Boolean
+```
+## Why do I need to care about these data types?
 
--   Floating-point numbers (float)
+Because a value's data type determines what the program can do to it.
 
-    -   Numbers with a decimal point. Examples: 3.14, -0.5, 2.0
+For example, the calculations below work on `int` data type
 
--   Strings (str)
+```{python}
+#| echo: true
+#| output-location: column
+print(public_holidays - 5)  
+```
 
-    -   Sequences of characters enclosed in quotes. Examples: "Hello", 'Python'
+But the above operation won't work on a `string`
+``` python
+print(country - "pore") \# this will give an error!
+```
+However you can use "+" and "\*" on strings
 
--   Booleans (bool)
+```{python}
+#| echo: true
+#| output-location: column
+print(country + " best")  # this works for string, though.
+print(country * 4)  # this also works
+print("=" * 10)  # this also works
+print(len(country))  # this would print out the number of characters a string has
+```
 
-    -   Logical values representing `True` or `False`. Examples: True, False
+## Converting data types to one another
 
--   None
+Some data types need to be converted before we can do some operations on them i.e. this will give you an error.
 
-    -   A special type representing the absence of a value
+``` python
+print("10" + 2) 
+```
+Here is how you can convert the data types:
+
+```{python}
+#| echo: true
+print("10" + str(2))  # convert to string
+print(int(10) + 2)  # convert to int
+```
+
+## Take note of variables assignment placement
+
+Take note of the execution order of your variables! They only change value when something is assigned to them.
+
+```{python}
+#| echo: true
+public_holiday = 11  # initial value 
+new_holidays = public_holiday + 5
+public_holiday = 10  # we update the variable
+print("Public holiday:", public_holiday) 
+print("New holidays:", new_holidays) 
+```
+
+Updating the value of `public_holiday` will not auto-update the value of `new_holidays`.
 
 ## Learning Check #2
 
@@ -304,79 +449,265 @@ g = 10 < 15
 h = len("The quick brown fox jumps over the lazy dog")  
 ```
 
-## Python functions
+# Section 4: Built-in Python functions
+
+## Arguments vs Parameters
 
 -   There are many built-in function that we can use, one of the common one is `round()` which will round a float number to the nearest integer.
-
 -   Some functions accept arguments, and we put them inside the brackets when we pass it to the function. It's like telling the function "do what you're supposed to do with this things I pass to you".
 
-``` python
+```{python}
+#| echo: true
 round(3.14)
 ```
 
-formal definition, but often used interchangeably: - arguments = the value passed to a function - in this case, 3.14 - parameters = the variable passed to a function
+formal definition, but often used interchangeably: 
 
--   Some functions can take more than one arguments! we've seen this with `print()` earlier
+- arguments = the value passed to a function - in this case, 3.14 
+- parameters = the variable passed to a function
 
--   If you're not sure what kind of arguments are accepted, etc, use the `help()` function. This example below should tell you more about `round()` once executed
+## How do I find out more about a function?
 
-``` python
+-   Some functions can take more than one arguments! we've seen this with `print()` earlier.
+-   If you're not sure what kind of arguments are accepted, etc, use the `help()` function. This example below should tell you more about `round()` once executed.
+
+```{python}
+#| echo: true
 help(round)
 ```
 
-## More data types
+# Section 5: Lists
 
--   Lists
+## More data types / structure
 
-    -   Ordered, mutable sequences of elements. Examples: `[1, 2, 3]`, `['a', 'b', 'c']`
+Other than the basic 4 types that we learned earlier, Python has more data structures where we can store multiple values in a single variable:
 
--   Tuples
+-   **Lists**: Ordered, mutable (i.e. can be edited) sequences of elements. Examples: `[1, 2, 3]`, `['a', 'b', 'c']`
+-   **Tuples**: Ordered, immutable (i.e. cannot be edited once it is created) sequences of elements. Examples: `(1, 2, 3)`, `('a', 'b', 'c')`
+-   **Dictionaries** (dict): Unordered collections of key-value pairs. Example: `{'name': 'John', 'age': 30}`
+-   **Sets**: Unordered collections of unique elements. Example: `{1, 2, 3}`
 
-    -   Ordered, immutable sequences of elements. Examples: `(1, 2, 3)`, `('a', 'b', 'c')`
+We will not be covering all of the above, only list and dictionaries (for session 4)
 
--   Dictionaries (dict)
+## When lists would be useful
 
-    -   Unordered collections of key-value pairs. Example: `{'name': 'John', 'age': 30}`
+Scenario: We want to track Singapore's GDP year-over-year (YoY) growth from 2024 to 2018.
 
--   Sets
+-  A list helps us store multiple years of data in one place, making it efficient.
+-  Without a list, we'd need dozens of separate variables for each year, making it harder to analyze trends.
+-  Using a list, we can easily manage and analyze the data for all the years together.
 
-    -   Unordered collections of unique elements. Example: `{1, 2, 3}`
+```{python}
+#| echo: true
 
-## Lists
-
-Scenario: We want to keep track of Singapore's GDP year-over-year (YoY) growth rate from 2024 to 2018. 
-
--  Using a list allows us to store multiple years of data efficiently in a single variable. 
-
--  If we were saving each year's quarterly growth rate to separate variables, we would have dozens variables! 
-
--  This would make it difficult to perform calculations or analyze trends across years. 
-
--  A `list` will come in handy! List can store many values together in a single variable.
-
-``` python
+# growth rates from 2023 Q1 to 2024 Q2
 quarterly_gdp_growth = [-2,-5.8, 2.8, 2.6, 7.3, 1.1, 3.4]
 ```
 
-## Learning Check #3
+You can also initialize an empty list to fill later
+
+```{python} 
+#| echo: true
+future_growth_rates = []
+```
+
+## Check number of items in a list
+
+As a good first step, it's good to check the number of items you have in your list!
+
+```{python} 
+#| echo: true
+print('GDP growth rates:', quarterly_gdp_growth)
+print('Number of quarters:', len(quarterly_gdp_growth))
+```
+
+## Retrieve a single item from a list
+
+Sometimes you don't need the entire list. To retrieve a single value from a list, simply specify their index number enclosed in square brackets
+
+-  Remember that index starts from 0 instead of 1.
+-  So if you want to retrieve the fourth item (2021's growth rate), the index will be 3.
+
+```{python} 
+#| echo: true
+print('GDP growth rate in 2023 Q1 (1st item):', quarterly_gdp_growth[0])
+print('GDP growth rate in 2024 Q2 (6th item):', quarterly_gdp_growth[5])
+```
+
+If we put an index number that's larger than actual number of items, python will give us an error!
+
+```python
+quarterly_gdp_growth[10] # This would cause an IndexError
+```
+
+## Retrieve multiple items from a list: the syntax
+
+Slicing allows you to extract a portion of the list by specifying a range of indices.
+The basic syntax for slicing is:
+
+``` python
+list_name[start:end:step]
+```
+
+-  `start` is the index where the slice starts (inclusive)
+-  `end` is the index where the slice ends (exclusive)
+-  If `start` is omitted, the slice begins from the start of the list
+-  If `end` is omitted, the slice goes to the end of the list
+-  `step` is optional; it determines how many items to skip
+
+## Retrieve multiple items from a list: in action
+
+Specifying the start and end:
+
+```{python}
+#| echo: true
+#| output-location: column
+print('First three quarters:', 
+quarterly_gdp_growth[0:3])
+```
+
+Omitting the end index:
+
+```{python}
+#| echo: true
+#| output-location: column
+print('From Q3 2023 onwards:', 
+quarterly_gdp_growth[2:])
+```
+
+Omitting the start:
+
+```{python}
+#| echo: true
+#| output-location: column
+print('First three quarters:', 
+quarterly_gdp_growth[:3])
+```
+
+If we put a negative index, python list will count from the end instead of the beginning!
+
+```{python}
+#| echo: true
+#| output-location: column
+print('Last three quarters:', 
+quarterly_gdp_growth[-3:])
+```
+
+## Stepping value in a list
+
+You can also use a step value to skip items! 
+
+It is particularly useful if you need to reverse a list.
+
+```{python}
+#| echo: true
+
+print('Every other quarter:', quarterly_gdp_growth[::2])
+print('Quarters in reverse order:', quarterly_gdp_growth[::-1])
+
+```
+
+## Updating the value of items inside a list
+
+List values can be replaced by simply assigning a new value to them! Let's update the growth rate for 2023 Q3 (index 2) with the correct figure.
+
+```{python} 
+#| echo: true
+quarterly_gdp_growth[2] = -2.8
+print('Updated GDP growth rates:', quarterly_gdp_growth)
+```
+
+
+## Appending items to a list
+
+Let's append a new data of 3.2% growth that we get for 2024 Q3 to the list. Appending will put this new item at the end of the list. 
+
+```{python} 
+#| echo: true
+print('GDP growth rates initially:', quarterly_gdp_growth)
+quarterly_gdp_growth.append(3.2)  
+print('GDP growth rates after adding 2024 Q3 prediction:', quarterly_gdp_growth)
+```
+
+## Adding data to a specific position in a list
+
+Let's add data to the start of the list! The data is growth for 2022 Q4, which was 9.4%.
+
+```{python} 
+#| echo: true
+#| code-line-numbers: "2"
+print('GDP growth rates initially:', quarterly_gdp_growth)
+quarterly_gdp_growth.insert(0, 9.4) # <1>
+print('GDP growth rates after adding 2022 Q4:', quarterly_gdp_growth)
+```
+
+1. The first parameter is the index position of where we want this new value to be. The second parameter is the actual value we'd like to insert. 
+
+## Removing items from a list
+
+Let's remove the two items we added previously! 
+
+There are two ways to remove items: using `del` or `.pop()` method.
+
+```{python} 
+#| echo: true
+#| code-line-numbers: "2|3"
+print('GDP growth rates initially:', quarterly_gdp_growth)
+del quarterly_gdp_growth[0]  # <1>
+quarterly_gdp_growth.pop()   # <2>
+print('GDP growth rates after removing projection:', quarterly_gdp_growth)
+```
+
+1. with `del`, you need to specify the index of the items you'd like to remove
+2. `pop()` will remove the item at the end of the list. 
+
+
+## Calculations with List
+
+Let's say we want to calculate the average quarterly gdp growth:
+
+```{python} 
+#| echo: true
+total_growth = sum(quarterly_gdp_growth)
+average_growth = total_growth / len(quarterly_gdp_growth)
+print(f"Average quarterly GDP growth: {average_growth:.2f}%")
+```
+
+## Various data types in a single list
+
+You can include values of different types in a list, though for GDP data we'll stick to numbers!
+
+```{python} 
+#| echo: true
+mixed_data = ["2024 growth", 3.0, "2023 growth", 2.7]
+print(mixed_data)
+```
+
+## Learning Check #3 {.scrollable}
 
 Write a code to complete the following tasks:
 
 1. Write a code to print the growth rate for 2023 Q4 (remember, it's the 5th item but index 4)
 
-``` python
+```{python}
+#| echo: true
+#| code-fold: true
 print(quarterly_gdp_growth[4])
 ```
 
 2. Write a code to print the growth rates for the first three quarters of 2023
 
-``` python
+```{python}
+#| echo: true
+#| code-fold: true
 print(quarterly_gdp_growth[0:3])
 ```
 
 3. Add a projected growth rate of 3.3 and 3.6 the next two quarters at the end of the list
 
-``` python
+```{python}
+#| echo: true
+#| code-fold: true
 # method 1 using insert
 quarterly_gdp_growth.insert(len(quarterly_gdp_growth), 3.3)
 
@@ -386,67 +717,199 @@ quarterly_gdp_growth.append(3.6)
 print(quarterly_gdp_growth)
 ```
 
-## Loops
+# Section 6: Loops
 
-Scenario: We have Singapore's Quarterly GDP growth rates from 2023 Q1 to 2024 Q2.
+## Automate stuff with loop!
 
--  We want to process this data efficiently and present it in a readable format - this is where a `For` Loop comes in handy!
+Scenario: We have Singapore's Quarterly GDP growth rates from 2023 Q1 to 2024 Q2, and we want to print them in this format: `Quarterly GDP growth: 5%`
 
--  Loop is useful for repetitive tasks. It also helps to keep your code succinct and easier to debug if there's an error
+:::: {.columns}
 
-```python
+::: {.column width="50%"}
+Manually printing out the items
+
+```{python}
+#| echo: true
+
+print("Quarterly GDP growth:", quarterly_gdp_growth[0], "%") 
+print("Quarterly GDP growth:", quarterly_gdp_growth[1], "%") 
+print("Quarterly GDP growth:", quarterly_gdp_growth[2], "%") 
+print("Quarterly GDP growth:", quarterly_gdp_growth[3], "%") 
+print("Quarterly GDP growth:", quarterly_gdp_growth[4], "%") 
+# and so on...
+# can you imagine doing this for 100++ items?
+```
+:::
+
+::: {.column width="50%"}
+With `for` loop
+
+```{python}
+#| echo: true
+for growth in quarterly_gdp_growth: 
+    print("Quarterly GDP growth:", growth, "%") 
+```
+:::
+
+::::
+
+As you can see, we can achieve the same thing  (or more) with less code to type with `for` loop.
+
+## Anatomy of a loop
+
+Anatomy of loops explained using the example above:
+
+```{python}
+#| echo: true
+#| output: false
+#| code-line-numbers: 1|2
+for growth in quarterly_gdp_growth: # <1>
+    print("Quarterly GDP growth:", growth, "%") #<2>
+```
+
+1.  `growth` is the loop variable, representing the value that changes with each iteration of the loop. You can think of it as the "current item" being processed. Meanwhile, `quarterly_gdp_growth` is the collection that the loop iterates over. The loop statement also ends with a colon `:`.
+2.  `print("Quarterly GDP growth:", growth, "%")` is the body of the loop, specifying the action to take for each item in the collection. The body of the loop **must** be indented. 
+
+
+## More examples: using `range()`
+
+Below is a loop that will print out numbers from 1 to 6:
+
+```{python} 
+#| echo: true
 for number in range(1, 7):  # 1 to 6, representing 6 quarters
     print("Quarter", number)
 ```
 
--  The above code is much shorter than typing `print` 6 times!
+## More examples: using `enumerate()`
 
-## Using list with For loop
+We can use `enumerate()` to loop not only the items inside a list, but also the index position of each item in the list!
 
-Here is how you can use list in a For loop:
+Let's say we want to re-format our printout to `1) Quarterly GDP growth: 5%`
 
-```python
-for growth in quarterly_gdp_growth: # <1>
-    print(f"Quarterly GDP growth: {growth}%") #<2>
+```{python}
+#| echo: true
+
+for index, item in enumerate(quarterly_gdp_growth):
+    print(f"{index + 1}) Quarterly GDP growth: {item}%")
+
 ```
 
-Anatomy of loops explained using the example above:
 
-1.  `growth` is the loop variable, representing the value that changes with each iteration of the loop. You can think of it as the "current item" being processed. Meanwhile, `quarterly_gdp_growth` is the collection that the loop iterates over.
+# Section 7: Conditionals (If-Else)
 
-2.  `print(f"Quarterly GDP growth: {growth}%")` is the body of the loop, specifying the action to take for each item in the collection.
+## Automate decisions with conditionals! {.scrollable}
 
-::: {.callout-note appearance="simple"}
+Scenario: We have Singapore's Quarterly GDP growth rates, and we want to categorize them as "Growth", "Stable", or "Decline" based on their values.
 
-### Key things
+:::: {.columns}
 
-- The first line of the for loop must end with a colon, and the body must be indented.
+::: {.column width="50%"}
+Without conditionals and `for` loops
+```{python}
+#| echo: true
 
-- Indentation is always meaningful in Python. (the common convention is to indent with 4 spaces or tabs)
-
+print(quarterly_gdp_growth[0], "% - Category: Decline")
+print(quarterly_gdp_growth[1], "% - Category: Decline")
+print(quarterly_gdp_growth[2], "% - Category: Decline")
+print(quarterly_gdp_growth[3], "% - Category: Growth")
+print(quarterly_gdp_growth[4], "% - Category: Growth")
+```
 :::
 
+::: {.column width="50%"}
+With conditionals and `for` loops
+```{python}
+#| echo: true
+for growth in quarterly_gdp_growth:
+    if growth > 2:
+        category = "Growth"
+    elif -2 <= growth <= 2:
+        category = "Stable"
+    else:
+        category = "Decline"
+    
+    print(f"{growth}% - Category: {category}")
+```
+:::
 
+::::
 
-## Conditionals (If-Else)
+## Why conditionals + for loops is great
 
--  Conditionals or If-Else statements are used to control whether or not a block of code is executed.
+1. Automated categorization based on values - no manual intervention needed!
+2. Easily adjustable criteria (just change the numbers in the if-elif-else statements)
+3. Works for any number of data points - again, no manual intervention needed!
+4. Makes the code more readable and maintainable
 
--  The structure is similar to a For Loop:
+Let's break down the anatomy of conditionals first!
 
-    - First line opens with if and ends with a colon
+## Anatomy of Conditionals
 
-    - Body containing one or more statements is indented
+Also called if-else structure, it looks like this at the very basic level:
 
-```python
-if growth > 10:
-    print("Strong economic growth!")
+```{python}
+#| echo: true
+#| code-line-numbers: "3|4|5|6"
+
+gdp_growth = 2.5
+
+if gdp_growth > 0: # <1>
+    print("The economy is growing.") # <2>
+else: # <3>
+    print("The economy is not growing.") # <4>
 ```
 
-## Conditionals - Order does matter!
+1.  The if statement starts with the keyword 'if', followed by a condition, and ends with a colon ':'
+2.  The body of the if statement is indented. This line of code will be run if the condition is fulfilled
+3.  The else clause is optional, starts with 'else', and ends with a colon ':'
+4.  The body of the else clause is also indented, and only run if the condition is NOT fulfilled
+
+## Multiple conditions
+
+Sometimes we have multiple conditions that we want to check! We can use `elif` (stands for else-if) to add the conditions. You can have multiple `elif` clauses. 
+
+```{python}
+#| echo: true
+#| code-line-numbers: "5,6"
+
+gdp_growth = 0
+
+if gdp_growth > 0:
+    print("The economy is growing.")
+elif gdp_growth == 0:
+    print("The economy is stable.")
+else:
+    print("The economy is shrinking.")
+```
+
+## Multiple conditions with Boolean operators
+
+In some cases, we can't split the conditions among multiple elifs. For example, we may want to check `gdp_growth` and `inflation` rate to determine the economic state.
+
+```{python}
+#| echo: true
+#| code-line-numbers: "4,5|6,7"
+
+gdp_growth = 1.5
+inflation = 2.0
+
+if gdp_growth > 0 and inflation < 3: # <1>
+    print("The economy is in a good state.")
+elif gdp_growth > 0 or inflation < 3: # <2>
+    print("The economy is in a mixed state.")
+else:
+    print("The economy needs attention.")
+```
+
+1. `and` requires both conditions to be `True`
+2. `or` requires at least one condition to be `True`
+
+## Multiple conditions - Order does matter!
 Assuming variable `growth` has the value of 10, the conditionals below will give us the wrong result.
 
-```python
+```{python}
+#| echo: true
 growth = 10
 if growth > 0:
     print(f"{growth}% is a moderate growth")
@@ -456,7 +919,8 @@ else:
     print(f"{growth}% is a negative growth")
 ```
 This ordering would give the correct result:
-```python
+```{python}
+#| echo: true
 if growth > 5:
     print(f"{growth}% is strong growth")
 elif growth > 0:
@@ -465,15 +929,83 @@ else:
     print(f"{growth}% is negative growth")
 ```
 
+
+## Nested conditionals
+
+For a more complicated conditionals, you can put a conditional inside another! **Be careful with indentation to ensure correct nesting!**
+
+```{python}
+#| echo: true
+#| code-line-numbers: "4,9,10|5-8"
+
+gdp_growth = 2.5
+unemployment = 4.0
+
+if gdp_growth > 0: # <1>
+    if unemployment < 5: # <2>
+        print("Strong economic performance.") # <2>
+    else: # <2>
+        print("Growing economy, but high unemployment.") # <2>
+else: # <1>
+    print("Economic challenges ahead.") # <1>
+```
+
+1.  "outer" conditional.
+2.  "inner" conditionals. Note the indent for this statement! This conditional will be run only if the outer conditions are fulfilled. 
+
+## Conditionals and For loops combi
+
+As seen from the first example of this section, we can combine for loops with conditionals
+
+```{python}
+#| echo: true
+
+for growth in quarterly_gdp_growth:
+    if growth > 2:
+        category = "Growth"
+    elif -2 <= growth <= 2:
+        category = "Stable"
+    else:
+        category = "Decline"
+    
+    print(f"{growth}% - Category: {category}")
+```
+
+## Conditionals and For loops combi: counting occurence
+
+Other ways for loops and conditionals can be used is for when we want to count occurence. Let's say we want to keep track how many growths and contractions have happened for the past quarters.
+
+```{python}
+#| echo: true
+#| code-line-numbers: "1,2|5-8"
+
+growth_periods = 0 # <1>
+decline_periods = 0 # <1>
+
+for rate in quarterly_gdp_growth:
+    if rate > 0:
+        growth_periods += 1 # <2>
+    elif rate < 0:
+        decline_periods += 1 # <2>
+
+print("Growth periods:", growth_periods)
+print("Decline periods:", decline_periods)
+```
+
+1.  set the counters, one to keep track of growth and the other one to keep track of declines
+2.  increase the counters when conditions were met.
+
 ## Learning Check #4
 
 Write a script that identifies the highest and lowest growth quarters (5 mins)
 
-``` python
+```{python}
+#| echo: true
+#| code-fold: true
+
 # get the value of the highest and the lowest with max and min
 highest_growth = max(quarterly_gdp_growth)
 lowest_growth = min(quarterly_gdp_growth)
-
 ```
 
 ## Even more data types

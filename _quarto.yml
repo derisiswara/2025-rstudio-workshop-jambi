@@ -4,6 +4,9 @@ project:
 website:
   title: "Python for Macroeconomics"
   page-footer: "Made with love and [Quarto](https://quarto.org/) by [Bella Ratmelia](https://bellaratmelia.github.io/) - Licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)."
+  google-analytics:
+    tracking-id: "G-Y8S6TK2GEH"
+    anonymize-ip: true
   navbar:
     left:
       - href: index.qmd
@@ -25,6 +28,8 @@ format:
     height: 900
     slide-number: true
     logo: "images/smu logo.png"
+    fig-height: 8
+    fig-width: 15
     footer: "[SEIC x DSA Python for Macroeconomics](https://bellaratmelia.github.io/2024-python-macroecons/)"
 
 

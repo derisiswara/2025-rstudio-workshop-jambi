@@ -9,6 +9,14 @@ This site serves as a repository for the slides and codes developed for the 'Mac
 
 **Instructor**: Bella Ratmelia, Research & Data Services, SMU Libraries
 
+**Teaching Assistants**:
+
+-  Rein Alfri (SOE)
+-  Anya Dharsan (SCIS)
+-  Somesh Balamurugan (SOE)
+-  Tay Mui Yen (SMU Libraries)
+-  Tee Lip Hwee (SMU Libraries)
+
 ## Schedule
 
 *Slides will be progressively made available below.*
@@ -16,8 +24,8 @@ This site serves as a repository for the slides and codes developed for the 'Mac
 ::: table-schedule
 | Date and Time | Venue | Topic & Slides | Quiz |
 |-----------------|-----------------|---------------------|-----------------|
-| Sat, 7 Sep 2024, 10 AM - 12 PM | YPHSL Seminar Room 3-12 | [Python basics](01-basics.html) | [Quiz 1 - Python basics](https://forms.gle/1QAdCiqtpPX6zGBn9){target="_blank"} |
-| Sat, 14 Sep 2024, 10 AM - 12 PM | SOSS/CIS Seminar Room 3-1 | Data wrangling with numpy |  |
+| Sat, 7 Sep 2024, 10 AM - 12 PM | YPHSL Seminar Room 3-12 | [Python basics](01-basics.html) | [Quiz 1](https://forms.gle/1QAdCiqtpPX6zGBn9){target="_blank"} |
+| Sat, 14 Sep 2024, 10 AM - 12 PM | SOSS/CIS Seminar Room 3-1 | [Introduction to Numpy and Matplotlib](02-numpy.html) | [Quiz 2](https://forms.gle/AEXQi2hScPRTPtFh8){target="_blank"} |
 | Sat, 28 Sep 2024, 10 AM - 12 PM | SOSS/CIS Seminar Room 3-1 | Data wrangling and timeseries with Dataframe |  |
 | Sat, 5 Oct 2024, 10 AM - 12 PM | SOSS/CIS Seminar Room 3-1 | Retrieve data with APIs and putting it all together |  |
 :::
@@ -53,3 +61,21 @@ This workshop will use Visual Studio Code, or VS Code. It is a free, versatile c
 ![](images/vscode-extension-tab.jpg)
 
 4.  Fill up the [**pre-workshop survey**](https://smusg.asia.qualtrics.com/jfe/form/SV_1Nx06jl6oFCnNNY)! Please fill this up before the beginning of session 1.
+
+## Dataset
+
+For this workshop, we will be using small dataset stored in a CSV file called `sg-gdp.csv`.
+
+```{=html}
+<a href="https://raw.githubusercontent.com/bellaratmelia/2024-python-macroecons/main/data/sg-gdp.csv" type="button" class="btn btn-success">Click here to open sg-gdp.csv, and then Ctrl + S / Cmd + S to save it locally into your data folder</a>
+```
+
+::: {.callout-note appearance="simple"}
+### What is a CSV?
+
+A CSV (Comma-Separated Values) file is a type of file that stores data in a plain text format. Each line in the file represents a row of data, and within each row, individual pieces of data (like numbers or words) are separated by commas.
+
+This format is commonly used for storing and transferring data, especially in spreadsheets and databases. Because it is literally just plain text, it is an ideal format if you have large amount of data.
+
+You can open CSV files in Excel, Google Sheets, or even Notepad!
+:::

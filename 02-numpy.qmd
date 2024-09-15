@@ -45,6 +45,28 @@ Great for quick experiments or teaching / presentation; Codes will be executed o
 :::
 :::::
 
+## Creating new .ipynb file
+
+1.  Make sure that you have Jupyter extension installed in VS Code
+2.  Click on `File` > `New File...` and then `Jupyter Notebook`. If you don't see this option, most likely it means you don't have the Jupyter extension installed
+
+![](images/ipynb-newfile.jpg)
+
+
+## Jupyter Notebook quick tour
+
+![](images/ipynb-introduction.JPG)
+
+[More on Markdown formatting here](https://www.markdownguide.org/){target="_blank"}
+
+## Jupyter notebook: running a code cell
+
+When running a code cell for the first time, you will be prompted to choose the python kernel. Choose the version you want (in our case, version 3.12)
+
+![](images/ipynb-select-kernel.jpg)
+
+If you are prompted to install `ipykernel`, go ahead and install it.
+
 # Section 2: Numpy Arrays
 
 ## What's Numpy?
@@ -61,8 +83,16 @@ It is a Python library that provides a multidimensional array object, various de
 ## What's a Python library?
 
 -   Python libraries or packages are essentially reusable sets of code that can be imported into your environment to extend functionality.
--   Before using them, most libraries must first be installed and then imported.
--   However, some libraries are part of the Python Standard Library, meaning they don't need to be installed—just imported. For example, `time`.
+-   Before using them, most libraries must first be installed and then imported. THis is how you can install a library:
+
+``` python
+pip install numpy
+```
+
+## Library is installed, now what?
+
+-   After it is installed, we have to import them to "activate" it in our notebook so that we can use it! 
+-   Note: some libraries are part of the Python Standard Library, meaning they are already installed and ready to be imported straight away! For example, `time` library.
 
 ```{python}
 #| echo: true
@@ -70,6 +100,13 @@ It is a Python library that provides a multidimensional array object, various de
 import numpy as np # giving numpy a shorter "nickname"
 import time
 ```
+
+To use a function that belongs to a library, we have to call the library name (or the nickname, if we assign one), followed by `.` and then the function name! e.g. if we want to call `array` function in numpy: 
+
+``` python
+np.array() 
+```
+
 
 ## Numpy vs Lists
 
@@ -96,25 +133,37 @@ import time
 
 Imagine we have a million numbers to square. We'll store them in both a list and an array, then compare their processing speeds.
 
+::::: columns
+::: {.column width="50%"}
+Lists
+
 ```{python}
 #| echo: true
-
-# Creating large datasets
 list_data = list(range(1000000))
-numpy_data = np.arange(1000000)
 
-# Comparing operation speed
 start = time.time()
 list_result = [x**2 for x in list_data]
 list_time = time.time() - start
+
+print(f"List took {list_time:.4f} seconds to finish the operation.")
+```
+:::
+
+::: {.column width="50%"}
+Numpy Arrays
+
+```{python}
+#| echo: true
+numpy_data = np.arange(1000000)
 
 start = time.time()
 numpy_result = numpy_data**2
 numpy_time = time.time() - start
 
-print(f"List took {list_time:.4f} seconds to finish the operation.")
 print(f"NumPy took {numpy_time:.4f} seconds to finish the operation.")
 ```
+:::
+:::::
 
 ## Numpy vs Lists: Sum and products
 
@@ -151,7 +200,25 @@ print("Product:", array_1 * array_2)
 
 ## Numpy creation and operations
 
-As seen in the example, we can use `np.arange()` to create an array from scratch. We can also create an array from a list using `np.array()` like this: `np.array([1, 2, 3, 4, 5])`
+we can use `np.arange()` to create an array from scratch. We can also create an array from a list using `np.array()`
+
+`np.arange` creates evenly spaced values within a given interval:
+
+```{python}
+#| echo: true
+range_array = np.arange(0, 10, 0.5)
+print("Range array:", range_array)
+```
+
+`np.array` will transform a list (denoted in square brackets) to array:
+
+```{python}
+#| echo: true
+list_array = np.array([1, 2, 3, 4, 5])
+print("NumPy array:", list_array)
+```
+
+## Numpy operations
 
 Most operations we perform on lists can also be done with arrays, including:
 
@@ -161,6 +228,68 @@ Most operations we perform on lists can also be done with arrays, including:
 -   Creating copies or views (with important differences between them!)
 
 Let's try these!
+
+## Indexing and Slicing
+
+for indexing and slicing, it's pretty much the same as list!
+
+```{python}
+#| echo: true
+print("Original array:", range_array)
+print("First element:", range_array[0])
+print("Last element:", range_array[-1])
+print("Slicing (elements 3 to 7):", range_array[2:7])
+range_array[0] = 99
+print("Update value of first element:", range_array[0])
+print("Sorting array:", np.sort(range_array))
+```
+
+## Copy vs Views
+
+Let's create 3 arrays:
+
+```{python}
+#| echo: true
+#| output-location: column
+original = np.array([1, 2, 3, 4, 5])
+print("Original array:", original)
+
+view = original.view()
+print("View:", view)
+
+copy = original.copy()
+print("Copy:", copy)
+```
+
+## Copy vs Views: in action
+
+-  Changes in original will be reflected in View and vice versa
+-  Changes in original will NOT be reflected in copy
+
+```{python}
+#| echo: true
+#| output-location: column
+
+original[0] = 99
+print("\nAfter modifying the original array:")
+print("Original array:", original)
+print("View now:", view)  # reflects the changes
+print("Copy now:", copy)  # remains unchanged
+
+# Modify the view
+view[1] = 100
+print("\nAfter modifying the view:")
+print("Original array:", original)  # affected
+print("View now:", view)
+print("Copy now:", copy)  # remains unchanged
+
+# Modify the copy
+copy[2] = 200
+print("\nAfter modifying the copy:")
+print("Original array:", original)  # not affected
+print("View now:", view)  # not affected
+print("Copy now:", copy)
+```
 
 ## Learning Check #1
 
@@ -193,6 +322,9 @@ print("Size of the array:", array_2d.size)
 
 ![](images/numpy_indices.png)
 
+- Alternative way to "count" the indices is that we move from "outer" to "inner". 
+- e.g. the value 4 is located inside the 2nd sub-list. and in this sub-list, it is located on the 1st index, hence `[1, 0]` (remember to minus 1, as indexing in python starts from 0)
+
 ## Loading from a CSV into a 2D array
 
 Let's load our data `sg-gdp.csv` into a 2D array!
@@ -220,16 +352,75 @@ Remember, the shape will be printed as `(row, column)`.
 
 Let's see if we can complete the following tasks:
 
-1.  Find out the mean, standard deviation, max, and mean values.
+1.  Find out the mean, standard deviation, max, and min values.
 2.  Find the mean for each quarter (column-wise operation)
 3.  Find the mean for each sector (row-wise operation)
 4.  Transpose the array
 5.  Retrieve all the negative values.
 6.  Calculate the changes every quarter for Sector 1.
 
+
+
+## Task 1: Find out the mean, standard deviation, max, and mean values.
+
+```{python}
+#| echo: true
+print("Mean of GDP data:", np.mean(gdp_data))
+print("Standard deviation of GDP data:", np.std(gdp_data))
+print("Maximum value in GDP data:", np.amax(gdp_data))
+print("Minimum value in GDP data:", np.amin(gdp_data))
+```
+
 ## Axis Operations
 
 ![](images/axes_operations.png)
+
+## Task 2 & 3:  Find the mean for each quarter and each sector 
+
+```{python}
+#| echo: true
+print("Mean of each quarter:", np.mean(gdp_data, axis=0))
+print("Mean of each sector:", np.mean(gdp_data, axis=1))
+```
+
+## Task 4: Transpose the array
+
+```{python}
+#| echo: true
+transposed_gdp = np.transpose(gdp_data)
+print("Transposed GDP data shape:", transposed_gdp.shape)
+```
+
+Alternatively, you can also do it this way:
+
+```{python}
+#| echo: true
+
+transposed = gdp_data.T
+print(transposed)
+```
+
+## Task 5: Retrieve all the negative values.
+
+```{python}
+#| echo: true
+negative_growth = gdp_data < 0  
+print("negative growth array:", negative_growth)
+print("use the above array to retrieve items whose position is TRUE:\n", gdp_data[negative_growth])
+```
+
+## Task 6: Calculate the changes every quarter for Sector 1.
+
+The `gdp_data` is longitudinal, with each row representing observations for a specific sector over time. This makes growth and contraction trends meaningful to analyze. To calculate changes in the data using NumPy, we can use the numpy.diff() function, which computes the differences between successive values in an array.
+
+```{python}
+#| echo: true
+sector1_array = gdp_data[0, :] # first row, all columns
+print("sector1_array:", sector1_array)
+
+sector1_changes = np.diff(sector1_array)
+print("\nsector1_changes:", sector1_changes)
+```
 
 ## Numpy Financial
 
@@ -237,11 +428,42 @@ The `numpy-financial` package is a collection of elementary financial functions.
 
 ![](images/numpy-financial.jpg)
 
-Let's try some of these!
+[Check out the full documentation here!](https://numpy.org/numpy-financial/latest/index.html)
+
+Install numpy financial
+
+``` python
+pip install numpy-financial
+```
+
+Import it to your notebook to "toggle it on"
+
+```{python}
+#| echo: true
+import numpy_financial as npf
+```
+
+## Calculating future value
+
+Calculate the future value of $1000 invested for 3 years at a 5.0% average annual rate of return.
+
+```{python}
+#| echo: true
+print(npf.fv(rate=0.05, nper=3, pmt=0, pv=-1000))
+```
+By convention, the negative sign represents cash flow out (i.e. money not available today).
+
+## Calculatine number of payment period
+
+You have a loan of 10,000 SGD at 9% annual interest. How long would it take to pay-off the load if your monthly payment is at 750?
+
+```{python}
+#| echo: true
+print(npf.nper(0.09/12, -750, 10000))
+# divided by 12, because the interest is annual but the payment is monthly
+```
 
 ## Learning Check #2
-
-The `gdp_data` is longitudinal, with each row representing observations for a specific sector over time. This makes growth and contraction trends meaningful to analyze. To calculate changes in the data using NumPy, we can use the numpy.diff() function, which computes the differences between successive values in an array.
 
 1.  Calculate the changes for each quarter for all sector. Save this into an array called `sector_changes`.
 2.  Afterwards, find the largest changes in `sector_changes`.
@@ -334,45 +556,157 @@ Continuous Data
 :::
 :::::
 
+## Matplotlib: Getting started
+
+As with the other libraries, let's install the library and then import it.
+
+``` python
+pip install matplotlib
+```
+
+Import the library and give it a nickname called `plt`.
+
+```{python}
+#| echo: true
+import matplotlib.pyplot as plt
+```
+
 ## Matplotlib: Simple Lineplot
 
-Let's try to visualize the contents of `gdp_data`!
+Let's visualize the content of `gdp_data`.
 
 ```{python}
-#| echo: false
-import matplotlib.pyplot as plt
+#| echo: true
+#| output-location: slide
+#| code-line-numbers: "1|2|3|4|5|6"
 
-plt.plot(gdp_data)
-plt.xlabel('Values')
-plt.ylabel('Sectors')
-plt.title('Values Over Quarters')
-plt.legend()
-plt.grid()
-plt.show()
+plt.plot(gdp_data) # <1>
+plt.xlabel('Quarters') # <2>
+plt.ylabel('Sectors') # <3>
+plt.title('Sectors Growth over Quarters') # <4>
+plt.grid() # <5>
+plt.show() # <6>
 ```
 
-## Matplotlib: Individual Line Plots
+1.  The `plot` function here will draw a line chart
+2.  Label the x axis
+3.  Label the y axis
+4.  Give the graph a title
+5.  Turn on the grid lines
+6.  Show the plot!
 
-Let's create different lines for each sector!
+## Something not quite right...
+
+-  It seems like it's trying to plot the differences between sectors instead of growth over each sectors. 
+-  This is because of the way our data is structured: rows representing sectors and columns representing quarters. The rows info is passed to the X coord and the columns are passed to Y coord.
+-  We can fix this by transposing the table, so that the rows represent quarters and columns represent sectors.
 
 ```{python}
+#| echo: true
+#| output-location: slide
 transposed = gdp_data.T
-for sector in range(7):
-    plt.plot(transposed[:, sector], label=f'Sector {sector + 1}')
-
-plt.legend()
-plt.grid()
-plt.show()
+print(transposed)
 ```
+
+## Visualize the transposed data
+
+Same code, but this time we pass in the transposed data. 
+
+```{python}
+#| echo: true
+#| output-location: slide
+#| code-line-numbers: "1|2|3|4|5|6"
+
+plt.plot(transposed) # <1>
+plt.xlabel('Quarters') # <2>
+plt.ylabel('Sectors') # <3>
+plt.title('Sectors Growth over Quarters') # <4>
+plt.grid() # <5>
+plt.show() # <6>
+```
+
+1.  Passing in the transposed version
+2.  Label the x axis
+3.  Label the y axis
+4.  Give the graph a title
+5.  Turn on the grid lines
+6.  Show the plot!
+
+## Fixing the X-axis labels
+
+It is still not very readable, so let's give it proper x-axis labeling!
+
+```{python}
+#| echo: true
+#| output-location: slide
+#| code-line-numbers: "1,2,3|5|6,7,8,9|13"
+
+quarters = ['2019 Q1', '2019 Q2', '2019 Q3', '2019 Q4', '2020 Q1', '2020 Q2', '2020 Q3', 
+'2020 Q4',  '2021 Q1', '2021 Q2', '2021 Q3', '2021 Q4', '2022 Q1', '2022 Q2', '2022 Q3', 
+'2022 Q4',  '2023 Q1', '2023 Q2', '2023 Q3', '2023 Q4'] # <1>
+
+plt.plot(transposed) # <2>
+plt.xticks(ticks=range(len(quarters)), # <3>
+           labels=quarters, # <3>
+           rotation=45, # <3>
+           ha="right") # <3>
+plt.xlabel('Quarters') 
+plt.ylabel('Growth and Contractions') 
+plt.title('Growth and Contractions over Quarters') 
+plt.tight_layout() # <4>
+
+plt.grid() 
+plt.show() 
+```
+
+1.  Create a list of labels that we want to put
+2.  Still using the transposed array
+3.  Set the labels. In this lines of code, we tell matplotlib how many labels are there, what are the labels, the rotation of the labels, and the horizontal align.
+4.  This will get rid of the extra margins on the sides
+
+## Adding individual labels {.scrollable}
+
+We can utilize the for loop to add plot the lines and label them one by one. 
+
+``` {python}
+#| echo: true
+#| output-location: slide
+#| code-line-numbers: "1|2|3|4|6"
+
+for sector_num in range(7): # <1>
+    print("plotting sector_num:", sector_num) # <5>
+    plt.plot(transposed[:, sector_num], # <2>
+    label="Sector " + str(sector_num)) # <3> 
+
+plt.legend() # <4>
+
+plt.xticks(ticks=range(len(quarters)), labels=quarters, rotation=45, ha="right") 
+plt.tight_layout()
+plt.grid() 
+plt.show() 
+
+```
+
+1.  Here, we set the loop to run 7 times since we have seven sector. Throughout the loop, `sector_num` value will change from 0 to 6
+2.  Putting this here so that we know when a sector is being plotted.
+3.  Plot the current sector. `[:, sector_num]` can be read as "all rows, in the `sector_num` column"
+4.  label each line plot with the sector number.
+5.  Toggle the legend so that all the labels are visible .
 
 ## Matplotlib: Histogram
 
-Let's see if there's any outlier growths or contractions on each sectors over the quarters!
+Let's see if there's any outlier growths or contractions on each sectors over the quarters! Histogram is the best visualization for this purpose. 
 
 ```{python}
-transposed = gdp_data.T
+#| echo: true
+#| output-location: slide
 
 plt.boxplot(transposed)
+
+plt.xlabel('Sectors') 
+plt.ylabel('Growth and Contractions') 
+plt.title('Growth and Contractions for all sectors') 
+
 plt.grid()
 plt.show()
 ```
@@ -391,10 +725,14 @@ Using the `sg-gdp.csv` data loaded into a NumPy array:
 
 two_sectors = gdp_data[:2, :] #[first two rows, all columns]
 sector_number = 1 
+quarters = ['2019 Q1', '2019 Q2', '2019 Q3', '2019 Q4', '2020 Q1', '2020 Q2', '2020 Q3', 
+'2020 Q4',  '2021 Q1', '2021 Q2', '2021 Q3', '2021 Q4', '2022 Q1', '2022 Q2', '2022 Q3', 
+'2022 Q4',  '2023 Q1', '2023 Q2', '2023 Q3', '2023 Q4']
 for sector in two_sectors:
     plt.plot(sector, label = "Sector " + str(sector_number))
     sector_number = sector_number + 1 #increase sector number by 1
 
+plt.xticks(ticks=range(len(quarters)), labels=quarters, rotation=45, ha="right") 
 plt.legend()
 plt.grid()
 plt.show()

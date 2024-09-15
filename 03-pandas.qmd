@@ -8,7 +8,7 @@ format: revealjs
 
 -  Python libraries / packages
 
--  Introduction to Numpy & Numpy-financial
+-  Introduction to Numpy (+ numpy-financial)
 
 -  Getting started with visualizations with matplotlib
 
@@ -20,10 +20,10 @@ format: revealjs
 
 -  Analyzing and visualizing Time Series dataframe 
 
-## Section 1: What and Why Pandas
+# Section 1: What and Why Pandas
 
-## Section 2: Visualization with Seaborn
+# Section 2: Visualization with Seaborn
 
-## Section 3: DateTime object 
+# Section 3: DateTime object 
 
-## Section 4: Time Series with Pandas
+# Section 4: Time Series with Pandas
