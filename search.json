@@ -154,6 +154,27 @@
     "text": "Refresher: .py and .ipynb\n\n\nIf it’s a .py file…\n\nFor “production” uses e.g., creating apps, industrial deployments; Executing the file will run all the codes inside the file.\n\nIf it’s a .ipynb file…\n\nGreat for quick experiments or teaching / presentation; Codes will be executed on per-block basis"
   },
   {
+    "objectID": "02-numpy.html#creating-new-.ipynb-file",
+    "href": "02-numpy.html#creating-new-.ipynb-file",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Creating new .ipynb file",
+    "text": "Creating new .ipynb file\n\nMake sure that you have Jupyter extension installed in VS Code\nClick on File &gt; New File... and then Jupyter Notebook. If you don’t see this option, most likely it means you don’t have the Jupyter extension installed"
+  },
+  {
+    "objectID": "02-numpy.html#jupyter-notebook-quick-tour",
+    "href": "02-numpy.html#jupyter-notebook-quick-tour",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Jupyter Notebook quick tour",
+    "text": "Jupyter Notebook quick tour\n\nMore on Markdown formatting here"
+  },
+  {
+    "objectID": "02-numpy.html#jupyter-notebook-running-a-code-cell",
+    "href": "02-numpy.html#jupyter-notebook-running-a-code-cell",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Jupyter notebook: running a code cell",
+    "text": "Jupyter notebook: running a code cell\nWhen running a code cell for the first time, you will be prompted to choose the python kernel. Choose the version you want (in our case, version 3.12)\n\nIf you are prompted to install ipykernel, go ahead and install it."
+  },
+  {
     "objectID": "02-numpy.html#whats-numpy",
     "href": "02-numpy.html#whats-numpy",
     "title": "Introduction to Numpy & Matplotlib",
@@ -165,7 +186,14 @@
     "href": "02-numpy.html#whats-a-python-library",
     "title": "Introduction to Numpy & Matplotlib",
     "section": "What’s a Python library?",
-    "text": "What’s a Python library?\n\nPython libraries or packages are essentially reusable sets of code that can be imported into your environment to extend functionality.\nBefore using them, most libraries must first be installed and then imported.\nHowever, some libraries are part of the Python Standard Library, meaning they don’t need to be installed—just imported. For example, time.\n\n\nimport numpy as np # giving numpy a shorter \"nickname\"\nimport time"
+    "text": "What’s a Python library?\n\nPython libraries or packages are essentially reusable sets of code that can be imported into your environment to extend functionality.\nBefore using them, most libraries must first be installed and then imported. THis is how you can install a library:\n\npip install numpy"
+  },
+  {
+    "objectID": "02-numpy.html#library-is-installed-now-what",
+    "href": "02-numpy.html#library-is-installed-now-what",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Library is installed, now what?",
+    "text": "Library is installed, now what?\n\nAfter it is installed, we have to import them to “activate” it in our notebook so that we can use it!\nNote: some libraries are part of the Python Standard Library, meaning they are already installed and ready to be imported straight away! For example, time library.\n\n\nimport numpy as np # giving numpy a shorter \"nickname\"\nimport time\n\nTo use a function that belongs to a library, we have to call the library name (or the nickname, if we assign one), followed by . and then the function name! e.g. if we want to call array function in numpy:\nnp.array()"
   },
   {
     "objectID": "02-numpy.html#numpy-vs-lists",
@@ -179,7 +207,7 @@
     "href": "02-numpy.html#numpy-vs-lists-performance-comparison",
     "title": "Introduction to Numpy & Matplotlib",
     "section": "Numpy vs Lists: Performance comparison",
-    "text": "Numpy vs Lists: Performance comparison\nImagine we have a million numbers to square. We’ll store them in both a list and an array, then compare their processing speeds.\n\n# Creating large datasets\nlist_data = list(range(1000000))\nnumpy_data = np.arange(1000000)\n\n# Comparing operation speed\nstart = time.time()\nlist_result = [x**2 for x in list_data]\nlist_time = time.time() - start\n\nstart = time.time()\nnumpy_result = numpy_data**2\nnumpy_time = time.time() - start\n\nprint(f\"List took {list_time:.4f} seconds to finish the operation.\")\nprint(f\"NumPy took {numpy_time:.4f} seconds to finish the operation.\")\n\nList took 0.2715 seconds to finish the operation.\nNumPy took 0.0083 seconds to finish the operation."
+    "text": "Numpy vs Lists: Performance comparison\nImagine we have a million numbers to square. We’ll store them in both a list and an array, then compare their processing speeds.\n\n\nLists\n\nlist_data = list(range(1000000))\n\nstart = time.time()\nlist_result = [x**2 for x in list_data]\nlist_time = time.time() - start\n\nprint(f\"List took {list_time:.4f} seconds to finish the operation.\")\n\nList took 0.0996 seconds to finish the operation.\n\n\n\nNumpy Arrays\n\nnumpy_data = np.arange(1000000)\n\nstart = time.time()\nnumpy_result = numpy_data**2\nnumpy_time = time.time() - start\n\nprint(f\"NumPy took {numpy_time:.4f} seconds to finish the operation.\")\n\nNumPy took 0.0020 seconds to finish the operation."
   },
   {
     "objectID": "02-numpy.html#numpy-vs-lists-sum-and-products",
@@ -193,7 +221,35 @@
     "href": "02-numpy.html#numpy-creation-and-operations",
     "title": "Introduction to Numpy & Matplotlib",
     "section": "Numpy creation and operations",
-    "text": "Numpy creation and operations\nAs seen in the example, we can use np.arange() to create an array from scratch. We can also create an array from a list using np.array() like this: np.array([1, 2, 3, 4, 5])\nMost operations we perform on lists can also be done with arrays, including:\n\nSlicing\nIndexing\nSorting\nCreating copies or views (with important differences between them!)\n\nLet’s try these!"
+    "text": "Numpy creation and operations\nwe can use np.arange() to create an array from scratch. We can also create an array from a list using np.array()\nnp.arange creates evenly spaced values within a given interval:\n\nrange_array = np.arange(0, 10, 0.5)\nprint(\"Range array:\", range_array)\n\nRange array: [0.  0.5 1.  1.5 2.  2.5 3.  3.5 4.  4.5 5.  5.5 6.  6.5 7.  7.5 8.  8.5\n 9.  9.5]\n\n\nnp.array will transform a list (denoted in square brackets) to array:\n\nlist_array = np.array([1, 2, 3, 4, 5])\nprint(\"NumPy array:\", list_array)\n\nNumPy array: [1 2 3 4 5]"
+  },
+  {
+    "objectID": "02-numpy.html#numpy-operations",
+    "href": "02-numpy.html#numpy-operations",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Numpy operations",
+    "text": "Numpy operations\nMost operations we perform on lists can also be done with arrays, including:\n\nSlicing\nIndexing\nSorting\nCreating copies or views (with important differences between them!)\n\nLet’s try these!"
+  },
+  {
+    "objectID": "02-numpy.html#indexing-and-slicing",
+    "href": "02-numpy.html#indexing-and-slicing",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Indexing and Slicing",
+    "text": "Indexing and Slicing\nfor indexing and slicing, it’s pretty much the same as list!\n\nprint(\"Original array:\", range_array)\nprint(\"First element:\", range_array[0])\nprint(\"Last element:\", range_array[-1])\nprint(\"Slicing (elements 3 to 7):\", range_array[2:7])\nrange_array[0] = 99\nprint(\"Update value of first element:\", range_array[0])\nprint(\"Sorting array:\", np.sort(range_array))\n\nOriginal array: [0.  0.5 1.  1.5 2.  2.5 3.  3.5 4.  4.5 5.  5.5 6.  6.5 7.  7.5 8.  8.5\n 9.  9.5]\nFirst element: 0.0\nLast element: 9.5\nSlicing (elements 3 to 7): [1.  1.5 2.  2.5 3. ]\nUpdate value of first element: 99.0\nSorting array: [ 0.5  1.   1.5  2.   2.5  3.   3.5  4.   4.5  5.   5.5  6.   6.5  7.\n  7.5  8.   8.5  9.   9.5 99. ]"
+  },
+  {
+    "objectID": "02-numpy.html#copy-vs-views",
+    "href": "02-numpy.html#copy-vs-views",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Copy vs Views",
+    "text": "Copy vs Views\nLet’s create 3 arrays:\n\n\noriginal = np.array([1, 2, 3, 4, 5])\nprint(\"Original array:\", original)\n\nview = original.view()\nprint(\"View:\", view)\n\ncopy = original.copy()\nprint(\"Copy:\", copy)\n\n\nOriginal array: [1 2 3 4 5]\nView: [1 2 3 4 5]\nCopy: [1 2 3 4 5]"
+  },
+  {
+    "objectID": "02-numpy.html#copy-vs-views-in-action",
+    "href": "02-numpy.html#copy-vs-views-in-action",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Copy vs Views: in action",
+    "text": "Copy vs Views: in action\n\nChanges in original will be reflected in View and vice versa\nChanges in original will NOT be reflected in copy\n\n\n\noriginal[0] = 99\nprint(\"\\nAfter modifying the original array:\")\nprint(\"Original array:\", original)\nprint(\"View now:\", view)  # reflects the changes\nprint(\"Copy now:\", copy)  # remains unchanged\n\n# Modify the view\nview[1] = 100\nprint(\"\\nAfter modifying the view:\")\nprint(\"Original array:\", original)  # affected\nprint(\"View now:\", view)\nprint(\"Copy now:\", copy)  # remains unchanged\n\n# Modify the copy\ncopy[2] = 200\nprint(\"\\nAfter modifying the copy:\")\nprint(\"Original array:\", original)  # not affected\nprint(\"View now:\", view)  # not affected\nprint(\"Copy now:\", copy)\n\n\n\nAfter modifying the original array:\nOriginal array: [99  2  3  4  5]\nView now: [99  2  3  4  5]\nCopy now: [1 2 3 4 5]\n\nAfter modifying the view:\nOriginal array: [ 99 100   3   4   5]\nView now: [ 99 100   3   4   5]\nCopy now: [1 2 3 4 5]\n\nAfter modifying the copy:\nOriginal array: [ 99 100   3   4   5]\nView now: [ 99 100   3   4   5]\nCopy now: [  1   2 200   4   5]"
   },
   {
     "objectID": "02-numpy.html#learning-check-1",
@@ -214,7 +270,7 @@
     "href": "02-numpy.html#indices-in-a-2d-array",
     "title": "Introduction to Numpy & Matplotlib",
     "section": "Indices in a 2D array",
-    "text": "Indices in a 2D array"
+    "text": "Indices in a 2D array\n\n\nAlternative way to “count” the indices is that we move from “outer” to “inner”.\ne.g. the value 4 is located inside the 2nd sub-list. and in this sub-list, it is located on the 1st index, hence [1, 0] (remember to minus 1, as indexing in python starts from 0)"
   },
   {
     "objectID": "02-numpy.html#loading-from-a-csv-into-a-2d-array",
@@ -238,6 +294,13 @@
     "text": "2D array operations\nLet’s see if we can complete the following tasks:\n\nFind out the mean, standard deviation, max, and min values.\nFind the mean for each quarter (column-wise operation)\nFind the mean for each sector (row-wise operation)\nTranspose the array\nRetrieve all the negative values.\nCalculate the changes every quarter for Sector 1."
   },
   {
+    "objectID": "02-numpy.html#task-1-find-out-the-mean-standard-deviation-max-and-mean-values.",
+    "href": "02-numpy.html#task-1-find-out-the-mean-standard-deviation-max-and-mean-values.",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Task 1: Find out the mean, standard deviation, max, and mean values.",
+    "text": "Task 1: Find out the mean, standard deviation, max, and mean values.\n\nprint(\"Mean of GDP data:\", np.mean(gdp_data))\nprint(\"Standard deviation of GDP data:\", np.std(gdp_data))\nprint(\"Maximum value in GDP data:\", np.amax(gdp_data))\nprint(\"Minimum value in GDP data:\", np.amin(gdp_data))\n\nMean of GDP data: 7.504\nStandard deviation of GDP data: inf\nMaximum value in GDP data: 174.0\nMinimum value in GDP data: -66.1"
+  },
+  {
     "objectID": "02-numpy.html#axis-operations",
     "href": "02-numpy.html#axis-operations",
     "title": "Introduction to Numpy & Matplotlib",
@@ -245,18 +308,60 @@
     "text": "Axis Operations"
   },
   {
+    "objectID": "02-numpy.html#task-2-3-find-the-mean-for-each-quarter-and-each-sector",
+    "href": "02-numpy.html#task-2-3-find-the-mean-for-each-quarter-and-each-sector",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Task 2 & 3: Find the mean for each quarter and each sector",
+    "text": "Task 2 & 3: Find the mean for each quarter and each sector\n\nprint(\"Mean of each quarter:\", np.mean(gdp_data, axis=0))\nprint(\"Mean of each sector:\", np.mean(gdp_data, axis=1))\n\nMean of each quarter: [  4.285    2.943    0.827    3.172   11.47    14.74    18.77    19.27\n  22.48    31.08    49.34     4.613   -4.06   -12.516  -19.06    -0.7\n  -4.5      0.3716   1.558    6.    ]\nMean of each sector: [ 6.477  4.465  3.725 14.18  10.9    5.38   7.39 ]"
+  },
+  {
+    "objectID": "02-numpy.html#task-4-transpose-the-array",
+    "href": "02-numpy.html#task-4-transpose-the-array",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Task 4: Transpose the array",
+    "text": "Task 4: Transpose the array\n\ntransposed_gdp = np.transpose(gdp_data)\nprint(\"Transposed GDP data shape:\", transposed_gdp.shape)\n\nTransposed GDP data shape: (20, 7)\n\n\nAlternatively, you can also do it this way:\n\ntransposed = gdp_data.T\nprint(transposed)\n\n[[  2.6  -2.   -5.5  11.6  12.9   7.4   3. ]\n [ -2.8  -7.6 -12.3  11.3  25.    9.7  -2.7]\n [ -5.8 -12.7 -18.2  15.5  27.3   4.4  -4.7]\n [ -2.   -7.2 -11.9  15.6  21.6   7.6  -1.5]\n [  9.4   7.1   4.2  17.6  28.4   2.7  10.9]\n [ 17.5   9.6   7.6  17.7  27.6   1.5  21.7]\n [ 24.5  20.9  21.9  12.6  22.8   0.7  27.9]\n [ 20.9  24.1  25.3  16.   24.7   1.9  21.9]\n [ 22.9  27.7  27.   45.1   3.9   8.   22.8]\n [ 23.1  29.8  25.4 106.3   0.3  11.   21.6]\n [ 31.6  43.3  37.7 174.   -1.3  34.3  25.7]\n [  7.7   8.3  11.4  -6.1  -1.1   4.8   7.3]\n [ -2.8  -6.5  -3.2 -29.2  10.1   5.4  -2.2]\n [ -7.4  -9.5  -2.7 -52.9  -1.2  -7.1  -6.8]\n [-14.4 -19.3 -12.6 -66.1   5.3 -15.5 -10.8]\n [ -0.4  -2.1  -1.2 -10.1  10.1  -1.5   0.3]\n [ -1.8 -16.2 -19.3  -1.8  -0.5   4.7   3.4]\n [  0.3  -6.3  -7.9   0.2   3.3  10.5   2.5]\n [  2.1  -0.1  -0.5   3.   -2.5   5.3   3.6]\n [  4.3   8.    9.3   3.4   1.3  11.8   3.9]]"
+  },
+  {
+    "objectID": "02-numpy.html#task-5-retrieve-all-the-negative-values.",
+    "href": "02-numpy.html#task-5-retrieve-all-the-negative-values.",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Task 5: Retrieve all the negative values.",
+    "text": "Task 5: Retrieve all the negative values.\n\nnegative_growth = gdp_data &lt; 0  \nprint(\"negative growth array:\", negative_growth)\nprint(\"use the above array to retrieve items whose position is TRUE:\\n\", gdp_data[negative_growth])\n\nnegative growth array: [[False  True  True  True False False False False False False False False\n   True  True  True  True  True False False False]\n [ True  True  True  True False False False False False False False False\n   True  True  True  True  True  True  True False]\n [ True  True  True  True False False False False False False False False\n   True  True  True  True  True  True  True False]\n [False False False False False False False False False False False  True\n   True  True  True  True  True False False False]\n [False False False False False False False False False False  True  True\n  False  True False False  True False  True False]\n [False False False False False False False False False False False False\n  False  True  True  True False False False False]\n [False  True  True  True False False False False False False False False\n   True  True  True False False False False False]]\nuse the above array to retrieve items whose position is TRUE:\n [ -2.8  -5.8  -2.   -2.8  -7.4 -14.4  -0.4  -1.8  -2.   -7.6 -12.7  -7.2\n  -6.5  -9.5 -19.3  -2.1 -16.2  -6.3  -0.1  -5.5 -12.3 -18.2 -11.9  -3.2\n  -2.7 -12.6  -1.2 -19.3  -7.9  -0.5  -6.1 -29.2 -52.9 -66.1 -10.1  -1.8\n  -1.3  -1.1  -1.2  -0.5  -2.5  -7.1 -15.5  -1.5  -2.7  -4.7  -1.5  -2.2\n  -6.8 -10.8]"
+  },
+  {
+    "objectID": "02-numpy.html#task-6-calculate-the-changes-every-quarter-for-sector-1.",
+    "href": "02-numpy.html#task-6-calculate-the-changes-every-quarter-for-sector-1.",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Task 6: Calculate the changes every quarter for Sector 1.",
+    "text": "Task 6: Calculate the changes every quarter for Sector 1.\nThe gdp_data is longitudinal, with each row representing observations for a specific sector over time. This makes growth and contraction trends meaningful to analyze. To calculate changes in the data using NumPy, we can use the numpy.diff() function, which computes the differences between successive values in an array.\n\nsector1_array = gdp_data[0, :] # first row, all columns\nprint(\"sector1_array:\", sector1_array)\n\nsector1_changes = np.diff(sector1_array)\nprint(\"\\nsector1_changes:\", sector1_changes)\n\nsector1_array: [  2.6  -2.8  -5.8  -2.    9.4  17.5  24.5  20.9  22.9  23.1  31.6   7.7\n  -2.8  -7.4 -14.4  -0.4  -1.8   0.3   2.1   4.3]\n\nsector1_changes: [ -5.4     -3.       3.8     11.4      8.1      7.      -3.594    2.\n   0.1875   8.5    -23.89   -10.5     -4.598   -7.      14.      -1.4\n   2.1      1.8      2.201 ]"
+  },
+  {
     "objectID": "02-numpy.html#numpy-financial",
     "href": "02-numpy.html#numpy-financial",
     "title": "Introduction to Numpy & Matplotlib",
     "section": "Numpy Financial",
-    "text": "Numpy Financial\nThe numpy-financial package is a collection of elementary financial functions. It’s a relatively tiny package, but useful if you need to do some financial calculations.\n\nLet’s try some of these!"
+    "text": "Numpy Financial\nThe numpy-financial package is a collection of elementary financial functions. It’s a relatively tiny package, but useful if you need to do some financial calculations.\n\nCheck out the full documentation here!\nInstall numpy financial\npip install numpy-financial\nImport it to your notebook to “toggle it on”\n\nimport numpy_financial as npf"
+  },
+  {
+    "objectID": "02-numpy.html#calculating-future-value",
+    "href": "02-numpy.html#calculating-future-value",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Calculating future value",
+    "text": "Calculating future value\nCalculate the future value of $1000 invested for 3 years at a 5.0% average annual rate of return.\n\nprint(npf.fv(rate=0.05, nper=3, pmt=0, pv=-1000))\n\n1157.6250000000002\n\n\nBy convention, the negative sign represents cash flow out (i.e. money not available today)."
+  },
+  {
+    "objectID": "02-numpy.html#calculatine-number-of-payment-period",
+    "href": "02-numpy.html#calculatine-number-of-payment-period",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Calculatine number of payment period",
+    "text": "Calculatine number of payment period\nYou have a loan of 10,000 SGD at 9% annual interest. How long would it take to pay-off the load if your monthly payment is at 750?\n\nprint(npf.nper(0.09/12, -750, 10000))\n# divided by 12, because the interest is annual but the payment is monthly\n\n14.100683407655323"
   },
   {
     "objectID": "02-numpy.html#learning-check-2",
     "href": "02-numpy.html#learning-check-2",
     "title": "Introduction to Numpy & Matplotlib",
     "section": "Learning Check #2",
-    "text": "Learning Check #2\nThe gdp_data is longitudinal, with each row representing observations for a specific sector over time. This makes growth and contraction trends meaningful to analyze. To calculate changes in the data using NumPy, we can use the numpy.diff() function, which computes the differences between successive values in an array.\n\nCalculate the changes for each quarter for all sector. Save this into an array called sector_changes.\nAfterwards, find the largest changes in sector_changes.\n\n\n\nCode\nsector_changes = np.diff(gdp_data)\nprint(\"sector_changes:\", sector_changes)\nprint(\"\\nsector_changes shape:\", sector_changes.shape)\n\nprint(\"\\nLargest change:\", np.amax(sector_changes))"
+    "text": "Learning Check #2\n\nCalculate the changes for each quarter for all sector. Save this into an array called sector_changes.\nAfterwards, find the largest changes in sector_changes.\n\n\n\nCode\nsector_changes = np.diff(gdp_data)\nprint(\"sector_changes:\", sector_changes)\nprint(\"\\nsector_changes shape:\", sector_changes.shape)\n\nprint(\"\\nLargest change:\", np.amax(sector_changes))"
   },
   {
     "objectID": "02-numpy.html#learning-check-2-output",
@@ -294,32 +399,102 @@
     "text": "Anatomy of a matplotlib graph\n\n\n\n\nUseful resources:\n\nMatplotlib cheatsheets - This is more beginner-friendly\nQuick start guide\nPython Graph Gallery"
   },
   {
+    "objectID": "02-numpy.html#matplotlib-getting-started",
+    "href": "02-numpy.html#matplotlib-getting-started",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Matplotlib: Getting started",
+    "text": "Matplotlib: Getting started\nAs with the other libraries, let’s install the library and then import it.\npip install matplotlib\nImport the library and give it a nickname called plt.\n\nimport matplotlib.pyplot as plt"
+  },
+  {
     "objectID": "02-numpy.html#matplotlib-simple-lineplot",
     "href": "02-numpy.html#matplotlib-simple-lineplot",
     "title": "Introduction to Numpy & Matplotlib",
     "section": "Matplotlib: Simple Lineplot",
-    "text": "Matplotlib: Simple Lineplot\nLet’s try to visualize the contents of gdp_data!"
+    "text": "Matplotlib: Simple Lineplot\nLet’s visualize the content of gdp_data.\n\n1plt.plot(gdp_data)\n2plt.xlabel('Quarters')\n3plt.ylabel('Sectors')\n4plt.title('Sectors Growth over Quarters')\n5plt.grid()\n6plt.show()\n\n\n1\n\nThe plot function here will draw a line chart\n\n2\n\nLabel the x axis\n\n3\n\nLabel the y axis\n\n4\n\nGive the graph a title\n\n5\n\nTurn on the grid lines\n\n6\n\nShow the plot!"
   },
   {
-    "objectID": "02-numpy.html#matplotlib-individual-line-plots",
-    "href": "02-numpy.html#matplotlib-individual-line-plots",
+    "objectID": "02-numpy.html#matplotlib-simple-lineplot-output",
+    "href": "02-numpy.html#matplotlib-simple-lineplot-output",
     "title": "Introduction to Numpy & Matplotlib",
-    "section": "Matplotlib: Individual Line Plots",
-    "text": "Matplotlib: Individual Line Plots\nLet’s create different lines for each sector!"
+    "section": "Matplotlib: Simple Lineplot",
+    "text": "Matplotlib: Simple Lineplot"
+  },
+  {
+    "objectID": "02-numpy.html#something-not-quite-right",
+    "href": "02-numpy.html#something-not-quite-right",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Something not quite right…",
+    "text": "Something not quite right…\n\nIt seems like it’s trying to plot the differences between sectors instead of growth over each sectors.\nThis is because of the way our data is structured: rows representing sectors and columns representing quarters. The rows info is passed to the X coord and the columns are passed to Y coord.\nWe can fix this by transposing the table, so that the rows represent quarters and columns represent sectors.\n\n\ntransposed = gdp_data.T\nprint(transposed)"
+  },
+  {
+    "objectID": "02-numpy.html#something-not-quite-right-output",
+    "href": "02-numpy.html#something-not-quite-right-output",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Something not quite right…",
+    "text": "Something not quite right…\n\n[[  2.6  -2.   -5.5  11.6  12.9   7.4   3. ]\n [ -2.8  -7.6 -12.3  11.3  25.    9.7  -2.7]\n [ -5.8 -12.7 -18.2  15.5  27.3   4.4  -4.7]\n [ -2.   -7.2 -11.9  15.6  21.6   7.6  -1.5]\n [  9.4   7.1   4.2  17.6  28.4   2.7  10.9]\n [ 17.5   9.6   7.6  17.7  27.6   1.5  21.7]\n [ 24.5  20.9  21.9  12.6  22.8   0.7  27.9]\n [ 20.9  24.1  25.3  16.   24.7   1.9  21.9]\n [ 22.9  27.7  27.   45.1   3.9   8.   22.8]\n [ 23.1  29.8  25.4 106.3   0.3  11.   21.6]\n [ 31.6  43.3  37.7 174.   -1.3  34.3  25.7]\n [  7.7   8.3  11.4  -6.1  -1.1   4.8   7.3]\n [ -2.8  -6.5  -3.2 -29.2  10.1   5.4  -2.2]\n [ -7.4  -9.5  -2.7 -52.9  -1.2  -7.1  -6.8]\n [-14.4 -19.3 -12.6 -66.1   5.3 -15.5 -10.8]\n [ -0.4  -2.1  -1.2 -10.1  10.1  -1.5   0.3]\n [ -1.8 -16.2 -19.3  -1.8  -0.5   4.7   3.4]\n [  0.3  -6.3  -7.9   0.2   3.3  10.5   2.5]\n [  2.1  -0.1  -0.5   3.   -2.5   5.3   3.6]\n [  4.3   8.    9.3   3.4   1.3  11.8   3.9]]"
+  },
+  {
+    "objectID": "02-numpy.html#visualize-the-transposed-data",
+    "href": "02-numpy.html#visualize-the-transposed-data",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Visualize the transposed data",
+    "text": "Visualize the transposed data\nSame code, but this time we pass in the transposed data.\n\n1plt.plot(transposed)\n2plt.xlabel('Quarters')\n3plt.ylabel('Sectors')\n4plt.title('Sectors Growth over Quarters')\n5plt.grid()\n6plt.show()\n\n\n1\n\nPassing in the transposed version\n\n2\n\nLabel the x axis\n\n3\n\nLabel the y axis\n\n4\n\nGive the graph a title\n\n5\n\nTurn on the grid lines\n\n6\n\nShow the plot!"
+  },
+  {
+    "objectID": "02-numpy.html#visualize-the-transposed-data-output",
+    "href": "02-numpy.html#visualize-the-transposed-data-output",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Visualize the transposed data",
+    "text": "Visualize the transposed data"
+  },
+  {
+    "objectID": "02-numpy.html#fixing-the-x-axis-labels",
+    "href": "02-numpy.html#fixing-the-x-axis-labels",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Fixing the X-axis labels",
+    "text": "Fixing the X-axis labels\nIt is still not very readable, so let’s give it proper x-axis labeling!\n\nquarters = ['2019 Q1', '2019 Q2', '2019 Q3', '2019 Q4', '2020 Q1', '2020 Q2', '2020 Q3', \n'2020 Q4',  '2021 Q1', '2021 Q2', '2021 Q3', '2021 Q4', '2022 Q1', '2022 Q2', '2022 Q3', \n1'2022 Q4',  '2023 Q1', '2023 Q2', '2023 Q3', '2023 Q4']\n\n2plt.plot(transposed)\n3plt.xticks(ticks=range(len(quarters)),\n           labels=quarters,\n           rotation=45,\n           ha=\"right\")\nplt.xlabel('Quarters') \nplt.ylabel('Growth and Contractions') \nplt.title('Growth and Contractions over Quarters') \n4plt.tight_layout()\n\nplt.grid() \nplt.show() \n\n\n1\n\nCreate a list of labels that we want to put\n\n2\n\nStill using the transposed array\n\n3\n\nSet the labels. In this lines of code, we tell matplotlib how many labels are there, what are the labels, the rotation of the labels, and the horizontal align.\n\n4\n\nThis will get rid of the extra margins on the sides"
+  },
+  {
+    "objectID": "02-numpy.html#fixing-the-x-axis-labels-output",
+    "href": "02-numpy.html#fixing-the-x-axis-labels-output",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Fixing the X-axis labels",
+    "text": "Fixing the X-axis labels"
+  },
+  {
+    "objectID": "02-numpy.html#adding-individual-labels",
+    "href": "02-numpy.html#adding-individual-labels",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Adding individual labels",
+    "text": "Adding individual labels\nWe can utilize the for loop to add plot the lines and label them one by one.\n\n1for sector_num in range(7):\n5    print(\"plotting sector_num:\", sector_num)\n2    plt.plot(transposed[:, sector_num],\n3    label=\"Sector \" + str(sector_num))\n\n4plt.legend()\n\nplt.xticks(ticks=range(len(quarters)), labels=quarters, rotation=45, ha=\"right\") \nplt.tight_layout()\nplt.grid() \nplt.show() \n\n\n1\n\nHere, we set the loop to run 7 times since we have seven sector. Throughout the loop, sector_num value will change from 0 to 6\n\n2\n\nPutting this here so that we know when a sector is being plotted.\n\n3\n\nPlot the current sector. [:, sector_num] can be read as “all rows, in the sector_num column”\n\n4\n\nlabel each line plot with the sector number.\n\n5\n\nToggle the legend so that all the labels are visible ."
+  },
+  {
+    "objectID": "02-numpy.html#adding-individual-labels-output",
+    "href": "02-numpy.html#adding-individual-labels-output",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Adding individual labels",
+    "text": "Adding individual labels\n\nplotting sector_num: 0\nplotting sector_num: 1\nplotting sector_num: 2\nplotting sector_num: 3\nplotting sector_num: 4\nplotting sector_num: 5\nplotting sector_num: 6"
   },
   {
     "objectID": "02-numpy.html#matplotlib-histogram",
     "href": "02-numpy.html#matplotlib-histogram",
     "title": "Introduction to Numpy & Matplotlib",
     "section": "Matplotlib: Histogram",
-    "text": "Matplotlib: Histogram\nLet’s see if there’s any outlier growths or contractions on each sectors over the quarters!"
+    "text": "Matplotlib: Histogram\nLet’s see if there’s any outlier growths or contractions on each sectors over the quarters! Histogram is the best visualization for this purpose.\n\nplt.boxplot(transposed)\n\nplt.xlabel('Sectors') \nplt.ylabel('Growth and Contractions') \nplt.title('Growth and Contractions for all sectors') \n\nplt.grid()\nplt.show()"
+  },
+  {
+    "objectID": "02-numpy.html#matplotlib-histogram-output",
+    "href": "02-numpy.html#matplotlib-histogram-output",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Matplotlib: Histogram",
+    "text": "Matplotlib: Histogram"
   },
   {
     "objectID": "02-numpy.html#learning-check-3",
     "href": "02-numpy.html#learning-check-3",
     "title": "Introduction to Numpy & Matplotlib",
     "section": "Learning Check #3",
-    "text": "Learning Check #3\nUsing the sg-gdp.csv data loaded into a NumPy array:\n\nCreate a line plot showing the GDP growth over time for the first two sectors only\nAdd appropriate labels, a title, and a legend to the plot.\n\n\n\nCode\ntwo_sectors = gdp_data[:2, :] #[first two rows, all columns]\nsector_number = 1 \nfor sector in two_sectors:\n    plt.plot(sector, label = \"Sector \" + str(sector_number))\n    sector_number = sector_number + 1 #increase sector number by 1\n\nplt.legend()\nplt.grid()\nplt.show()"
+    "text": "Learning Check #3\nUsing the sg-gdp.csv data loaded into a NumPy array:\n\nCreate a line plot showing the GDP growth over time for the first two sectors only\nAdd appropriate labels, a title, and a legend to the plot.\n\n\n\nCode\ntwo_sectors = gdp_data[:2, :] #[first two rows, all columns]\nsector_number = 1 \nquarters = ['2019 Q1', '2019 Q2', '2019 Q3', '2019 Q4', '2020 Q1', '2020 Q2', '2020 Q3', \n'2020 Q4',  '2021 Q1', '2021 Q2', '2021 Q3', '2021 Q4', '2022 Q1', '2022 Q2', '2022 Q3', \n'2022 Q4',  '2023 Q1', '2023 Q2', '2023 Q3', '2023 Q4']\nfor sector in two_sectors:\n    plt.plot(sector, label = \"Sector \" + str(sector_number))\n    sector_number = sector_number + 1 #increase sector number by 1\n\nplt.xticks(ticks=range(len(quarters)), labels=quarters, rotation=45, ha=\"right\") \nplt.legend()\nplt.grid()\nplt.show()"
   },
   {
     "objectID": "02-numpy.html#learning-check-3-output",
@@ -406,6 +581,48 @@
     "text": "Some basic glossary (for your reference)\n\n\n\nObjects\n\nIn Python, everything is an object. An object is a piece of data that can have attributes and methods associated with it.\n\nValue\n\nThe actual data stored in a variable or object. It can be a number, string, list, or any other data type.\n\nVariable\n\nA value that has a name associated with it.\n\nAssign\n\nTo give a value to a variable. This is done using the equals sign (=).\n\n\n\n\nFunction\n\nA reusable block of code that performs a specific task. Functions can take inputs (arguments) and return outputs.\n\nCall\n\nTo execute or run a function. This is done by using the function name followed by parentheses.\n\nArguments\n\nValues passed to a function when it is called. These values are used by the function to perform its task.\n\nOptions/Parameters\n\nVariables defined in a function’s declaration that act as placeholders for arguments. They specify what kind of data the function expects to receive.\n\nPackages\n\nCollections of related modules that extend Python’s capabilities. They can be installed and imported to add new functionalities within your workspace."
   },
   {
+    "objectID": "01-basics.html#running-your-python-code",
+    "href": "01-basics.html#running-your-python-code",
+    "title": "Introduction to Python",
+    "section": "Running your python code",
+    "text": "Running your python code\nType the following in your .py file…\n\nprint(\"Hello World!\")\n5 + 5 \n\n…and then click on the run button to run the script\n\nYou should see “Hello World!” and a 10 printed at the Terminal window at the bottom"
+  },
+  {
+    "objectID": "01-basics.html#built-in-functions",
+    "href": "01-basics.html#built-in-functions",
+    "title": "Introduction to Python",
+    "section": "Built-in functions",
+    "text": "Built-in functions\n\nFunctions will typically have brackets () at the end of their name.\nPython has a built-in function called print() that prints things as text.\nCall the function (i.e., tell Python to run it) by using its name.\n\n\nprint(10 - 5)\nprint(10 * 2)\nprint(\"hello world\")\n\n5\n20\nhello world"
+  },
+  {
+    "objectID": "01-basics.html#comments",
+    "href": "01-basics.html#comments",
+    "title": "Introduction to Python",
+    "section": "Comments",
+    "text": "Comments\nUse comments to add a layer of documentation to your code. E.g., explain what a block of code does, etc.\nComments always start with a hashtag #\n\nprint(10 - 5)\nprint(10 * 2)\nprint(\"hello world\")\n# print(\"python won't print this!\")\n\n5\n20\nhello world\n\n\nFeel free to use this method to add your own notes throughout the workshop!"
+  },
+  {
+    "objectID": "01-basics.html#whats-a-variable",
+    "href": "01-basics.html#whats-a-variable",
+    "title": "Introduction to Python",
+    "section": "What’s a variable?",
+    "text": "What’s a variable?\nVariables are names for values. # In Python, the = symbol assigns the value on the right to the variable on the left.\nOnce you declare a variable, you must assign value to it.\n\ngreetings = \"Hello World!\"\nage = 25\n\nVariable names criteria:\n\ncannot start with a digit\nalphanumeric only (underscores are a-OK)\ncase sensitive\nshould be meaningful (e.g. quarter1_growth instead of just q1g)"
+  },
+  {
+    "objectID": "01-basics.html#on-creating-variables",
+    "href": "01-basics.html#on-creating-variables",
+    "title": "Introduction to Python",
+    "section": "On creating variables",
+    "text": "On creating variables\nVariables must be created before they are used.\nIf a variable doesn’t exist yet, or if the name has been mis-spelled, Python reports an error. e.g. if you try to simply declare a variable called name but didn’t assign any value to it, Python will not like that and reports an error!\nname  # This  will give you an error."
+  },
+  {
+    "objectID": "01-basics.html#things-we-can-do-with-variables",
+    "href": "01-basics.html#things-we-can-do-with-variables",
+    "title": "Introduction to Python",
+    "section": "Things we can do with variables",
+    "text": "Things we can do with variables\nWe can pass variables to functions, e.g. let’s pass the greetings variable to print() function. This should print out the value of greetings.\n\n\nprint(greetings)\nprint(\"today's greetings:\", greetings)\n\n\nHello World!\ntoday's greetings: Hello World!\n\n\nWe can also update the value contained inside a variable. Let’s try adding 10 to variable age.\n\n\nage = age + 10\nprint(\"Age in ten years from now:\", age)\n\n\nAge in ten years from now: 35\n\n\nYou can also assign a variable value to another variable\n\n\ncontinent = \"Asia\"\nposition = continent  \nprint(\"Position:\", position)  \nprint(\"Continent:\", continent)  \n\n\nPosition: Asia\nContinent: Asia"
+  },
+  {
     "objectID": "01-basics.html#learning-check-1",
     "href": "01-basics.html#learning-check-1",
     "title": "Introduction to Python",
@@ -413,18 +630,39 @@
     "text": "Learning Check #1\nWhat is the final value of variable position below?\ninitial = \"up\"\nposition = initial\ninitial = \"down\"\nWhat is the final value of variable country_1 below?\ncountry_1 = \"Australia\"\ncountry_2 = \"New Zealand\"\ntemp = country_1\ncountry_1 = country_2\ncountry_2 = temp"
   },
   {
-    "objectID": "01-basics.html#refresher-quantitative-data-types",
-    "href": "01-basics.html#refresher-quantitative-data-types",
+    "objectID": "01-basics.html#refresher-quantitative-data-types-in-econs-and-social-sciences",
+    "href": "01-basics.html#refresher-quantitative-data-types-in-econs-and-social-sciences",
     "title": "Introduction to Python",
-    "section": "Refresher: Quantitative Data Types",
-    "text": "Refresher: Quantitative Data Types\n\nNon-Continuous Data\n\nNominal/Categorical: Non-ordered, non-numerical data, used to represent qualitative attribute.\n\nExample: nationality, neighborhood, employment status\n\nOrdinal: Ordered non-numerical data.\n\nExample: Nutri-grade ratings, frequency of exercise (daily, weekly, bi-weekly)\n\nDiscrete: Numerical data that can only take specific value (usually integers)\n\nExample: Shoe size, clothing size\n\nBinary: Nominal data with only two possible outcome\n\nExample: pass/fail, yes/no, survive/not survive"
+    "section": "Refresher: Quantitative Data Types in Econs and Social Sciences",
+    "text": "Refresher: Quantitative Data Types in Econs and Social Sciences\n\n\nNon-Continuous Data\n\nNominal/Categorical: Non-ordered, non-numerical data, used to represent qualitative attribute. e.g. Country, Employment status\nOrdinal: Ordered non-numerical data. e.g. Nutri-grade ratings\nDiscrete: Numerical data that can only take specific value (usually integers) e.g. Shoe size, clothing size\nBinary: Nominal data with only two possible outcome. e.g. pass/fail, yes/no, survive/not survive\n\n\nContinuous Data\n\nInterval: Numerical data that can take any value within a range. It does not have a “true zero”. e.g. Temperature of 0 C does not represent absence of heat.\nRatio: Numerical data that can take any value within a range. it has a “true zero”. e.g. annual income of 0 represents no income."
   },
   {
     "objectID": "01-basics.html#basic-data-types-in-python",
     "href": "01-basics.html#basic-data-types-in-python",
     "title": "Introduction to Python",
     "section": "Basic data types in Python",
-    "text": "Basic data types in Python\n\nIntegers (int)\n\nWhole numbers without a decimal point. Examples: 5, -3, 0\n\nFloating-point numbers (float)\n\nNumbers with a decimal point. Examples: 3.14, -0.5, 2.0\n\nStrings (str)\n\nSequences of characters enclosed in quotes. Examples: “Hello”, ‘Python’\n\nBooleans (bool)\n\nLogical values representing True or False. Examples: True, False\n\nNone\n\nA special type representing the absence of a value"
+    "text": "Basic data types in Python\n\nIntegers (int): Whole numbers without a decimal point. Examples: 5, -3, 0\nFloating-point numbers (float): Numbers with a decimal point. Examples: 3.14, -0.5, 2.0\nStrings (str): Sequences of characters enclosed in quotes. Examples: “Hello”, ‘Python’\nBooleans (bool): Logical values representing True or False. Examples: True, False\nNone: A special type representing the absence of a value\n\n\ncountry = \"Singapore\"  # string\npublic_holidays = 11  # integer\navg_temp = 27.8  # float\npart_of_asean = True  # Boolean"
+  },
+  {
+    "objectID": "01-basics.html#why-do-i-need-to-care-about-these-data-types",
+    "href": "01-basics.html#why-do-i-need-to-care-about-these-data-types",
+    "title": "Introduction to Python",
+    "section": "Why do I need to care about these data types?",
+    "text": "Why do I need to care about these data types?\nBecause a value’s data type determines what the program can do to it.\nFor example, the calculations below work on int data type\n\n\nprint(public_holidays - 5)  \n\n\n6\n\n\nBut the above operation won’t work on a string\nprint(country - \"pore\") \\# this will give an error!\nHowever you can use “+” and “*” on strings\n\n\nprint(country + \" best\")  # this works for string, though.\nprint(country * 4)  # this also works\nprint(\"=\" * 10)  # this also works\nprint(len(country))  # this would print out the number of characters a string has\n\n\nSingapore best\nSingaporeSingaporeSingaporeSingapore\n==========\n9"
+  },
+  {
+    "objectID": "01-basics.html#converting-data-types-to-one-another",
+    "href": "01-basics.html#converting-data-types-to-one-another",
+    "title": "Introduction to Python",
+    "section": "Converting data types to one another",
+    "text": "Converting data types to one another\nSome data types need to be converted before we can do some operations on them i.e. this will give you an error.\nprint(\"10\" + 2) \nHere is how you can convert the data types:\n\nprint(\"10\" + str(2))  # convert to string\nprint(int(10) + 2)  # convert to int\n\n102\n12"
+  },
+  {
+    "objectID": "01-basics.html#take-note-of-variables-assignment-placement",
+    "href": "01-basics.html#take-note-of-variables-assignment-placement",
+    "title": "Introduction to Python",
+    "section": "Take note of variables assignment placement",
+    "text": "Take note of variables assignment placement\nTake note of the execution order of your variables! They only change value when something is assigned to them.\n\npublic_holiday = 11  # initial value \nnew_holidays = public_holiday + 5\npublic_holiday = 10  # we update the variable\nprint(\"Public holiday:\", public_holiday) \nprint(\"New holidays:\", new_holidays) \n\nPublic holiday: 10\nNew holidays: 16\n\n\nUpdating the value of public_holiday will not auto-update the value of new_holidays."
   },
   {
     "objectID": "01-basics.html#learning-check-2",
@@ -434,67 +672,214 @@
     "text": "Learning Check #2\nWhat is the data type of each of this variable?\na = 50  \nb = \"SMU Libraries\"  \nc = 100.5  \nd = True  \ne = 10 * 2.54  \nf = int(5.5)  \ng = 10 &lt; 15  \nh = len(\"The quick brown fox jumps over the lazy dog\")"
   },
   {
-    "objectID": "01-basics.html#python-functions",
-    "href": "01-basics.html#python-functions",
+    "objectID": "01-basics.html#arguments-vs-parameters",
+    "href": "01-basics.html#arguments-vs-parameters",
     "title": "Introduction to Python",
-    "section": "Python functions",
-    "text": "Python functions\n\nThere are many built-in function that we can use, one of the common one is round() which will round a float number to the nearest integer.\nSome functions accept arguments, and we put them inside the brackets when we pass it to the function. It’s like telling the function “do what you’re supposed to do with this things I pass to you”.\n\nround(3.14)\nformal definition, but often used interchangeably: - arguments = the value passed to a function - in this case, 3.14 - parameters = the variable passed to a function\n\nSome functions can take more than one arguments! we’ve seen this with print() earlier\nIf you’re not sure what kind of arguments are accepted, etc, use the help() function. This example below should tell you more about round() once executed\n\nhelp(round)"
+    "section": "Arguments vs Parameters",
+    "text": "Arguments vs Parameters\n\nThere are many built-in function that we can use, one of the common one is round() which will round a float number to the nearest integer.\nSome functions accept arguments, and we put them inside the brackets when we pass it to the function. It’s like telling the function “do what you’re supposed to do with this things I pass to you”.\n\n\nround(3.14)\n\n3\n\n\nformal definition, but often used interchangeably:\n\narguments = the value passed to a function - in this case, 3.14\nparameters = the variable passed to a function"
   },
   {
-    "objectID": "01-basics.html#more-data-types",
-    "href": "01-basics.html#more-data-types",
+    "objectID": "01-basics.html#how-do-i-find-out-more-about-a-function",
+    "href": "01-basics.html#how-do-i-find-out-more-about-a-function",
     "title": "Introduction to Python",
-    "section": "More data types",
-    "text": "More data types\n\nLists\n\nOrdered, mutable sequences of elements. Examples: [1, 2, 3], ['a', 'b', 'c']\n\nTuples\n\nOrdered, immutable sequences of elements. Examples: (1, 2, 3), ('a', 'b', 'c')\n\nDictionaries (dict)\n\nUnordered collections of key-value pairs. Example: {'name': 'John', 'age': 30}\n\nSets\n\nUnordered collections of unique elements. Example: {1, 2, 3}"
+    "section": "How do I find out more about a function?",
+    "text": "How do I find out more about a function?\n\nSome functions can take more than one arguments! we’ve seen this with print() earlier.\nIf you’re not sure what kind of arguments are accepted, etc, use the help() function. This example below should tell you more about round() once executed.\n\n\nhelp(round)\n\nHelp on built-in function round in module builtins:\n\nround(number, ndigits=None)\n    Round a number to a given precision in decimal digits.\n    \n    The return value is an integer if ndigits is omitted or None.  Otherwise\n    the return value has the same type as the number.  ndigits may be negative."
   },
   {
-    "objectID": "01-basics.html#lists",
-    "href": "01-basics.html#lists",
+    "objectID": "01-basics.html#more-data-types-structure",
+    "href": "01-basics.html#more-data-types-structure",
     "title": "Introduction to Python",
-    "section": "Lists",
-    "text": "Lists\nScenario: We want to keep track of Singapore’s GDP year-over-year (YoY) growth rate from 2024 to 2018.\n\nUsing a list allows us to store multiple years of data efficiently in a single variable.\nIf we were saving each year’s quarterly growth rate to separate variables, we would have dozens variables!\nThis would make it difficult to perform calculations or analyze trends across years.\nA list will come in handy! List can store many values together in a single variable.\n\nquarterly_gdp_growth = [-2,-5.8, 2.8, 2.6, 7.3, 1.1, 3.4]"
+    "section": "More data types / structure",
+    "text": "More data types / structure\nOther than the basic 4 types that we learned earlier, Python has more data structures where we can store multiple values in a single variable:\n\nLists: Ordered, mutable (i.e. can be edited) sequences of elements. Examples: [1, 2, 3], ['a', 'b', 'c']\nTuples: Ordered, immutable (i.e. cannot be edited once it is created) sequences of elements. Examples: (1, 2, 3), ('a', 'b', 'c')\nDictionaries (dict): Unordered collections of key-value pairs. Example: {'name': 'John', 'age': 30}\nSets: Unordered collections of unique elements. Example: {1, 2, 3}\n\nWe will not be covering all of the above, only list and dictionaries (for session 4)"
+  },
+  {
+    "objectID": "01-basics.html#when-lists-would-be-useful",
+    "href": "01-basics.html#when-lists-would-be-useful",
+    "title": "Introduction to Python",
+    "section": "When lists would be useful",
+    "text": "When lists would be useful\nScenario: We want to track Singapore’s GDP year-over-year (YoY) growth from 2024 to 2018.\n\nA list helps us store multiple years of data in one place, making it efficient.\nWithout a list, we’d need dozens of separate variables for each year, making it harder to analyze trends.\nUsing a list, we can easily manage and analyze the data for all the years together.\n\n\n# growth rates from 2023 Q1 to 2024 Q2\nquarterly_gdp_growth = [-2,-5.8, 2.8, 2.6, 7.3, 1.1, 3.4]\n\nYou can also initialize an empty list to fill later\n\nfuture_growth_rates = []"
+  },
+  {
+    "objectID": "01-basics.html#check-number-of-items-in-a-list",
+    "href": "01-basics.html#check-number-of-items-in-a-list",
+    "title": "Introduction to Python",
+    "section": "Check number of items in a list",
+    "text": "Check number of items in a list\nAs a good first step, it’s good to check the number of items you have in your list!\n\nprint('GDP growth rates:', quarterly_gdp_growth)\nprint('Number of quarters:', len(quarterly_gdp_growth))\n\nGDP growth rates: [-2, -5.8, 2.8, 2.6, 7.3, 1.1, 3.4]\nNumber of quarters: 7"
+  },
+  {
+    "objectID": "01-basics.html#retrieve-a-single-item-from-a-list",
+    "href": "01-basics.html#retrieve-a-single-item-from-a-list",
+    "title": "Introduction to Python",
+    "section": "Retrieve a single item from a list",
+    "text": "Retrieve a single item from a list\nSometimes you don’t need the entire list. To retrieve a single value from a list, simply specify their index number enclosed in square brackets\n\nRemember that index starts from 0 instead of 1.\nSo if you want to retrieve the fourth item (2021’s growth rate), the index will be 3.\n\n\nprint('GDP growth rate in 2023 Q1 (1st item):', quarterly_gdp_growth[0])\nprint('GDP growth rate in 2024 Q2 (6th item):', quarterly_gdp_growth[5])\n\nGDP growth rate in 2023 Q1 (1st item): -2\nGDP growth rate in 2024 Q2 (6th item): 1.1\n\n\nIf we put an index number that’s larger than actual number of items, python will give us an error!\nquarterly_gdp_growth[10] # This would cause an IndexError"
+  },
+  {
+    "objectID": "01-basics.html#retrieve-multiple-items-from-a-list-the-syntax",
+    "href": "01-basics.html#retrieve-multiple-items-from-a-list-the-syntax",
+    "title": "Introduction to Python",
+    "section": "Retrieve multiple items from a list: the syntax",
+    "text": "Retrieve multiple items from a list: the syntax\nSlicing allows you to extract a portion of the list by specifying a range of indices. The basic syntax for slicing is:\nlist_name[start:end:step]\n\nstart is the index where the slice starts (inclusive)\nend is the index where the slice ends (exclusive)\nIf start is omitted, the slice begins from the start of the list\nIf end is omitted, the slice goes to the end of the list\nstep is optional; it determines how many items to skip"
+  },
+  {
+    "objectID": "01-basics.html#retrieve-multiple-items-from-a-list-in-action",
+    "href": "01-basics.html#retrieve-multiple-items-from-a-list-in-action",
+    "title": "Introduction to Python",
+    "section": "Retrieve multiple items from a list: in action",
+    "text": "Retrieve multiple items from a list: in action\nSpecifying the start and end:\n\n\nprint('First three quarters:', \nquarterly_gdp_growth[0:3])\n\n\nFirst three quarters: [-2, -5.8, 2.8]\n\n\nOmitting the end index:\n\n\nprint('From Q3 2023 onwards:', \nquarterly_gdp_growth[2:])\n\n\nFrom Q3 2023 onwards: [2.8, 2.6, 7.3, 1.1, 3.4]\n\n\nOmitting the start:\n\n\nprint('First three quarters:', \nquarterly_gdp_growth[:3])\n\n\nFirst three quarters: [-2, -5.8, 2.8]\n\n\nIf we put a negative index, python list will count from the end instead of the beginning!\n\n\nprint('Last three quarters:', \nquarterly_gdp_growth[-3:])\n\n\nLast three quarters: [7.3, 1.1, 3.4]"
+  },
+  {
+    "objectID": "01-basics.html#stepping-value-in-a-list",
+    "href": "01-basics.html#stepping-value-in-a-list",
+    "title": "Introduction to Python",
+    "section": "Stepping value in a list",
+    "text": "Stepping value in a list\nYou can also use a step value to skip items!\nIt is particularly useful if you need to reverse a list.\n\nprint('Every other quarter:', quarterly_gdp_growth[::2])\nprint('Quarters in reverse order:', quarterly_gdp_growth[::-1])\n\nEvery other quarter: [-2, 2.8, 7.3, 3.4]\nQuarters in reverse order: [3.4, 1.1, 7.3, 2.6, 2.8, -5.8, -2]"
+  },
+  {
+    "objectID": "01-basics.html#updating-the-value-of-items-inside-a-list",
+    "href": "01-basics.html#updating-the-value-of-items-inside-a-list",
+    "title": "Introduction to Python",
+    "section": "Updating the value of items inside a list",
+    "text": "Updating the value of items inside a list\nList values can be replaced by simply assigning a new value to them! Let’s update the growth rate for 2023 Q3 (index 2) with the correct figure.\n\nquarterly_gdp_growth[2] = -2.8\nprint('Updated GDP growth rates:', quarterly_gdp_growth)\n\nUpdated GDP growth rates: [-2, -5.8, -2.8, 2.6, 7.3, 1.1, 3.4]"
+  },
+  {
+    "objectID": "01-basics.html#appending-items-to-a-list",
+    "href": "01-basics.html#appending-items-to-a-list",
+    "title": "Introduction to Python",
+    "section": "Appending items to a list",
+    "text": "Appending items to a list\nLet’s append a new data of 3.2% growth that we get for 2024 Q3 to the list. Appending will put this new item at the end of the list.\n\nprint('GDP growth rates initially:', quarterly_gdp_growth)\nquarterly_gdp_growth.append(3.2)  \nprint('GDP growth rates after adding 2024 Q3 prediction:', quarterly_gdp_growth)\n\nGDP growth rates initially: [-2, -5.8, -2.8, 2.6, 7.3, 1.1, 3.4]\nGDP growth rates after adding 2024 Q3 prediction: [-2, -5.8, -2.8, 2.6, 7.3, 1.1, 3.4, 3.2]"
+  },
+  {
+    "objectID": "01-basics.html#adding-data-to-a-specific-position-in-a-list",
+    "href": "01-basics.html#adding-data-to-a-specific-position-in-a-list",
+    "title": "Introduction to Python",
+    "section": "Adding data to a specific position in a list",
+    "text": "Adding data to a specific position in a list\nLet’s add data to the start of the list! The data is growth for 2022 Q4, which was 9.4%.\n\nprint('GDP growth rates initially:', quarterly_gdp_growth)\n1quarterly_gdp_growth.insert(0, 9.4)\nprint('GDP growth rates after adding 2022 Q4:', quarterly_gdp_growth)\n\n\n1\n\nThe first parameter is the index position of where we want this new value to be. The second parameter is the actual value we’d like to insert.\n\n\n\n\nGDP growth rates initially: [-2, -5.8, -2.8, 2.6, 7.3, 1.1, 3.4, 3.2]\nGDP growth rates after adding 2022 Q4: [9.4, -2, -5.8, -2.8, 2.6, 7.3, 1.1, 3.4, 3.2]"
+  },
+  {
+    "objectID": "01-basics.html#removing-items-from-a-list",
+    "href": "01-basics.html#removing-items-from-a-list",
+    "title": "Introduction to Python",
+    "section": "Removing items from a list",
+    "text": "Removing items from a list\nLet’s remove the two items we added previously!\nThere are two ways to remove items: using del or .pop() method.\n\nprint('GDP growth rates initially:', quarterly_gdp_growth)\n1del quarterly_gdp_growth[0]\n2quarterly_gdp_growth.pop()\nprint('GDP growth rates after removing projection:', quarterly_gdp_growth)\n\n\n1\n\nwith del, you need to specify the index of the items you’d like to remove\n\n2\n\npop() will remove the item at the end of the list.\n\n\n\n\nGDP growth rates initially: [9.4, -2, -5.8, -2.8, 2.6, 7.3, 1.1, 3.4, 3.2]\nGDP growth rates after removing projection: [-2, -5.8, -2.8, 2.6, 7.3, 1.1, 3.4]"
+  },
+  {
+    "objectID": "01-basics.html#calculations-with-list",
+    "href": "01-basics.html#calculations-with-list",
+    "title": "Introduction to Python",
+    "section": "Calculations with List",
+    "text": "Calculations with List\nLet’s say we want to calculate the average quarterly gdp growth:\n\ntotal_growth = sum(quarterly_gdp_growth)\naverage_growth = total_growth / len(quarterly_gdp_growth)\nprint(f\"Average quarterly GDP growth: {average_growth:.2f}%\")\n\nAverage quarterly GDP growth: 0.54%"
+  },
+  {
+    "objectID": "01-basics.html#various-data-types-in-a-single-list",
+    "href": "01-basics.html#various-data-types-in-a-single-list",
+    "title": "Introduction to Python",
+    "section": "Various data types in a single list",
+    "text": "Various data types in a single list\nYou can include values of different types in a list, though for GDP data we’ll stick to numbers!\n\nmixed_data = [\"2024 growth\", 3.0, \"2023 growth\", 2.7]\nprint(mixed_data)\n\n['2024 growth', 3.0, '2023 growth', 2.7]"
   },
   {
     "objectID": "01-basics.html#learning-check-3",
     "href": "01-basics.html#learning-check-3",
     "title": "Introduction to Python",
     "section": "Learning Check #3",
-    "text": "Learning Check #3\nWrite a code to complete the following tasks:\n\nWrite a code to print the growth rate for 2023 Q4 (remember, it’s the 5th item but index 4)\n\nprint(quarterly_gdp_growth[4])\n\nWrite a code to print the growth rates for the first three quarters of 2023\n\nprint(quarterly_gdp_growth[0:3])\n\nAdd a projected growth rate of 3.3 and 3.6 the next two quarters at the end of the list\n\n# method 1 using insert\nquarterly_gdp_growth.insert(len(quarterly_gdp_growth), 3.3)\n\n# method 2 using append\nquarterly_gdp_growth.append(3.6)\n\nprint(quarterly_gdp_growth)"
+    "text": "Learning Check #3\nWrite a code to complete the following tasks:\n\nWrite a code to print the growth rate for 2023 Q4 (remember, it’s the 5th item but index 4)\n\n\n\nCode\nprint(quarterly_gdp_growth[4])\n\n\n7.3\n\n\n\nWrite a code to print the growth rates for the first three quarters of 2023\n\n\n\nCode\nprint(quarterly_gdp_growth[0:3])\n\n\n[-2, -5.8, -2.8]\n\n\n\nAdd a projected growth rate of 3.3 and 3.6 the next two quarters at the end of the list\n\n\n\nCode\n# method 1 using insert\nquarterly_gdp_growth.insert(len(quarterly_gdp_growth), 3.3)\n\n# method 2 using append\nquarterly_gdp_growth.append(3.6)\n\nprint(quarterly_gdp_growth)\n\n\n[-2, -5.8, -2.8, 2.6, 7.3, 1.1, 3.4, 3.3, 3.6]"
   },
   {
-    "objectID": "01-basics.html#loops",
-    "href": "01-basics.html#loops",
+    "objectID": "01-basics.html#automate-stuff-with-loop",
+    "href": "01-basics.html#automate-stuff-with-loop",
     "title": "Introduction to Python",
-    "section": "Loops",
-    "text": "Loops\nScenario: We have Singapore’s Quarterly GDP growth rates from 2023 Q1 to 2024 Q2.\n\nWe want to process this data efficiently and present it in a readable format - this is where a For Loop comes in handy!\nLoop is useful for repetitive tasks. It also helps to keep your code succinct and easier to debug if there’s an error\n\nfor number in range(1, 7):  # 1 to 6, representing 6 quarters\n    print(\"Quarter\", number)\n\nThe above code is much shorter than typing print 6 times!"
+    "section": "Automate stuff with loop!",
+    "text": "Automate stuff with loop!\nScenario: We have Singapore’s Quarterly GDP growth rates from 2023 Q1 to 2024 Q2, and we want to print them in this format: Quarterly GDP growth: 5%\n\n\nManually printing out the items\n\nprint(\"Quarterly GDP growth:\", quarterly_gdp_growth[0], \"%\") \nprint(\"Quarterly GDP growth:\", quarterly_gdp_growth[1], \"%\") \nprint(\"Quarterly GDP growth:\", quarterly_gdp_growth[2], \"%\") \nprint(\"Quarterly GDP growth:\", quarterly_gdp_growth[3], \"%\") \nprint(\"Quarterly GDP growth:\", quarterly_gdp_growth[4], \"%\") \n# and so on...\n# can you imagine doing this for 100++ items?\n\nQuarterly GDP growth: -2 %\nQuarterly GDP growth: -5.8 %\nQuarterly GDP growth: -2.8 %\nQuarterly GDP growth: 2.6 %\nQuarterly GDP growth: 7.3 %\n\n\n\nWith for loop\n\nfor growth in quarterly_gdp_growth: \n    print(\"Quarterly GDP growth:\", growth, \"%\") \n\nQuarterly GDP growth: -2 %\nQuarterly GDP growth: -5.8 %\nQuarterly GDP growth: -2.8 %\nQuarterly GDP growth: 2.6 %\nQuarterly GDP growth: 7.3 %\nQuarterly GDP growth: 1.1 %\nQuarterly GDP growth: 3.4 %\nQuarterly GDP growth: 3.3 %\nQuarterly GDP growth: 3.6 %\n\n\n\nAs you can see, we can achieve the same thing (or more) with less code to type with for loop."
   },
   {
-    "objectID": "01-basics.html#using-list-with-for-loop",
-    "href": "01-basics.html#using-list-with-for-loop",
+    "objectID": "01-basics.html#anatomy-of-a-loop",
+    "href": "01-basics.html#anatomy-of-a-loop",
     "title": "Introduction to Python",
-    "section": "Using list with For loop",
-    "text": "Using list with For loop\nHere is how you can use list in a For loop:\nfor growth in quarterly_gdp_growth:\n    print(f\"Quarterly GDP growth: {growth}%\")\nAnatomy of loops explained using the example above:\n\ngrowth is the loop variable, representing the value that changes with each iteration of the loop. You can think of it as the “current item” being processed. Meanwhile, quarterly_gdp_growth is the collection that the loop iterates over.\nprint(f\"Quarterly GDP growth: {growth}%\") is the body of the loop, specifying the action to take for each item in the collection.\n\n\n\n\n\n\n\nKey things\n\n\n\nThe first line of the for loop must end with a colon, and the body must be indented.\nIndentation is always meaningful in Python. (the common convention is to indent with 4 spaces or tabs)"
+    "section": "Anatomy of a loop",
+    "text": "Anatomy of a loop\nAnatomy of loops explained using the example above:\n\n1for growth in quarterly_gdp_growth:\n2    print(\"Quarterly GDP growth:\", growth, \"%\")\n\n\n1\n\ngrowth is the loop variable, representing the value that changes with each iteration of the loop. You can think of it as the “current item” being processed. Meanwhile, quarterly_gdp_growth is the collection that the loop iterates over. The loop statement also ends with a colon :.\n\n2\n\nprint(\"Quarterly GDP growth:\", growth, \"%\") is the body of the loop, specifying the action to take for each item in the collection. The body of the loop must be indented."
   },
   {
-    "objectID": "01-basics.html#conditionals-if-else",
-    "href": "01-basics.html#conditionals-if-else",
+    "objectID": "01-basics.html#more-examples-using-range",
+    "href": "01-basics.html#more-examples-using-range",
     "title": "Introduction to Python",
-    "section": "Conditionals (If-Else)",
-    "text": "Conditionals (If-Else)\n\nConditionals or If-Else statements are used to control whether or not a block of code is executed.\nThe structure is similar to a For Loop:\n\nFirst line opens with if and ends with a colon\nBody containing one or more statements is indented\n\n\nif growth &gt; 10:\n    print(\"Strong economic growth!\")"
+    "section": "More examples: using range()",
+    "text": "More examples: using range()\nBelow is a loop that will print out numbers from 1 to 6:\n\nfor number in range(1, 7):  # 1 to 6, representing 6 quarters\n    print(\"Quarter\", number)\n\nQuarter 1\nQuarter 2\nQuarter 3\nQuarter 4\nQuarter 5\nQuarter 6"
   },
   {
-    "objectID": "01-basics.html#conditionals---order-does-matter",
-    "href": "01-basics.html#conditionals---order-does-matter",
+    "objectID": "01-basics.html#more-examples-using-enumerate",
+    "href": "01-basics.html#more-examples-using-enumerate",
     "title": "Introduction to Python",
-    "section": "Conditionals - Order does matter!",
-    "text": "Conditionals - Order does matter!\nAssuming variable growth has the value of 10, the conditionals below will give us the wrong result.\ngrowth = 10\nif growth &gt; 0:\n    print(f\"{growth}% is a moderate growth\")\nelif growth &gt; 5:  # This will never be reached for growth &gt; 1\n    print(f\"{growth}% is a strong growth\")\nelse:\n    print(f\"{growth}% is a negative growth\")\nThis ordering would give the correct result:\nif growth &gt; 5:\n    print(f\"{growth}% is strong growth\")\nelif growth &gt; 0:\n    print(f\"{growth}% is moderate growth\")\nelse:\n    print(f\"{growth}% is negative growth\")"
+    "section": "More examples: using enumerate()",
+    "text": "More examples: using enumerate()\nWe can use enumerate() to loop not only the items inside a list, but also the index position of each item in the list!\nLet’s say we want to re-format our printout to 1) Quarterly GDP growth: 5%\n\nfor index, item in enumerate(quarterly_gdp_growth):\n    print(f\"{index + 1}) Quarterly GDP growth: {item}%\")\n\n1) Quarterly GDP growth: -2%\n2) Quarterly GDP growth: -5.8%\n3) Quarterly GDP growth: -2.8%\n4) Quarterly GDP growth: 2.6%\n5) Quarterly GDP growth: 7.3%\n6) Quarterly GDP growth: 1.1%\n7) Quarterly GDP growth: 3.4%\n8) Quarterly GDP growth: 3.3%\n9) Quarterly GDP growth: 3.6%"
+  },
+  {
+    "objectID": "01-basics.html#automate-decisions-with-conditionals",
+    "href": "01-basics.html#automate-decisions-with-conditionals",
+    "title": "Introduction to Python",
+    "section": "Automate decisions with conditionals!",
+    "text": "Automate decisions with conditionals!\nScenario: We have Singapore’s Quarterly GDP growth rates, and we want to categorize them as “Growth”, “Stable”, or “Decline” based on their values.\n\n\nWithout conditionals and for loops\n\nprint(quarterly_gdp_growth[0], \"% - Category: Decline\")\nprint(quarterly_gdp_growth[1], \"% - Category: Decline\")\nprint(quarterly_gdp_growth[2], \"% - Category: Decline\")\nprint(quarterly_gdp_growth[3], \"% - Category: Growth\")\nprint(quarterly_gdp_growth[4], \"% - Category: Growth\")\n\n-2 % - Category: Decline\n-5.8 % - Category: Decline\n-2.8 % - Category: Decline\n2.6 % - Category: Growth\n7.3 % - Category: Growth\n\n\n\nWith conditionals and for loops\n\nfor growth in quarterly_gdp_growth:\n    if growth &gt; 2:\n        category = \"Growth\"\n    elif -2 &lt;= growth &lt;= 2:\n        category = \"Stable\"\n    else:\n        category = \"Decline\"\n    \n    print(f\"{growth}% - Category: {category}\")\n\n-2% - Category: Stable\n-5.8% - Category: Decline\n-2.8% - Category: Decline\n2.6% - Category: Growth\n7.3% - Category: Growth\n1.1% - Category: Stable\n3.4% - Category: Growth\n3.3% - Category: Growth\n3.6% - Category: Growth"
+  },
+  {
+    "objectID": "01-basics.html#why-conditionals-for-loops-is-great",
+    "href": "01-basics.html#why-conditionals-for-loops-is-great",
+    "title": "Introduction to Python",
+    "section": "Why conditionals + for loops is great",
+    "text": "Why conditionals + for loops is great\n\nAutomated categorization based on values - no manual intervention needed!\nEasily adjustable criteria (just change the numbers in the if-elif-else statements)\nWorks for any number of data points - again, no manual intervention needed!\nMakes the code more readable and maintainable\n\nLet’s break down the anatomy of conditionals first!"
+  },
+  {
+    "objectID": "01-basics.html#anatomy-of-conditionals",
+    "href": "01-basics.html#anatomy-of-conditionals",
+    "title": "Introduction to Python",
+    "section": "Anatomy of Conditionals",
+    "text": "Anatomy of Conditionals\nAlso called if-else structure, it looks like this at the very basic level:\n\ngdp_growth = 2.5\n\n1if gdp_growth &gt; 0:\n2    print(\"The economy is growing.\")\n3else:\n4    print(\"The economy is not growing.\")\n\n\n1\n\nThe if statement starts with the keyword ‘if’, followed by a condition, and ends with a colon ‘:’\n\n2\n\nThe body of the if statement is indented. This line of code will be run if the condition is fulfilled\n\n3\n\nThe else clause is optional, starts with ‘else’, and ends with a colon ‘:’\n\n4\n\nThe body of the else clause is also indented, and only run if the condition is NOT fulfilled\n\n\n\n\nThe economy is growing."
+  },
+  {
+    "objectID": "01-basics.html#multiple-conditions",
+    "href": "01-basics.html#multiple-conditions",
+    "title": "Introduction to Python",
+    "section": "Multiple conditions",
+    "text": "Multiple conditions\nSometimes we have multiple conditions that we want to check! We can use elif (stands for else-if) to add the conditions. You can have multiple elif clauses.\n\ngdp_growth = 0\n\nif gdp_growth &gt; 0:\n    print(\"The economy is growing.\")\nelif gdp_growth == 0:\n    print(\"The economy is stable.\")\nelse:\n    print(\"The economy is shrinking.\")\n\nThe economy is stable."
+  },
+  {
+    "objectID": "01-basics.html#multiple-conditions-with-boolean-operators",
+    "href": "01-basics.html#multiple-conditions-with-boolean-operators",
+    "title": "Introduction to Python",
+    "section": "Multiple conditions with Boolean operators",
+    "text": "Multiple conditions with Boolean operators\nIn some cases, we can’t split the conditions among multiple elifs. For example, we may want to check gdp_growth and inflation rate to determine the economic state.\n\ngdp_growth = 1.5\ninflation = 2.0\n\n1if gdp_growth &gt; 0 and inflation &lt; 3:\n    print(\"The economy is in a good state.\")\n2elif gdp_growth &gt; 0 or inflation &lt; 3:\n    print(\"The economy is in a mixed state.\")\nelse:\n    print(\"The economy needs attention.\")\n\n\n1\n\nand requires both conditions to be True\n\n2\n\nor requires at least one condition to be True\n\n\n\n\nThe economy is in a good state."
+  },
+  {
+    "objectID": "01-basics.html#multiple-conditions---order-does-matter",
+    "href": "01-basics.html#multiple-conditions---order-does-matter",
+    "title": "Introduction to Python",
+    "section": "Multiple conditions - Order does matter!",
+    "text": "Multiple conditions - Order does matter!\nAssuming variable growth has the value of 10, the conditionals below will give us the wrong result.\n\ngrowth = 10\nif growth &gt; 0:\n    print(f\"{growth}% is a moderate growth\")\nelif growth &gt; 5:  # This will never be reached for growth &gt; 1\n    print(f\"{growth}% is a strong growth\")\nelse:\n    print(f\"{growth}% is a negative growth\")\n\n10% is a moderate growth\n\n\nThis ordering would give the correct result:\n\nif growth &gt; 5:\n    print(f\"{growth}% is strong growth\")\nelif growth &gt; 0:\n    print(f\"{growth}% is moderate growth\")\nelse:\n    print(f\"{growth}% is negative growth\")\n\n10% is strong growth"
+  },
+  {
+    "objectID": "01-basics.html#nested-conditionals",
+    "href": "01-basics.html#nested-conditionals",
+    "title": "Introduction to Python",
+    "section": "Nested conditionals",
+    "text": "Nested conditionals\nFor a more complicated conditionals, you can put a conditional inside another! Be careful with indentation to ensure correct nesting!\n\ngdp_growth = 2.5\nunemployment = 4.0\n\n1if gdp_growth &gt; 0:\n2    if unemployment &lt; 5:\n        print(\"Strong economic performance.\")\n    else:\n        print(\"Growing economy, but high unemployment.\")\nelse:\n    print(\"Economic challenges ahead.\")\n\n\n1\n\n“outer” conditional.\n\n2\n\n“inner” conditionals. Note the indent for this statement! This conditional will be run only if the outer conditions are fulfilled.\n\n\n\n\nStrong economic performance."
+  },
+  {
+    "objectID": "01-basics.html#conditionals-and-for-loops-combi",
+    "href": "01-basics.html#conditionals-and-for-loops-combi",
+    "title": "Introduction to Python",
+    "section": "Conditionals and For loops combi",
+    "text": "Conditionals and For loops combi\nAs seen from the first example of this section, we can combine for loops with conditionals\n\nfor growth in quarterly_gdp_growth:\n    if growth &gt; 2:\n        category = \"Growth\"\n    elif -2 &lt;= growth &lt;= 2:\n        category = \"Stable\"\n    else:\n        category = \"Decline\"\n    \n    print(f\"{growth}% - Category: {category}\")\n\n-2% - Category: Stable\n-5.8% - Category: Decline\n-2.8% - Category: Decline\n2.6% - Category: Growth\n7.3% - Category: Growth\n1.1% - Category: Stable\n3.4% - Category: Growth\n3.3% - Category: Growth\n3.6% - Category: Growth"
+  },
+  {
+    "objectID": "01-basics.html#conditionals-and-for-loops-combi-counting-occurence",
+    "href": "01-basics.html#conditionals-and-for-loops-combi-counting-occurence",
+    "title": "Introduction to Python",
+    "section": "Conditionals and For loops combi: counting occurence",
+    "text": "Conditionals and For loops combi: counting occurence\nOther ways for loops and conditionals can be used is for when we want to count occurence. Let’s say we want to keep track how many growths and contractions have happened for the past quarters.\n\n1growth_periods = 0\ndecline_periods = 0\n\nfor rate in quarterly_gdp_growth:\n    if rate &gt; 0:\n2        growth_periods += 1\n    elif rate &lt; 0:\n        decline_periods += 1\n\nprint(\"Growth periods:\", growth_periods)\nprint(\"Decline periods:\", decline_periods)\n\n\n1\n\nset the counters, one to keep track of growth and the other one to keep track of declines\n\n2\n\nincrease the counters when conditions were met.\n\n\n\n\nGrowth periods: 6\nDecline periods: 3"
   },
   {
     "objectID": "01-basics.html#learning-check-4",
     "href": "01-basics.html#learning-check-4",
     "title": "Introduction to Python",
     "section": "Learning Check #4",
-    "text": "Learning Check #4\nWrite a script that identifies the highest and lowest growth quarters (5 mins)\n# get the value of the highest and the lowest with max and min\nhighest_growth = max(quarterly_gdp_growth)\nlowest_growth = min(quarterly_gdp_growth)"
+    "text": "Learning Check #4\nWrite a script that identifies the highest and lowest growth quarters (5 mins)\n\n\nCode\n# get the value of the highest and the lowest with max and min\nhighest_growth = max(quarterly_gdp_growth)\nlowest_growth = min(quarterly_gdp_growth)"
   },
   {
     "objectID": "01-basics.html#even-more-data-types",

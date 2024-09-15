@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head>
+<script src="site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-html/tabby.min.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -96,6 +98,33 @@
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto.css">
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-Y8S6TK2GEH"></script>
+
+  <script type="text/plain" cookie-consent="tracking">
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Y8S6TK2GEH', { 'anonymize_ip': true});
+  </script>
+  
+  <script type="text/javascript" charset="UTF-8">
+  document.addEventListener('DOMContentLoaded', function () {
+  cookieconsent.run({
+    "notice_banner_type":"simple",
+    "consent_type":"express",
+    "palette":"light",
+    "language":"en",
+    "page_load_consent_levels":["strictly-necessary"],
+    "notice_banner_reject_button_hide":false,
+    "preferences_center_close_button_hide":false,
+    "website_name":""
+    ,
+  "language":"en"
+    });
+  });
+  </script> 
+    
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -600,245 +629,935 @@ Bella Ratmelia
 </div></div>
 </section></section>
 <section>
-<section id="lets-code" class="title-slide slide level1 center">
-<h1>Let’s Code!</h1>
+<section id="section-1-getting-started" class="title-slide slide level1 center">
+<h1>Section 1: Getting Started</h1>
 <p>Hands on session - Make sure to open the <code>py</code> file we just created.</p>
+</section>
+<section id="running-your-python-code" class="slide level2 nostretch">
+<h2>Running your python code</h2>
+<p>Type the following in your <code>.py</code> file…</p>
+<div id="65c91e15" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="bu">print</span>(<span class="st">"Hello World!"</span>)</span>
+<span id="cb1-2"><a></a><span class="dv">5</span> <span class="op">+</span> <span class="dv">5</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>…and then click on the run button to run the script</p>
+<p><img data-src="images/py-run-button.jpg" style="width:40.0%"></p>
+<p>You should see “Hello World!” and a 10 printed at the Terminal window at the bottom</p>
+</section>
+<section id="built-in-functions" class="slide level2">
+<h2>Built-in functions</h2>
+<ul>
+<li>Functions will typically have brackets <code>()</code> at the end of their name.</li>
+<li>Python has a built-in function called <code>print()</code> that prints things as text.</li>
+<li>Call the function (i.e., tell Python to run it) by using its name.</li>
+</ul>
+<div id="90edc929" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="bu">print</span>(<span class="dv">10</span> <span class="op">-</span> <span class="dv">5</span>)</span>
+<span id="cb2-2"><a></a><span class="bu">print</span>(<span class="dv">10</span> <span class="op">*</span> <span class="dv">2</span>)</span>
+<span id="cb2-3"><a></a><span class="bu">print</span>(<span class="st">"hello world"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>5
+20
+hello world</code></pre>
+</div>
+</div>
+</section>
+<section id="comments" class="slide level2">
+<h2>Comments</h2>
+<p>Use comments to add a layer of documentation to your code. E.g., explain what a block of code does, etc.</p>
+<p>Comments always start with a hashtag #</p>
+<div id="3a3868a8" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a><span class="bu">print</span>(<span class="dv">10</span> <span class="op">-</span> <span class="dv">5</span>)</span>
+<span id="cb4-2"><a></a><span class="bu">print</span>(<span class="dv">10</span> <span class="op">*</span> <span class="dv">2</span>)</span>
+<span id="cb4-3"><a></a><span class="bu">print</span>(<span class="st">"hello world"</span>)</span>
+<span id="cb4-4"><a></a><span class="co"># print("python won't print this!")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>5
+20
+hello world</code></pre>
+</div>
+</div>
+<p>Feel free to use this method to add your own notes throughout the workshop!</p>
+</section></section>
+<section>
+<section id="section-2-variables-and-assignment" class="title-slide slide level1 center">
+<h1>Section 2: Variables and assignment</h1>
+
+</section>
+<section id="whats-a-variable" class="slide level2">
+<h2>What’s a variable?</h2>
+<p>Variables are names for values. # In Python, the <code>=</code> symbol assigns the value on the right to the variable on the left.</p>
+<p>Once you declare a variable, you must assign value to it.</p>
+<div id="c40e24e6" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a>greetings <span class="op">=</span> <span class="st">"Hello World!"</span></span>
+<span id="cb6-2"><a></a>age <span class="op">=</span> <span class="dv">25</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Variable names criteria:</p>
+<ul>
+<li>cannot start with a digit</li>
+<li>alphanumeric only (underscores are a-OK)</li>
+<li>case sensitive</li>
+<li>should be meaningful (e.g.&nbsp;<code>quarter1_growth</code> instead of just <code>q1g</code>)</li>
+</ul>
+</section>
+<section id="on-creating-variables" class="slide level2">
+<h2>On creating variables</h2>
+<p>Variables must be created before they are used.</p>
+<p>If a variable doesn’t exist yet, or if the name has been mis-spelled, Python reports an error. e.g.&nbsp;if you try to simply declare a variable called <code>name</code> but didn’t assign any value to it, Python will not like that and reports an error!</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>name  <span class="co"># This  will give you an error. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="things-we-can-do-with-variables" class="slide level2">
+<h2>Things we can do with variables</h2>
+<p>We can pass variables to functions, e.g.&nbsp;let’s pass the <code>greetings</code> variable to <code>print()</code> function. This should print out the value of <code>greetings</code>.</p>
+<div id="bfad6ad2" class="cell columns column-output-location" data-execution_count="5">
+<div class="column">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="bu">print</span>(greetings)</span>
+<span id="cb8-2"><a></a><span class="bu">print</span>(<span class="st">"today's greetings:"</span>, greetings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code>Hello World!
+today's greetings: Hello World!</code></pre>
+</div>
+</div></div>
+<p>We can also update the value contained inside a variable. Let’s try adding 10 to variable <code>age</code>.</p>
+<div id="cbcf48c3" class="cell columns column-output-location" data-execution_count="6">
+<div class="column">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a>age <span class="op">=</span> age <span class="op">+</span> <span class="dv">10</span></span>
+<span id="cb10-2"><a></a><span class="bu">print</span>(<span class="st">"Age in ten years from now:"</span>, age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code>Age in ten years from now: 35</code></pre>
+</div>
+</div></div>
+<p>You can also assign a variable value to another variable</p>
+<div id="b130fcae" class="cell columns column-output-location" data-execution_count="7">
+<div class="column">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>continent <span class="op">=</span> <span class="st">"Asia"</span></span>
+<span id="cb12-2"><a></a>position <span class="op">=</span> continent  </span>
+<span id="cb12-3"><a></a><span class="bu">print</span>(<span class="st">"Position:"</span>, position)  </span>
+<span id="cb12-4"><a></a><span class="bu">print</span>(<span class="st">"Continent:"</span>, continent)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code>Position: Asia
+Continent: Asia</code></pre>
+</div>
+</div></div>
 </section>
 <section id="learning-check-1" class="slide level2">
 <h2>Learning Check #1</h2>
-<h3 id="what-is-the-final-value-of-variable-position-below">What is the final value of variable <code>position</code> below?</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a>initial <span class="op">=</span> <span class="st">"up"</span></span>
-<span id="cb1-2"><a></a>position <span class="op">=</span> initial</span>
-<span id="cb1-3"><a></a>initial <span class="op">=</span> <span class="st">"down"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<h3 id="what-is-the-final-value-of-variable-country_1-below">What is the final value of variable <code>country_1</code> below?</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>country_1 <span class="op">=</span> <span class="st">"Australia"</span></span>
-<span id="cb2-2"><a></a>country_2 <span class="op">=</span> <span class="st">"New Zealand"</span></span>
-<span id="cb2-3"><a></a>temp <span class="op">=</span> country_1</span>
-<span id="cb2-4"><a></a>country_1 <span class="op">=</span> country_2</span>
-<span id="cb2-5"><a></a>country_2 <span class="op">=</span> temp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="refresher-quantitative-data-types" class="slide level2">
-<h2>Refresher: Quantitative Data Types</h2>
-<ul>
-<li><p><u><strong>Non-Continuous Data</strong></u></p>
-<ul>
-<li><p><strong>Nominal/Categorical</strong>: Non-ordered, non-numerical data, used to represent qualitative attribute.</p>
-<ul>
-<li>Example: nationality, neighborhood, employment status</li>
-</ul></li>
-<li><p><strong>Ordinal</strong>: Ordered non-numerical data.</p>
-<ul>
-<li>Example: Nutri-grade ratings, frequency of exercise (daily, weekly, bi-weekly)</li>
-</ul></li>
-<li><p><strong>Discrete</strong>: Numerical data that can only take specific value (usually integers)</p>
-<ul>
-<li>Example: Shoe size, clothing size</li>
-</ul></li>
-<li><p><strong>Binary</strong>: Nominal data with only two possible outcome</p>
-<ul>
-<li>Example: pass/fail, yes/no, survive/not survive</li>
-</ul></li>
-</ul></li>
-</ul>
-</section>
-<section class="slide level2">
+<p><strong>What is the final value of variable <code>position</code> below?</strong></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a>initial <span class="op">=</span> <span class="st">"up"</span></span>
+<span id="cb14-2"><a></a>position <span class="op">=</span> initial</span>
+<span id="cb14-3"><a></a>initial <span class="op">=</span> <span class="st">"down"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>What is the final value of variable <code>country_1</code> below?</strong></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a>country_1 <span class="op">=</span> <span class="st">"Australia"</span></span>
+<span id="cb15-2"><a></a>country_2 <span class="op">=</span> <span class="st">"New Zealand"</span></span>
+<span id="cb15-3"><a></a>temp <span class="op">=</span> country_1</span>
+<span id="cb15-4"><a></a>country_1 <span class="op">=</span> country_2</span>
+<span id="cb15-5"><a></a>country_2 <span class="op">=</span> temp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section></section>
+<section>
+<section id="section-3-data-types-and-conversion" class="title-slide slide level1 center">
+<h1>Section 3: Data Types and Conversion</h1>
 
+</section>
+<section id="refresher-quantitative-data-types-in-econs-and-social-sciences" class="slide level2">
+<h2>Refresher: Quantitative Data Types in Econs and Social Sciences</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Non-Continuous Data</p>
 <ul>
-<li><p><u><strong>Continuous Data</strong></u></p>
-<ul>
-<li><p><strong>Interval</strong>: Numerical data that can take any value within a range. <u>It does not have a “true zero”.</u></p>
-<ul>
-<li>Example: Celsius scale. Temperature of 0 C does not represent absence of heat.</li>
-</ul></li>
-<li><p><strong>Ratio</strong>: Numerical data that can take any value within a range. <u>it has a “true zero”.</u></p>
-<ul>
-<li>Example: Annual income. annual income of 0 represents no income.</li>
-</ul></li>
-</ul></li>
+<li>Nominal/Categorical: Non-ordered, non-numerical data, used to represent qualitative attribute. e.g.&nbsp;Country, Employment status</li>
+<li>Ordinal: Ordered non-numerical data. e.g.&nbsp;Nutri-grade ratings</li>
+<li>Discrete: Numerical data that can only take specific value (usually integers) e.g.&nbsp;Shoe size, clothing size</li>
+<li>Binary: Nominal data with only two possible outcome. e.g.&nbsp;pass/fail, yes/no, survive/not survive</li>
 </ul>
+</div><div class="column" style="width:50%;">
+<p>Continuous Data</p>
+<ul>
+<li>Interval: Numerical data that can take any value within a range. <u>It does not have a “true zero”.</u> e.g.&nbsp;Temperature of 0 C does not represent absence of heat.</li>
+<li>Ratio: Numerical data that can take any value within a range. <u>it has a “true zero”.</u> e.g.&nbsp;annual income of 0 represents no income.</li>
+</ul>
+</div></div>
 </section>
 <section id="basic-data-types-in-python" class="slide level2">
 <h2>Basic data types in Python</h2>
 <ul>
-<li><p>Integers (int)</p>
-<ul>
-<li>Whole numbers without a decimal point. Examples: 5, -3, 0</li>
-</ul></li>
-<li><p>Floating-point numbers (float)</p>
-<ul>
-<li>Numbers with a decimal point. Examples: 3.14, -0.5, 2.0</li>
-</ul></li>
-<li><p>Strings (str)</p>
-<ul>
-<li>Sequences of characters enclosed in quotes. Examples: “Hello”, ‘Python’</li>
-</ul></li>
-<li><p>Booleans (bool)</p>
-<ul>
-<li>Logical values representing <code>True</code> or <code>False</code>. Examples: True, False</li>
-</ul></li>
-<li><p>None</p>
-<ul>
-<li>A special type representing the absence of a value</li>
-</ul></li>
+<li>Integers (int): Whole numbers without a decimal point. Examples: 5, -3, 0</li>
+<li>Floating-point numbers (float): Numbers with a decimal point. Examples: 3.14, -0.5, 2.0</li>
+<li>Strings (str): Sequences of characters enclosed in quotes. Examples: “Hello”, ‘Python’</li>
+<li>Booleans (bool): Logical values representing <code>True</code> or <code>False</code>. Examples: True, False</li>
+<li>None: A special type representing the absence of a value</li>
 </ul>
+<div id="0c8b2b3f" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a>country <span class="op">=</span> <span class="st">"Singapore"</span>  <span class="co"># string</span></span>
+<span id="cb16-2"><a></a>public_holidays <span class="op">=</span> <span class="dv">11</span>  <span class="co"># integer</span></span>
+<span id="cb16-3"><a></a>avg_temp <span class="op">=</span> <span class="fl">27.8</span>  <span class="co"># float</span></span>
+<span id="cb16-4"><a></a>part_of_asean <span class="op">=</span> <span class="va">True</span>  <span class="co"># Boolean</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="why-do-i-need-to-care-about-these-data-types" class="slide level2">
+<h2>Why do I need to care about these data types?</h2>
+<p>Because a value’s data type determines what the program can do to it.</p>
+<p>For example, the calculations below work on <code>int</code> data type</p>
+<div id="cf88244e" class="cell columns column-output-location" data-execution_count="9">
+<div class="column">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a><span class="bu">print</span>(public_holidays <span class="op">-</span> <span class="dv">5</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code>6</code></pre>
+</div>
+</div></div>
+<p>But the above operation won’t work on a <code>string</code></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a><span class="bu">print</span>(country <span class="op">-</span> <span class="st">"pore"</span>) \<span class="co"># this will give an error!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>However you can use “+” and “*” on strings</p>
+<div id="6ab43bef" class="cell columns column-output-location" data-execution_count="10">
+<div class="column">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a><span class="bu">print</span>(country <span class="op">+</span> <span class="st">" best"</span>)  <span class="co"># this works for string, though.</span></span>
+<span id="cb20-2"><a></a><span class="bu">print</span>(country <span class="op">*</span> <span class="dv">4</span>)  <span class="co"># this also works</span></span>
+<span id="cb20-3"><a></a><span class="bu">print</span>(<span class="st">"="</span> <span class="op">*</span> <span class="dv">10</span>)  <span class="co"># this also works</span></span>
+<span id="cb20-4"><a></a><span class="bu">print</span>(<span class="bu">len</span>(country))  <span class="co"># this would print out the number of characters a string has</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code>Singapore best
+SingaporeSingaporeSingaporeSingapore
+==========
+9</code></pre>
+</div>
+</div></div>
+</section>
+<section id="converting-data-types-to-one-another" class="slide level2">
+<h2>Converting data types to one another</h2>
+<p>Some data types need to be converted before we can do some operations on them i.e.&nbsp;this will give you an error.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a><span class="bu">print</span>(<span class="st">"10"</span> <span class="op">+</span> <span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Here is how you can convert the data types:</p>
+<div id="c9834bdd" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a><span class="bu">print</span>(<span class="st">"10"</span> <span class="op">+</span> <span class="bu">str</span>(<span class="dv">2</span>))  <span class="co"># convert to string</span></span>
+<span id="cb23-2"><a></a><span class="bu">print</span>(<span class="bu">int</span>(<span class="dv">10</span>) <span class="op">+</span> <span class="dv">2</span>)  <span class="co"># convert to int</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>102
+12</code></pre>
+</div>
+</div>
+</section>
+<section id="take-note-of-variables-assignment-placement" class="slide level2">
+<h2>Take note of variables assignment placement</h2>
+<p>Take note of the execution order of your variables! They only change value when something is assigned to them.</p>
+<div id="aa8a5ec6" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a>public_holiday <span class="op">=</span> <span class="dv">11</span>  <span class="co"># initial value </span></span>
+<span id="cb25-2"><a></a>new_holidays <span class="op">=</span> public_holiday <span class="op">+</span> <span class="dv">5</span></span>
+<span id="cb25-3"><a></a>public_holiday <span class="op">=</span> <span class="dv">10</span>  <span class="co"># we update the variable</span></span>
+<span id="cb25-4"><a></a><span class="bu">print</span>(<span class="st">"Public holiday:"</span>, public_holiday) </span>
+<span id="cb25-5"><a></a><span class="bu">print</span>(<span class="st">"New holidays:"</span>, new_holidays) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Public holiday: 10
+New holidays: 16</code></pre>
+</div>
+</div>
+<p>Updating the value of <code>public_holiday</code> will not auto-update the value of <code>new_holidays</code>.</p>
 </section>
 <section id="learning-check-2" class="slide level2">
 <h2>Learning Check #2</h2>
 <p>What is the data type of each of this variable?</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>a <span class="op">=</span> <span class="dv">50</span>  </span>
-<span id="cb3-2"><a></a>b <span class="op">=</span> <span class="st">"SMU Libraries"</span>  </span>
-<span id="cb3-3"><a></a>c <span class="op">=</span> <span class="fl">100.5</span>  </span>
-<span id="cb3-4"><a></a>d <span class="op">=</span> <span class="va">True</span>  </span>
-<span id="cb3-5"><a></a>e <span class="op">=</span> <span class="dv">10</span> <span class="op">*</span> <span class="fl">2.54</span>  </span>
-<span id="cb3-6"><a></a>f <span class="op">=</span> <span class="bu">int</span>(<span class="fl">5.5</span>)  </span>
-<span id="cb3-7"><a></a>g <span class="op">=</span> <span class="dv">10</span> <span class="op">&lt;</span> <span class="dv">15</span>  </span>
-<span id="cb3-8"><a></a>h <span class="op">=</span> <span class="bu">len</span>(<span class="st">"The quick brown fox jumps over the lazy dog"</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a></a>a <span class="op">=</span> <span class="dv">50</span>  </span>
+<span id="cb27-2"><a></a>b <span class="op">=</span> <span class="st">"SMU Libraries"</span>  </span>
+<span id="cb27-3"><a></a>c <span class="op">=</span> <span class="fl">100.5</span>  </span>
+<span id="cb27-4"><a></a>d <span class="op">=</span> <span class="va">True</span>  </span>
+<span id="cb27-5"><a></a>e <span class="op">=</span> <span class="dv">10</span> <span class="op">*</span> <span class="fl">2.54</span>  </span>
+<span id="cb27-6"><a></a>f <span class="op">=</span> <span class="bu">int</span>(<span class="fl">5.5</span>)  </span>
+<span id="cb27-7"><a></a>g <span class="op">=</span> <span class="dv">10</span> <span class="op">&lt;</span> <span class="dv">15</span>  </span>
+<span id="cb27-8"><a></a>h <span class="op">=</span> <span class="bu">len</span>(<span class="st">"The quick brown fox jumps over the lazy dog"</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section></section>
+<section>
+<section id="section-4-built-in-python-functions" class="title-slide slide level1 center">
+<h1>Section 4: Built-in Python functions</h1>
+
 </section>
-<section id="python-functions" class="slide level2">
-<h2>Python functions</h2>
+<section id="arguments-vs-parameters" class="slide level2">
+<h2>Arguments vs Parameters</h2>
 <ul>
-<li><p>There are many built-in function that we can use, one of the common one is <code>round()</code> which will round a float number to the nearest integer.</p></li>
-<li><p>Some functions accept arguments, and we put them inside the brackets when we pass it to the function. It’s like telling the function “do what you’re supposed to do with this things I pass to you”.</p></li>
+<li>There are many built-in function that we can use, one of the common one is <code>round()</code> which will round a float number to the nearest integer.</li>
+<li>Some functions accept arguments, and we put them inside the brackets when we pass it to the function. It’s like telling the function “do what you’re supposed to do with this things I pass to you”.</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a><span class="bu">round</span>(<span class="fl">3.14</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>formal definition, but often used interchangeably: - arguments = the value passed to a function - in this case, 3.14 - parameters = the variable passed to a function</p>
+<div id="66386320" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a></a><span class="bu">round</span>(<span class="fl">3.14</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<pre><code>3</code></pre>
+</div>
+</div>
+<p>formal definition, but often used interchangeably:</p>
 <ul>
-<li><p>Some functions can take more than one arguments! we’ve seen this with <code>print()</code> earlier</p></li>
-<li><p>If you’re not sure what kind of arguments are accepted, etc, use the <code>help()</code> function. This example below should tell you more about <code>round()</code> once executed</p></li>
-</ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="bu">help</span>(<span class="bu">round</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="more-data-types" class="slide level2">
-<h2>More data types</h2>
-<ul>
-<li><p>Lists</p>
-<ul>
-<li>Ordered, mutable sequences of elements. Examples: <code>[1, 2, 3]</code>, <code>['a', 'b', 'c']</code></li>
-</ul></li>
-<li><p>Tuples</p>
-<ul>
-<li>Ordered, immutable sequences of elements. Examples: <code>(1, 2, 3)</code>, <code>('a', 'b', 'c')</code></li>
-</ul></li>
-<li><p>Dictionaries (dict)</p>
-<ul>
-<li>Unordered collections of key-value pairs. Example: <code>{'name': 'John', 'age': 30}</code></li>
-</ul></li>
-<li><p>Sets</p>
-<ul>
-<li>Unordered collections of unique elements. Example: <code>{1, 2, 3}</code></li>
-</ul></li>
+<li>arguments = the value passed to a function - in this case, 3.14</li>
+<li>parameters = the variable passed to a function</li>
 </ul>
 </section>
-<section id="lists" class="slide level2">
-<h2>Lists</h2>
-<p>Scenario: We want to keep track of Singapore’s GDP year-over-year (YoY) growth rate from 2024 to 2018.</p>
+<section id="how-do-i-find-out-more-about-a-function" class="slide level2">
+<h2>How do I find out more about a function?</h2>
 <ul>
-<li><p>Using a list allows us to store multiple years of data efficiently in a single variable.</p></li>
-<li><p>If we were saving each year’s quarterly growth rate to separate variables, we would have dozens variables!</p></li>
-<li><p>This would make it difficult to perform calculations or analyze trends across years.</p></li>
-<li><p>A <code>list</code> will come in handy! List can store many values together in a single variable.</p></li>
+<li>Some functions can take more than one arguments! we’ve seen this with <code>print()</code> earlier.</li>
+<li>If you’re not sure what kind of arguments are accepted, etc, use the <code>help()</code> function. This example below should tell you more about <code>round()</code> once executed.</li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a>quarterly_gdp_growth <span class="op">=</span> [<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="fl">5.8</span>, <span class="fl">2.8</span>, <span class="fl">2.6</span>, <span class="fl">7.3</span>, <span class="fl">1.1</span>, <span class="fl">3.4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="119ed68b" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a></a><span class="bu">help</span>(<span class="bu">round</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Help on built-in function round in module builtins:
+
+round(number, ndigits=None)
+    Round a number to a given precision in decimal digits.
+    
+    The return value is an integer if ndigits is omitted or None.  Otherwise
+    the return value has the same type as the number.  ndigits may be negative.
+</code></pre>
+</div>
+</div>
+</section></section>
+<section>
+<section id="section-5-lists" class="title-slide slide level1 center">
+<h1>Section 5: Lists</h1>
+
 </section>
-<section id="learning-check-3" class="slide level2">
+<section id="more-data-types-structure" class="slide level2">
+<h2>More data types / structure</h2>
+<p>Other than the basic 4 types that we learned earlier, Python has more data structures where we can store multiple values in a single variable:</p>
+<ul>
+<li><strong>Lists</strong>: Ordered, mutable (i.e.&nbsp;can be edited) sequences of elements. Examples: <code>[1, 2, 3]</code>, <code>['a', 'b', 'c']</code></li>
+<li><strong>Tuples</strong>: Ordered, immutable (i.e.&nbsp;cannot be edited once it is created) sequences of elements. Examples: <code>(1, 2, 3)</code>, <code>('a', 'b', 'c')</code></li>
+<li><strong>Dictionaries</strong> (dict): Unordered collections of key-value pairs. Example: <code>{'name': 'John', 'age': 30}</code></li>
+<li><strong>Sets</strong>: Unordered collections of unique elements. Example: <code>{1, 2, 3}</code></li>
+</ul>
+<p>We will not be covering all of the above, only list and dictionaries (for session 4)</p>
+</section>
+<section id="when-lists-would-be-useful" class="slide level2">
+<h2>When lists would be useful</h2>
+<p>Scenario: We want to track Singapore’s GDP year-over-year (YoY) growth from 2024 to 2018.</p>
+<ul>
+<li>A list helps us store multiple years of data in one place, making it efficient.</li>
+<li>Without a list, we’d need dozens of separate variables for each year, making it harder to analyze trends.</li>
+<li>Using a list, we can easily manage and analyze the data for all the years together.</li>
+</ul>
+<div id="b49b517b" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a></a><span class="co"># growth rates from 2023 Q1 to 2024 Q2</span></span>
+<span id="cb32-2"><a></a>quarterly_gdp_growth <span class="op">=</span> [<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="fl">5.8</span>, <span class="fl">2.8</span>, <span class="fl">2.6</span>, <span class="fl">7.3</span>, <span class="fl">1.1</span>, <span class="fl">3.4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can also initialize an empty list to fill later</p>
+<div id="2f352280" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a></a>future_growth_rates <span class="op">=</span> []</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="check-number-of-items-in-a-list" class="slide level2">
+<h2>Check number of items in a list</h2>
+<p>As a good first step, it’s good to check the number of items you have in your list!</p>
+<div id="ef739910" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a></a><span class="bu">print</span>(<span class="st">'GDP growth rates:'</span>, quarterly_gdp_growth)</span>
+<span id="cb34-2"><a></a><span class="bu">print</span>(<span class="st">'Number of quarters:'</span>, <span class="bu">len</span>(quarterly_gdp_growth))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>GDP growth rates: [-2, -5.8, 2.8, 2.6, 7.3, 1.1, 3.4]
+Number of quarters: 7</code></pre>
+</div>
+</div>
+</section>
+<section id="retrieve-a-single-item-from-a-list" class="slide level2">
+<h2>Retrieve a single item from a list</h2>
+<p>Sometimes you don’t need the entire list. To retrieve a single value from a list, simply specify their index number enclosed in square brackets</p>
+<ul>
+<li>Remember that index starts from 0 instead of 1.</li>
+<li>So if you want to retrieve the fourth item (2021’s growth rate), the index will be 3.</li>
+</ul>
+<div id="d2f05ab3" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a></a><span class="bu">print</span>(<span class="st">'GDP growth rate in 2023 Q1 (1st item):'</span>, quarterly_gdp_growth[<span class="dv">0</span>])</span>
+<span id="cb36-2"><a></a><span class="bu">print</span>(<span class="st">'GDP growth rate in 2024 Q2 (6th item):'</span>, quarterly_gdp_growth[<span class="dv">5</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>GDP growth rate in 2023 Q1 (1st item): -2
+GDP growth rate in 2024 Q2 (6th item): 1.1</code></pre>
+</div>
+</div>
+<p>If we put an index number that’s larger than actual number of items, python will give us an error!</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a></a>quarterly_gdp_growth[<span class="dv">10</span>] <span class="co"># This would cause an IndexError</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="retrieve-multiple-items-from-a-list-the-syntax" class="slide level2">
+<h2>Retrieve multiple items from a list: the syntax</h2>
+<p>Slicing allows you to extract a portion of the list by specifying a range of indices. The basic syntax for slicing is:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a></a>list_name[start:end:step]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><code>start</code> is the index where the slice starts (inclusive)</li>
+<li><code>end</code> is the index where the slice ends (exclusive)</li>
+<li>If <code>start</code> is omitted, the slice begins from the start of the list</li>
+<li>If <code>end</code> is omitted, the slice goes to the end of the list</li>
+<li><code>step</code> is optional; it determines how many items to skip</li>
+</ul>
+</section>
+<section id="retrieve-multiple-items-from-a-list-in-action" class="slide level2">
+<h2>Retrieve multiple items from a list: in action</h2>
+<p>Specifying the start and end:</p>
+<div id="1022f00d" class="cell columns column-output-location" data-execution_count="19">
+<div class="column">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a></a><span class="bu">print</span>(<span class="st">'First three quarters:'</span>, </span>
+<span id="cb40-2"><a></a>quarterly_gdp_growth[<span class="dv">0</span>:<span class="dv">3</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code>First three quarters: [-2, -5.8, 2.8]</code></pre>
+</div>
+</div></div>
+<p>Omitting the end index:</p>
+<div id="3bfeeeea" class="cell columns column-output-location" data-execution_count="20">
+<div class="column">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a></a><span class="bu">print</span>(<span class="st">'From Q3 2023 onwards:'</span>, </span>
+<span id="cb42-2"><a></a>quarterly_gdp_growth[<span class="dv">2</span>:])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code>From Q3 2023 onwards: [2.8, 2.6, 7.3, 1.1, 3.4]</code></pre>
+</div>
+</div></div>
+<p>Omitting the start:</p>
+<div id="c812e0aa" class="cell columns column-output-location" data-execution_count="21">
+<div class="column">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a></a><span class="bu">print</span>(<span class="st">'First three quarters:'</span>, </span>
+<span id="cb44-2"><a></a>quarterly_gdp_growth[:<span class="dv">3</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code>First three quarters: [-2, -5.8, 2.8]</code></pre>
+</div>
+</div></div>
+<p>If we put a negative index, python list will count from the end instead of the beginning!</p>
+<div id="c475a00c" class="cell columns column-output-location" data-execution_count="22">
+<div class="column">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a></a><span class="bu">print</span>(<span class="st">'Last three quarters:'</span>, </span>
+<span id="cb46-2"><a></a>quarterly_gdp_growth[<span class="op">-</span><span class="dv">3</span>:])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code>Last three quarters: [7.3, 1.1, 3.4]</code></pre>
+</div>
+</div></div>
+</section>
+<section id="stepping-value-in-a-list" class="slide level2">
+<h2>Stepping value in a list</h2>
+<p>You can also use a step value to skip items!</p>
+<p>It is particularly useful if you need to reverse a list.</p>
+<div id="8378a333" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a></a><span class="bu">print</span>(<span class="st">'Every other quarter:'</span>, quarterly_gdp_growth[::<span class="dv">2</span>])</span>
+<span id="cb48-2"><a></a><span class="bu">print</span>(<span class="st">'Quarters in reverse order:'</span>, quarterly_gdp_growth[::<span class="op">-</span><span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Every other quarter: [-2, 2.8, 7.3, 3.4]
+Quarters in reverse order: [3.4, 1.1, 7.3, 2.6, 2.8, -5.8, -2]</code></pre>
+</div>
+</div>
+</section>
+<section id="updating-the-value-of-items-inside-a-list" class="slide level2">
+<h2>Updating the value of items inside a list</h2>
+<p>List values can be replaced by simply assigning a new value to them! Let’s update the growth rate for 2023 Q3 (index 2) with the correct figure.</p>
+<div id="d147130a" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a></a>quarterly_gdp_growth[<span class="dv">2</span>] <span class="op">=</span> <span class="op">-</span><span class="fl">2.8</span></span>
+<span id="cb50-2"><a></a><span class="bu">print</span>(<span class="st">'Updated GDP growth rates:'</span>, quarterly_gdp_growth)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Updated GDP growth rates: [-2, -5.8, -2.8, 2.6, 7.3, 1.1, 3.4]</code></pre>
+</div>
+</div>
+</section>
+<section id="appending-items-to-a-list" class="slide level2">
+<h2>Appending items to a list</h2>
+<p>Let’s append a new data of 3.2% growth that we get for 2024 Q3 to the list. Appending will put this new item at the end of the list.</p>
+<div id="4986ee11" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a></a><span class="bu">print</span>(<span class="st">'GDP growth rates initially:'</span>, quarterly_gdp_growth)</span>
+<span id="cb52-2"><a></a>quarterly_gdp_growth.append(<span class="fl">3.2</span>)  </span>
+<span id="cb52-3"><a></a><span class="bu">print</span>(<span class="st">'GDP growth rates after adding 2024 Q3 prediction:'</span>, quarterly_gdp_growth)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>GDP growth rates initially: [-2, -5.8, -2.8, 2.6, 7.3, 1.1, 3.4]
+GDP growth rates after adding 2024 Q3 prediction: [-2, -5.8, -2.8, 2.6, 7.3, 1.1, 3.4, 3.2]</code></pre>
+</div>
+</div>
+</section>
+<section id="adding-data-to-a-specific-position-in-a-list" class="slide level2">
+<h2>Adding data to a specific position in a list</h2>
+<p>Let’s add data to the start of the list! The data is growth for 2022 Q4, which was 9.4%.</p>
+<div id="ecc46bd9" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="annotated-cell-34" data-code-line-numbers="2"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-34-1"><a href="#annotated-cell-34-1"></a><span class="bu">print</span>(<span class="st">'GDP growth rates initially:'</span>, quarterly_gdp_growth)</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-34" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-34-2" class="code-annotation-target"><a href="#annotated-cell-34-2"></a>quarterly_gdp_growth.insert(<span class="dv">0</span>, <span class="fl">9.4</span>)</span>
+<span id="annotated-cell-34-3"><a href="#annotated-cell-34-3"></a><span class="bu">print</span>(<span class="st">'GDP growth rates after adding 2022 Q4:'</span>, quarterly_gdp_growth)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-34" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-34" data-code-lines="2" data-code-annotation="1">The first parameter is the index position of where we want this new value to be. The second parameter is the actual value we’d like to insert.</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>GDP growth rates initially: [-2, -5.8, -2.8, 2.6, 7.3, 1.1, 3.4, 3.2]
+GDP growth rates after adding 2022 Q4: [9.4, -2, -5.8, -2.8, 2.6, 7.3, 1.1, 3.4, 3.2]</code></pre>
+</div>
+</div>
+</section>
+<section id="removing-items-from-a-list" class="slide level2">
+<h2>Removing items from a list</h2>
+<p>Let’s remove the two items we added previously!</p>
+<p>There are two ways to remove items: using <code>del</code> or <code>.pop()</code> method.</p>
+<div id="52f1fb5b" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="annotated-cell-35" data-code-line-numbers="2|3"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-35-1"><a href="#annotated-cell-35-1"></a><span class="bu">print</span>(<span class="st">'GDP growth rates initially:'</span>, quarterly_gdp_growth)</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-35" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-35-2" class="code-annotation-target"><a href="#annotated-cell-35-2"></a><span class="kw">del</span> quarterly_gdp_growth[<span class="dv">0</span>]</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-35" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-35-3" class="code-annotation-target"><a href="#annotated-cell-35-3"></a>quarterly_gdp_growth.pop()</span>
+<span id="annotated-cell-35-4"><a href="#annotated-cell-35-4"></a><span class="bu">print</span>(<span class="st">'GDP growth rates after removing projection:'</span>, quarterly_gdp_growth)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-35" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-35" data-code-lines="2" data-code-annotation="1">with <code>del</code>, you need to specify the index of the items you’d like to remove</span>
+</dd>
+<dt data-target-cell="annotated-cell-35" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-35" data-code-lines="3" data-code-annotation="2"><code>pop()</code> will remove the item at the end of the list.</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>GDP growth rates initially: [9.4, -2, -5.8, -2.8, 2.6, 7.3, 1.1, 3.4, 3.2]
+GDP growth rates after removing projection: [-2, -5.8, -2.8, 2.6, 7.3, 1.1, 3.4]</code></pre>
+</div>
+</div>
+</section>
+<section id="calculations-with-list" class="slide level2">
+<h2>Calculations with List</h2>
+<p>Let’s say we want to calculate the average quarterly gdp growth:</p>
+<div id="dc3611b3" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a></a>total_growth <span class="op">=</span> <span class="bu">sum</span>(quarterly_gdp_growth)</span>
+<span id="cb56-2"><a></a>average_growth <span class="op">=</span> total_growth <span class="op">/</span> <span class="bu">len</span>(quarterly_gdp_growth)</span>
+<span id="cb56-3"><a></a><span class="bu">print</span>(<span class="ss">f"Average quarterly GDP growth: </span><span class="sc">{</span>average_growth<span class="sc">:.2f}</span><span class="ss">%"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Average quarterly GDP growth: 0.54%</code></pre>
+</div>
+</div>
+</section>
+<section id="various-data-types-in-a-single-list" class="slide level2">
+<h2>Various data types in a single list</h2>
+<p>You can include values of different types in a list, though for GDP data we’ll stick to numbers!</p>
+<div id="7bfca6cb" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a></a>mixed_data <span class="op">=</span> [<span class="st">"2024 growth"</span>, <span class="fl">3.0</span>, <span class="st">"2023 growth"</span>, <span class="fl">2.7</span>]</span>
+<span id="cb58-2"><a></a><span class="bu">print</span>(mixed_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['2024 growth', 3.0, '2023 growth', 2.7]</code></pre>
+</div>
+</div>
+</section>
+<section id="learning-check-3" class="slide level2 scrollable">
 <h2>Learning Check #3</h2>
 <p>Write a code to complete the following tasks:</p>
 <ol type="1">
 <li>Write a code to print the growth rate for 2023 Q4 (remember, it’s the 5th item but index 4)</li>
 </ol>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="bu">print</span>(quarterly_gdp_growth[<span class="dv">4</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="86abd3a1" class="cell" data-execution_count="30">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a></a><span class="bu">print</span>(quarterly_gdp_growth[<span class="dv">4</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>7.3</code></pre>
+</div>
+</div>
 <ol start="2" type="1">
 <li>Write a code to print the growth rates for the first three quarters of 2023</li>
 </ol>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="bu">print</span>(quarterly_gdp_growth[<span class="dv">0</span>:<span class="dv">3</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="9ad58f46" class="cell" data-execution_count="31">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a></a><span class="bu">print</span>(quarterly_gdp_growth[<span class="dv">0</span>:<span class="dv">3</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[-2, -5.8, -2.8]</code></pre>
+</div>
+</div>
 <ol start="3" type="1">
 <li>Add a projected growth rate of 3.3 and 3.6 the next two quarters at the end of the list</li>
 </ol>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="co"># method 1 using insert</span></span>
-<span id="cb9-2"><a></a>quarterly_gdp_growth.insert(<span class="bu">len</span>(quarterly_gdp_growth), <span class="fl">3.3</span>)</span>
-<span id="cb9-3"><a></a></span>
-<span id="cb9-4"><a></a><span class="co"># method 2 using append</span></span>
-<span id="cb9-5"><a></a>quarterly_gdp_growth.append(<span class="fl">3.6</span>)</span>
-<span id="cb9-6"><a></a></span>
-<span id="cb9-7"><a></a><span class="bu">print</span>(quarterly_gdp_growth)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="436e12bd" class="cell" data-execution_count="32">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a></a><span class="co"># method 1 using insert</span></span>
+<span id="cb64-2"><a></a>quarterly_gdp_growth.insert(<span class="bu">len</span>(quarterly_gdp_growth), <span class="fl">3.3</span>)</span>
+<span id="cb64-3"><a></a></span>
+<span id="cb64-4"><a></a><span class="co"># method 2 using append</span></span>
+<span id="cb64-5"><a></a>quarterly_gdp_growth.append(<span class="fl">3.6</span>)</span>
+<span id="cb64-6"><a></a></span>
+<span id="cb64-7"><a></a><span class="bu">print</span>(quarterly_gdp_growth)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[-2, -5.8, -2.8, 2.6, 7.3, 1.1, 3.4, 3.3, 3.6]</code></pre>
+</div>
+</div>
+</section></section>
+<section>
+<section id="section-6-loops" class="title-slide slide level1 center">
+<h1>Section 6: Loops</h1>
+
 </section>
-<section id="loops" class="slide level2">
-<h2>Loops</h2>
-<p>Scenario: We have Singapore’s Quarterly GDP growth rates from 2023 Q1 to 2024 Q2.</p>
-<ul>
-<li><p>We want to process this data efficiently and present it in a readable format - this is where a <code>For</code> Loop comes in handy!</p></li>
-<li><p>Loop is useful for repetitive tasks. It also helps to keep your code succinct and easier to debug if there’s an error</p></li>
-</ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="cf">for</span> number <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">7</span>):  <span class="co"># 1 to 6, representing 6 quarters</span></span>
-<span id="cb10-2"><a></a>    <span class="bu">print</span>(<span class="st">"Quarter"</span>, number)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li>The above code is much shorter than typing <code>print</code> 6 times!</li>
-</ul>
+<section id="automate-stuff-with-loop" class="slide level2">
+<h2>Automate stuff with loop!</h2>
+<p>Scenario: We have Singapore’s Quarterly GDP growth rates from 2023 Q1 to 2024 Q2, and we want to print them in this format: <code>Quarterly GDP growth: 5%</code></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Manually printing out the items</p>
+<div id="de60cee9" class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a></a><span class="bu">print</span>(<span class="st">"Quarterly GDP growth:"</span>, quarterly_gdp_growth[<span class="dv">0</span>], <span class="st">"%"</span>) </span>
+<span id="cb66-2"><a></a><span class="bu">print</span>(<span class="st">"Quarterly GDP growth:"</span>, quarterly_gdp_growth[<span class="dv">1</span>], <span class="st">"%"</span>) </span>
+<span id="cb66-3"><a></a><span class="bu">print</span>(<span class="st">"Quarterly GDP growth:"</span>, quarterly_gdp_growth[<span class="dv">2</span>], <span class="st">"%"</span>) </span>
+<span id="cb66-4"><a></a><span class="bu">print</span>(<span class="st">"Quarterly GDP growth:"</span>, quarterly_gdp_growth[<span class="dv">3</span>], <span class="st">"%"</span>) </span>
+<span id="cb66-5"><a></a><span class="bu">print</span>(<span class="st">"Quarterly GDP growth:"</span>, quarterly_gdp_growth[<span class="dv">4</span>], <span class="st">"%"</span>) </span>
+<span id="cb66-6"><a></a><span class="co"># and so on...</span></span>
+<span id="cb66-7"><a></a><span class="co"># can you imagine doing this for 100++ items?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Quarterly GDP growth: -2 %
+Quarterly GDP growth: -5.8 %
+Quarterly GDP growth: -2.8 %
+Quarterly GDP growth: 2.6 %
+Quarterly GDP growth: 7.3 %</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p>With <code>for</code> loop</p>
+<div id="af551b3a" class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a></a><span class="cf">for</span> growth <span class="kw">in</span> quarterly_gdp_growth: </span>
+<span id="cb68-2"><a></a>    <span class="bu">print</span>(<span class="st">"Quarterly GDP growth:"</span>, growth, <span class="st">"%"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Quarterly GDP growth: -2 %
+Quarterly GDP growth: -5.8 %
+Quarterly GDP growth: -2.8 %
+Quarterly GDP growth: 2.6 %
+Quarterly GDP growth: 7.3 %
+Quarterly GDP growth: 1.1 %
+Quarterly GDP growth: 3.4 %
+Quarterly GDP growth: 3.3 %
+Quarterly GDP growth: 3.6 %</code></pre>
+</div>
+</div>
+</div></div>
+<p>As you can see, we can achieve the same thing (or more) with less code to type with <code>for</code> loop.</p>
 </section>
-<section id="using-list-with-for-loop" class="slide level2">
-<h2>Using list with For loop</h2>
-<p>Here is how you can use list in a For loop:</p>
-<div class="sourceCode" id="annotated-cell-11"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy"><code class="sourceCode python"><span id="annotated-cell-11-1"><a href="#annotated-cell-11-1"></a><span class="cf">for</span> growth <span class="kw">in</span> quarterly_gdp_growth:</span>
-<span id="annotated-cell-11-2"><a href="#annotated-cell-11-2"></a>    <span class="bu">print</span>(<span class="ss">f"Quarterly GDP growth: </span><span class="sc">{</span>growth<span class="sc">}</span><span class="ss">%"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="anatomy-of-a-loop" class="slide level2">
+<h2>Anatomy of a loop</h2>
 <p>Anatomy of loops explained using the example above:</p>
+<div id="1a1f4404" class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="annotated-cell-41" data-code-line-numbers="1|2"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-41" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-41-1" class="code-annotation-target"><a href="#annotated-cell-41-1"></a><span class="cf">for</span> growth <span class="kw">in</span> quarterly_gdp_growth:</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-41" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-41-2" class="code-annotation-target"><a href="#annotated-cell-41-2"></a>    <span class="bu">print</span>(<span class="st">"Quarterly GDP growth:"</span>, growth, <span class="st">"%"</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-41" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-41" data-code-lines="1" data-code-annotation="1"><code>growth</code> is the loop variable, representing the value that changes with each iteration of the loop. You can think of it as the “current item” being processed. Meanwhile, <code>quarterly_gdp_growth</code> is the collection that the loop iterates over. The loop statement also ends with a colon <code>:</code>.</span>
+</dd>
+<dt data-target-cell="annotated-cell-41" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-41" data-code-lines="2" data-code-annotation="2"><code>print("Quarterly GDP growth:", growth, "%")</code> is the body of the loop, specifying the action to take for each item in the collection. The body of the loop <strong>must</strong> be indented.</span>
+</dd>
+</dl>
+</div>
+</div>
+</section>
+<section id="more-examples-using-range" class="slide level2">
+<h2>More examples: using <code>range()</code></h2>
+<p>Below is a loop that will print out numbers from 1 to 6:</p>
+<div id="f66947ed" class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a></a><span class="cf">for</span> number <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">7</span>):  <span class="co"># 1 to 6, representing 6 quarters</span></span>
+<span id="cb70-2"><a></a>    <span class="bu">print</span>(<span class="st">"Quarter"</span>, number)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Quarter 1
+Quarter 2
+Quarter 3
+Quarter 4
+Quarter 5
+Quarter 6</code></pre>
+</div>
+</div>
+</section>
+<section id="more-examples-using-enumerate" class="slide level2">
+<h2>More examples: using <code>enumerate()</code></h2>
+<p>We can use <code>enumerate()</code> to loop not only the items inside a list, but also the index position of each item in the list!</p>
+<p>Let’s say we want to re-format our printout to <code>1) Quarterly GDP growth: 5%</code></p>
+<div id="3e6b5562" class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a></a><span class="cf">for</span> index, item <span class="kw">in</span> <span class="bu">enumerate</span>(quarterly_gdp_growth):</span>
+<span id="cb72-2"><a></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>index <span class="op">+</span> <span class="dv">1</span><span class="sc">}</span><span class="ss">) Quarterly GDP growth: </span><span class="sc">{</span>item<span class="sc">}</span><span class="ss">%"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1) Quarterly GDP growth: -2%
+2) Quarterly GDP growth: -5.8%
+3) Quarterly GDP growth: -2.8%
+4) Quarterly GDP growth: 2.6%
+5) Quarterly GDP growth: 7.3%
+6) Quarterly GDP growth: 1.1%
+7) Quarterly GDP growth: 3.4%
+8) Quarterly GDP growth: 3.3%
+9) Quarterly GDP growth: 3.6%</code></pre>
+</div>
+</div>
+</section></section>
+<section>
+<section id="section-7-conditionals-if-else" class="title-slide slide level1 center">
+<h1>Section 7: Conditionals (If-Else)</h1>
+
+</section>
+<section id="automate-decisions-with-conditionals" class="slide level2 scrollable">
+<h2>Automate decisions with conditionals!</h2>
+<p>Scenario: We have Singapore’s Quarterly GDP growth rates, and we want to categorize them as “Growth”, “Stable”, or “Decline” based on their values.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Without conditionals and <code>for</code> loops</p>
+<div id="cd4e3621" class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a></a><span class="bu">print</span>(quarterly_gdp_growth[<span class="dv">0</span>], <span class="st">"% - Category: Decline"</span>)</span>
+<span id="cb74-2"><a></a><span class="bu">print</span>(quarterly_gdp_growth[<span class="dv">1</span>], <span class="st">"% - Category: Decline"</span>)</span>
+<span id="cb74-3"><a></a><span class="bu">print</span>(quarterly_gdp_growth[<span class="dv">2</span>], <span class="st">"% - Category: Decline"</span>)</span>
+<span id="cb74-4"><a></a><span class="bu">print</span>(quarterly_gdp_growth[<span class="dv">3</span>], <span class="st">"% - Category: Growth"</span>)</span>
+<span id="cb74-5"><a></a><span class="bu">print</span>(quarterly_gdp_growth[<span class="dv">4</span>], <span class="st">"% - Category: Growth"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>-2 % - Category: Decline
+-5.8 % - Category: Decline
+-2.8 % - Category: Decline
+2.6 % - Category: Growth
+7.3 % - Category: Growth</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p>With conditionals and <code>for</code> loops</p>
+<div id="1a3f95bb" class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a></a><span class="cf">for</span> growth <span class="kw">in</span> quarterly_gdp_growth:</span>
+<span id="cb76-2"><a></a>    <span class="cf">if</span> growth <span class="op">&gt;</span> <span class="dv">2</span>:</span>
+<span id="cb76-3"><a></a>        category <span class="op">=</span> <span class="st">"Growth"</span></span>
+<span id="cb76-4"><a></a>    <span class="cf">elif</span> <span class="op">-</span><span class="dv">2</span> <span class="op">&lt;=</span> growth <span class="op">&lt;=</span> <span class="dv">2</span>:</span>
+<span id="cb76-5"><a></a>        category <span class="op">=</span> <span class="st">"Stable"</span></span>
+<span id="cb76-6"><a></a>    <span class="cf">else</span>:</span>
+<span id="cb76-7"><a></a>        category <span class="op">=</span> <span class="st">"Decline"</span></span>
+<span id="cb76-8"><a></a>    </span>
+<span id="cb76-9"><a></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>growth<span class="sc">}</span><span class="ss">% - Category: </span><span class="sc">{</span>category<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>-2% - Category: Stable
+-5.8% - Category: Decline
+-2.8% - Category: Decline
+2.6% - Category: Growth
+7.3% - Category: Growth
+1.1% - Category: Stable
+3.4% - Category: Growth
+3.3% - Category: Growth
+3.6% - Category: Growth</code></pre>
+</div>
+</div>
+</div></div>
+</section>
+<section id="why-conditionals-for-loops-is-great" class="slide level2">
+<h2>Why conditionals + for loops is great</h2>
 <ol type="1">
-<li><p><code>growth</code> is the loop variable, representing the value that changes with each iteration of the loop. You can think of it as the “current item” being processed. Meanwhile, <code>quarterly_gdp_growth</code> is the collection that the loop iterates over.</p></li>
-<li><p><code>print(f"Quarterly GDP growth: {growth}%")</code> is the body of the loop, specifying the action to take for each item in the collection.</p></li>
+<li>Automated categorization based on values - no manual intervention needed!</li>
+<li>Easily adjustable criteria (just change the numbers in the if-elif-else statements)</li>
+<li>Works for any number of data points - again, no manual intervention needed!</li>
+<li>Makes the code more readable and maintainable</li>
 </ol>
-<div class="callout callout-note callout-titled callout-style-simple">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<p>Let’s break down the anatomy of conditionals first!</p>
+</section>
+<section id="anatomy-of-conditionals" class="slide level2">
+<h2>Anatomy of Conditionals</h2>
+<p>Also called if-else structure, it looks like this at the very basic level:</p>
+<div id="e3a342df" class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="annotated-cell-44" data-code-line-numbers="3|4|5|6"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-44-1"><a href="#annotated-cell-44-1"></a>gdp_growth <span class="op">=</span> <span class="fl">2.5</span></span>
+<span id="annotated-cell-44-2"><a href="#annotated-cell-44-2"></a></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-44" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-44-3" class="code-annotation-target"><a href="#annotated-cell-44-3"></a><span class="cf">if</span> gdp_growth <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-44" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-44-4" class="code-annotation-target"><a href="#annotated-cell-44-4"></a>    <span class="bu">print</span>(<span class="st">"The economy is growing."</span>)</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-44" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-44-5" class="code-annotation-target"><a href="#annotated-cell-44-5"></a><span class="cf">else</span>:</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-44" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-44-6" class="code-annotation-target"><a href="#annotated-cell-44-6"></a>    <span class="bu">print</span>(<span class="st">"The economy is not growing."</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-44" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-44" data-code-lines="3" data-code-annotation="1">The if statement starts with the keyword ‘if’, followed by a condition, and ends with a colon ‘:’</span>
+</dd>
+<dt data-target-cell="annotated-cell-44" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-44" data-code-lines="4" data-code-annotation="2">The body of the if statement is indented. This line of code will be run if the condition is fulfilled</span>
+</dd>
+<dt data-target-cell="annotated-cell-44" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-44" data-code-lines="5" data-code-annotation="3">The else clause is optional, starts with ‘else’, and ends with a colon ‘:’</span>
+</dd>
+<dt data-target-cell="annotated-cell-44" data-target-annotation="4">4</dt>
+<dd>
+<span data-code-cell="annotated-cell-44" data-code-lines="6" data-code-annotation="4">The body of the else clause is also indented, and only run if the condition is NOT fulfilled</span>
+</dd>
+</dl>
 </div>
-<p><strong>Key things</strong></p>
-</div>
-<div class="callout-content">
-<ul>
-<li><p>The first line of the for loop must end with a colon, and the body must be indented.</p></li>
-<li><p>Indentation is always meaningful in Python. (the common convention is to indent with 4 spaces or tabs)</p></li>
-</ul>
-</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The economy is growing.</code></pre>
 </div>
 </div>
 </section>
-<section id="conditionals-if-else" class="slide level2">
-<h2>Conditionals (If-Else)</h2>
-<ul>
-<li><p>Conditionals or If-Else statements are used to control whether or not a block of code is executed.</p></li>
-<li><p>The structure is similar to a For Loop:</p>
-<ul>
-<li><p>First line opens with if and ends with a colon</p></li>
-<li><p>Body containing one or more statements is indented</p></li>
-</ul></li>
-</ul>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a><span class="cf">if</span> growth <span class="op">&gt;</span> <span class="dv">10</span>:</span>
-<span id="cb11-2"><a></a>    <span class="bu">print</span>(<span class="st">"Strong economic growth!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="multiple-conditions" class="slide level2">
+<h2>Multiple conditions</h2>
+<p>Sometimes we have multiple conditions that we want to check! We can use <code>elif</code> (stands for else-if) to add the conditions. You can have multiple <code>elif</code> clauses.</p>
+<div id="42e61dcb" class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb79" data-code-line-numbers="5,6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a></a>gdp_growth <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb79-2"><a></a></span>
+<span id="cb79-3"><a></a><span class="cf">if</span> gdp_growth <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb79-4"><a></a>    <span class="bu">print</span>(<span class="st">"The economy is growing."</span>)</span>
+<span id="cb79-5"><a></a><span class="cf">elif</span> gdp_growth <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb79-6"><a></a>    <span class="bu">print</span>(<span class="st">"The economy is stable."</span>)</span>
+<span id="cb79-7"><a></a><span class="cf">else</span>:</span>
+<span id="cb79-8"><a></a>    <span class="bu">print</span>(<span class="st">"The economy is shrinking."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The economy is stable.</code></pre>
+</div>
+</div>
 </section>
-<section id="conditionals---order-does-matter" class="slide level2">
-<h2>Conditionals - Order does matter!</h2>
+<section id="multiple-conditions-with-boolean-operators" class="slide level2">
+<h2>Multiple conditions with Boolean operators</h2>
+<p>In some cases, we can’t split the conditions among multiple elifs. For example, we may want to check <code>gdp_growth</code> and <code>inflation</code> rate to determine the economic state.</p>
+<div id="0b535a2a" class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="annotated-cell-46" data-code-line-numbers="4,5|6,7"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-46-1"><a href="#annotated-cell-46-1"></a>gdp_growth <span class="op">=</span> <span class="fl">1.5</span></span>
+<span id="annotated-cell-46-2"><a href="#annotated-cell-46-2"></a>inflation <span class="op">=</span> <span class="fl">2.0</span></span>
+<span id="annotated-cell-46-3"><a href="#annotated-cell-46-3"></a></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-46" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-46-4" class="code-annotation-target"><a href="#annotated-cell-46-4"></a><span class="cf">if</span> gdp_growth <span class="op">&gt;</span> <span class="dv">0</span> <span class="kw">and</span> inflation <span class="op">&lt;</span> <span class="dv">3</span>:</span>
+<span id="annotated-cell-46-5"><a href="#annotated-cell-46-5"></a>    <span class="bu">print</span>(<span class="st">"The economy is in a good state."</span>)</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-46" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-46-6" class="code-annotation-target"><a href="#annotated-cell-46-6"></a><span class="cf">elif</span> gdp_growth <span class="op">&gt;</span> <span class="dv">0</span> <span class="kw">or</span> inflation <span class="op">&lt;</span> <span class="dv">3</span>:</span>
+<span id="annotated-cell-46-7"><a href="#annotated-cell-46-7"></a>    <span class="bu">print</span>(<span class="st">"The economy is in a mixed state."</span>)</span>
+<span id="annotated-cell-46-8"><a href="#annotated-cell-46-8"></a><span class="cf">else</span>:</span>
+<span id="annotated-cell-46-9"><a href="#annotated-cell-46-9"></a>    <span class="bu">print</span>(<span class="st">"The economy needs attention."</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-46" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-46" data-code-lines="4" data-code-annotation="1"><code>and</code> requires both conditions to be <code>True</code></span>
+</dd>
+<dt data-target-cell="annotated-cell-46" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-46" data-code-lines="6" data-code-annotation="2"><code>or</code> requires at least one condition to be <code>True</code></span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The economy is in a good state.</code></pre>
+</div>
+</div>
+</section>
+<section id="multiple-conditions---order-does-matter" class="slide level2">
+<h2>Multiple conditions - Order does matter!</h2>
 <p>Assuming variable <code>growth</code> has the value of 10, the conditionals below will give us the wrong result.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>growth <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb12-2"><a></a><span class="cf">if</span> growth <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb12-3"><a></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>growth<span class="sc">}</span><span class="ss">% is a moderate growth"</span>)</span>
-<span id="cb12-4"><a></a><span class="cf">elif</span> growth <span class="op">&gt;</span> <span class="dv">5</span>:  <span class="co"># This will never be reached for growth &gt; 1</span></span>
-<span id="cb12-5"><a></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>growth<span class="sc">}</span><span class="ss">% is a strong growth"</span>)</span>
-<span id="cb12-6"><a></a><span class="cf">else</span>:</span>
-<span id="cb12-7"><a></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>growth<span class="sc">}</span><span class="ss">% is a negative growth"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e04c28fa" class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a></a>growth <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb82-2"><a></a><span class="cf">if</span> growth <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb82-3"><a></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>growth<span class="sc">}</span><span class="ss">% is a moderate growth"</span>)</span>
+<span id="cb82-4"><a></a><span class="cf">elif</span> growth <span class="op">&gt;</span> <span class="dv">5</span>:  <span class="co"># This will never be reached for growth &gt; 1</span></span>
+<span id="cb82-5"><a></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>growth<span class="sc">}</span><span class="ss">% is a strong growth"</span>)</span>
+<span id="cb82-6"><a></a><span class="cf">else</span>:</span>
+<span id="cb82-7"><a></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>growth<span class="sc">}</span><span class="ss">% is a negative growth"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>10% is a moderate growth</code></pre>
+</div>
+</div>
 <p>This ordering would give the correct result:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a><span class="cf">if</span> growth <span class="op">&gt;</span> <span class="dv">5</span>:</span>
-<span id="cb13-2"><a></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>growth<span class="sc">}</span><span class="ss">% is strong growth"</span>)</span>
-<span id="cb13-3"><a></a><span class="cf">elif</span> growth <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb13-4"><a></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>growth<span class="sc">}</span><span class="ss">% is moderate growth"</span>)</span>
-<span id="cb13-5"><a></a><span class="cf">else</span>:</span>
-<span id="cb13-6"><a></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>growth<span class="sc">}</span><span class="ss">% is negative growth"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="63efc48a" class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a></a><span class="cf">if</span> growth <span class="op">&gt;</span> <span class="dv">5</span>:</span>
+<span id="cb84-2"><a></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>growth<span class="sc">}</span><span class="ss">% is strong growth"</span>)</span>
+<span id="cb84-3"><a></a><span class="cf">elif</span> growth <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb84-4"><a></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>growth<span class="sc">}</span><span class="ss">% is moderate growth"</span>)</span>
+<span id="cb84-5"><a></a><span class="cf">else</span>:</span>
+<span id="cb84-6"><a></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>growth<span class="sc">}</span><span class="ss">% is negative growth"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>10% is strong growth</code></pre>
+</div>
+</div>
+</section>
+<section id="nested-conditionals" class="slide level2">
+<h2>Nested conditionals</h2>
+<p>For a more complicated conditionals, you can put a conditional inside another! <strong>Be careful with indentation to ensure correct nesting!</strong></p>
+<div id="9e7dff54" class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="annotated-cell-49" data-code-line-numbers="4,9,10|5-8"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-49-1"><a href="#annotated-cell-49-1"></a>gdp_growth <span class="op">=</span> <span class="fl">2.5</span></span>
+<span id="annotated-cell-49-2"><a href="#annotated-cell-49-2"></a>unemployment <span class="op">=</span> <span class="fl">4.0</span></span>
+<span id="annotated-cell-49-3"><a href="#annotated-cell-49-3"></a></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-49" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-49-4" class="code-annotation-target"><a href="#annotated-cell-49-4"></a><span class="cf">if</span> gdp_growth <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-49" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-49-5" class="code-annotation-target"><a href="#annotated-cell-49-5"></a>    <span class="cf">if</span> unemployment <span class="op">&lt;</span> <span class="dv">5</span>:</span>
+<span id="annotated-cell-49-6"><a href="#annotated-cell-49-6"></a>        <span class="bu">print</span>(<span class="st">"Strong economic performance."</span>)</span>
+<span id="annotated-cell-49-7"><a href="#annotated-cell-49-7"></a>    <span class="cf">else</span>:</span>
+<span id="annotated-cell-49-8"><a href="#annotated-cell-49-8"></a>        <span class="bu">print</span>(<span class="st">"Growing economy, but high unemployment."</span>)</span>
+<span id="annotated-cell-49-9"><a href="#annotated-cell-49-9"></a><span class="cf">else</span>:</span>
+<span id="annotated-cell-49-10"><a href="#annotated-cell-49-10"></a>    <span class="bu">print</span>(<span class="st">"Economic challenges ahead."</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-49" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-49" data-code-lines="4,9,10" data-code-annotation="1">“outer” conditional.</span>
+</dd>
+<dt data-target-cell="annotated-cell-49" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-49" data-code-lines="5,6,7,8" data-code-annotation="2">“inner” conditionals. Note the indent for this statement! This conditional will be run only if the outer conditions are fulfilled.</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Strong economic performance.</code></pre>
+</div>
+</div>
+</section>
+<section id="conditionals-and-for-loops-combi" class="slide level2">
+<h2>Conditionals and For loops combi</h2>
+<p>As seen from the first example of this section, we can combine for loops with conditionals</p>
+<div id="7c069506" class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a></a><span class="cf">for</span> growth <span class="kw">in</span> quarterly_gdp_growth:</span>
+<span id="cb87-2"><a></a>    <span class="cf">if</span> growth <span class="op">&gt;</span> <span class="dv">2</span>:</span>
+<span id="cb87-3"><a></a>        category <span class="op">=</span> <span class="st">"Growth"</span></span>
+<span id="cb87-4"><a></a>    <span class="cf">elif</span> <span class="op">-</span><span class="dv">2</span> <span class="op">&lt;=</span> growth <span class="op">&lt;=</span> <span class="dv">2</span>:</span>
+<span id="cb87-5"><a></a>        category <span class="op">=</span> <span class="st">"Stable"</span></span>
+<span id="cb87-6"><a></a>    <span class="cf">else</span>:</span>
+<span id="cb87-7"><a></a>        category <span class="op">=</span> <span class="st">"Decline"</span></span>
+<span id="cb87-8"><a></a>    </span>
+<span id="cb87-9"><a></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>growth<span class="sc">}</span><span class="ss">% - Category: </span><span class="sc">{</span>category<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>-2% - Category: Stable
+-5.8% - Category: Decline
+-2.8% - Category: Decline
+2.6% - Category: Growth
+7.3% - Category: Growth
+1.1% - Category: Stable
+3.4% - Category: Growth
+3.3% - Category: Growth
+3.6% - Category: Growth</code></pre>
+</div>
+</div>
+</section>
+<section id="conditionals-and-for-loops-combi-counting-occurence" class="slide level2">
+<h2>Conditionals and For loops combi: counting occurence</h2>
+<p>Other ways for loops and conditionals can be used is for when we want to count occurence. Let’s say we want to keep track how many growths and contractions have happened for the past quarters.</p>
+<div id="dbc67f10" class="cell" data-execution_count="47">
+<div class="sourceCode cell-code" id="annotated-cell-51" data-code-line-numbers="1,2|5-8"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-51" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-51-1" class="code-annotation-target"><a href="#annotated-cell-51-1"></a>growth_periods <span class="op">=</span> <span class="dv">0</span></span>
+<span id="annotated-cell-51-2"><a href="#annotated-cell-51-2"></a>decline_periods <span class="op">=</span> <span class="dv">0</span></span>
+<span id="annotated-cell-51-3"><a href="#annotated-cell-51-3"></a></span>
+<span id="annotated-cell-51-4"><a href="#annotated-cell-51-4"></a><span class="cf">for</span> rate <span class="kw">in</span> quarterly_gdp_growth:</span>
+<span id="annotated-cell-51-5"><a href="#annotated-cell-51-5"></a>    <span class="cf">if</span> rate <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-51" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-51-6" class="code-annotation-target"><a href="#annotated-cell-51-6"></a>        growth_periods <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="annotated-cell-51-7"><a href="#annotated-cell-51-7"></a>    <span class="cf">elif</span> rate <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="annotated-cell-51-8"><a href="#annotated-cell-51-8"></a>        decline_periods <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="annotated-cell-51-9"><a href="#annotated-cell-51-9"></a></span>
+<span id="annotated-cell-51-10"><a href="#annotated-cell-51-10"></a><span class="bu">print</span>(<span class="st">"Growth periods:"</span>, growth_periods)</span>
+<span id="annotated-cell-51-11"><a href="#annotated-cell-51-11"></a><span class="bu">print</span>(<span class="st">"Decline periods:"</span>, decline_periods)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-51" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-51" data-code-lines="1,2" data-code-annotation="1">set the counters, one to keep track of growth and the other one to keep track of declines</span>
+</dd>
+<dt data-target-cell="annotated-cell-51" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-51" data-code-lines="6,8" data-code-annotation="2">increase the counters when conditions were met.</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Growth periods: 6
+Decline periods: 3</code></pre>
+</div>
+</div>
 </section>
 <section id="learning-check-4" class="slide level2">
 <h2>Learning Check #4</h2>
 <p>Write a script that identifies the highest and lowest growth quarters (5 mins)</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a><span class="co"># get the value of the highest and the lowest with max and min</span></span>
-<span id="cb14-2"><a></a>highest_growth <span class="op">=</span> <span class="bu">max</span>(quarterly_gdp_growth)</span>
-<span id="cb14-3"><a></a>lowest_growth <span class="op">=</span> <span class="bu">min</span>(quarterly_gdp_growth)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="5685f643" class="cell" data-execution_count="48">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a></a><span class="co"># get the value of the highest and the lowest with max and min</span></span>
+<span id="cb90-2"><a></a>highest_growth <span class="op">=</span> <span class="bu">max</span>(quarterly_gdp_growth)</span>
+<span id="cb90-3"><a></a>lowest_growth <span class="op">=</span> <span class="bu">min</span>(quarterly_gdp_growth)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 </section>
 <section id="even-more-data-types" class="slide level2">
 <h2>Even more data types</h2>
@@ -1159,7 +1878,7 @@ Bella Ratmelia
       }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp("https:\/\/bellaratmelia\.github\.io\/2024-python-macroecons\/");
+          var filterRegex = new RegExp('/' + window.location.host + '/');
         var isInternal = (href) => {
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
