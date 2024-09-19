@@ -133,375 +133,18 @@
     "text": "The workshop is jointly organised by SEIC and DSA student clubs from SMU, in collaboration with SMU Libraries. The workshop aims to:\n\nIncrease students’ efficiency in the collection, analysis, and visualisation of data with Python.\nHelp SEIC students to be industry-ready as the banking and finance, macroeconomic research, and public sectors are increasingly demanding the use of Python.\nExpose DSA students to how Python can be integrated with macroeconomic research."
   },
   {
-    "objectID": "02-numpy.html#recap-from-yesterday",
-    "href": "02-numpy.html#recap-from-yesterday",
-    "title": "Introduction to Numpy & Matplotlib",
+    "objectID": "03-pandas.html#recap-from-yesterday",
+    "href": "03-pandas.html#recap-from-yesterday",
+    "title": "Introduction to Pandas and Seaborn",
     "section": "Recap from yesterday",
-    "text": "Recap from yesterday\n\nIntroduction to Visual Studio\nIntroduction to Python\nHandling Lists\nHandling Loops and Conditionals"
+    "text": "Recap from yesterday\n\nPython libraries / packages\nIntroduction to Numpy (+ numpy-financial)\nGetting started with visualizations with matplotlib"
   },
   {
-    "objectID": "02-numpy.html#overview-for-today",
-    "href": "02-numpy.html#overview-for-today",
-    "title": "Introduction to Numpy & Matplotlib",
+    "objectID": "03-pandas.html#overview-for-today",
+    "href": "03-pandas.html#overview-for-today",
+    "title": "Introduction to Pandas and Seaborn",
     "section": "Overview for today",
-    "text": "Overview for today\n\nIntroduction to Jupyter Notebook\nPython libraries: Extending Python’s functionality\nNumPy for more efficient numerical computing\nMatplotlib: Data visualization"
-  },
-  {
-    "objectID": "02-numpy.html#refresher-.py-and-.ipynb",
-    "href": "02-numpy.html#refresher-.py-and-.ipynb",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Refresher: .py and .ipynb",
-    "text": "Refresher: .py and .ipynb\n\n\nIf it’s a .py file…\n\nFor “production” uses e.g., creating apps, industrial deployments; Executing the file will run all the codes inside the file.\n\nIf it’s a .ipynb file…\n\nGreat for quick experiments or teaching / presentation; Codes will be executed on per-block basis"
-  },
-  {
-    "objectID": "02-numpy.html#creating-new-.ipynb-file",
-    "href": "02-numpy.html#creating-new-.ipynb-file",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Creating new .ipynb file",
-    "text": "Creating new .ipynb file\n\nMake sure that you have Jupyter extension installed in VS Code\nClick on File &gt; New File... and then Jupyter Notebook. If you don’t see this option, most likely it means you don’t have the Jupyter extension installed"
-  },
-  {
-    "objectID": "02-numpy.html#jupyter-notebook-quick-tour",
-    "href": "02-numpy.html#jupyter-notebook-quick-tour",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Jupyter Notebook quick tour",
-    "text": "Jupyter Notebook quick tour\n\nMore on Markdown formatting here"
-  },
-  {
-    "objectID": "02-numpy.html#jupyter-notebook-running-a-code-cell",
-    "href": "02-numpy.html#jupyter-notebook-running-a-code-cell",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Jupyter notebook: running a code cell",
-    "text": "Jupyter notebook: running a code cell\nWhen running a code cell for the first time, you will be prompted to choose the python kernel. Choose the version you want (in our case, version 3.12)\n\nIf you are prompted to install ipykernel, go ahead and install it."
-  },
-  {
-    "objectID": "02-numpy.html#whats-numpy",
-    "href": "02-numpy.html#whats-numpy",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "What’s Numpy?",
-    "text": "What’s Numpy?\nNumPy is the fundamental package for scientific computing in Python.\nIt is a Python library that provides a multidimensional array object, various derived objects (such as masked arrays and matrices), and an assortment of routines for fast operations on arrays, including mathematical, logical, shape manipulation, sorting, selecting, I/O, discrete Fourier transforms, basic linear algebra, basic statistical operations, random simulation and much more.1\n\nFaster and more memory-efficient than Python lists\nOptimized for large-scale numerical operations (better than list)\n\nhttps://numpy.org/doc/stable/user/whatisnumpy.html"
-  },
-  {
-    "objectID": "02-numpy.html#whats-a-python-library",
-    "href": "02-numpy.html#whats-a-python-library",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "What’s a Python library?",
-    "text": "What’s a Python library?\n\nPython libraries or packages are essentially reusable sets of code that can be imported into your environment to extend functionality.\nBefore using them, most libraries must first be installed and then imported. THis is how you can install a library:\n\npip install numpy"
-  },
-  {
-    "objectID": "02-numpy.html#library-is-installed-now-what",
-    "href": "02-numpy.html#library-is-installed-now-what",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Library is installed, now what?",
-    "text": "Library is installed, now what?\n\nAfter it is installed, we have to import them to “activate” it in our notebook so that we can use it!\nNote: some libraries are part of the Python Standard Library, meaning they are already installed and ready to be imported straight away! For example, time library.\n\n\nimport numpy as np # giving numpy a shorter \"nickname\"\nimport time\n\nTo use a function that belongs to a library, we have to call the library name (or the nickname, if we assign one), followed by . and then the function name! e.g. if we want to call array function in numpy:\nnp.array()"
-  },
-  {
-    "objectID": "02-numpy.html#numpy-vs-lists",
-    "href": "02-numpy.html#numpy-vs-lists",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Numpy vs Lists",
-    "text": "Numpy vs Lists\n\n\nLists\n\ndynamic size upon creation; you can change the size of a list anytime.\nall items inside list can be of different data types.\nnot optimized for scientific/mathematical operations\n\n\nNumPy Arrays\n\nfixed size upon creation; changing the size will create new array and delete the original.\nall items inside arrays must be the same data types.\nfacilitate advanced mathematical and other types of operations on large numbers of data, and thus more efficient.\na lot scientific/mathematical libraries are build on top of numpy (including pandas!)"
-  },
-  {
-    "objectID": "02-numpy.html#numpy-vs-lists-performance-comparison",
-    "href": "02-numpy.html#numpy-vs-lists-performance-comparison",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Numpy vs Lists: Performance comparison",
-    "text": "Numpy vs Lists: Performance comparison\nImagine we have a million numbers to square. We’ll store them in both a list and an array, then compare their processing speeds.\n\n\nLists\n\nlist_data = list(range(1000000))\n\nstart = time.time()\nlist_result = [x**2 for x in list_data]\nlist_time = time.time() - start\n\nprint(f\"List took {list_time:.4f} seconds to finish the operation.\")\n\nList took 0.0900 seconds to finish the operation.\n\n\n\nNumpy Arrays\n\nnumpy_data = np.arange(1000000)\n\nstart = time.time()\nnumpy_result = numpy_data**2\nnumpy_time = time.time() - start\n\nprint(f\"NumPy took {numpy_time:.4f} seconds to finish the operation.\")\n\nNumPy took 0.0020 seconds to finish the operation."
-  },
-  {
-    "objectID": "02-numpy.html#numpy-vs-lists-sum-and-products",
-    "href": "02-numpy.html#numpy-vs-lists-sum-and-products",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Numpy vs Lists: Sum and products",
-    "text": "Numpy vs Lists: Sum and products\n\nWhen you add two lists together, the contents will be concatenated\nWhen you do add two arrays together, the contents will be summed\n\n\n\nLists\n\nlist_1 = [1, 2, 3, 4, 5]\nlist_2 = [10, 20, 30, 40, 50]\n\nprint(list_1 + list_2)\n# list_1 * list_2 will give an error\n\n[1, 2, 3, 4, 5, 10, 20, 30, 40, 50]\n\n\n\nNumpy Arrays\n\narray_1 = np.array([1, 2, 3, 4, 5])\narray_2 = np.array([10, 20, 30, 40, 50])\n\nprint(\"Sum:\", array_1 + array_2)\nprint(\"Product:\", array_1 * array_2)\n\nSum: [11 22 33 44 55]\nProduct: [ 10  40  90 160 250]"
-  },
-  {
-    "objectID": "02-numpy.html#numpy-creation-and-operations",
-    "href": "02-numpy.html#numpy-creation-and-operations",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Numpy creation and operations",
-    "text": "Numpy creation and operations\nwe can use np.arange() to create an array from scratch. We can also create an array from a list using np.array()\nnp.arange creates evenly spaced values within a given interval:\n\nrange_array = np.arange(0, 10, 0.5)\nprint(\"Range array:\", range_array)\n\nRange array: [0.  0.5 1.  1.5 2.  2.5 3.  3.5 4.  4.5 5.  5.5 6.  6.5 7.  7.5 8.  8.5\n 9.  9.5]\n\n\nnp.array will transform a list (denoted in square brackets) to array:\n\nlist_array = np.array([1, 2, 3, 4, 5])\nprint(\"NumPy array:\", list_array)\n\nNumPy array: [1 2 3 4 5]"
-  },
-  {
-    "objectID": "02-numpy.html#numpy-operations",
-    "href": "02-numpy.html#numpy-operations",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Numpy operations",
-    "text": "Numpy operations\nMost operations we perform on lists can also be done with arrays, including:\n\nSlicing\nIndexing\nSorting\nCreating copies or views (with important differences between them!)\n\nLet’s try these!"
-  },
-  {
-    "objectID": "02-numpy.html#indexing-and-slicing",
-    "href": "02-numpy.html#indexing-and-slicing",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Indexing and Slicing",
-    "text": "Indexing and Slicing\nfor indexing and slicing, it’s pretty much the same as list!\n\nprint(\"Original array:\", range_array)\nprint(\"First element:\", range_array[0])\nprint(\"Last element:\", range_array[-1])\nprint(\"Slicing (elements 3 to 7):\", range_array[2:7])\nrange_array[0] = 99\nprint(\"Update value of first element:\", range_array[0])\nprint(\"Sorting array:\", np.sort(range_array))\n\nOriginal array: [0.  0.5 1.  1.5 2.  2.5 3.  3.5 4.  4.5 5.  5.5 6.  6.5 7.  7.5 8.  8.5\n 9.  9.5]\nFirst element: 0.0\nLast element: 9.5\nSlicing (elements 3 to 7): [1.  1.5 2.  2.5 3. ]\nUpdate value of first element: 99.0\nSorting array: [ 0.5  1.   1.5  2.   2.5  3.   3.5  4.   4.5  5.   5.5  6.   6.5  7.\n  7.5  8.   8.5  9.   9.5 99. ]"
-  },
-  {
-    "objectID": "02-numpy.html#copy-vs-views",
-    "href": "02-numpy.html#copy-vs-views",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Copy vs Views",
-    "text": "Copy vs Views\nLet’s create 3 arrays:\n\n\noriginal = np.array([1, 2, 3, 4, 5])\nprint(\"Original array:\", original)\n\nview = original.view()\nprint(\"View:\", view)\n\ncopy = original.copy()\nprint(\"Copy:\", copy)\n\n\nOriginal array: [1 2 3 4 5]\nView: [1 2 3 4 5]\nCopy: [1 2 3 4 5]"
-  },
-  {
-    "objectID": "02-numpy.html#copy-vs-views-in-action",
-    "href": "02-numpy.html#copy-vs-views-in-action",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Copy vs Views: in action",
-    "text": "Copy vs Views: in action\n\nChanges in original will be reflected in View and vice versa\nChanges in original will NOT be reflected in copy\n\n\n\noriginal[0] = 99\nprint(\"\\nAfter modifying the original array:\")\nprint(\"Original array:\", original)\nprint(\"View now:\", view)  # reflects the changes\nprint(\"Copy now:\", copy)  # remains unchanged\n\n# Modify the view\nview[1] = 100\nprint(\"\\nAfter modifying the view:\")\nprint(\"Original array:\", original)  # affected\nprint(\"View now:\", view)\nprint(\"Copy now:\", copy)  # remains unchanged\n\n# Modify the copy\ncopy[2] = 200\nprint(\"\\nAfter modifying the copy:\")\nprint(\"Original array:\", original)  # not affected\nprint(\"View now:\", view)  # not affected\nprint(\"Copy now:\", copy)\n\n\n\nAfter modifying the original array:\nOriginal array: [99  2  3  4  5]\nView now: [99  2  3  4  5]\nCopy now: [1 2 3 4 5]\n\nAfter modifying the view:\nOriginal array: [ 99 100   3   4   5]\nView now: [ 99 100   3   4   5]\nCopy now: [1 2 3 4 5]\n\nAfter modifying the copy:\nOriginal array: [ 99 100   3   4   5]\nView now: [ 99 100   3   4   5]\nCopy now: [  1   2 200   4   5]"
-  },
-  {
-    "objectID": "02-numpy.html#learning-check-1",
-    "href": "02-numpy.html#learning-check-1",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Learning Check #1",
-    "text": "Learning Check #1\nCreate two arrays called odd_numbers and even_numbers that only contains odd numbers and even numbers from 1 to 20 respectively.\n\n\nCode\nodd_numbers = np.arange(1, 21, 2)\neven_numbers = np.arange(0, 21, 2)\nprint(\"Odd numbers:\", odd_numbers)\nprint(\"Even numbers:\", even_numbers)\n\n\nOdd numbers: [ 1  3  5  7  9 11 13 15 17 19]\nEven numbers: [ 0  2  4  6  8 10 12 14 16 18 20]"
-  },
-  {
-    "objectID": "02-numpy.html#array-can-contain-columns-and-rows-too",
-    "href": "02-numpy.html#array-can-contain-columns-and-rows-too",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Array can contain columns and rows too!",
-    "text": "Array can contain columns and rows too!\n\narray_2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\nprint(array_2d)\nprint(\"Shape of the array:\", array_2d.shape)\nprint(\"Size of the array:\", array_2d.size)\n\n[[1 2 3]\n [4 5 6]\n [7 8 9]]\nShape of the array: (3, 3)\nSize of the array: 9"
-  },
-  {
-    "objectID": "02-numpy.html#indices-in-a-2d-array",
-    "href": "02-numpy.html#indices-in-a-2d-array",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Indices in a 2D array",
-    "text": "Indices in a 2D array\n\n\nAlternative way to “count” the indices is that we move from “outer” to “inner”.\ne.g. the value 4 is located inside the 2nd sub-list. and in this sub-list, it is located on the 1st index, hence [1, 0] (remember to minus 1, as indexing in python starts from 0)"
-  },
-  {
-    "objectID": "02-numpy.html#loading-from-a-csv-into-a-2d-array",
-    "href": "02-numpy.html#loading-from-a-csv-into-a-2d-array",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Loading from a CSV into a 2D array",
-    "text": "Loading from a CSV into a 2D array\nLet’s load our data sg-gdp.csv into a 2D array!\nIn this CSV:\n\nThe rows represent 7 different sectors\nThe columns represent the quarters from 2023 Q4, dating back all the way to 2019 Q1.\nEach cell contains the GDP growth of that sector for that quarter, compared to previous year’s quarters.\n\n\ngdp_data = np.loadtxt('data/sg-gdp.csv', delimiter=',', dtype=\"float16\")\nnp.set_printoptions(suppress=True)\n\nprint(\"GDP data\")\nprint(gdp_data)\nprint(\"GDP data shape:\", gdp_data.shape)\n\n\nRemember, the shape will be printed as (row, column)."
-  },
-  {
-    "objectID": "02-numpy.html#loading-from-a-csv-into-a-2d-array-output",
-    "href": "02-numpy.html#loading-from-a-csv-into-a-2d-array-output",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Loading from a CSV into a 2D array",
-    "text": "Loading from a CSV into a 2D array\n\nGDP data\n[[  2.6  -2.8  -5.8  -2.    9.4  17.5  24.5  20.9  22.9  23.1  31.6   7.7\n   -2.8  -7.4 -14.4  -0.4  -1.8   0.3   2.1   4.3]\n [ -2.   -7.6 -12.7  -7.2   7.1   9.6  20.9  24.1  27.7  29.8  43.3   8.3\n   -6.5  -9.5 -19.3  -2.1 -16.2  -6.3  -0.1   8. ]\n [ -5.5 -12.3 -18.2 -11.9   4.2   7.6  21.9  25.3  27.   25.4  37.7  11.4\n   -3.2  -2.7 -12.6  -1.2 -19.3  -7.9  -0.5   9.3]\n [ 11.6  11.3  15.5  15.6  17.6  17.7  12.6  16.   45.1 106.3 174.   -6.1\n  -29.2 -52.9 -66.1 -10.1  -1.8   0.2   3.    3.4]\n [ 12.9  25.   27.3  21.6  28.4  27.6  22.8  24.7   3.9   0.3  -1.3  -1.1\n   10.1  -1.2   5.3  10.1  -0.5   3.3  -2.5   1.3]\n [  7.4   9.7   4.4   7.6   2.7   1.5   0.7   1.9   8.   11.   34.3   4.8\n    5.4  -7.1 -15.5  -1.5   4.7  10.5   5.3  11.8]\n [  3.   -2.7  -4.7  -1.5  10.9  21.7  27.9  21.9  22.8  21.6  25.7   7.3\n   -2.2  -6.8 -10.8   0.3   3.4   2.5   3.6   3.9]]\nGDP data shape: (7, 20)"
-  },
-  {
-    "objectID": "02-numpy.html#d-array-operations",
-    "href": "02-numpy.html#d-array-operations",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "2D array operations",
-    "text": "2D array operations\nLet’s see if we can complete the following tasks:\n\nFind out the mean, standard deviation, max, and min values.\nFind the mean for each quarter (column-wise operation)\nFind the mean for each sector (row-wise operation)\nTranspose the array\nRetrieve all the negative values.\nCalculate the changes every quarter for Sector 1."
-  },
-  {
-    "objectID": "02-numpy.html#task-1-find-out-the-mean-standard-deviation-max-and-mean-values.",
-    "href": "02-numpy.html#task-1-find-out-the-mean-standard-deviation-max-and-mean-values.",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Task 1: Find out the mean, standard deviation, max, and mean values.",
-    "text": "Task 1: Find out the mean, standard deviation, max, and mean values.\n\nprint(\"Mean of GDP data:\", np.mean(gdp_data))\nprint(\"Standard deviation of GDP data:\", np.std(gdp_data))\nprint(\"Maximum value in GDP data:\", np.amax(gdp_data))\nprint(\"Minimum value in GDP data:\", np.amin(gdp_data))\n\nMean of GDP data: 7.504\nStandard deviation of GDP data: inf\nMaximum value in GDP data: 174.0\nMinimum value in GDP data: -66.1"
-  },
-  {
-    "objectID": "02-numpy.html#axis-operations",
-    "href": "02-numpy.html#axis-operations",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Axis Operations",
-    "text": "Axis Operations"
-  },
-  {
-    "objectID": "02-numpy.html#task-2-3-find-the-mean-for-each-quarter-and-each-sector",
-    "href": "02-numpy.html#task-2-3-find-the-mean-for-each-quarter-and-each-sector",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Task 2 & 3: Find the mean for each quarter and each sector",
-    "text": "Task 2 & 3: Find the mean for each quarter and each sector\n\nprint(\"Mean of each quarter:\", np.mean(gdp_data, axis=0))\nprint(\"Mean of each sector:\", np.mean(gdp_data, axis=1))\n\nMean of each quarter: [  4.285    2.943    0.827    3.172   11.47    14.74    18.77    19.27\n  22.48    31.08    49.34     4.613   -4.06   -12.516  -19.06    -0.7\n  -4.5      0.3716   1.558    6.    ]\nMean of each sector: [ 6.477  4.465  3.725 14.18  10.9    5.38   7.39 ]"
-  },
-  {
-    "objectID": "02-numpy.html#task-4-transpose-the-array",
-    "href": "02-numpy.html#task-4-transpose-the-array",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Task 4: Transpose the array",
-    "text": "Task 4: Transpose the array\n\ntransposed_gdp = np.transpose(gdp_data)\nprint(\"Transposed GDP data shape:\", transposed_gdp.shape)\n\nTransposed GDP data shape: (20, 7)\n\n\nAlternatively, you can also do it this way:\n\ntransposed = gdp_data.T\nprint(transposed)\n\n[[  2.6  -2.   -5.5  11.6  12.9   7.4   3. ]\n [ -2.8  -7.6 -12.3  11.3  25.    9.7  -2.7]\n [ -5.8 -12.7 -18.2  15.5  27.3   4.4  -4.7]\n [ -2.   -7.2 -11.9  15.6  21.6   7.6  -1.5]\n [  9.4   7.1   4.2  17.6  28.4   2.7  10.9]\n [ 17.5   9.6   7.6  17.7  27.6   1.5  21.7]\n [ 24.5  20.9  21.9  12.6  22.8   0.7  27.9]\n [ 20.9  24.1  25.3  16.   24.7   1.9  21.9]\n [ 22.9  27.7  27.   45.1   3.9   8.   22.8]\n [ 23.1  29.8  25.4 106.3   0.3  11.   21.6]\n [ 31.6  43.3  37.7 174.   -1.3  34.3  25.7]\n [  7.7   8.3  11.4  -6.1  -1.1   4.8   7.3]\n [ -2.8  -6.5  -3.2 -29.2  10.1   5.4  -2.2]\n [ -7.4  -9.5  -2.7 -52.9  -1.2  -7.1  -6.8]\n [-14.4 -19.3 -12.6 -66.1   5.3 -15.5 -10.8]\n [ -0.4  -2.1  -1.2 -10.1  10.1  -1.5   0.3]\n [ -1.8 -16.2 -19.3  -1.8  -0.5   4.7   3.4]\n [  0.3  -6.3  -7.9   0.2   3.3  10.5   2.5]\n [  2.1  -0.1  -0.5   3.   -2.5   5.3   3.6]\n [  4.3   8.    9.3   3.4   1.3  11.8   3.9]]"
-  },
-  {
-    "objectID": "02-numpy.html#task-5-retrieve-all-the-negative-values.",
-    "href": "02-numpy.html#task-5-retrieve-all-the-negative-values.",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Task 5: Retrieve all the negative values.",
-    "text": "Task 5: Retrieve all the negative values.\n\nnegative_growth = gdp_data &lt; 0  \nprint(\"negative growth array:\", negative_growth)\nprint(\"use the above array to retrieve items whose position is TRUE:\\n\", gdp_data[negative_growth])\n\nnegative growth array: [[False  True  True  True False False False False False False False False\n   True  True  True  True  True False False False]\n [ True  True  True  True False False False False False False False False\n   True  True  True  True  True  True  True False]\n [ True  True  True  True False False False False False False False False\n   True  True  True  True  True  True  True False]\n [False False False False False False False False False False False  True\n   True  True  True  True  True False False False]\n [False False False False False False False False False False  True  True\n  False  True False False  True False  True False]\n [False False False False False False False False False False False False\n  False  True  True  True False False False False]\n [False  True  True  True False False False False False False False False\n   True  True  True False False False False False]]\nuse the above array to retrieve items whose position is TRUE:\n [ -2.8  -5.8  -2.   -2.8  -7.4 -14.4  -0.4  -1.8  -2.   -7.6 -12.7  -7.2\n  -6.5  -9.5 -19.3  -2.1 -16.2  -6.3  -0.1  -5.5 -12.3 -18.2 -11.9  -3.2\n  -2.7 -12.6  -1.2 -19.3  -7.9  -0.5  -6.1 -29.2 -52.9 -66.1 -10.1  -1.8\n  -1.3  -1.1  -1.2  -0.5  -2.5  -7.1 -15.5  -1.5  -2.7  -4.7  -1.5  -2.2\n  -6.8 -10.8]"
-  },
-  {
-    "objectID": "02-numpy.html#task-6-calculate-the-changes-every-quarter-for-sector-1.",
-    "href": "02-numpy.html#task-6-calculate-the-changes-every-quarter-for-sector-1.",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Task 6: Calculate the changes every quarter for Sector 1.",
-    "text": "Task 6: Calculate the changes every quarter for Sector 1.\nThe gdp_data is longitudinal, with each row representing observations for a specific sector over time. This makes growth and contraction trends meaningful to analyze. To calculate changes in the data using NumPy, we can use the numpy.diff() function, which computes the differences between successive values in an array.\n\nsector1_array = gdp_data[0, :] # first row, all columns\nprint(\"sector1_array:\", sector1_array)\n\nsector1_changes = np.diff(sector1_array)\nprint(\"\\nsector1_changes:\", sector1_changes)\n\nsector1_array: [  2.6  -2.8  -5.8  -2.    9.4  17.5  24.5  20.9  22.9  23.1  31.6   7.7\n  -2.8  -7.4 -14.4  -0.4  -1.8   0.3   2.1   4.3]\n\nsector1_changes: [ -5.4     -3.       3.8     11.4      8.1      7.      -3.594    2.\n   0.1875   8.5    -23.89   -10.5     -4.598   -7.      14.      -1.4\n   2.1      1.8      2.201 ]"
-  },
-  {
-    "objectID": "02-numpy.html#numpy-financial",
-    "href": "02-numpy.html#numpy-financial",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Numpy Financial",
-    "text": "Numpy Financial\nThe numpy-financial package is a collection of elementary financial functions. It’s a relatively tiny package, but useful if you need to do some financial calculations.\n\nCheck out the full documentation here!\nInstall numpy financial\npip install numpy-financial\nImport it to your notebook to “toggle it on”\n\nimport numpy_financial as npf"
-  },
-  {
-    "objectID": "02-numpy.html#calculating-future-value",
-    "href": "02-numpy.html#calculating-future-value",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Calculating future value",
-    "text": "Calculating future value\nCalculate the future value of $1000 invested for 3 years at a 5.0% average annual rate of return.\n\nprint(npf.fv(rate=0.05, nper=3, pmt=0, pv=-1000))\n\n1157.6250000000002\n\n\nBy convention, the negative sign represents cash flow out (i.e. money not available today)."
-  },
-  {
-    "objectID": "02-numpy.html#calculatine-number-of-payment-period",
-    "href": "02-numpy.html#calculatine-number-of-payment-period",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Calculatine number of payment period",
-    "text": "Calculatine number of payment period\nYou have a loan of 10,000 SGD at 9% annual interest. How long would it take to pay-off the load if your monthly payment is at 750?\n\nprint(npf.nper(0.09/12, -750, 10000))\n# divided by 12, because the interest is annual but the payment is monthly\n\n14.100683407655323"
-  },
-  {
-    "objectID": "02-numpy.html#learning-check-2",
-    "href": "02-numpy.html#learning-check-2",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Learning Check #2",
-    "text": "Learning Check #2\n\nCalculate the changes for each quarter for all sector. Save this into an array called sector_changes.\nAfterwards, find the largest changes in sector_changes.\n\n\n\nCode\nsector_changes = np.diff(gdp_data)\nprint(\"sector_changes:\", sector_changes)\nprint(\"\\nsector_changes shape:\", sector_changes.shape)\n\nprint(\"\\nLargest change:\", np.amax(sector_changes))"
-  },
-  {
-    "objectID": "02-numpy.html#learning-check-2-output",
-    "href": "02-numpy.html#learning-check-2-output",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Learning Check #2",
-    "text": "Learning Check #2\n\nsector_changes: [[  -5.4       -3.         3.8       11.4        8.1        7.\n    -3.594      2.         0.1875     8.5      -23.89     -10.5\n    -4.598     -7.        14.        -1.4        2.1        1.8\n     2.201  ]\n [  -5.6       -5.1        5.504     14.3        2.5       11.305\n     3.188      3.61       2.094     13.516    -35.       -14.8\n    -3.        -9.8       17.2      -14.1        9.91       6.2\n     8.1    ]\n [  -6.797     -5.906      6.305     16.1        3.402     14.305\n     3.39       1.703     -1.594     12.28     -26.28     -14.59\n     0.5       -9.91      11.4      -18.1       11.4        7.4\n     9.8    ]\n [  -0.3047     4.203      0.10156    1.992      0.1094    -5.1\n     3.398     29.1       61.22      67.7     -180.1      -23.1\n   -23.7      -13.22      56.03       8.305      2.         2.8\n     0.4004 ]\n [  12.1        2.297     -5.703      6.812     -0.8125    -4.797\n     1.906    -20.8       -3.6       -1.6        0.2002    11.2\n   -11.305      6.5        4.8      -10.6        3.8       -5.8\n     3.8    ]\n [   2.305     -5.305      3.203     -4.902     -1.199     -0.8\n     1.2        6.1        3.        23.31     -29.52       0.5977\n   -12.5       -8.4       14.         6.2        5.8       -5.2\n     6.496  ]\n [  -5.7       -2.         3.2       12.4       10.805      6.203\n    -6.         0.8906    -1.203      4.11     -18.4       -9.5\n    -4.6       -3.996     11.09       3.1       -0.9004     1.1\n     0.3008 ]]\n\nsector_changes shape: (7, 19)\n\nLargest change: 67.7"
-  },
-  {
-    "objectID": "02-numpy.html#visualization-libraries-matplotlib-and-seaborn",
-    "href": "02-numpy.html#visualization-libraries-matplotlib-and-seaborn",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Visualization libraries: Matplotlib and Seaborn",
-    "text": "Visualization libraries: Matplotlib and Seaborn\nThere are multiple visualization libraries for python. We will try out Matplotlib and Seaborn (for next session)\nPrimary differences between the two:\n\n\nMatplotlib\n\nA foundational Python library for static, interactive, and animated visualizations.\nHighly customizable, offering full control over plot elements (axes, ticks, legends).\nSupports a wide range of plots, from simple line charts to complex 3D visualizations and heatmaps.\nCan be challenging for beginners due to its flexibility.\nIdeal for precise control and building complex plots.\n\n\nSeaborn\n\nBuilt on Matplotlib to simplify statistical visualization with attractive designs.\nOffers high-level abstractions for complex plots (e.g., pair plots, heatmaps) with minimal effort.\nSupports visualizing variable relationships and statistical summaries (e.g., regression, categorical plots).\nEasier for beginners to create high-quality visuals quickly.\nBest for data exploration and statistical analysis with minimal setup."
-  },
-  {
-    "objectID": "02-numpy.html#refresher-data-types-in-social-sciences-and-economics-research",
-    "href": "02-numpy.html#refresher-data-types-in-social-sciences-and-economics-research",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Refresher: Data types in social sciences and economics research",
-    "text": "Refresher: Data types in social sciences and economics research\n\n\nNon-Continuous Data\n\nNominal/Categorical: Non-ordered, non-numerical data, used to represent qualitative attribute.\nOrdinal: Ordered non-numerical data.\nDiscrete: Numerical data that can only take specific value (usually integers)\nBinary: Nominal data with only two possible outcome.\n\n\nContinuous Data\n\nInterval: Numerical data that can take any value within a range. It does not have a “true zero”.\nRatio: Numerical data that can take any value within a range. it has a “true zero”."
-  },
-  {
-    "objectID": "02-numpy.html#chart-types-and-their-purposes",
-    "href": "02-numpy.html#chart-types-and-their-purposes",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Chart types and their purposes",
-    "text": "Chart types and their purposes\n\nBar charts: Comparing categories\nLine charts: Trends or progress over time\nScatter plots: Relationships between (continuous) variables\nPie charts: Parts of a whole\n\nDepending on who you ask, some may argue that percent barchart is better at this.\n\nBox plots: Distribution and outliers"
-  },
-  {
-    "objectID": "02-numpy.html#anatomy-of-a-matplotlib-graph",
-    "href": "02-numpy.html#anatomy-of-a-matplotlib-graph",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Anatomy of a matplotlib graph",
-    "text": "Anatomy of a matplotlib graph\n\n\n\n\nUseful resources:\n\nMatplotlib cheatsheets - This is more beginner-friendly\nQuick start guide\nPython Graph Gallery"
-  },
-  {
-    "objectID": "02-numpy.html#matplotlib-getting-started",
-    "href": "02-numpy.html#matplotlib-getting-started",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Matplotlib: Getting started",
-    "text": "Matplotlib: Getting started\nAs with the other libraries, let’s install the library and then import it.\npip install matplotlib\nImport the library and give it a nickname called plt.\n\nimport matplotlib.pyplot as plt"
-  },
-  {
-    "objectID": "02-numpy.html#matplotlib-simple-lineplot",
-    "href": "02-numpy.html#matplotlib-simple-lineplot",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Matplotlib: Simple Lineplot",
-    "text": "Matplotlib: Simple Lineplot\nLet’s visualize the content of gdp_data.\n\n1plt.plot(gdp_data)\n2plt.xlabel('Quarters')\n3plt.ylabel('Sectors')\n4plt.title('Sectors Growth over Quarters')\n5plt.grid()\n6plt.show()\n\n\n1\n\nThe plot function here will draw a line chart\n\n2\n\nLabel the x axis\n\n3\n\nLabel the y axis\n\n4\n\nGive the graph a title\n\n5\n\nTurn on the grid lines\n\n6\n\nShow the plot!"
-  },
-  {
-    "objectID": "02-numpy.html#matplotlib-simple-lineplot-output",
-    "href": "02-numpy.html#matplotlib-simple-lineplot-output",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Matplotlib: Simple Lineplot",
-    "text": "Matplotlib: Simple Lineplot"
-  },
-  {
-    "objectID": "02-numpy.html#something-not-quite-right",
-    "href": "02-numpy.html#something-not-quite-right",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Something not quite right…",
-    "text": "Something not quite right…\n\nIt seems like it’s trying to plot the differences between sectors instead of growth over each sectors.\nThis is because of the way our data is structured: rows representing sectors and columns representing quarters. The rows info is passed to the X coord and the columns are passed to Y coord.\nWe can fix this by transposing the table, so that the rows represent quarters and columns represent sectors.\n\n\ntransposed = gdp_data.T\nprint(transposed)"
-  },
-  {
-    "objectID": "02-numpy.html#something-not-quite-right-output",
-    "href": "02-numpy.html#something-not-quite-right-output",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Something not quite right…",
-    "text": "Something not quite right…\n\n[[  2.6  -2.   -5.5  11.6  12.9   7.4   3. ]\n [ -2.8  -7.6 -12.3  11.3  25.    9.7  -2.7]\n [ -5.8 -12.7 -18.2  15.5  27.3   4.4  -4.7]\n [ -2.   -7.2 -11.9  15.6  21.6   7.6  -1.5]\n [  9.4   7.1   4.2  17.6  28.4   2.7  10.9]\n [ 17.5   9.6   7.6  17.7  27.6   1.5  21.7]\n [ 24.5  20.9  21.9  12.6  22.8   0.7  27.9]\n [ 20.9  24.1  25.3  16.   24.7   1.9  21.9]\n [ 22.9  27.7  27.   45.1   3.9   8.   22.8]\n [ 23.1  29.8  25.4 106.3   0.3  11.   21.6]\n [ 31.6  43.3  37.7 174.   -1.3  34.3  25.7]\n [  7.7   8.3  11.4  -6.1  -1.1   4.8   7.3]\n [ -2.8  -6.5  -3.2 -29.2  10.1   5.4  -2.2]\n [ -7.4  -9.5  -2.7 -52.9  -1.2  -7.1  -6.8]\n [-14.4 -19.3 -12.6 -66.1   5.3 -15.5 -10.8]\n [ -0.4  -2.1  -1.2 -10.1  10.1  -1.5   0.3]\n [ -1.8 -16.2 -19.3  -1.8  -0.5   4.7   3.4]\n [  0.3  -6.3  -7.9   0.2   3.3  10.5   2.5]\n [  2.1  -0.1  -0.5   3.   -2.5   5.3   3.6]\n [  4.3   8.    9.3   3.4   1.3  11.8   3.9]]"
-  },
-  {
-    "objectID": "02-numpy.html#visualize-the-transposed-data",
-    "href": "02-numpy.html#visualize-the-transposed-data",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Visualize the transposed data",
-    "text": "Visualize the transposed data\nSame code, but this time we pass in the transposed data.\n\n1plt.plot(transposed)\n2plt.xlabel('Quarters')\n3plt.ylabel('Sectors')\n4plt.title('Sectors Growth over Quarters')\n5plt.grid()\n6plt.show()\n\n\n1\n\nPassing in the transposed version\n\n2\n\nLabel the x axis\n\n3\n\nLabel the y axis\n\n4\n\nGive the graph a title\n\n5\n\nTurn on the grid lines\n\n6\n\nShow the plot!"
-  },
-  {
-    "objectID": "02-numpy.html#visualize-the-transposed-data-output",
-    "href": "02-numpy.html#visualize-the-transposed-data-output",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Visualize the transposed data",
-    "text": "Visualize the transposed data"
-  },
-  {
-    "objectID": "02-numpy.html#fixing-the-x-axis-labels",
-    "href": "02-numpy.html#fixing-the-x-axis-labels",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Fixing the X-axis labels",
-    "text": "Fixing the X-axis labels\nIt is still not very readable, so let’s give it proper x-axis labeling!\n\nquarters = ['2019 Q1', '2019 Q2', '2019 Q3', '2019 Q4', '2020 Q1', '2020 Q2', '2020 Q3', \n'2020 Q4',  '2021 Q1', '2021 Q2', '2021 Q3', '2021 Q4', '2022 Q1', '2022 Q2', '2022 Q3', \n1'2022 Q4',  '2023 Q1', '2023 Q2', '2023 Q3', '2023 Q4']\n\n2plt.plot(transposed)\n3plt.xticks(ticks=range(len(quarters)),\n           labels=quarters,\n           rotation=45,\n           ha=\"right\")\nplt.xlabel('Quarters') \nplt.ylabel('Growth and Contractions') \nplt.title('Growth and Contractions over Quarters') \n4plt.tight_layout()\n\nplt.grid() \nplt.show() \n\n\n1\n\nCreate a list of labels that we want to put\n\n2\n\nStill using the transposed array\n\n3\n\nSet the labels. In this lines of code, we tell matplotlib how many labels are there, what are the labels, the rotation of the labels, and the horizontal align.\n\n4\n\nThis will get rid of the extra margins on the sides"
-  },
-  {
-    "objectID": "02-numpy.html#fixing-the-x-axis-labels-output",
-    "href": "02-numpy.html#fixing-the-x-axis-labels-output",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Fixing the X-axis labels",
-    "text": "Fixing the X-axis labels"
-  },
-  {
-    "objectID": "02-numpy.html#adding-individual-labels",
-    "href": "02-numpy.html#adding-individual-labels",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Adding individual labels",
-    "text": "Adding individual labels\nWe can utilize the for loop to add plot the lines and label them one by one.\n\n1for sector_num in range(7):\n5    print(\"plotting sector_num:\", sector_num)\n2    plt.plot(transposed[:, sector_num],\n3    label=\"Sector \" + str(sector_num))\n\n4plt.legend()\n\nplt.xticks(ticks=range(len(quarters)), labels=quarters, rotation=45, ha=\"right\") \nplt.tight_layout()\nplt.grid() \nplt.show() \n\n\n1\n\nHere, we set the loop to run 7 times since we have seven sector. Throughout the loop, sector_num value will change from 0 to 6\n\n2\n\nPutting this here so that we know when a sector is being plotted.\n\n3\n\nPlot the current sector. [:, sector_num] can be read as “all rows, in the sector_num column”\n\n4\n\nlabel each line plot with the sector number.\n\n5\n\nToggle the legend so that all the labels are visible ."
-  },
-  {
-    "objectID": "02-numpy.html#adding-individual-labels-output",
-    "href": "02-numpy.html#adding-individual-labels-output",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Adding individual labels",
-    "text": "Adding individual labels\n\nplotting sector_num: 0\nplotting sector_num: 1\nplotting sector_num: 2\nplotting sector_num: 3\nplotting sector_num: 4\nplotting sector_num: 5\nplotting sector_num: 6"
-  },
-  {
-    "objectID": "02-numpy.html#matplotlib-histogram",
-    "href": "02-numpy.html#matplotlib-histogram",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Matplotlib: Histogram",
-    "text": "Matplotlib: Histogram\nLet’s see if there’s any outlier growths or contractions on each sectors over the quarters! Histogram is the best visualization for this purpose.\n\nplt.boxplot(transposed)\n\nplt.xlabel('Sectors') \nplt.ylabel('Growth and Contractions') \nplt.title('Growth and Contractions for all sectors') \n\nplt.grid()\nplt.show()"
-  },
-  {
-    "objectID": "02-numpy.html#matplotlib-histogram-output",
-    "href": "02-numpy.html#matplotlib-histogram-output",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Matplotlib: Histogram",
-    "text": "Matplotlib: Histogram"
-  },
-  {
-    "objectID": "02-numpy.html#learning-check-3",
-    "href": "02-numpy.html#learning-check-3",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Learning Check #3",
-    "text": "Learning Check #3\nUsing the sg-gdp.csv data loaded into a NumPy array:\n\nCreate a line plot showing the GDP growth over time for the first two sectors only\nAdd appropriate labels, a title, and a legend to the plot.\n\n\n\nCode\ntwo_sectors = gdp_data[:2, :] #[first two rows, all columns]\nsector_number = 1 \nquarters = ['2019 Q1', '2019 Q2', '2019 Q3', '2019 Q4', '2020 Q1', '2020 Q2', '2020 Q3', \n'2020 Q4',  '2021 Q1', '2021 Q2', '2021 Q3', '2021 Q4', '2022 Q1', '2022 Q2', '2022 Q3', \n'2022 Q4',  '2023 Q1', '2023 Q2', '2023 Q3', '2023 Q4']\nfor sector in two_sectors:\n    plt.plot(sector, label = \"Sector \" + str(sector_number))\n    sector_number = sector_number + 1 #increase sector number by 1\n\nplt.xticks(ticks=range(len(quarters)), labels=quarters, rotation=45, ha=\"right\") \nplt.legend()\nplt.grid()\nplt.show()"
-  },
-  {
-    "objectID": "02-numpy.html#learning-check-3-output",
-    "href": "02-numpy.html#learning-check-3-output",
-    "title": "Introduction to Numpy & Matplotlib",
-    "section": "Learning Check #3",
-    "text": "Learning Check #3"
+    "text": "Overview for today\n\nIntroduction to Pandas dataframe\nDatetime in Python and Time Series with Pandas\nAnalyzing and visualizing Time Series dataframe"
   },
   {
     "objectID": "01-basics.html#preamble",
@@ -889,46 +532,417 @@
     "text": "Even more data types\nWe will explore these in the upcoming sessions!\n\nDateTime\nNumPy’s Arrays\nPanda’s DataFrame & Time series DataFrame"
   },
   {
-    "objectID": "03-pandas.html#recap-from-yesterday",
-    "href": "03-pandas.html#recap-from-yesterday",
-    "title": "Introduction to Pandas and Seaborn",
+    "objectID": "02-numpy.html#recap-from-yesterday",
+    "href": "02-numpy.html#recap-from-yesterday",
+    "title": "Introduction to Numpy & Matplotlib",
     "section": "Recap from yesterday",
-    "text": "Recap from yesterday\n\nPython libraries / packages\nIntroduction to Numpy & Numpy-financial\nGetting started with visualizations with matplotlib"
+    "text": "Recap from yesterday\n\nIntroduction to Visual Studio\nIntroduction to Python\nHandling Lists\nHandling Loops and Conditionals"
   },
   {
-    "objectID": "03-pandas.html#overview-for-today",
-    "href": "03-pandas.html#overview-for-today",
-    "title": "Introduction to Pandas and Seaborn",
+    "objectID": "02-numpy.html#overview-for-today",
+    "href": "02-numpy.html#overview-for-today",
+    "title": "Introduction to Numpy & Matplotlib",
     "section": "Overview for today",
-    "text": "Overview for today\n\nIntroduction to Pandas dataframe\nDatetime in Python and Time Series with Pandas\nAnalyzing and visualizing Time Series dataframe"
+    "text": "Overview for today\n\nIntroduction to Jupyter Notebook\nPython libraries: Extending Python’s functionality\nNumPy for more efficient numerical computing\nMatplotlib: Data visualization"
   },
   {
-    "objectID": "03-pandas.html#section-1-what-and-why-pandas",
-    "href": "03-pandas.html#section-1-what-and-why-pandas",
-    "title": "Introduction to Pandas and Seaborn",
-    "section": "Section 1: What and Why Pandas",
-    "text": "Section 1: What and Why Pandas"
+    "objectID": "02-numpy.html#refresher-.py-and-.ipynb",
+    "href": "02-numpy.html#refresher-.py-and-.ipynb",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Refresher: .py and .ipynb",
+    "text": "Refresher: .py and .ipynb\n\n\nIf it’s a .py file…\n\nFor “production” uses e.g., creating apps, industrial deployments; Executing the file will run all the codes inside the file.\n\nIf it’s a .ipynb file…\n\nGreat for quick experiments or teaching / presentation; Codes will be executed on per-block basis"
   },
   {
-    "objectID": "03-pandas.html#section-2-visualization-with-seaborn",
-    "href": "03-pandas.html#section-2-visualization-with-seaborn",
-    "title": "Introduction to Pandas and Seaborn",
-    "section": "Section 2: Visualization with Seaborn",
-    "text": "Section 2: Visualization with Seaborn"
+    "objectID": "02-numpy.html#creating-new-.ipynb-file",
+    "href": "02-numpy.html#creating-new-.ipynb-file",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Creating new .ipynb file",
+    "text": "Creating new .ipynb file\n\nMake sure that you have Jupyter extension installed in VS Code\nClick on File &gt; New File... and then Jupyter Notebook. If you don’t see this option, most likely it means you don’t have the Jupyter extension installed"
   },
   {
-    "objectID": "03-pandas.html#section-3-datetime-object",
-    "href": "03-pandas.html#section-3-datetime-object",
-    "title": "Introduction to Pandas and Seaborn",
-    "section": "Section 3: DateTime object",
-    "text": "Section 3: DateTime object"
+    "objectID": "02-numpy.html#jupyter-notebook-quick-tour",
+    "href": "02-numpy.html#jupyter-notebook-quick-tour",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Jupyter Notebook quick tour",
+    "text": "Jupyter Notebook quick tour\n\nMore on Markdown formatting here"
   },
   {
-    "objectID": "03-pandas.html#section-4-time-series-with-pandas",
-    "href": "03-pandas.html#section-4-time-series-with-pandas",
-    "title": "Introduction to Pandas and Seaborn",
-    "section": "Section 4: Time Series with Pandas",
-    "text": "Section 4: Time Series with Pandas\n\n\n\n\nSEIC x DSA Python for Macroeconomics"
+    "objectID": "02-numpy.html#jupyter-notebook-running-a-code-cell",
+    "href": "02-numpy.html#jupyter-notebook-running-a-code-cell",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Jupyter notebook: running a code cell",
+    "text": "Jupyter notebook: running a code cell\nWhen running a code cell for the first time, you will be prompted to choose the python kernel. Choose the version you want (in our case, version 3.12)\n\nIf you are prompted to install ipykernel, go ahead and install it."
+  },
+  {
+    "objectID": "02-numpy.html#whats-numpy",
+    "href": "02-numpy.html#whats-numpy",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "What’s Numpy?",
+    "text": "What’s Numpy?\nNumPy is the fundamental package for scientific computing in Python.\nIt is a Python library that provides a multidimensional array object, various derived objects (such as masked arrays and matrices), and an assortment of routines for fast operations on arrays, including mathematical, logical, shape manipulation, sorting, selecting, I/O, discrete Fourier transforms, basic linear algebra, basic statistical operations, random simulation and much more.1\n\nFaster and more memory-efficient than Python lists\nOptimized for large-scale numerical operations (better than list)\n\nhttps://numpy.org/doc/stable/user/whatisnumpy.html"
+  },
+  {
+    "objectID": "02-numpy.html#whats-a-python-library",
+    "href": "02-numpy.html#whats-a-python-library",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "What’s a Python library?",
+    "text": "What’s a Python library?\n\nPython libraries or packages are essentially reusable sets of code that can be imported into your environment to extend functionality.\nBefore using them, most libraries must first be installed and then imported. THis is how you can install a library:\n\npip install numpy"
+  },
+  {
+    "objectID": "02-numpy.html#library-is-installed-now-what",
+    "href": "02-numpy.html#library-is-installed-now-what",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Library is installed, now what?",
+    "text": "Library is installed, now what?\n\nAfter it is installed, we have to import them to “activate” it in our notebook so that we can use it!\nNote: some libraries are part of the Python Standard Library, meaning they are already installed and ready to be imported straight away! For example, time library.\n\n\nimport numpy as np # giving numpy a shorter \"nickname\"\nimport time\n\nTo use a function that belongs to a library, we have to call the library name (or the nickname, if we assign one), followed by . and then the function name! e.g. if we want to call array function in numpy:\nnp.array()"
+  },
+  {
+    "objectID": "02-numpy.html#numpy-vs-lists",
+    "href": "02-numpy.html#numpy-vs-lists",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Numpy vs Lists",
+    "text": "Numpy vs Lists\n\n\nLists\n\ndynamic size upon creation; you can change the size of a list anytime.\nall items inside list can be of different data types.\nnot optimized for scientific/mathematical operations\n\n\nNumPy Arrays\n\nfixed size upon creation; changing the size will create new array and delete the original.\nall items inside arrays must be the same data types.\nfacilitate advanced mathematical and other types of operations on large numbers of data, and thus more efficient.\na lot scientific/mathematical libraries are build on top of numpy (including pandas!)"
+  },
+  {
+    "objectID": "02-numpy.html#numpy-vs-lists-performance-comparison",
+    "href": "02-numpy.html#numpy-vs-lists-performance-comparison",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Numpy vs Lists: Performance comparison",
+    "text": "Numpy vs Lists: Performance comparison\nImagine we have a million numbers to square. We’ll store them in both a list and an array, then compare their processing speeds.\n\n\nLists\n\nlist_data = list(range(1000000))\n\nstart = time.time()\nlist_result = [x**2 for x in list_data]\nlist_time = time.time() - start\n\nprint(f\"List took {list_time:.4f} seconds to finish the operation.\")\n\nList took 0.0855 seconds to finish the operation.\n\n\n\nNumpy Arrays\n\nnumpy_data = np.arange(1000000)\n\nstart = time.time()\nnumpy_result = numpy_data**2\nnumpy_time = time.time() - start\n\nprint(f\"NumPy took {numpy_time:.4f} seconds to finish the operation.\")\n\nNumPy took 0.0020 seconds to finish the operation."
+  },
+  {
+    "objectID": "02-numpy.html#numpy-vs-lists-sum-and-products",
+    "href": "02-numpy.html#numpy-vs-lists-sum-and-products",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Numpy vs Lists: Sum and products",
+    "text": "Numpy vs Lists: Sum and products\n\nWhen you add two lists together, the contents will be concatenated\nWhen you do add two arrays together, the contents will be summed\n\n\n\nLists\n\nlist_1 = [1, 2, 3, 4, 5]\nlist_2 = [10, 20, 30, 40, 50]\n\nprint(list_1 + list_2)\n# list_1 * list_2 will give an error\n\n[1, 2, 3, 4, 5, 10, 20, 30, 40, 50]\n\n\n\nNumpy Arrays\n\narray_1 = np.array([1, 2, 3, 4, 5])\narray_2 = np.array([10, 20, 30, 40, 50])\n\nprint(\"Sum:\", array_1 + array_2)\nprint(\"Product:\", array_1 * array_2)\n\nSum: [11 22 33 44 55]\nProduct: [ 10  40  90 160 250]"
+  },
+  {
+    "objectID": "02-numpy.html#numpy-creation-and-operations",
+    "href": "02-numpy.html#numpy-creation-and-operations",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Numpy creation and operations",
+    "text": "Numpy creation and operations\nwe can use np.arange() to create an array from scratch. We can also create an array from a list using np.array()\nnp.arange creates evenly spaced values within a given interval:\n\nrange_array = np.arange(0, 10, 0.5)\nprint(\"Range array:\", range_array)\n\nRange array: [0.  0.5 1.  1.5 2.  2.5 3.  3.5 4.  4.5 5.  5.5 6.  6.5 7.  7.5 8.  8.5\n 9.  9.5]\n\n\nnp.array will transform a list (denoted in square brackets) to array:\n\nlist_array = np.array([1, 2, 3, 4, 5])\nprint(\"NumPy array:\", list_array)\n\nNumPy array: [1 2 3 4 5]"
+  },
+  {
+    "objectID": "02-numpy.html#numpy-operations",
+    "href": "02-numpy.html#numpy-operations",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Numpy operations",
+    "text": "Numpy operations\nMost operations we perform on lists can also be done with arrays, including:\n\nSlicing\nIndexing\nSorting\nCreating copies or views (with important differences between them!)\n\nLet’s try these!"
+  },
+  {
+    "objectID": "02-numpy.html#indexing-and-slicing",
+    "href": "02-numpy.html#indexing-and-slicing",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Indexing and Slicing",
+    "text": "Indexing and Slicing\nfor indexing and slicing, it’s pretty much the same as list!\n\nprint(\"Original array:\", range_array)\nprint(\"First element:\", range_array[0])\nprint(\"Last element:\", range_array[-1])\nprint(\"Slicing (elements 3 to 7):\", range_array[2:7])\nrange_array[0] = 99\nprint(\"Update value of first element:\", range_array[0])\nprint(\"Sorting array:\", np.sort(range_array))\n\nOriginal array: [0.  0.5 1.  1.5 2.  2.5 3.  3.5 4.  4.5 5.  5.5 6.  6.5 7.  7.5 8.  8.5\n 9.  9.5]\nFirst element: 0.0\nLast element: 9.5\nSlicing (elements 3 to 7): [1.  1.5 2.  2.5 3. ]\nUpdate value of first element: 99.0\nSorting array: [ 0.5  1.   1.5  2.   2.5  3.   3.5  4.   4.5  5.   5.5  6.   6.5  7.\n  7.5  8.   8.5  9.   9.5 99. ]"
+  },
+  {
+    "objectID": "02-numpy.html#copy-vs-views",
+    "href": "02-numpy.html#copy-vs-views",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Copy vs Views",
+    "text": "Copy vs Views\nLet’s create 3 arrays:\n\n\noriginal = np.array([1, 2, 3, 4, 5])\nprint(\"Original array:\", original)\n\nview = original.view()\nprint(\"View:\", view)\n\ncopy = original.copy()\nprint(\"Copy:\", copy)\n\n\nOriginal array: [1 2 3 4 5]\nView: [1 2 3 4 5]\nCopy: [1 2 3 4 5]"
+  },
+  {
+    "objectID": "02-numpy.html#copy-vs-views-in-action",
+    "href": "02-numpy.html#copy-vs-views-in-action",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Copy vs Views: in action",
+    "text": "Copy vs Views: in action\n\nChanges in original will be reflected in View and vice versa\nChanges in original will NOT be reflected in copy\n\n\n\noriginal[0] = 99\nprint(\"\\nAfter modifying the original array:\")\nprint(\"Original array:\", original)\nprint(\"View now:\", view)  # reflects the changes\nprint(\"Copy now:\", copy)  # remains unchanged\n\n# Modify the view\nview[1] = 100\nprint(\"\\nAfter modifying the view:\")\nprint(\"Original array:\", original)  # affected\nprint(\"View now:\", view)\nprint(\"Copy now:\", copy)  # remains unchanged\n\n# Modify the copy\ncopy[2] = 200\nprint(\"\\nAfter modifying the copy:\")\nprint(\"Original array:\", original)  # not affected\nprint(\"View now:\", view)  # not affected\nprint(\"Copy now:\", copy)\n\n\n\nAfter modifying the original array:\nOriginal array: [99  2  3  4  5]\nView now: [99  2  3  4  5]\nCopy now: [1 2 3 4 5]\n\nAfter modifying the view:\nOriginal array: [ 99 100   3   4   5]\nView now: [ 99 100   3   4   5]\nCopy now: [1 2 3 4 5]\n\nAfter modifying the copy:\nOriginal array: [ 99 100   3   4   5]\nView now: [ 99 100   3   4   5]\nCopy now: [  1   2 200   4   5]"
+  },
+  {
+    "objectID": "02-numpy.html#learning-check-1",
+    "href": "02-numpy.html#learning-check-1",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Learning Check #1",
+    "text": "Learning Check #1\nCreate two arrays called odd_numbers and even_numbers that only contains odd numbers and even numbers from 1 to 20 respectively.\n\n\nCode\nodd_numbers = np.arange(1, 21, 2)\neven_numbers = np.arange(0, 21, 2)\nprint(\"Odd numbers:\", odd_numbers)\nprint(\"Even numbers:\", even_numbers)\n\n\nOdd numbers: [ 1  3  5  7  9 11 13 15 17 19]\nEven numbers: [ 0  2  4  6  8 10 12 14 16 18 20]"
+  },
+  {
+    "objectID": "02-numpy.html#array-can-contain-columns-and-rows-too",
+    "href": "02-numpy.html#array-can-contain-columns-and-rows-too",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Array can contain columns and rows too!",
+    "text": "Array can contain columns and rows too!\n\narray_2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\nprint(array_2d)\nprint(\"Shape of the array:\", array_2d.shape)\nprint(\"Size of the array:\", array_2d.size)\n\n[[1 2 3]\n [4 5 6]\n [7 8 9]]\nShape of the array: (3, 3)\nSize of the array: 9"
+  },
+  {
+    "objectID": "02-numpy.html#indices-in-a-2d-array",
+    "href": "02-numpy.html#indices-in-a-2d-array",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Indices in a 2D array",
+    "text": "Indices in a 2D array\n\n\nAlternative way to “count” the indices is that we move from “outer” to “inner”.\ne.g. the value 4 is located inside the 2nd sub-list. and in this sub-list, it is located on the 1st index, hence [1, 0] (remember to minus 1, as indexing in python starts from 0)"
+  },
+  {
+    "objectID": "02-numpy.html#loading-from-a-csv-into-a-2d-array",
+    "href": "02-numpy.html#loading-from-a-csv-into-a-2d-array",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Loading from a CSV into a 2D array",
+    "text": "Loading from a CSV into a 2D array\nLet’s load our data sg-gdp.csv into a 2D array!\nIn this CSV:\n\nThe rows represent 7 different sectors\nThe columns represent the quarters from 2023 Q4, dating back all the way to 2019 Q1.\nEach cell contains the GDP growth of that sector for that quarter, compared to previous year’s quarters.\n\n\ngdp_data = np.loadtxt('data/sg-gdp.csv', delimiter=',', dtype=\"float16\")\nnp.set_printoptions(suppress=True)\n\nprint(\"GDP data\")\nprint(gdp_data)\nprint(\"GDP data shape:\", gdp_data.shape)\n\n\nRemember, the shape will be printed as (row, column)."
+  },
+  {
+    "objectID": "02-numpy.html#loading-from-a-csv-into-a-2d-array-output",
+    "href": "02-numpy.html#loading-from-a-csv-into-a-2d-array-output",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Loading from a CSV into a 2D array",
+    "text": "Loading from a CSV into a 2D array\n\nGDP data\n[[  2.6  -2.8  -5.8  -2.    9.4  17.5  24.5  20.9  22.9  23.1  31.6   7.7\n   -2.8  -7.4 -14.4  -0.4  -1.8   0.3   2.1   4.3]\n [ -2.   -7.6 -12.7  -7.2   7.1   9.6  20.9  24.1  27.7  29.8  43.3   8.3\n   -6.5  -9.5 -19.3  -2.1 -16.2  -6.3  -0.1   8. ]\n [ -5.5 -12.3 -18.2 -11.9   4.2   7.6  21.9  25.3  27.   25.4  37.7  11.4\n   -3.2  -2.7 -12.6  -1.2 -19.3  -7.9  -0.5   9.3]\n [ 11.6  11.3  15.5  15.6  17.6  17.7  12.6  16.   45.1 106.3 174.   -6.1\n  -29.2 -52.9 -66.1 -10.1  -1.8   0.2   3.    3.4]\n [ 12.9  25.   27.3  21.6  28.4  27.6  22.8  24.7   3.9   0.3  -1.3  -1.1\n   10.1  -1.2   5.3  10.1  -0.5   3.3  -2.5   1.3]\n [  7.4   9.7   4.4   7.6   2.7   1.5   0.7   1.9   8.   11.   34.3   4.8\n    5.4  -7.1 -15.5  -1.5   4.7  10.5   5.3  11.8]\n [  3.   -2.7  -4.7  -1.5  10.9  21.7  27.9  21.9  22.8  21.6  25.7   7.3\n   -2.2  -6.8 -10.8   0.3   3.4   2.5   3.6   3.9]]\nGDP data shape: (7, 20)"
+  },
+  {
+    "objectID": "02-numpy.html#d-array-operations",
+    "href": "02-numpy.html#d-array-operations",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "2D array operations",
+    "text": "2D array operations\nLet’s see if we can complete the following tasks:\n\nFind out the mean, standard deviation, max, and min values.\nFind the mean for each quarter (column-wise operation)\nFind the mean for each sector (row-wise operation)\nTranspose the array\nRetrieve all the negative values.\nCalculate the changes every quarter for Sector 1."
+  },
+  {
+    "objectID": "02-numpy.html#task-1-find-out-the-mean-standard-deviation-max-and-mean-values.",
+    "href": "02-numpy.html#task-1-find-out-the-mean-standard-deviation-max-and-mean-values.",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Task 1: Find out the mean, standard deviation, max, and mean values.",
+    "text": "Task 1: Find out the mean, standard deviation, max, and mean values.\n\nprint(\"Mean of GDP data:\", np.mean(gdp_data))\nprint(\"Standard deviation of GDP data:\", np.std(gdp_data))\nprint(\"Maximum value in GDP data:\", np.amax(gdp_data))\nprint(\"Minimum value in GDP data:\", np.amin(gdp_data))\n\nMean of GDP data: 7.504\nStandard deviation of GDP data: inf\nMaximum value in GDP data: 174.0\nMinimum value in GDP data: -66.1\n\n\n\n\n\n\n\n\n\nDid you get inf result?\n\n\nYou may get inf result in one of your calculation. A possible cause is because when we create the array, we declared the data type (dtype) as float16. This means the array uses 16 bits (2 bytes) for each number, which translates to lower precision (only ~3 decimals), but lower memory usage and storage.\nBy default, numpy will use float64 data type which can gives us higher precision. Changing the dtype to float64 should fix this issue."
+  },
+  {
+    "objectID": "02-numpy.html#axis-operations",
+    "href": "02-numpy.html#axis-operations",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Axis Operations",
+    "text": "Axis Operations"
+  },
+  {
+    "objectID": "02-numpy.html#task-2-3-find-the-mean-for-each-quarter-and-each-sector",
+    "href": "02-numpy.html#task-2-3-find-the-mean-for-each-quarter-and-each-sector",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Task 2 & 3: Find the mean for each quarter and each sector",
+    "text": "Task 2 & 3: Find the mean for each quarter and each sector\n\nprint(\"Mean of each quarter:\", np.mean(gdp_data, axis=0))\nprint(\"Mean of each sector:\", np.mean(gdp_data, axis=1))\n\nMean of each quarter: [  4.285    2.943    0.827    3.172   11.47    14.74    18.77    19.27\n  22.48    31.08    49.34     4.613   -4.06   -12.516  -19.06    -0.7\n  -4.5      0.3716   1.558    6.    ]\nMean of each sector: [ 6.477  4.465  3.725 14.18  10.9    5.38   7.39 ]"
+  },
+  {
+    "objectID": "02-numpy.html#task-4-transpose-the-array",
+    "href": "02-numpy.html#task-4-transpose-the-array",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Task 4: Transpose the array",
+    "text": "Task 4: Transpose the array\n\ntransposed_gdp = np.transpose(gdp_data)\nprint(\"Transposed GDP data shape:\", transposed_gdp.shape)\n\nTransposed GDP data shape: (20, 7)\n\n\nAlternatively, you can also do it this way:\n\ntransposed = gdp_data.T\nprint(transposed)\n\n[[  2.6  -2.   -5.5  11.6  12.9   7.4   3. ]\n [ -2.8  -7.6 -12.3  11.3  25.    9.7  -2.7]\n [ -5.8 -12.7 -18.2  15.5  27.3   4.4  -4.7]\n [ -2.   -7.2 -11.9  15.6  21.6   7.6  -1.5]\n [  9.4   7.1   4.2  17.6  28.4   2.7  10.9]\n [ 17.5   9.6   7.6  17.7  27.6   1.5  21.7]\n [ 24.5  20.9  21.9  12.6  22.8   0.7  27.9]\n [ 20.9  24.1  25.3  16.   24.7   1.9  21.9]\n [ 22.9  27.7  27.   45.1   3.9   8.   22.8]\n [ 23.1  29.8  25.4 106.3   0.3  11.   21.6]\n [ 31.6  43.3  37.7 174.   -1.3  34.3  25.7]\n [  7.7   8.3  11.4  -6.1  -1.1   4.8   7.3]\n [ -2.8  -6.5  -3.2 -29.2  10.1   5.4  -2.2]\n [ -7.4  -9.5  -2.7 -52.9  -1.2  -7.1  -6.8]\n [-14.4 -19.3 -12.6 -66.1   5.3 -15.5 -10.8]\n [ -0.4  -2.1  -1.2 -10.1  10.1  -1.5   0.3]\n [ -1.8 -16.2 -19.3  -1.8  -0.5   4.7   3.4]\n [  0.3  -6.3  -7.9   0.2   3.3  10.5   2.5]\n [  2.1  -0.1  -0.5   3.   -2.5   5.3   3.6]\n [  4.3   8.    9.3   3.4   1.3  11.8   3.9]]"
+  },
+  {
+    "objectID": "02-numpy.html#task-5-retrieve-all-the-negative-values.",
+    "href": "02-numpy.html#task-5-retrieve-all-the-negative-values.",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Task 5: Retrieve all the negative values.",
+    "text": "Task 5: Retrieve all the negative values.\n\nnegative_growth = gdp_data &lt; 0  \nprint(\"negative growth array:\", negative_growth)\nprint(\"use the above array to retrieve items whose position is TRUE:\\n\", gdp_data[negative_growth])\n\nnegative growth array: [[False  True  True  True False False False False False False False False\n   True  True  True  True  True False False False]\n [ True  True  True  True False False False False False False False False\n   True  True  True  True  True  True  True False]\n [ True  True  True  True False False False False False False False False\n   True  True  True  True  True  True  True False]\n [False False False False False False False False False False False  True\n   True  True  True  True  True False False False]\n [False False False False False False False False False False  True  True\n  False  True False False  True False  True False]\n [False False False False False False False False False False False False\n  False  True  True  True False False False False]\n [False  True  True  True False False False False False False False False\n   True  True  True False False False False False]]\nuse the above array to retrieve items whose position is TRUE:\n [ -2.8  -5.8  -2.   -2.8  -7.4 -14.4  -0.4  -1.8  -2.   -7.6 -12.7  -7.2\n  -6.5  -9.5 -19.3  -2.1 -16.2  -6.3  -0.1  -5.5 -12.3 -18.2 -11.9  -3.2\n  -2.7 -12.6  -1.2 -19.3  -7.9  -0.5  -6.1 -29.2 -52.9 -66.1 -10.1  -1.8\n  -1.3  -1.1  -1.2  -0.5  -2.5  -7.1 -15.5  -1.5  -2.7  -4.7  -1.5  -2.2\n  -6.8 -10.8]"
+  },
+  {
+    "objectID": "02-numpy.html#task-6-calculate-the-changes-every-quarter-for-sector-1.",
+    "href": "02-numpy.html#task-6-calculate-the-changes-every-quarter-for-sector-1.",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Task 6: Calculate the changes every quarter for Sector 1.",
+    "text": "Task 6: Calculate the changes every quarter for Sector 1.\nThe gdp_data is longitudinal, with each row representing observations for a specific sector over time. This makes growth and contraction trends meaningful to analyze. To calculate changes in the data using NumPy, we can use the numpy.diff() function, which computes the differences between successive values in an array.\n\nsector1_array = gdp_data[0, :] # first row, all columns\nprint(\"sector1_array:\", sector1_array)\n\nsector1_changes = np.diff(sector1_array)\nprint(\"\\nsector1_changes:\", sector1_changes)\n\nsector1_array: [  2.6  -2.8  -5.8  -2.    9.4  17.5  24.5  20.9  22.9  23.1  31.6   7.7\n  -2.8  -7.4 -14.4  -0.4  -1.8   0.3   2.1   4.3]\n\nsector1_changes: [ -5.4     -3.       3.8     11.4      8.1      7.      -3.594    2.\n   0.1875   8.5    -23.89   -10.5     -4.598   -7.      14.      -1.4\n   2.1      1.8      2.201 ]"
+  },
+  {
+    "objectID": "02-numpy.html#numpy-financial",
+    "href": "02-numpy.html#numpy-financial",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Numpy Financial",
+    "text": "Numpy Financial\nThe numpy-financial package is a collection of elementary financial functions. It’s a relatively tiny package, but useful if you need to do some financial calculations.\n\nCheck out the full documentation here!\nInstall numpy financial\npip install numpy-financial\nImport it to your notebook to “toggle it on”\n\nimport numpy_financial as npf"
+  },
+  {
+    "objectID": "02-numpy.html#calculating-future-value",
+    "href": "02-numpy.html#calculating-future-value",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Calculating future value",
+    "text": "Calculating future value\nCalculate the future value of $1000 invested for 3 years at a 5.0% average annual rate of return.\n\nprint(npf.fv(rate=0.05, nper=3, pmt=0, pv=-1000))\n\n1157.6250000000002\n\n\nBy convention, the negative sign represents cash flow out (i.e. money not available today)."
+  },
+  {
+    "objectID": "02-numpy.html#calculatine-number-of-payment-period",
+    "href": "02-numpy.html#calculatine-number-of-payment-period",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Calculatine number of payment period",
+    "text": "Calculatine number of payment period\nYou have a loan of 10,000 SGD at 9% annual interest. How long would it take to pay-off the load if your monthly payment is at 750?\n\nprint(npf.nper(0.09/12, -750, 10000))\n# divided by 12, because the interest is annual but the payment is monthly\n\n14.100683407655323"
+  },
+  {
+    "objectID": "02-numpy.html#learning-check-2",
+    "href": "02-numpy.html#learning-check-2",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Learning Check #2",
+    "text": "Learning Check #2\n\nCalculate the changes for each quarter for all sector. Save this into an array called sector_changes.\nAfterwards, find the largest changes in sector_changes.\n\n\n\nCode\nsector_changes = np.diff(gdp_data)\nprint(\"sector_changes:\", sector_changes)\nprint(\"\\nsector_changes shape:\", sector_changes.shape)\n\nprint(\"\\nLargest change:\", np.amax(sector_changes))"
+  },
+  {
+    "objectID": "02-numpy.html#learning-check-2-output",
+    "href": "02-numpy.html#learning-check-2-output",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Learning Check #2",
+    "text": "Learning Check #2\n\nsector_changes: [[  -5.4       -3.         3.8       11.4        8.1        7.\n    -3.594      2.         0.1875     8.5      -23.89     -10.5\n    -4.598     -7.        14.        -1.4        2.1        1.8\n     2.201  ]\n [  -5.6       -5.1        5.504     14.3        2.5       11.305\n     3.188      3.61       2.094     13.516    -35.       -14.8\n    -3.        -9.8       17.2      -14.1        9.91       6.2\n     8.1    ]\n [  -6.797     -5.906      6.305     16.1        3.402     14.305\n     3.39       1.703     -1.594     12.28     -26.28     -14.59\n     0.5       -9.91      11.4      -18.1       11.4        7.4\n     9.8    ]\n [  -0.3047     4.203      0.10156    1.992      0.1094    -5.1\n     3.398     29.1       61.22      67.7     -180.1      -23.1\n   -23.7      -13.22      56.03       8.305      2.         2.8\n     0.4004 ]\n [  12.1        2.297     -5.703      6.812     -0.8125    -4.797\n     1.906    -20.8       -3.6       -1.6        0.2002    11.2\n   -11.305      6.5        4.8      -10.6        3.8       -5.8\n     3.8    ]\n [   2.305     -5.305      3.203     -4.902     -1.199     -0.8\n     1.2        6.1        3.        23.31     -29.52       0.5977\n   -12.5       -8.4       14.         6.2        5.8       -5.2\n     6.496  ]\n [  -5.7       -2.         3.2       12.4       10.805      6.203\n    -6.         0.8906    -1.203      4.11     -18.4       -9.5\n    -4.6       -3.996     11.09       3.1       -0.9004     1.1\n     0.3008 ]]\n\nsector_changes shape: (7, 19)\n\nLargest change: 67.7"
+  },
+  {
+    "objectID": "02-numpy.html#visualization-libraries-matplotlib-and-seaborn",
+    "href": "02-numpy.html#visualization-libraries-matplotlib-and-seaborn",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Visualization libraries: Matplotlib and Seaborn",
+    "text": "Visualization libraries: Matplotlib and Seaborn\nThere are multiple visualization libraries for python. We will try out Matplotlib and Seaborn (for next session)\nPrimary differences between the two:\n\n\nMatplotlib\n\nA foundational Python library for static, interactive, and animated visualizations.\nHighly customizable, offering full control over plot elements (axes, ticks, legends).\nSupports a wide range of plots, from simple line charts to complex 3D visualizations and heatmaps.\nCan be challenging for beginners due to its flexibility.\nIdeal for precise control and building complex plots.\n\n\nSeaborn\n\nBuilt on Matplotlib to simplify statistical visualization with attractive designs.\nOffers high-level abstractions for complex plots (e.g., pair plots, heatmaps) with minimal effort.\nSupports visualizing variable relationships and statistical summaries (e.g., regression, categorical plots).\nEasier for beginners to create high-quality visuals quickly.\nBest for data exploration and statistical analysis with minimal setup."
+  },
+  {
+    "objectID": "02-numpy.html#refresher-data-types-in-social-sciences-and-economics-research",
+    "href": "02-numpy.html#refresher-data-types-in-social-sciences-and-economics-research",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Refresher: Data types in social sciences and economics research",
+    "text": "Refresher: Data types in social sciences and economics research\n\n\nNon-Continuous Data\n\nNominal/Categorical: Non-ordered, non-numerical data, used to represent qualitative attribute.\nOrdinal: Ordered non-numerical data.\nDiscrete: Numerical data that can only take specific value (usually integers)\nBinary: Nominal data with only two possible outcome.\n\n\nContinuous Data\n\nInterval: Numerical data that can take any value within a range. It does not have a “true zero”.\nRatio: Numerical data that can take any value within a range. it has a “true zero”."
+  },
+  {
+    "objectID": "02-numpy.html#chart-types-and-their-purposes",
+    "href": "02-numpy.html#chart-types-and-their-purposes",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Chart types and their purposes",
+    "text": "Chart types and their purposes\n\nBar charts: Comparing categories\nLine charts: Trends or progress over time\nScatter plots: Relationships between (continuous) variables\nPie charts: Parts of a whole\n\nDepending on who you ask, some may argue that percent barchart is better at this.\n\nBox plots: Distribution and outliers"
+  },
+  {
+    "objectID": "02-numpy.html#anatomy-of-a-matplotlib-graph",
+    "href": "02-numpy.html#anatomy-of-a-matplotlib-graph",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Anatomy of a matplotlib graph",
+    "text": "Anatomy of a matplotlib graph\n\n\n\n\nUseful resources:\n\nMatplotlib cheatsheets - This is more beginner-friendly\nQuick start guide\nPython Graph Gallery"
+  },
+  {
+    "objectID": "02-numpy.html#matplotlib-getting-started",
+    "href": "02-numpy.html#matplotlib-getting-started",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Matplotlib: Getting started",
+    "text": "Matplotlib: Getting started\nAs with the other libraries, let’s install the library and then import it.\npip install matplotlib\nImport the library and give it a nickname called plt.\n\nimport matplotlib.pyplot as plt"
+  },
+  {
+    "objectID": "02-numpy.html#matplotlib-simple-lineplot",
+    "href": "02-numpy.html#matplotlib-simple-lineplot",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Matplotlib: Simple Lineplot",
+    "text": "Matplotlib: Simple Lineplot\nLet’s visualize the content of gdp_data.\n\n1plt.plot(gdp_data)\n2plt.xlabel('Quarters')\n3plt.ylabel('Sectors')\n4plt.title('Sectors Growth over Quarters')\n5plt.grid()\n6plt.show()\n\n\n1\n\nThe plot function here will draw a line chart\n\n2\n\nLabel the x axis\n\n3\n\nLabel the y axis\n\n4\n\nGive the graph a title\n\n5\n\nTurn on the grid lines\n\n6\n\nShow the plot!"
+  },
+  {
+    "objectID": "02-numpy.html#matplotlib-simple-lineplot-output",
+    "href": "02-numpy.html#matplotlib-simple-lineplot-output",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Matplotlib: Simple Lineplot",
+    "text": "Matplotlib: Simple Lineplot"
+  },
+  {
+    "objectID": "02-numpy.html#something-not-quite-right",
+    "href": "02-numpy.html#something-not-quite-right",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Something not quite right…",
+    "text": "Something not quite right…\n\nIt seems like it’s trying to plot the differences between sectors instead of growth over each sectors.\nThis is because of the way our data is structured: rows representing sectors and columns representing quarters. The rows info is passed to the X coord and the columns are passed to Y coord.\nWe can fix this by transposing the table, so that the rows represent quarters and columns represent sectors.\n\n\ntransposed = gdp_data.T\nprint(transposed)"
+  },
+  {
+    "objectID": "02-numpy.html#something-not-quite-right-output",
+    "href": "02-numpy.html#something-not-quite-right-output",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Something not quite right…",
+    "text": "Something not quite right…\n\n[[  2.6  -2.   -5.5  11.6  12.9   7.4   3. ]\n [ -2.8  -7.6 -12.3  11.3  25.    9.7  -2.7]\n [ -5.8 -12.7 -18.2  15.5  27.3   4.4  -4.7]\n [ -2.   -7.2 -11.9  15.6  21.6   7.6  -1.5]\n [  9.4   7.1   4.2  17.6  28.4   2.7  10.9]\n [ 17.5   9.6   7.6  17.7  27.6   1.5  21.7]\n [ 24.5  20.9  21.9  12.6  22.8   0.7  27.9]\n [ 20.9  24.1  25.3  16.   24.7   1.9  21.9]\n [ 22.9  27.7  27.   45.1   3.9   8.   22.8]\n [ 23.1  29.8  25.4 106.3   0.3  11.   21.6]\n [ 31.6  43.3  37.7 174.   -1.3  34.3  25.7]\n [  7.7   8.3  11.4  -6.1  -1.1   4.8   7.3]\n [ -2.8  -6.5  -3.2 -29.2  10.1   5.4  -2.2]\n [ -7.4  -9.5  -2.7 -52.9  -1.2  -7.1  -6.8]\n [-14.4 -19.3 -12.6 -66.1   5.3 -15.5 -10.8]\n [ -0.4  -2.1  -1.2 -10.1  10.1  -1.5   0.3]\n [ -1.8 -16.2 -19.3  -1.8  -0.5   4.7   3.4]\n [  0.3  -6.3  -7.9   0.2   3.3  10.5   2.5]\n [  2.1  -0.1  -0.5   3.   -2.5   5.3   3.6]\n [  4.3   8.    9.3   3.4   1.3  11.8   3.9]]"
+  },
+  {
+    "objectID": "02-numpy.html#visualize-the-transposed-data",
+    "href": "02-numpy.html#visualize-the-transposed-data",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Visualize the transposed data",
+    "text": "Visualize the transposed data\nSame code, but this time we pass in the transposed data.\n\n1plt.plot(transposed)\n2plt.xlabel('Quarters')\n3plt.ylabel('Sectors')\n4plt.title('Sectors Growth over Quarters')\n5plt.grid()\n6plt.show()\n\n\n1\n\nPassing in the transposed version\n\n2\n\nLabel the x axis\n\n3\n\nLabel the y axis\n\n4\n\nGive the graph a title\n\n5\n\nTurn on the grid lines\n\n6\n\nShow the plot!"
+  },
+  {
+    "objectID": "02-numpy.html#visualize-the-transposed-data-output",
+    "href": "02-numpy.html#visualize-the-transposed-data-output",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Visualize the transposed data",
+    "text": "Visualize the transposed data"
+  },
+  {
+    "objectID": "02-numpy.html#fixing-the-x-axis-labels",
+    "href": "02-numpy.html#fixing-the-x-axis-labels",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Fixing the X-axis labels",
+    "text": "Fixing the X-axis labels\nIt is still not very readable, so let’s give it proper x-axis labeling!\n\nquarters = ['2019 Q1', '2019 Q2', '2019 Q3', '2019 Q4', '2020 Q1', '2020 Q2', '2020 Q3', \n'2020 Q4',  '2021 Q1', '2021 Q2', '2021 Q3', '2021 Q4', '2022 Q1', '2022 Q2', '2022 Q3', \n1'2022 Q4',  '2023 Q1', '2023 Q2', '2023 Q3', '2023 Q4']\n\n2plt.plot(transposed)\n3plt.xticks(ticks=range(len(quarters)),\n           labels=quarters,\n           rotation=45,\n           ha=\"right\")\nplt.xlabel('Quarters') \nplt.ylabel('Growth and Contractions') \nplt.title('Growth and Contractions over Quarters') \n4plt.tight_layout()\n\nplt.grid() \nplt.show() \n\n\n1\n\nCreate a list of labels that we want to put\n\n2\n\nStill using the transposed array\n\n3\n\nSet the labels. In this lines of code, we tell matplotlib how many labels are there, what are the labels, the rotation of the labels, and the horizontal align.\n\n4\n\nThis will get rid of the extra margins on the sides"
+  },
+  {
+    "objectID": "02-numpy.html#fixing-the-x-axis-labels-output",
+    "href": "02-numpy.html#fixing-the-x-axis-labels-output",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Fixing the X-axis labels",
+    "text": "Fixing the X-axis labels"
+  },
+  {
+    "objectID": "02-numpy.html#adding-individual-labels",
+    "href": "02-numpy.html#adding-individual-labels",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Adding individual labels",
+    "text": "Adding individual labels\nWe can utilize the for loop to add plot the lines and label them one by one.\n\n1for sector_num in range(7):\n5    print(\"plotting sector_num:\", sector_num)\n2    plt.plot(transposed[:, sector_num],\n3    label=\"Sector \" + str(sector_num))\n\n4plt.legend()\n\nplt.xticks(ticks=range(len(quarters)), labels=quarters, rotation=45, ha=\"right\") \nplt.tight_layout()\nplt.grid() \nplt.show() \n\n\n1\n\nHere, we set the loop to run 7 times since we have seven sector. Throughout the loop, sector_num value will change from 0 to 6\n\n2\n\nPutting this here so that we know when a sector is being plotted.\n\n3\n\nPlot the current sector. [:, sector_num] can be read as “all rows, in the sector_num column”\n\n4\n\nlabel each line plot with the sector number.\n\n5\n\nToggle the legend so that all the labels are visible ."
+  },
+  {
+    "objectID": "02-numpy.html#adding-individual-labels-output",
+    "href": "02-numpy.html#adding-individual-labels-output",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Adding individual labels",
+    "text": "Adding individual labels\n\nplotting sector_num: 0\nplotting sector_num: 1\nplotting sector_num: 2\nplotting sector_num: 3\nplotting sector_num: 4\nplotting sector_num: 5\nplotting sector_num: 6"
+  },
+  {
+    "objectID": "02-numpy.html#matplotlib-histogram",
+    "href": "02-numpy.html#matplotlib-histogram",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Matplotlib: Histogram",
+    "text": "Matplotlib: Histogram\nLet’s see if there’s any outlier growths or contractions on each sectors over the quarters! Histogram is the best visualization for this purpose.\n\nplt.boxplot(transposed)\n\nplt.xlabel('Sectors') \nplt.ylabel('Growth and Contractions') \nplt.title('Growth and Contractions for all sectors') \n\nplt.grid()\nplt.show()"
+  },
+  {
+    "objectID": "02-numpy.html#matplotlib-histogram-output",
+    "href": "02-numpy.html#matplotlib-histogram-output",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Matplotlib: Histogram",
+    "text": "Matplotlib: Histogram"
+  },
+  {
+    "objectID": "02-numpy.html#learning-check-3",
+    "href": "02-numpy.html#learning-check-3",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Learning Check #3",
+    "text": "Learning Check #3\nUsing the sg-gdp.csv data loaded into a NumPy array:\n\nCreate a line plot showing the GDP growth over time for the first two sectors only\nAdd appropriate labels, a title, and a legend to the plot.\n\n\n\nCode\ntwo_sectors = gdp_data[:2, :] #[first two rows, all columns]\nsector_number = 1 \nquarters = ['2019 Q1', '2019 Q2', '2019 Q3', '2019 Q4', '2020 Q1', '2020 Q2', '2020 Q3', \n'2020 Q4',  '2021 Q1', '2021 Q2', '2021 Q3', '2021 Q4', '2022 Q1', '2022 Q2', '2022 Q3', \n'2022 Q4',  '2023 Q1', '2023 Q2', '2023 Q3', '2023 Q4']\nfor sector in two_sectors:\n    plt.plot(sector, label = \"Sector \" + str(sector_number))\n    sector_number = sector_number + 1 #increase sector number by 1\n\nplt.xticks(ticks=range(len(quarters)), labels=quarters, rotation=45, ha=\"right\") \nplt.legend()\nplt.grid()\nplt.show()"
+  },
+  {
+    "objectID": "02-numpy.html#learning-check-3-output",
+    "href": "02-numpy.html#learning-check-3-output",
+    "title": "Introduction to Numpy & Matplotlib",
+    "section": "Learning Check #3",
+    "text": "Learning Check #3"
+  },
+  {
+    "objectID": "04-apis.html#recap-from-yesterday",
+    "href": "04-apis.html#recap-from-yesterday",
+    "title": "Introduction to APIs",
+    "section": "Recap from yesterday",
+    "text": "Recap from yesterday\n\nIntroduction to Pandas dataframe\nDatetime in Python and Time Series with Pandas\nAnalyzing and visualizing Time Series dataframe"
+  },
+  {
+    "objectID": "04-apis.html#overview-for-today",
+    "href": "04-apis.html#overview-for-today",
+    "title": "Introduction to APIs",
+    "section": "Overview for today",
+    "text": "Overview for today\n\nIntroduction to FRED API\nPresenting with .ipynb\nYour turn: Select an indicator, analyze it, visualize it, and present it to the class!"
+  },
+  {
+    "objectID": "04-apis.html#what-is-it",
+    "href": "04-apis.html#what-is-it",
+    "title": "Introduction to APIs",
+    "section": "What is it?",
+    "text": "What is it?"
+  },
+  {
+    "objectID": "04-apis.html#how-does-it-work",
+    "href": "04-apis.html#how-does-it-work",
+    "title": "Introduction to APIs",
+    "section": "How does it work?",
+    "text": "How does it work?"
+  },
+  {
+    "objectID": "04-apis.html#federal-reserve-economic-data-fred-api",
+    "href": "04-apis.html#federal-reserve-economic-data-fred-api",
+    "title": "Introduction to APIs",
+    "section": "Federal Reserve Economic Data (FRED) API",
+    "text": "Federal Reserve Economic Data (FRED) API"
+  },
+  {
+    "objectID": "04-apis.html#learning-chech",
+    "href": "04-apis.html#learning-chech",
+    "title": "Introduction to APIs",
+    "section": "Learning Chech",
+    "text": "Learning Chech"
   },
   {
     "objectID": "coc.html",
