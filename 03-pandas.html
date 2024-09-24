@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-html/tabby.min.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -29,6 +29,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto.css">
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-Y8S6TK2GEH"></script>
@@ -329,6 +394,9 @@
       margin-right: 0; 
     }
   </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+  
+  <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -357,28 +425,1577 @@ Bella Ratmelia
 <section id="overview-for-today" class="slide level2">
 <h2>Overview for today</h2>
 <ul>
-<li><p>Introduction to Pandas dataframe</p></li>
-<li><p>Datetime in Python and Time Series with Pandas</p></li>
-<li><p>Analyzing and visualizing Time Series dataframe</p></li>
+<li>What and Why Pandas</li>
+<li>Visualization with Seaborn</li>
+<li>DateTime object</li>
+<li>Time Series with Pandas</li>
 </ul>
 </section>
-<section id="section-1-what-and-why-pandas" class="title-slide slide level1 center">
-<h1>Section 1: What and Why Pandas</h1>
+<section id="whats-pandas" class="slide level2">
+<h2>What’s Pandas?</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Giant_Panda_Eating.jpg/1024px-Giant_Panda_Eating.jpg"></p>
+</div><div class="column" style="width:60%;">
+<blockquote>
+<p><code>pandas</code> is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language. <sup>1</sup> <code>pandas</code> aims to be the fundamental high-level building block for doing practical, real world data analysis in Python.</p>
+</blockquote>
+<ul>
+<li>Well-established Python library for data manipulation and analysis</li>
+<li>Built on top of NumPy. Unlike Numpy who can be difficult to “read”, Dataframe presents data in tabular format that’s easier for humans to read and perceive.</li>
+<li>Provides DataFrame and Series data structures</li>
+</ul>
+</div></div>
+<aside><ol class="aside-footnotes"><li id="fn1"><p><a href="https://pandas.pydata.org/" class="uri">https://pandas.pydata.org/</a></p></li></ol></aside></section>
+<section id="comparison-to-numpy" class="slide level2">
+<h2>Comparison to Numpy</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 42%">
+<col style="width: 46%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Feature</strong></th>
+<th><strong>NumPy Array</strong></th>
+<th><strong>pandas DataFrame</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Data Types</strong></td>
+<td>All elements must be of the same type (e.g., integers, floats).</td>
+<td>Different columns can hold different data types (e.g., integers, floats, strings).</td>
+</tr>
+<tr class="even">
+<td><strong>Performance</strong></td>
+<td>Faster for numerical computations due to homogeneity and optimized implementation.</td>
+<td>Slightly slower but more flexible for working with heterogeneous or labeled data.</td>
+</tr>
+<tr class="odd">
+<td><strong>Dimensionality</strong></td>
+<td>Can be multi-dimensional (1D, 2D, 3D, etc.).</td>
+<td>Always two-dimensional with labeled rows and columns.</td>
+</tr>
+<tr class="even">
+<td><strong>Indexing</strong></td>
+<td>Purely positional indexing (e.g., <code>array[0, 1]</code>).</td>
+<td>Labeled-based indexing (<code>loc</code>), position-based indexing (<code>iloc</code>), access by both labels and positions.</td>
+</tr>
+<tr class="odd">
+<td><strong>Usage</strong></td>
+<td>Primarily for high-performance numerical and scientific computations.</td>
+<td>Primarily for data manipulation, analysis, and cleaning, especially for tabular and real-world datasets.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="installing-and-importing-packages" class="slide level2">
+<h2>Installing and importing packages</h2>
+<p>To install this package, you can use this command:</p>
+<p><code>pip install pandas</code></p>
+<p><code>pip install seaborn</code></p>
+<p>Remember, we must first import these packages to our notebook / script before we can use them.</p>
+<div id="dbf7e7a4" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="load-data-from-csv-to-dataframe" class="slide level2">
+<h2>Load data from CSV to DataFrame</h2>
+<p>Typically, we load the data from API source (more on this next week!) or external data file such as CSV. Let’s load the <code>unemployment-age.csv</code> now!</p>
+<div id="3af71a65" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>unemp_data <span class="op">=</span> pd.read_csv(<span class="st">'data/unemployment-age.csv'</span>)</span>
+<span id="cb2-2"><a></a><span class="bu">print</span>(unemp_data.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         date  16_19yrs  20_24yrs  25_54yrs  55yrs_onwards  Unnamed: 5
+0  1948-01-01      10.1       6.6       3.0            3.6         NaN
+1  1948-02-01      11.5       8.0       3.6            4.0         NaN
+2  1948-03-01      10.8       8.6       3.2            3.5         NaN
+3  1948-04-01       8.8       6.8       3.2            3.2         NaN
+4  1948-05-01       6.9       6.3       2.6            2.9         NaN</code></pre>
+</div>
+</div>
+</section>
+<section id="initial-checks-get-basic-info" class="slide level2">
+<h2>Initial checks: get basic info</h2>
+<p>The first thing that you should always do is check on the dataframe to get an overview of it. The function <code>info()</code> will tell us the data types for each columns, the number of observations, and index info if there’s any.</p>
+<div id="e773d67e" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a>unemp_data.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 920 entries, 0 to 919
+Data columns (total 6 columns):
+ #   Column         Non-Null Count  Dtype  
+---  ------         --------------  -----  
+ 0   date           920 non-null    object 
+ 1   16_19yrs       920 non-null    float64
+ 2   20_24yrs       920 non-null    float64
+ 3   25_54yrs       920 non-null    float64
+ 4   55yrs_onwards  920 non-null    float64
+ 5   Unnamed: 5     0 non-null      float64
+dtypes: float64(5), object(1)
+memory usage: 43.3+ KB</code></pre>
+</div>
+</div>
+</section>
+<section id="initial-checks-get-summary-stats" class="slide level2">
+<h2>Initial checks: get summary stats</h2>
+<p>Also get the summary statistics to get a sense of the shape and spread of your data.</p>
+<div id="f9d3c29b" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a>unemp_data.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">16_19yrs</th>
+<th data-quarto-table-cell-role="th">20_24yrs</th>
+<th data-quarto-table-cell-role="th">25_54yrs</th>
+<th data-quarto-table-cell-role="th">55yrs_onwards</th>
+<th data-quarto-table-cell-role="th">Unnamed: 5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>920.000000</td>
+<td>920.000000</td>
+<td>920.000000</td>
+<td>920.00000</td>
+<td>0.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>15.913370</td>
+<td>9.259674</td>
+<td>4.560109</td>
+<td>3.79837</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>4.270376</td>
+<td>2.790013</td>
+<td>1.585635</td>
+<td>1.23832</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>5.700000</td>
+<td>3.300000</td>
+<td>1.800000</td>
+<td>1.50000</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>13.000000</td>
+<td>7.575000</td>
+<td>3.400000</td>
+<td>2.90000</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>15.600000</td>
+<td>8.900000</td>
+<td>4.300000</td>
+<td>3.50000</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>18.400000</td>
+<td>10.700000</td>
+<td>5.500000</td>
+<td>4.40000</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>32.200000</td>
+<td>25.000000</td>
+<td>12.600000</td>
+<td>13.40000</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="initial-checks-column-names" class="slide level2">
+<h2>Initial checks: column names</h2>
+<p>Optional, but you may also want to check on the column names to see how it appears in our environment (useful if you happen to have non UTF-8 characters as your column names)</p>
+<div id="6fe8b250" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="bu">print</span>(unemp_data.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Index(['date', '16_19yrs', '20_24yrs', '25_54yrs', '55yrs_onwards',
+       'Unnamed: 5'],
+      dtype='object')</code></pre>
+</div>
+</div>
+</section>
+<section id="dropping-columns" class="slide level2">
+<h2>Dropping columns</h2>
+<p>In some cases, we don’t really need the entire columns. Let’s drop the last column (that looks like an error in the CSV formatting).</p>
+<div id="8943c263" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>unemp_data.drop(unemp_data.columns[<span class="op">-</span><span class="dv">1</span>], axis <span class="op">=</span> <span class="dv">1</span>, inplace<span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb9-2"><a></a>unemp_data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">date</th>
+<th data-quarto-table-cell-role="th">16_19yrs</th>
+<th data-quarto-table-cell-role="th">20_24yrs</th>
+<th data-quarto-table-cell-role="th">25_54yrs</th>
+<th data-quarto-table-cell-role="th">55yrs_onwards</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1948-01-01</td>
+<td>10.1</td>
+<td>6.6</td>
+<td>3.0</td>
+<td>3.6</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1948-02-01</td>
+<td>11.5</td>
+<td>8.0</td>
+<td>3.6</td>
+<td>4.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1948-03-01</td>
+<td>10.8</td>
+<td>8.6</td>
+<td>3.2</td>
+<td>3.5</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>1948-04-01</td>
+<td>8.8</td>
+<td>6.8</td>
+<td>3.2</td>
+<td>3.2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>1948-05-01</td>
+<td>6.9</td>
+<td>6.3</td>
+<td>2.6</td>
+<td>2.9</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="renaming-columns" class="slide level2">
+<h2>Renaming columns</h2>
+<p>Sometimes the column names are not ideal. In our case, let’s give a name to each age group!</p>
+<div id="453aacbb" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a>unemp_data.columns <span class="op">=</span> [<span class="st">'date'</span>, <span class="st">'teenagers'</span>, <span class="st">'young_adults'</span>, <span class="st">'adults'</span>, <span class="st">'seniors'</span>]</span>
+<span id="cb10-2"><a></a><span class="bu">print</span>(unemp_data.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Index(['date', 'teenagers', 'young_adults', 'adults', 'seniors'], dtype='object')</code></pre>
+</div>
+</div>
+<p>Alternatively, if you just want to rename specific columns:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>unemp_data.rename(columns<span class="op">=</span>{<span class="st">'16_19yrs'</span>: <span class="st">'teenagers'</span>, <span class="st">'20_24yrs'</span>: <span class="st">'young_adults'</span>}, inplace <span class="op">=</span> <span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="data-wrangling-with-pandas-and-seaborn---scenarios" class="slide level2">
+<h2>Data Wrangling with Pandas and Seaborn - Scenarios</h2>
+<p>Let’s see if we can complete the following tasks:</p>
+<ol type="1">
+<li>Remove all the missing values</li>
+<li>We are primarily interested in the young adult unemployment. Separate this data into a new dataframe called <code>ya_unemp</code></li>
+<li>Retrieve the months and years where the young adult rate is more than 10 percent and keep this on <code>high_ya_unemp</code></li>
+<li>Add in a new column that tracks the total unemployment rate for each month</li>
+<li>Create a Quarterly dataset from the current dataframe that captures the mean unemployment rate</li>
+<li>Calculate the year-on-year change of unemployment rate</li>
+<li>Visualize the dataset</li>
+</ol>
+</section>
+<section id="task-1---handling-missing-values" class="slide level2">
+<h2>Task 1 - Handling missing values</h2>
+<p>Other than <code>info()</code>, we can also use <code>isnull()</code> to check for null values</p>
+<div id="9d357585" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a><span class="co"># Check for missing values</span></span>
+<span id="cb13-2"><a></a><span class="bu">print</span>(unemp_data.isnull().<span class="bu">sum</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>date            0
+teenagers       0
+young_adults    0
+adults          0
+seniors         0
+dtype: int64</code></pre>
+</div>
+</div>
+</section>
+<section id="handling-missing-values-drop-or-no-drop" class="slide level2">
+<h2>Handling missing values: drop or no drop?</h2>
+<p>We can drop those rows that contains null values with <code>dropna()</code>…</p>
+<div id="544b8052" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python code-overflow-wrap number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a><span class="co"># Drop rows with missing values (if any)</span></span>
+<span id="cb15-2"><a></a>unemp_data <span class="op">=</span> unemp_data.dropna()</span>
+<span id="cb15-3"><a></a><span class="bu">print</span>(unemp_data.info())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 920 entries, 0 to 919
+Data columns (total 5 columns):
+ #   Column        Non-Null Count  Dtype  
+---  ------        --------------  -----  
+ 0   date          920 non-null    object 
+ 1   teenagers     920 non-null    float64
+ 2   young_adults  920 non-null    float64
+ 3   adults        920 non-null    float64
+ 4   seniors       920 non-null    float64
+dtypes: float64(4), object(1)
+memory usage: 36.1+ KB
+None</code></pre>
+</div>
+</div>
+<p>… or we can also fill in the null values with something else, e.g.&nbsp;0</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a>uemp_data <span class="op">=</span> unemp_data.fillna(<span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="task-2---retrieving-columns-a-single-column" class="slide level2">
+<h2>Task 2 - Retrieving columns: a single column</h2>
+<p>As the column names in DataFrame are indexed, we can simply call them by their column names! (Much more intuitive compared to Numpy)</p>
+<div id="c20e50a1" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a></a>ya_unemp <span class="op">=</span> unemp_data[<span class="st">'young_adults'</span>]</span>
+<span id="cb18-2"><a></a>ya_unemp.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>0    6.6
+1    8.0
+2    8.6
+3    6.8
+4    6.3
+Name: young_adults, dtype: float64</code></pre>
+</div>
+</div>
+</section>
+<section id="retrieving-columns-multiple-columns" class="slide level2">
+<h2>Retrieving columns: multiple columns</h2>
+<p>Similarly, if we want to retrieve multiple columns, we can pass <strong>a list of column names</strong> to the dataframe and save these sliced columns into a new dataframe.</p>
+<div id="4a8f7b94" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a>ya_unemp <span class="op">=</span> unemp_data[[<span class="st">'date'</span>, <span class="st">'young_adults'</span>]]</span>
+<span id="cb20-2"><a></a>ya_unemp.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="11">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">date</th>
+<th data-quarto-table-cell-role="th">young_adults</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1948-01-01</td>
+<td>6.6</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1948-02-01</td>
+<td>8.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1948-03-01</td>
+<td>8.6</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>1948-04-01</td>
+<td>6.8</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>1948-05-01</td>
+<td>6.3</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="task-3---filtering-rows-without-query" class="slide level2">
+<h2>Task 3 - Filtering row(s): without query()</h2>
+<p>We can do it “raw” or us the <code>query</code> function from pandas. Here is how you can do it without the <code>query()</code> function:</p>
+<div id="93899dfb" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a>criteria <span class="op">=</span> unemp_data[<span class="st">"young_adults"</span>] <span class="op">&gt;</span> <span class="dv">10</span></span>
+<span id="cb21-2"><a></a>high_ya_unemp <span class="op">=</span> unemp_data[criteria]</span>
+<span id="cb21-3"><a></a>high_ya_unemp.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="12">
+<div class="cell-output cell-output-display" data-execution_count="12">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">date</th>
+<th data-quarto-table-cell-role="th">teenagers</th>
+<th data-quarto-table-cell-role="th">young_adults</th>
+<th data-quarto-table-cell-role="th">adults</th>
+<th data-quarto-table-cell-role="th">seniors</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">17</td>
+<td>1949-06-01</td>
+<td>19.0</td>
+<td>10.1</td>
+<td>4.4</td>
+<td>4.9</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">18</td>
+<td>1949-07-01</td>
+<td>16.0</td>
+<td>11.2</td>
+<td>5.3</td>
+<td>5.8</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">19</td>
+<td>1949-08-01</td>
+<td>12.6</td>
+<td>10.4</td>
+<td>5.0</td>
+<td>5.3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">24</td>
+<td>1950-01-01</td>
+<td>17.7</td>
+<td>11.6</td>
+<td>6.2</td>
+<td>6.6</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25</td>
+<td>1950-02-01</td>
+<td>17.3</td>
+<td>12.2</td>
+<td>6.4</td>
+<td>7.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="filtering-rows-with-query" class="slide level2">
+<h2>Filtering row(s): with query()</h2>
+<p>And here is how you can do it with the <code>query()</code> function:</p>
+<div id="b8b65832" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a><span class="bu">print</span>(unemp_data.query(<span class="st">'young_adults &gt; 10'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="13">
+<div class="cell-output cell-output-stdout">
+<pre><code>           date  teenagers  young_adults  adults  seniors
+17   1949-06-01       19.0          10.1     4.4      4.9
+18   1949-07-01       16.0          11.2     5.3      5.8
+19   1949-08-01       12.6          10.4     5.0      5.3
+24   1950-01-01       17.7          11.6     6.2      6.6
+25   1950-02-01       17.3          12.2     6.4      7.0
+..          ...        ...           ...     ...      ...
+873  2020-10-01       13.1          10.5     6.2      5.2
+875  2020-12-01       14.1          10.6     5.7      5.8
+876  2021-01-01       15.6          10.8     6.2      5.6
+878  2021-03-01       12.5          10.4     5.7      4.8
+880  2021-05-01        9.5          10.3     4.9      4.6
+
+[311 rows x 5 columns]</code></pre>
+</div>
+</div>
+</section>
+<section id="filtering-rows-with-query-and-save-result" class="slide level2">
+<h2>Filtering row(s): with query() and save result</h2>
+<p>Take note that the previous code will simply print out the result! If you want to save the result, make sure to assign the result to a new dataframe.</p>
+<div id="23673f14" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a></a>high_ya_unemp <span class="op">=</span> unemp_data.query(<span class="st">'young_adults &gt; 10'</span>)</span>
+<span id="cb24-2"><a></a>high_ya_unemp.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="14">
+<div class="cell-output cell-output-display" data-execution_count="14">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">date</th>
+<th data-quarto-table-cell-role="th">teenagers</th>
+<th data-quarto-table-cell-role="th">young_adults</th>
+<th data-quarto-table-cell-role="th">adults</th>
+<th data-quarto-table-cell-role="th">seniors</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">17</td>
+<td>1949-06-01</td>
+<td>19.0</td>
+<td>10.1</td>
+<td>4.4</td>
+<td>4.9</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">18</td>
+<td>1949-07-01</td>
+<td>16.0</td>
+<td>11.2</td>
+<td>5.3</td>
+<td>5.8</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">19</td>
+<td>1949-08-01</td>
+<td>12.6</td>
+<td>10.4</td>
+<td>5.0</td>
+<td>5.3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">24</td>
+<td>1950-01-01</td>
+<td>17.7</td>
+<td>11.6</td>
+<td>6.2</td>
+<td>6.6</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25</td>
+<td>1950-02-01</td>
+<td>17.3</td>
+<td>12.2</td>
+<td>6.4</td>
+<td>7.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="task-4---adding-new-columns" class="slide level2">
+<h2>Task 4 - Adding new column(s)</h2>
+<p>Let’s add a new column for total unemployment (sum of all age groups)</p>
+<div id="fc423e4b" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python code-overflow-wrap number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a>unemp_data[<span class="st">'total_unemployment'</span>] <span class="op">=</span> unemp_data[<span class="st">'teenagers'</span>] <span class="op">+</span> unemp_data[<span class="st">'young_adults'</span>] <span class="op">+</span> unemp_data[<span class="st">'adults'</span>] <span class="op">+</span> unemp_data[<span class="st">'seniors'</span>]</span>
+<span id="cb25-2"><a></a>unemp_data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">date</th>
+<th data-quarto-table-cell-role="th">teenagers</th>
+<th data-quarto-table-cell-role="th">young_adults</th>
+<th data-quarto-table-cell-role="th">adults</th>
+<th data-quarto-table-cell-role="th">seniors</th>
+<th data-quarto-table-cell-role="th">total_unemployment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1948-01-01</td>
+<td>10.1</td>
+<td>6.6</td>
+<td>3.0</td>
+<td>3.6</td>
+<td>23.3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1948-02-01</td>
+<td>11.5</td>
+<td>8.0</td>
+<td>3.6</td>
+<td>4.0</td>
+<td>27.1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1948-03-01</td>
+<td>10.8</td>
+<td>8.6</td>
+<td>3.2</td>
+<td>3.5</td>
+<td>26.1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>1948-04-01</td>
+<td>8.8</td>
+<td>6.8</td>
+<td>3.2</td>
+<td>3.2</td>
+<td>22.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>1948-05-01</td>
+<td>6.9</td>
+<td>6.3</td>
+<td>2.6</td>
+<td>2.9</td>
+<td>18.7</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="side-quest-datetime-object" class="slide level2">
+<h2>Side quest: DateTime Object</h2>
+<ul>
+<li>A <code>DateTime</code> object in Python, provided by the <code>datetime</code> module, represents a specific point in time, including the year, month, day, hour, minute, second, and microsecond.</li>
+<li>It can be used to manipulate dates and times, perform arithmetic on dates, and format dates into other string representation e.g.&nbsp;from dd/mm/yyyy to yyyy-mm-dd.</li>
+</ul>
+<div id="9cfd1f8a" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
+<span id="cb26-2"><a></a></span>
+<span id="cb26-3"><a></a>now <span class="op">=</span> datetime.now()</span>
+<span id="cb26-4"><a></a><span class="bu">print</span>(<span class="st">"Current Date and Time:"</span>, now)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Current Date and Time: 2024-09-24 23:14:14.469996</code></pre>
+</div>
+</div>
+</section>
+<section id="components-of-datetime" class="slide level2">
+<h2>Components of DateTime</h2>
+<p>The <code>DateTime</code> object consists of multiple components that represent different parts of the date and time, such as year, month, day, hour, minute, second, etc. You can access these components individually.</p>
+<div id="7f8688be" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a></a><span class="co"># Extract year, month, and day from a specific date</span></span>
+<span id="cb28-2"><a></a>now <span class="op">=</span> datetime.now()</span>
+<span id="cb28-3"><a></a></span>
+<span id="cb28-4"><a></a><span class="co"># Access individual components</span></span>
+<span id="cb28-5"><a></a><span class="bu">print</span>(<span class="st">"Year:"</span>, now.year)</span>
+<span id="cb28-6"><a></a><span class="bu">print</span>(<span class="st">"Month:"</span>, now.month)</span>
+<span id="cb28-7"><a></a><span class="bu">print</span>(<span class="st">"Day:"</span>, now.day)</span>
+<span id="cb28-8"><a></a><span class="bu">print</span>(<span class="st">"Hour:"</span>, now.hour)</span>
+<span id="cb28-9"><a></a><span class="bu">print</span>(<span class="st">"Minute:"</span>, now.minute)</span>
+<span id="cb28-10"><a></a><span class="bu">print</span>(<span class="st">"Second:"</span>, now.second)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Year: 2024
+Month: 9
+Day: 24
+Hour: 23
+Minute: 14
+Second: 14</code></pre>
+</div>
+</div>
+</section>
+<section id="datetime-operations" class="slide level2">
+<h2>DateTime operations</h2>
+<ul>
+<li>You can perform various operations with DateTime objects, such as calculating the difference between two dates or adding/subtracting time with the help of <code>timedelta</code>.</li>
+<li>These are essential for time series data manipulation, where date-based arithmetic is often required.</li>
+</ul>
+<div id="4fb222b4" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a></a><span class="im">from</span> datetime <span class="im">import</span> timedelta</span>
+<span id="cb30-2"><a></a></span>
+<span id="cb30-3"><a></a>now <span class="op">=</span> datetime.now()</span>
+<span id="cb30-4"><a></a></span>
+<span id="cb30-5"><a></a>last_week <span class="op">=</span> now <span class="op">-</span> timedelta(days<span class="op">=</span><span class="dv">7</span>)</span>
+<span id="cb30-6"><a></a><span class="bu">print</span>(<span class="st">"1 week ago:"</span>, last_week)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1 week ago: 2024-09-17 23:14:14.554410</code></pre>
+</div>
+</div>
+</section>
+<section id="back-to-main-quest-time-series-with-dataframe" class="slide level2">
+<h2>Back to Main Quest: Time Series with DataFrame</h2>
+<p>Let’s index the rows under <code>date</code> column as a DateTime index.</p>
+<div id="c168698a" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="annotated-cell-21" data-code-line-numbers="1|2"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-21" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-21-1" class="code-annotation-target"><a href="#annotated-cell-21-1"></a>unemp_data[<span class="st">'date'</span>] <span class="op">=</span> pd.to_datetime(unemp_data[<span class="st">'date'</span>], <span class="bu">format</span><span class="op">=</span><span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">"</span>)</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-21" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-21-2" class="code-annotation-target"><a href="#annotated-cell-21-2"></a>unemp_data.set_index(<span class="st">'date'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-21" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-21" data-code-lines="1" data-code-annotation="1">Convert the data type under <code>date</code> column from string to <code>DateTime</code> object</span>
+</dd>
+<dt data-target-cell="annotated-cell-21" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-21" data-code-lines="2" data-code-annotation="2">Set the <code>date</code> column as the index.</span>
+</dd>
+</dl>
+</div>
+</div>
+
+<aside><div>
+<p>You can refer to this page to see how to format the string expression of DateTime object: <a href="https://www.w3schools.com/python/python_datetime.asp" class="uri">https://www.w3schools.com/python/python_datetime.asp</a></p>
+</div></aside></section>
+<section id="datetime-is-the-index-now-what" class="slide level2">
+<h2>DateTime is the index, now what?</h2>
+<p>Let’s check on the dataframe once more, to make sure that it is indexed as intended:</p>
+<div id="ccf798a0" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a></a>unemp_data.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+DatetimeIndex: 920 entries, 1948-01-01 to 2024-08-01
+Data columns (total 5 columns):
+ #   Column              Non-Null Count  Dtype  
+---  ------              --------------  -----  
+ 0   teenagers           920 non-null    float64
+ 1   young_adults        920 non-null    float64
+ 2   adults              920 non-null    float64
+ 3   seniors             920 non-null    float64
+ 4   total_unemployment  920 non-null    float64
+dtypes: float64(5)
+memory usage: 43.1 KB</code></pre>
+</div>
+</div>
+<p>If all goes well, the <code>date</code> column should be part of the index now.</p>
+</section>
+<section id="extra-checks-with-time-series" class="slide level2">
+<h2>Extra checks with Time Series</h2>
+<p>Other things that we may want to check with Time Series is the date range of our data.</p>
+<div id="459308aa" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a></a><span class="bu">print</span>(<span class="st">"start date"</span>, unemp_data.index.<span class="bu">min</span>())</span>
+<span id="cb34-2"><a></a><span class="bu">print</span>(<span class="st">"end date"</span>, unemp_data.index.<span class="bu">max</span>())</span>
+<span id="cb34-3"><a></a><span class="bu">print</span>(<span class="st">"length"</span>, unemp_data.index.<span class="bu">max</span>() <span class="op">-</span> unemp_data.index.<span class="bu">min</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>start date 1948-01-01 00:00:00
+end date 2024-08-01 00:00:00
+length 27972 days 00:00:00</code></pre>
+</div>
+</div>
+</section>
+<section id="retrieve-specific-date-range" class="slide level2">
+<h2>Retrieve specific date range</h2>
+<p>Now that the index is a <code>DateTime</code> object, we can easily retrieve specific date range! Let’s say we would like retrieve unemployment rate for during COVID, which will be March 2020 to May 2023.</p>
+<div id="0d33f14e" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a></a> unemp_data_covid <span class="op">=</span> unemp_data.loc[<span class="st">'2020-03'</span>:<span class="st">'2023-05'</span>]</span>
+<span id="cb36-2"><a></a> unemp_data_covid.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">teenagers</th>
+<th data-quarto-table-cell-role="th">young_adults</th>
+<th data-quarto-table-cell-role="th">adults</th>
+<th data-quarto-table-cell-role="th">seniors</th>
+<th data-quarto-table-cell-role="th">total_unemployment</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">date</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2020-03-01</td>
+<td>13.7</td>
+<td>8.6</td>
+<td>3.9</td>
+<td>3.5</td>
+<td>29.7</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2020-04-01</td>
+<td>32.2</td>
+<td>25.0</td>
+<td>12.6</td>
+<td>13.4</td>
+<td>83.2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2020-05-01</td>
+<td>30.7</td>
+<td>23.2</td>
+<td>11.2</td>
+<td>11.5</td>
+<td>76.6</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2020-06-01</td>
+<td>24.5</td>
+<td>20.1</td>
+<td>9.7</td>
+<td>9.7</td>
+<td>64.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2020-07-01</td>
+<td>19.1</td>
+<td>18.2</td>
+<td>9.3</td>
+<td>9.0</td>
+<td>55.6</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="capture-the-month-info-into-a-separate-column" class="slide level2">
+<h2>Capture the month info into a separate column</h2>
+<p>With <code>DateTime</code> object as the index, we can easily capture the month info. This would be useful to see whether certain months tend to have higher unemployment rate based on this data.</p>
+<div id="ba73cb44" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a></a>unemp_data[<span class="st">'month'</span>] <span class="op">=</span> unemp_data.index.month</span>
+<span id="cb37-2"><a></a>unemp_data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="23">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">teenagers</th>
+<th data-quarto-table-cell-role="th">young_adults</th>
+<th data-quarto-table-cell-role="th">adults</th>
+<th data-quarto-table-cell-role="th">seniors</th>
+<th data-quarto-table-cell-role="th">total_unemployment</th>
+<th data-quarto-table-cell-role="th">month</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">date</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1948-01-01</td>
+<td>10.1</td>
+<td>6.6</td>
+<td>3.0</td>
+<td>3.6</td>
+<td>23.3</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1948-02-01</td>
+<td>11.5</td>
+<td>8.0</td>
+<td>3.6</td>
+<td>4.0</td>
+<td>27.1</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1948-03-01</td>
+<td>10.8</td>
+<td>8.6</td>
+<td>3.2</td>
+<td>3.5</td>
+<td>26.1</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1948-04-01</td>
+<td>8.8</td>
+<td>6.8</td>
+<td>3.2</td>
+<td>3.2</td>
+<td>22.0</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1948-05-01</td>
+<td>6.9</td>
+<td>6.3</td>
+<td>2.6</td>
+<td>2.9</td>
+<td>18.7</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="aggregate-statistics" class="slide level2">
+<h2>Aggregate statistics</h2>
+<p>Let’s calculate the average unemployment rate for each month based on this data.</p>
+<div id="442f4ca5" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a></a>unemp_permonth <span class="op">=</span> unemp_data.groupby(<span class="st">'month'</span>).mean()</span>
+<span id="cb38-2"><a></a><span class="bu">print</span>(unemp_permonth)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       teenagers  young_adults    adults   seniors  total_unemployment
+month                                                                 
+1      16.612987     10.276623  5.159740  4.264935           36.314286
+2      16.648052     10.207792  5.135065  4.290909           36.281818
+3      15.977922      9.727273  4.905195  4.138961           34.749351
+4      15.248052      9.076623  4.589610  3.902597           32.816883
+5      15.981818      9.262338  4.322078  3.631169           33.197403
+6      19.632468      9.836364  4.367532  3.646753           37.483117
+7      16.216883      9.293506  4.528571  3.781818           33.820779
+8      14.025974      8.961039  4.501299  3.703896           31.192208
+9      15.543421      8.925000  4.292105  3.468421           32.228947
+10     15.027632      8.500000  4.178947  3.432895           31.139474
+11     15.502632      8.493421  4.297368  3.618421           31.911842
+12     14.502632      8.522368  4.430263  3.686842           31.142105</code></pre>
+</div>
+</div>
+</section>
+<section id="task-5---resampling-to-quarterly-data" class="slide level2">
+<h2>Task 5 - Resampling to Quarterly data</h2>
+<p>With time series, we can calculate the quarterly average based on the monthly data with <code>resample()</code></p>
+<div id="91cc3369" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a></a>quarterly_data <span class="op">=</span> unemp_data.resample(<span class="st">'Q'</span>).mean()</span>
+<span id="cb40-2"><a></a>quarterly_data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">teenagers</th>
+<th data-quarto-table-cell-role="th">young_adults</th>
+<th data-quarto-table-cell-role="th">adults</th>
+<th data-quarto-table-cell-role="th">seniors</th>
+<th data-quarto-table-cell-role="th">total_unemployment</th>
+<th data-quarto-table-cell-role="th">month</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">date</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1948-03-31</td>
+<td>10.800000</td>
+<td>7.733333</td>
+<td>3.266667</td>
+<td>3.700000</td>
+<td>25.500000</td>
+<td>2.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1948-06-30</td>
+<td>9.700000</td>
+<td>6.466667</td>
+<td>2.733333</td>
+<td>2.900000</td>
+<td>21.800000</td>
+<td>5.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1948-09-30</td>
+<td>8.933333</td>
+<td>5.500000</td>
+<td>2.766667</td>
+<td>2.700000</td>
+<td>19.900000</td>
+<td>8.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1948-12-31</td>
+<td>7.066667</td>
+<td>4.933333</td>
+<td>2.600000</td>
+<td>3.166667</td>
+<td>17.766667</td>
+<td>11.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1949-03-31</td>
+<td>12.033333</td>
+<td>8.700000</td>
+<td>4.366667</td>
+<td>5.000000</td>
+<td>30.100000</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="resampling-to-yearly-data" class="slide level2">
+<h2>Resampling to Yearly data</h2>
+<p>Let’s find out what is the highest unemployment rate for each year!</p>
+<div id="bb5b133d" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a></a>yearly_data <span class="op">=</span> unemp_data.resample(<span class="st">'Y'</span>).<span class="bu">max</span>()</span>
+<span id="cb41-2"><a></a>yearly_data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="26">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">teenagers</th>
+<th data-quarto-table-cell-role="th">young_adults</th>
+<th data-quarto-table-cell-role="th">adults</th>
+<th data-quarto-table-cell-role="th">seniors</th>
+<th data-quarto-table-cell-role="th">total_unemployment</th>
+<th data-quarto-table-cell-role="th">month</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">date</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1948-12-31</td>
+<td>13.4</td>
+<td>8.6</td>
+<td>3.6</td>
+<td>4.0</td>
+<td>27.1</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1949-12-31</td>
+<td>19.0</td>
+<td>11.2</td>
+<td>5.3</td>
+<td>5.8</td>
+<td>38.4</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1950-12-31</td>
+<td>17.7</td>
+<td>12.2</td>
+<td>6.4</td>
+<td>7.0</td>
+<td>42.9</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1951-12-31</td>
+<td>12.2</td>
+<td>5.0</td>
+<td>3.6</td>
+<td>4.9</td>
+<td>23.1</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1952-12-31</td>
+<td>12.2</td>
+<td>5.4</td>
+<td>3.2</td>
+<td>3.4</td>
+<td>21.7</td>
+<td>12</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="saving-into-a-csv" class="slide level2">
+<h2>Saving into a CSV</h2>
+<p>Let’s save the quarterly data to a CSV!</p>
+<div id="9775f979" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a></a>quarterly_data.to_csv(<span class="st">"data-output/yearly-unemployment-age.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="changing-the-frequency-of-time-series" class="slide level2">
+<h2>Changing the frequency of Time Series</h2>
+<p>Let’s say we would like get a weekly time series. Since our data is a monthly one, there will be rows with empty values if we change the frequency. There are several methods that we can employ here to fill this empty values:</p>
+<ul>
+<li>backfill</li>
+<li>forward fill</li>
+<li>interpolate</li>
+</ul>
+<div id="e8aa274a" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a></a>unemp_data_weekly <span class="op">=</span> unemp_data.resample(<span class="st">'1W'</span>).ffill()</span>
+<span id="cb43-2"><a></a>unemp_data_weekly.tail()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="28">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">teenagers</th>
+<th data-quarto-table-cell-role="th">young_adults</th>
+<th data-quarto-table-cell-role="th">adults</th>
+<th data-quarto-table-cell-role="th">seniors</th>
+<th data-quarto-table-cell-role="th">total_unemployment</th>
+<th data-quarto-table-cell-role="th">month</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">date</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2024-07-07</td>
+<td>13.2</td>
+<td>8.1</td>
+<td>3.8</td>
+<td>3.3</td>
+<td>28.4</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2024-07-14</td>
+<td>13.2</td>
+<td>8.1</td>
+<td>3.8</td>
+<td>3.3</td>
+<td>28.4</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2024-07-21</td>
+<td>13.2</td>
+<td>8.1</td>
+<td>3.8</td>
+<td>3.3</td>
+<td>28.4</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2024-07-28</td>
+<td>13.2</td>
+<td>8.1</td>
+<td>3.8</td>
+<td>3.3</td>
+<td>28.4</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2024-08-04</td>
+<td>14.1</td>
+<td>8.0</td>
+<td>3.7</td>
+<td>3.1</td>
+<td>28.9</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="task-7---visualize-time-series" class="slide level2">
+<h2>Task 7 - Visualize Time Series</h2>
+<p>Let’s plot the entire</p>
+<div id="66b3b018" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a></a>unemp_data.plot()</span>
+<span id="cb44-2"><a></a>plt.title(<span class="st">'Unemployment Rate for Young Adults'</span>)</span>
+<span id="cb44-3"><a></a>plt.ylabel(<span class="st">'Unemployment Rate (%)'</span>)</span>
+<span id="cb44-4"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 </section>
-
-<section id="section-2-visualization-with-seaborn" class="title-slide slide level1 center">
-<h1>Section 2: Visualization with Seaborn</h1>
-
+<section id="task-7---visualize-time-series-output" class="slide level2 output-location-slide"><h2>Task 7 - Visualize Time Series</h2><div class="cell output-location-slide" data-execution_count="29">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="03-pandas_files/figure-revealjs/cell-30-output-1.png" width="1180" height="671"></p>
+</figure>
+</div>
+</div>
+</div></section><section id="calculate-the-changes-for-each-month" class="slide level2">
+<h2>Calculate the changes for each month</h2>
+<p>To capture the direction and magnitude of changes in unemployment rate each month, use <code>diff()</code> function!</p>
+<div id="a133fbc8" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a></a>unemp_data[<span class="st">'changes_ya'</span>] <span class="op">=</span> unemp_data[<span class="st">'young_adults'</span>].diff()</span>
+<span id="cb45-2"><a></a>unemp_data[<span class="st">'changes_ya'</span>].head(<span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="30">
+<pre><code>date
+1948-01-01    NaN
+1948-02-01    1.4
+1948-03-01    0.6
+1948-04-01   -1.8
+1948-05-01   -0.5
+1948-06-01    0.0
+1948-07-01    0.1
+Name: changes_ya, dtype: float64</code></pre>
+</div>
+</div>
 </section>
+<section id="calculate-yeor-on-year-changes-for-young-adults" class="slide level2">
+<h2>Calculate yeor-on-year changes for young adults</h2>
+<p>Let’s get the year-on-year change!</p>
+<div id="48871095" class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a></a>unemp_data[<span class="st">'ya_YoY_pctchange'</span>] <span class="op">=</span> unemp_data[<span class="st">'young_adults'</span>].pct_change(periods<span class="op">=</span><span class="dv">12</span>) <span class="co"># multiply by 100 to get the %</span></span>
+<span id="cb47-2"><a></a>unemp_data.tail()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="31">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<section id="section-3-datetime-object" class="title-slide slide level1 center">
-<h1>Section 3: DateTime object</h1>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">teenagers</th>
+<th data-quarto-table-cell-role="th">young_adults</th>
+<th data-quarto-table-cell-role="th">adults</th>
+<th data-quarto-table-cell-role="th">seniors</th>
+<th data-quarto-table-cell-role="th">total_unemployment</th>
+<th data-quarto-table-cell-role="th">month</th>
+<th data-quarto-table-cell-role="th">changes_ya</th>
+<th data-quarto-table-cell-role="th">ya_YoY_pctchange</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">date</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2024-04-01</td>
+<td>10.4</td>
+<td>6.0</td>
+<td>3.0</td>
+<td>2.8</td>
+<td>22.2</td>
+<td>4</td>
+<td>-1.2</td>
+<td>0.250000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2024-05-01</td>
+<td>12.1</td>
+<td>8.0</td>
+<td>3.1</td>
+<td>2.5</td>
+<td>25.7</td>
+<td>5</td>
+<td>2.0</td>
+<td>0.269841</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2024-06-01</td>
+<td>14.4</td>
+<td>8.2</td>
+<td>3.5</td>
+<td>2.9</td>
+<td>29.0</td>
+<td>6</td>
+<td>0.2</td>
+<td>0.223881</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2024-07-01</td>
+<td>13.2</td>
+<td>8.1</td>
+<td>3.8</td>
+<td>3.3</td>
+<td>28.4</td>
+<td>7</td>
+<td>-0.1</td>
+<td>0.125000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2024-08-01</td>
+<td>14.1</td>
+<td>8.0</td>
+<td>3.7</td>
+<td>3.1</td>
+<td>28.9</td>
+<td>8</td>
+<td>-0.1</td>
+<td>0.111111</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
 </section>
-
-<section id="section-4-time-series-with-pandas" class="title-slide slide level1 center">
-<h1>Section 4: Time Series with Pandas</h1>
+<section id="visualize-the-changes" class="slide level2">
+<h2>Visualize the changes</h2>
+<p>Let’s quickly visualize the changes:</p>
+<div id="ef2ab861" class="cell" data-execution_count="32">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="03-pandas_files/figure-revealjs/cell-33-output-1.png" width="1164" height="651"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="more-seaborn-scatterplot" class="slide level2">
+<h2>More Seaborn: Scatterplot</h2>
+<p>Seaborn can do many other visualizations as well. For example, let’s try plotting a scatterplot of ‘young_adults’ and ‘seniors’</p>
+<div id="dcd682d9" class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a></a>sns.scatterplot(x <span class="op">=</span> <span class="st">'young_adults'</span>, y <span class="op">=</span> <span class="st">'seniors'</span>, data <span class="op">=</span> unemp_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="03-pandas_files/figure-revealjs/cell-34-output-1.png" width="1180" height="651"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="more-seaborn-boxplot" class="slide level2">
+<h2>More Seaborn: Boxplot</h2>
+<p>Let’s see how unemployment rate fared each month for <code>young_adults</code>. Are there any outliers?</p>
+<div id="454801eb" class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a></a>sns.boxplot(x <span class="op">=</span> <span class="st">'month'</span>, y <span class="op">=</span> <span class="st">'young_adults'</span>, data<span class="op">=</span>unemp_data[[<span class="st">'month'</span>, <span class="st">'young_adults'</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="03-pandas_files/figure-revealjs/cell-35-output-1.png" width="1180" height="651"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="more-seaborn-barplot" class="slide level2">
+<h2>More Seaborn: Barplot</h2>
+<p>Which month seems to have the highest unemployment rate on average?</p>
+<div id="fa389be4" class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a></a>sns.barplot(data <span class="op">=</span> unemp_permonth, x <span class="op">=</span> unemp_permonth.index, y <span class="op">=</span> <span class="st">'young_adults'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="03-pandas_files/figure-revealjs/cell-36-output-1.png" width="1180" height="651"></p>
+</figure>
+</div>
+</div>
+</div>
 
 <div class="quarto-auto-generated-content">
 <p><img src="images/smu logo.png" class="slide-logo"></p>
@@ -387,6 +2004,7 @@ Bella Ratmelia
 </div>
 </div>
 </section>
+
     </div>
   </div>
 
@@ -686,7 +2304,7 @@ Bella Ratmelia
       }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp("https:\/\/bellaratmelia\.github\.io\/2024-python-macroecons\/");
+          var filterRegex = new RegExp('/' + window.location.host + '/');
         var isInternal = (href) => {
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
