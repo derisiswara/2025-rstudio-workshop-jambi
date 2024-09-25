@@ -160,21 +160,49 @@ gtag('config', 'G-Y8S6TK2GEH', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#section-1-what-and-why-pandas" id="toc-section-1-what-and-why-pandas" class="nav-link active" data-scroll-target="#section-1-what-and-why-pandas">Section 1: What and Why Pandas</a>
-  <ul class="collapse">
-  <li><a href="#learning-check" id="toc-learning-check" class="nav-link" data-scroll-target="#learning-check">Learning Check</a></li>
-  </ul></li>
-  <li><a href="#section-2-visualization-with-seaborn" id="toc-section-2-visualization-with-seaborn" class="nav-link" data-scroll-target="#section-2-visualization-with-seaborn">Section 2: Visualization with Seaborn</a></li>
-  <li><a href="#section-3-datetime-object" id="toc-section-3-datetime-object" class="nav-link" data-scroll-target="#section-3-datetime-object">Section 3: DateTime object</a></li>
-  <li><a href="#section-4-time-series-with-pandas" id="toc-section-4-time-series-with-pandas" class="nav-link" data-scroll-target="#section-4-time-series-with-pandas">Section 4: Time Series with Pandas</a>
-  <ul class="collapse">
-  <li><a href="#learning-check-1" id="toc-learning-check-1" class="nav-link" data-scroll-target="#learning-check-1">Learning Check</a></li>
-  </ul></li>
+  <li><a href="#whats-pandas" id="toc-whats-pandas" class="nav-link active" data-scroll-target="#whats-pandas">What’s Pandas?</a></li>
+  <li><a href="#comparison-to-numpy" id="toc-comparison-to-numpy" class="nav-link" data-scroll-target="#comparison-to-numpy">Comparison to Numpy</a></li>
+  <li><a href="#installing-and-importing-packages" id="toc-installing-and-importing-packages" class="nav-link" data-scroll-target="#installing-and-importing-packages">Installing and importing packages</a></li>
+  <li><a href="#load-data-from-csv-to-dataframe" id="toc-load-data-from-csv-to-dataframe" class="nav-link" data-scroll-target="#load-data-from-csv-to-dataframe">Load data from CSV to DataFrame</a></li>
+  <li><a href="#initial-checks-get-basic-info" id="toc-initial-checks-get-basic-info" class="nav-link" data-scroll-target="#initial-checks-get-basic-info">Initial checks: get basic info</a></li>
+  <li><a href="#initial-checks-get-summary-stats" id="toc-initial-checks-get-summary-stats" class="nav-link" data-scroll-target="#initial-checks-get-summary-stats">Initial checks: get summary stats</a></li>
+  <li><a href="#initial-checks-column-names" id="toc-initial-checks-column-names" class="nav-link" data-scroll-target="#initial-checks-column-names">Initial checks: column names</a></li>
+  <li><a href="#dropping-columns" id="toc-dropping-columns" class="nav-link" data-scroll-target="#dropping-columns">Dropping columns</a></li>
+  <li><a href="#renaming-columns" id="toc-renaming-columns" class="nav-link" data-scroll-target="#renaming-columns">Renaming columns</a></li>
+  <li><a href="#data-wrangling-with-pandas-and-seaborn---scenarios" id="toc-data-wrangling-with-pandas-and-seaborn---scenarios" class="nav-link" data-scroll-target="#data-wrangling-with-pandas-and-seaborn---scenarios">Data Wrangling with Pandas and Seaborn - Scenarios</a></li>
+  <li><a href="#task-1---handling-missing-values" id="toc-task-1---handling-missing-values" class="nav-link" data-scroll-target="#task-1---handling-missing-values">Task 1 - Handling missing values</a></li>
+  <li><a href="#handling-missing-values-drop-or-no-drop" id="toc-handling-missing-values-drop-or-no-drop" class="nav-link" data-scroll-target="#handling-missing-values-drop-or-no-drop">Handling missing values: drop or no drop?</a></li>
+  <li><a href="#task-2---retrieving-columns-a-single-column" id="toc-task-2---retrieving-columns-a-single-column" class="nav-link" data-scroll-target="#task-2---retrieving-columns-a-single-column">Task 2 - Retrieving columns: a single column</a></li>
+  <li><a href="#retrieving-columns-multiple-columns" id="toc-retrieving-columns-multiple-columns" class="nav-link" data-scroll-target="#retrieving-columns-multiple-columns">Retrieving columns: multiple columns</a></li>
+  <li><a href="#task-3---filtering-rows-without-query" id="toc-task-3---filtering-rows-without-query" class="nav-link" data-scroll-target="#task-3---filtering-rows-without-query">Task 3 - Filtering row(s): without query()</a></li>
+  <li><a href="#filtering-rows-with-query" id="toc-filtering-rows-with-query" class="nav-link" data-scroll-target="#filtering-rows-with-query">Filtering row(s): with query()</a></li>
+  <li><a href="#filtering-rows-with-query-and-save-result" id="toc-filtering-rows-with-query-and-save-result" class="nav-link" data-scroll-target="#filtering-rows-with-query-and-save-result">Filtering row(s): with query() and save result</a></li>
+  <li><a href="#task-4---adding-new-columns" id="toc-task-4---adding-new-columns" class="nav-link" data-scroll-target="#task-4---adding-new-columns">Task 4 - Adding new column(s)</a></li>
+  <li><a href="#side-quest-datetime-object" id="toc-side-quest-datetime-object" class="nav-link" data-scroll-target="#side-quest-datetime-object">Side quest: DateTime Object</a></li>
+  <li><a href="#components-of-datetime" id="toc-components-of-datetime" class="nav-link" data-scroll-target="#components-of-datetime">Components of DateTime</a></li>
+  <li><a href="#datetime-operations" id="toc-datetime-operations" class="nav-link" data-scroll-target="#datetime-operations">DateTime operations</a></li>
+  <li><a href="#back-to-main-quest-time-series-with-dataframe" id="toc-back-to-main-quest-time-series-with-dataframe" class="nav-link" data-scroll-target="#back-to-main-quest-time-series-with-dataframe">Back to Main Quest: Time Series with DataFrame</a></li>
+  <li><a href="#datetime-is-the-index-now-what" id="toc-datetime-is-the-index-now-what" class="nav-link" data-scroll-target="#datetime-is-the-index-now-what">DateTime is the index, now what?</a></li>
+  <li><a href="#extra-checks-with-time-series" id="toc-extra-checks-with-time-series" class="nav-link" data-scroll-target="#extra-checks-with-time-series">Extra checks with Time Series</a></li>
+  <li><a href="#retrieve-specific-date-range" id="toc-retrieve-specific-date-range" class="nav-link" data-scroll-target="#retrieve-specific-date-range">Retrieve specific date range</a></li>
+  <li><a href="#capture-the-month-info-into-a-separate-column" id="toc-capture-the-month-info-into-a-separate-column" class="nav-link" data-scroll-target="#capture-the-month-info-into-a-separate-column">Capture the month info into a separate column</a></li>
+  <li><a href="#aggregate-statistics" id="toc-aggregate-statistics" class="nav-link" data-scroll-target="#aggregate-statistics">Aggregate statistics</a></li>
+  <li><a href="#task-5---resampling-to-quarterly-data" id="toc-task-5---resampling-to-quarterly-data" class="nav-link" data-scroll-target="#task-5---resampling-to-quarterly-data">Task 5 - Resampling to Quarterly data</a></li>
+  <li><a href="#resampling-to-yearly-data" id="toc-resampling-to-yearly-data" class="nav-link" data-scroll-target="#resampling-to-yearly-data">Resampling to Yearly data</a></li>
+  <li><a href="#saving-into-a-csv" id="toc-saving-into-a-csv" class="nav-link" data-scroll-target="#saving-into-a-csv">Saving into a CSV</a></li>
+  <li><a href="#changing-the-frequency-of-time-series" id="toc-changing-the-frequency-of-time-series" class="nav-link" data-scroll-target="#changing-the-frequency-of-time-series">Changing the frequency of Time Series</a></li>
+  <li><a href="#task-7---visualize-time-series" id="toc-task-7---visualize-time-series" class="nav-link" data-scroll-target="#task-7---visualize-time-series">Task 7 - Visualize Time Series</a></li>
+  <li><a href="#calculate-the-changes-for-each-month" id="toc-calculate-the-changes-for-each-month" class="nav-link" data-scroll-target="#calculate-the-changes-for-each-month">Calculate the changes for each month</a></li>
+  <li><a href="#calculate-yeor-on-year-changes-for-young-adults" id="toc-calculate-yeor-on-year-changes-for-young-adults" class="nav-link" data-scroll-target="#calculate-yeor-on-year-changes-for-young-adults">Calculate yeor-on-year changes for young adults</a></li>
+  <li><a href="#visualize-the-changes" id="toc-visualize-the-changes" class="nav-link" data-scroll-target="#visualize-the-changes">Visualize the changes</a></li>
+  <li><a href="#more-seaborn-scatterplot" id="toc-more-seaborn-scatterplot" class="nav-link" data-scroll-target="#more-seaborn-scatterplot">More Seaborn: Scatterplot</a></li>
+  <li><a href="#more-seaborn-boxplot" id="toc-more-seaborn-boxplot" class="nav-link" data-scroll-target="#more-seaborn-boxplot">More Seaborn: Boxplot</a></li>
+  <li><a href="#more-seaborn-barplot" id="toc-more-seaborn-barplot" class="nav-link" data-scroll-target="#more-seaborn-barplot">More Seaborn: Barplot</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -202,217 +230,368 @@ gtag('config', 'G-Y8S6TK2GEH', { 'anonymize_ip': true});
 </header>
 
 
-<section id="section-1-what-and-why-pandas" class="level2">
-<h2 class="anchored" data-anchor-id="section-1-what-and-why-pandas">Section 1: What and Why Pandas</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Loading data to Python + prelim checks</p>
-<p>load/read CSV to Python via DataFrame</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">'econs-scholar-perception-survey.csv'</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Prelim check</p>
-<p>find out more about a dataframe.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Get the summary statistics of the columns that have numerical data.</p>
-<p>All other columns are ignored, unless you use the argument include=‘all’.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Renaming columns</strong></p>
-<p>Sometimes column names need to be renamed to make it easier for us</p>
-<p>rename columns to be all lowercaps with no whitespace (replace whitespace with underscore)</p>
-<p>rename them to something more meaningful</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>data.rename(columns <span class="op">=</span> {</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"country workplace"</span>: <span class="st">"country_workplace"</span>,</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"working abroad"</span>: <span class="st">"working_abroad"</span>,</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"marital status"</span>: <span class="st">"marital_status"</span>,</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"years of service"</span>: <span class="st">"years_of_service"</span>,</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"professional position"</span>: <span class="st">"professional_position"</span>,</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"proportion coauthored"</span> : <span class="st">"proportion_coauthored"</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>}, inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>data.columns ## Selecting specific columns of dataframe # Selecting a subset (“slicing”) # get the age of participants</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>data[<span class="st">"age"</span>]</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>data.age</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Describe just a column</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>data.age.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>get the marital_status and age of participants</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>data[[<span class="st">"marital_status"</span>, <span class="st">"age"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Describe the two columns</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>data[[<span class="st">"marital_status"</span>, <span class="st">"age"</span>]].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Filtering the rows to fit specified criteria</p>
-<p>Filtering: Get all data from participants who thinks networking benefit is important</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>criteria <span class="op">=</span> data[<span class="st">"benefits_furthernetworks"</span>] <span class="op">&gt;=</span> <span class="dv">2</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>data_network <span class="op">=</span> data[criteria]</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>data_network</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Get participants who thinks networking benefit is important AND is a professor</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>criteria <span class="op">=</span> (data[<span class="st">"benefits_furthernetworks"</span>] <span class="op">&gt;=</span> <span class="dv">2</span>) <span class="op">&amp;</span> (data[<span class="st">"professional_position"</span>] <span class="op">==</span> <span class="st">"Professor"</span>)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>data_prof_network <span class="op">=</span> data[criteria]</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>data_prof_network</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Filtering for both rows and columns</p>
-<p>Even more granular filtering with .loc, we can filter rows and columns criteria at one go</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>criteria <span class="op">=</span> (data[<span class="st">"professional_position"</span>] <span class="op">==</span> <span class="st">"Professor"</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>workplace_professor <span class="op">=</span> data.loc[criteria, <span class="st">"country_workplace"</span>]</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>workplace_professor</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>retrieve based on index number instead of column names or row values</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>data[<span class="dv">6</span>:<span class="dv">11</span>]</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># retrieve 2nd column of row 5 to 10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>use .iloc to perform this filtering+slicing in one go</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>data.iloc[<span class="dv">5</span>:<span class="dv">11</span>, <span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Handling empty values</p>
-<p>get participants whose age is known</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>criteria <span class="op">=</span> data[<span class="st">"professional_position"</span>].notna()</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>profession_known <span class="op">=</span> data[criteria]</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>profession_known</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>we can also update the values in dataframe, especially for the empty ones</p>
-<p>inplace = True so that the changes are applied to the dataframe itself</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>data[<span class="st">"professional_position"</span>].fillna(<span class="st">"Unknown"</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>data[<span class="st">"professional_position"</span>].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Counting and Sorting</p>
-<p>Find out country workplace of participants</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>data[<span class="st">"country_workplace"</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Find out how many participants work in their home country for each country</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>data[[<span class="st">"country_workplace"</span>, <span class="st">"nationality"</span>]].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>sort the data by continent</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>data.sort_values(by<span class="op">=</span><span class="st">"continent"</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>data.head(<span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>difference between gender when it comes to benefits_international</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>diff_gender <span class="op">=</span> data.groupby(by<span class="op">=</span>[<span class="st">"gender"</span>]).count()</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>diff_gender[<span class="st">"benefits_international"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Creating and dropping columns</p>
-<p>create a new column</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>data[<span class="st">"quali_rel"</span>] <span class="op">=</span> data[<span class="st">"marital_status"</span>] <span class="op">+</span> <span class="st">"-"</span> <span class="op">+</span> data[<span class="st">"qualification"</span>]</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>data.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>drop a column</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>data.drop(columns<span class="op">=</span>[<span class="st">"quali_rel"</span>], inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>data.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Average, median, mode</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>data[<span class="st">"benefits_international"</span>].mean()</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>data[<span class="st">"benefits_international"</span>].median()</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>data[<span class="st">"benefits_international"</span>].mode()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>difference between gender when it comes to benefits_international</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>grouped_data <span class="op">=</span> data.groupby(by<span class="op">=</span>[<span class="st">"gender"</span>]).mean()</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>grouped_data[<span class="st">'benefits_international'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Saving to CSV + simple visualizations</p>
-<p>saving the dataframe in its current state to a CSV</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>data.to_csv(<span class="st">"econs-scholars-edited.csv"</span>)</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'continent'</span>].value_counts().plot(kind<span class="op">=</span><span class="st">'bar'</span>, xlabel<span class="op">=</span><span class="st">'Continent'</span>, ylabel<span class="op">=</span><span class="st">'Count'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="learning-check" class="level3">
-<h3 class="anchored" data-anchor-id="learning-check">Learning Check</h3>
+<section id="whats-pandas" class="level2">
+<h2 class="anchored" data-anchor-id="whats-pandas">What’s Pandas?</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Giant_Panda_Eating.jpg/1024px-Giant_Panda_Eating.jpg" class="img-fluid"></p>
+</div><div class="column" style="width:60%;">
+<blockquote class="blockquote">
+<p><code>pandas</code> is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> <code>pandas</code> aims to be the fundamental high-level building block for doing practical, real world data analysis in Python.</p>
+</blockquote>
+<ul>
+<li>Well-established Python library for data manipulation and analysis</li>
+<li>Built on top of NumPy. Unlike Numpy who can be difficult to “read”, Dataframe presents data in tabular format that’s easier for humans to read and perceive.</li>
+<li>Provides DataFrame and Series data structures</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="comparison-to-numpy" class="level2">
+<h2 class="anchored" data-anchor-id="comparison-to-numpy">Comparison to Numpy</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 42%">
+<col style="width: 46%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Feature</strong></th>
+<th><strong>NumPy Array</strong></th>
+<th><strong>pandas DataFrame</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Data Types</strong></td>
+<td>All elements must be of the same type (e.g., integers, floats).</td>
+<td>Different columns can hold different data types (e.g., integers, floats, strings).</td>
+</tr>
+<tr class="even">
+<td><strong>Performance</strong></td>
+<td>Faster for numerical computations due to homogeneity and optimized implementation.</td>
+<td>Slightly slower but more flexible for working with heterogeneous or labeled data.</td>
+</tr>
+<tr class="odd">
+<td><strong>Dimensionality</strong></td>
+<td>Can be multi-dimensional (1D, 2D, 3D, etc.).</td>
+<td>Always two-dimensional with labeled rows and columns.</td>
+</tr>
+<tr class="even">
+<td><strong>Indexing</strong></td>
+<td>Purely positional indexing (e.g., <code>array[0, 1]</code>).</td>
+<td>Labeled-based indexing (<code>loc</code>), position-based indexing (<code>iloc</code>), access by both labels and positions.</td>
+</tr>
+<tr class="odd">
+<td><strong>Usage</strong></td>
+<td>Primarily for high-performance numerical and scientific computations.</td>
+<td>Primarily for data manipulation, analysis, and cleaning, especially for tabular and real-world datasets.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="installing-and-importing-packages" class="level2">
+<h2 class="anchored" data-anchor-id="installing-and-importing-packages">Installing and importing packages</h2>
+<p>To install this package, you can use this command:</p>
+<p><code>pip install pandas</code></p>
+<p><code>pip install seaborn</code></p>
+<p>Remember, we must first import these packages to our notebook / script before we can use them.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-simple callout-note callout-titled" title="Pandas Cheatsheet">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Pandas Cheatsheet
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Have this cheatsheet open on another tab as you work through your data: <a href="https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf" class="uri">https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf</a></p>
+</div>
+</div>
+</section>
+<section id="load-data-from-csv-to-dataframe" class="level2">
+<h2 class="anchored" data-anchor-id="load-data-from-csv-to-dataframe">Load data from CSV to DataFrame</h2>
+<div class="callout callout-style-simple callout-important callout-titled" title="Before we begin...">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Before we begin…
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://raw.githubusercontent.com/bellaratmelia/2024-python-macroecons/main/data/unemployment-age.csv">Right-click here to open <code>unemployment-age.csv</code></a>, and then Ctrl + S / Cmd + S to save it locally into your data folder</p>
+</div>
+</div>
+<p>Typically, we load the data from API source (more on this next week!) or external data file such as CSV. Let’s load the <code>unemployment-age.csv</code> now!</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>unemp_data <span class="op">=</span> pd.read_csv(<span class="st">'data/unemployment-age.csv'</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(unemp_data.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="initial-checks-get-basic-info" class="level2">
+<h2 class="anchored" data-anchor-id="initial-checks-get-basic-info">Initial checks: get basic info</h2>
+<p>The first thing that you should always do is check on the dataframe to get an overview of it. The function <code>info()</code> will tell us the data types for each columns, the number of observations, and index info if there’s any.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>unemp_data.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="initial-checks-get-summary-stats" class="level2">
+<h2 class="anchored" data-anchor-id="initial-checks-get-summary-stats">Initial checks: get summary stats</h2>
+<p>Also get the summary statistics to get a sense of the shape and spread of your data.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>unemp_data.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="initial-checks-column-names" class="level2">
+<h2 class="anchored" data-anchor-id="initial-checks-column-names">Initial checks: column names</h2>
+<p>Optional, but you may also want to check on the column names to see how it appears in our environment (useful if you happen to have non UTF-8 characters as your column names)</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(unemp_data.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="dropping-columns" class="level2">
+<h2 class="anchored" data-anchor-id="dropping-columns">Dropping columns</h2>
+<p>In some cases, we don’t really need the entire columns. Let’s drop the last column (that looks like an error in the CSV formatting).</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>unemp_data.drop(unemp_data.columns[<span class="op">-</span><span class="dv">1</span>], axis <span class="op">=</span> <span class="dv">1</span>, inplace<span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>unemp_data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="renaming-columns" class="level2">
+<h2 class="anchored" data-anchor-id="renaming-columns">Renaming columns</h2>
+<p>Sometimes the column names are not ideal. In our case, let’s give a name to each age group!</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>unemp_data.columns <span class="op">=</span> [<span class="st">'date'</span>, <span class="st">'teenagers'</span>, <span class="st">'young_adults'</span>, <span class="st">'adults'</span>, <span class="st">'seniors'</span>]</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(unemp_data.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Alternatively, if you just want to rename specific columns:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>unemp_data.rename(columns<span class="op">=</span>{<span class="st">'16_19yrs'</span>: <span class="st">'teenagers'</span>, <span class="st">'20_24yrs'</span>: <span class="st">'young_adults'</span>}, inplace <span class="op">=</span> <span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="data-wrangling-with-pandas-and-seaborn---scenarios" class="level2">
+<h2 class="anchored" data-anchor-id="data-wrangling-with-pandas-and-seaborn---scenarios">Data Wrangling with Pandas and Seaborn - Scenarios</h2>
+<p>Let’s see if we can complete the following tasks:</p>
 <ol type="1">
-<li>Get the country data of professors who rated benefits_qualityofpaper as important or above</li>
-<li>Sort participants based on country name in descending order</li>
-<li>Plot a bar chart that visualizes the data based on continent and gender</li>
+<li>Remove all the missing values</li>
+<li>We are primarily interested in the young adult unemployment. Separate this data into a new dataframe called <code>ya_unemp</code></li>
+<li>Retrieve the months and years where the young adult rate is more than 10 percent and keep this on <code>high_ya_unemp</code></li>
+<li>Add in a new column that tracks the total unemployment rate for each month</li>
+<li>Create a Quarterly dataset from the current dataframe that captures the mean unemployment rate</li>
+<li>Calculate the year-on-year change of unemployment rate</li>
+<li>Visualize the dataset</li>
 </ol>
-<p>answer to qn 1</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>criteria <span class="op">=</span> (data[<span class="st">"benefits_qualityofpaper"</span>] <span class="op">&gt;=</span> <span class="dv">3</span>)</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>country_data <span class="op">=</span> data.loc[criteria, <span class="st">"country_workplace"</span>]</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>country_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>answer to qn 2</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>sorted_by_country <span class="op">=</span> data.sort_values(by<span class="op">=</span><span class="st">"country_workplace"</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>sorted_by_country.head(<span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>answer to qn 3</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>data[[<span class="st">'continent'</span>, <span class="st">'gender'</span>]].value_counts().plot(kind<span class="op">=</span><span class="st">'bar'</span>, xlabel<span class="op">=</span><span class="st">'Continent, Gender'</span>, ylabel<span class="op">=</span><span class="st">'Count'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
+<section id="task-1---handling-missing-values" class="level2">
+<h2 class="anchored" data-anchor-id="task-1---handling-missing-values">Task 1 - Handling missing values</h2>
+<p>Other than <code>info()</code>, we can also use <code>isnull()</code> to check for null values</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check for missing values</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(unemp_data.isnull().<span class="bu">sum</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="section-2-visualization-with-seaborn" class="level2">
-<h2 class="anchored" data-anchor-id="section-2-visualization-with-seaborn">Section 2: Visualization with Seaborn</h2>
+<section id="handling-missing-values-drop-or-no-drop" class="level2">
+<h2 class="anchored" data-anchor-id="handling-missing-values-drop-or-no-drop">Handling missing values: drop or no drop?</h2>
+<p>We can drop those rows that contains null values with <code>dropna()</code>…</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop rows with missing values (if any)</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>unemp_data <span class="op">=</span> unemp_data.dropna()</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(unemp_data.info())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>… or we can also fill in the null values with something else, e.g.&nbsp;0</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>uemp_data <span class="op">=</span> unemp_data.fillna(<span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="section-3-datetime-object" class="level2">
-<h2 class="anchored" data-anchor-id="section-3-datetime-object">Section 3: DateTime object</h2>
+<section id="task-2---retrieving-columns-a-single-column" class="level2">
+<h2 class="anchored" data-anchor-id="task-2---retrieving-columns-a-single-column">Task 2 - Retrieving columns: a single column</h2>
+<p>As the column names in DataFrame are indexed, we can simply call them by their column names! (Much more intuitive compared to Numpy)</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>ya_unemp <span class="op">=</span> unemp_data[<span class="st">'young_adults'</span>]</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>ya_unemp.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="section-4-time-series-with-pandas" class="level2">
-<h2 class="anchored" data-anchor-id="section-4-time-series-with-pandas">Section 4: Time Series with Pandas</h2>
-<p>Loading time series data + data prep</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>cocoa <span class="op">=</span> pd.read_csv(<span class="st">'cocoa-price-daily.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>check the loaded data</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>cocoa.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>rename columns to make things easier</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>cocoa.rename(columns <span class="op">=</span> {</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Date"</span>: <span class="st">"date"</span>,</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"London futures (£ sterling/tonne)"</span>: <span class="st">"ldn_futures"</span>,</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"New York futures (US$/tonne)"</span>: <span class="st">"ny_futures"</span>,</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ICCO daily price (US$/tonne)"</span>: <span class="st">"icco_daily_usd"</span>,</span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ICCO daily price (Euro/tonne)"</span>: <span class="st">"icco_daily_euro"</span></span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>cocoa.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Set the date column as index</p>
-<p>set the date as a datetime object</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>cocoa[<span class="st">'date'</span>] <span class="op">=</span> pd.to_datetime(cocoa[<span class="st">'date'</span>])</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>cocoa.info()</span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>cocoa.set_index(<span class="st">'date'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>cocoa.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>check the data and the earliest date</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>cocoa.tail(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>sort index if necessary. By default, it will sort in ascending order</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>cocoa.sort_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>cocoa.tail(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Convert strings to float (if the numbers are saved as string)</p>
-<p>the “,” is hindering us from converting string to float</p>
-<p>replace the “,” with empty space to remove it</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>cocoa <span class="op">=</span> cocoa.replace(<span class="st">","</span>, <span class="st">""</span>, regex<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>cocoa.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>convert the appropriate columns to float data type</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>price_columns <span class="op">=</span> [<span class="st">'ldn_futures'</span>, <span class="st">'ny_futures'</span>, <span class="st">'icco_daily_usd'</span>, <span class="st">'icco_daily_euro'</span>]</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>cocoa[price_columns] <span class="op">=</span> cocoa[price_columns].astype(<span class="bu">float</span>)</span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>cocoa.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Manipulating data</p>
-<p>retrieving data on a specific year / month / date</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>cocoa.loc[<span class="st">'2015-10-11'</span>]</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>cocoa.loc[<span class="st">'2015-10'</span>]</span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>cocoa.loc[<span class="st">'2015'</span>]</span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>cocoa.loc[<span class="st">'2014'</span>:<span class="st">'2015'</span>]</span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>cocoa.loc[<span class="st">'2014'</span>:<span class="st">'2015'</span>, <span class="st">'ldn_futures'</span>]</span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>cocoa.loc[<span class="st">'2014'</span>:<span class="st">'2015'</span>, [<span class="st">'ldn_futures'</span>, <span class="st">'ny_futures'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Visualizing time series</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>visualize specific time period</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>cocoa.loc[<span class="st">'2014'</span>:<span class="st">'2015'</span>, <span class="st">'ldn_futures'</span>].plot(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Handling missing values and resampling</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>cocoa.loc[<span class="st">'2015-10'</span>].head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>fill in missing dates with resample</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>cocoa_daily <span class="op">=</span> cocoa.resample(<span class="st">'D'</span>).asfreq()</span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>cocoa_daily.loc[<span class="st">'2015-10'</span>].head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The graph will look odd if we do not fill the missing values</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>cocoa_daily.loc[<span class="st">'2015-10'</span>].plot(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>fill in the missing value with forward fill/ backward fill/ interpolation</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>cocoa_daily <span class="op">=</span> cocoa.resample(<span class="st">'1D'</span>).ffill()</span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>cocoa_daily.loc[<span class="st">'2015-10'</span>].head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Get monthly average with resampling</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>monthly_cocoa <span class="op">=</span> cocoa.resample(<span class="st">'M'</span>).mean()</span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>monthly_cocoa.loc[<span class="st">'2015'</span>].head(<span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Calculating changes</p>
-<p>create new column to calculate changes to daily price in USD</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>cocoa_daily[<span class="st">'changes_usd'</span>] <span class="op">=</span> cocoa_daily[<span class="st">'icco_daily_usd'</span>].diff()</span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>cocoa_daily.loc[<span class="st">'2015-10'</span>].head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>create new column to calculate changes to daily price in USD, but capture in percentage</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>cocoa_daily[<span class="st">'changes_usd_pct'</span>] <span class="op">=</span> cocoa_daily[<span class="st">'icco_daily_usd'</span>].pct_change().multiply(<span class="dv">100</span>)</span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>cocoa_daily.loc[<span class="st">'2015-10'</span>].head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="learning-check-1" class="level3">
-<h3 class="anchored" data-anchor-id="learning-check-1">Learning Check</h3>
-<p><em>hint: check out pandas documentation on which function to use!</em> 1. Find the 6 months rolling average and rolling standard deviation for icco_daily_euro 2. plot the rolling average and the rolling standard deviation with the original value # answer to qn1 # use the .rolling function and specify the rolling window # use .agg function as a short cut to apply multiple functions (in this case mean() and std()) to the dataframe # save the result to cocoa_roll_mean_std</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>cocoa_roll_mean_std <span class="op">=</span> cocoa_daily[<span class="st">'icco_daily_euro'</span>].rolling(window<span class="op">=</span><span class="st">'180D'</span>).agg([<span class="st">'mean'</span>, <span class="st">'std'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>check our dataframe</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>cocoa_roll_mean_std.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>answer to qn2</p>
-<p>as we also want to plot the actual price of the day, let’s add the original value from cocoa_daily to cocoa_roll_mean_std</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>cocoa_roll_mean_std[<span class="st">'actual_price'</span>] <span class="op">=</span> cocoa_daily[<span class="st">'icco_daily_euro'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>plot the data. subplots=True will plot each column in different sub plot. this is completely optional btw.</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>cocoa_roll_mean_std.plot(figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">9</span>), subplots<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="retrieving-columns-multiple-columns" class="level2">
+<h2 class="anchored" data-anchor-id="retrieving-columns-multiple-columns">Retrieving columns: multiple columns</h2>
+<p>Similarly, if we want to retrieve multiple columns, we can pass <strong>a list of column names</strong> to the dataframe and save these sliced columns into a new dataframe.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>ya_unemp <span class="op">=</span> unemp_data[[<span class="st">'date'</span>, <span class="st">'young_adults'</span>]]</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>ya_unemp.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="task-3---filtering-rows-without-query" class="level2">
+<h2 class="anchored" data-anchor-id="task-3---filtering-rows-without-query">Task 3 - Filtering row(s): without query()</h2>
+<p>We can do it “raw” or us the <code>query</code> function from pandas. Here is how you can do it without the <code>query()</code> function:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>criteria <span class="op">=</span> unemp_data[<span class="st">"young_adults"</span>] <span class="op">&gt;</span> <span class="dv">10</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>high_ya_unemp <span class="op">=</span> unemp_data[criteria]</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>high_ya_unemp.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="filtering-rows-with-query" class="level2">
+<h2 class="anchored" data-anchor-id="filtering-rows-with-query">Filtering row(s): with query()</h2>
+<p>And here is how you can do it with the <code>query()</code> function:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(unemp_data.query(<span class="st">'young_adults &gt; 10'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="filtering-rows-with-query-and-save-result" class="level2">
+<h2 class="anchored" data-anchor-id="filtering-rows-with-query-and-save-result">Filtering row(s): with query() and save result</h2>
+<p>Take note that the previous code will simply print out the result! If you want to save the result, make sure to assign the result to a new dataframe.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>high_ya_unemp <span class="op">=</span> unemp_data.query(<span class="st">'young_adults &gt; 10'</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>high_ya_unemp.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="task-4---adding-new-columns" class="level2">
+<h2 class="anchored" data-anchor-id="task-4---adding-new-columns">Task 4 - Adding new column(s)</h2>
+<p>Let’s add a new column for total unemployment (sum of all age groups)</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>unemp_data[<span class="st">'total_unemployment'</span>] <span class="op">=</span> unemp_data[<span class="st">'teenagers'</span>] <span class="op">+</span> unemp_data[<span class="st">'young_adults'</span>] <span class="op">+</span> unemp_data[<span class="st">'adults'</span>] <span class="op">+</span> unemp_data[<span class="st">'seniors'</span>]</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>unemp_data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="side-quest-datetime-object" class="level2">
+<h2 class="anchored" data-anchor-id="side-quest-datetime-object">Side quest: DateTime Object</h2>
+<ul>
+<li>A <code>DateTime</code> object in Python, provided by the <code>datetime</code> module, represents a specific point in time, including the year, month, day, hour, minute, second, and microsecond.</li>
+<li>It can be used to manipulate dates and times, perform arithmetic on dates, and format dates into other string representation e.g.&nbsp;from dd/mm/yyyy to yyyy-mm-dd.</li>
+</ul>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>now <span class="op">=</span> datetime.now()</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Current Date and Time:"</span>, now)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="components-of-datetime" class="level2">
+<h2 class="anchored" data-anchor-id="components-of-datetime">Components of DateTime</h2>
+<p>The <code>DateTime</code> object consists of multiple components that represent different parts of the date and time, such as year, month, day, hour, minute, second, etc. You can access these components individually.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract year, month, and day from a specific date</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>now <span class="op">=</span> datetime.now()</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Access individual components</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Year:"</span>, now.year)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Month:"</span>, now.month)</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Day:"</span>, now.day)</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hour:"</span>, now.hour)</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Minute:"</span>, now.minute)</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Second:"</span>, now.second)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="datetime-operations" class="level2">
+<h2 class="anchored" data-anchor-id="datetime-operations">DateTime operations</h2>
+<ul>
+<li>You can perform various operations with DateTime objects, such as calculating the difference between two dates or adding/subtracting time with the help of <code>timedelta</code>.</li>
+<li>These are essential for time series data manipulation, where date-based arithmetic is often required.</li>
+</ul>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> timedelta</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>now <span class="op">=</span> datetime.now()</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>last_week <span class="op">=</span> now <span class="op">-</span> timedelta(days<span class="op">=</span><span class="dv">7</span>)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"1 week ago:"</span>, last_week)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="back-to-main-quest-time-series-with-dataframe" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="back-to-main-quest-time-series-with-dataframe">Back to Main Quest: Time Series with DataFrame</h2>
+<p>Let’s index the rows under <code>date</code> column as a DateTime index.</p>
+<div class="sourceCode" id="annotated-cell-21"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-21" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-21-1" class="code-annotation-target"><a href="#annotated-cell-21-1" aria-hidden="true" tabindex="-1"></a>unemp_data[<span class="st">'date'</span>] <span class="op">=</span> pd.to_datetime(unemp_data[<span class="st">'date'</span>], <span class="bu">format</span><span class="op">=</span><span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">"</span>)</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-21" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-21-2" class="code-annotation-target"><a href="#annotated-cell-21-2" aria-hidden="true" tabindex="-1"></a>unemp_data.set_index(<span class="st">'date'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-21" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-21" data-code-lines="1" data-code-annotation="1">Convert the data type under <code>date</code> column from string to <code>DateTime</code> object</span>
+</dd>
+<dt data-target-cell="annotated-cell-21" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-21" data-code-lines="2" data-code-annotation="2">Set the <code>date</code> column as the index.</span>
+</dd>
+</dl>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>You can refer to this page to see how to format the string expression of DateTime object: <a href="https://www.w3schools.com/python/python_datetime.asp" class="uri">https://www.w3schools.com/python/python_datetime.asp</a></p>
+</div></div></section>
+<section id="datetime-is-the-index-now-what" class="level2">
+<h2 class="anchored" data-anchor-id="datetime-is-the-index-now-what">DateTime is the index, now what?</h2>
+<p>Let’s check on the dataframe once more, to make sure that it is indexed as intended:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>unemp_data.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If all goes well, the <code>date</code> column should be part of the index now.</p>
+</section>
+<section id="extra-checks-with-time-series" class="level2">
+<h2 class="anchored" data-anchor-id="extra-checks-with-time-series">Extra checks with Time Series</h2>
+<p>Other things that we may want to check with Time Series is the date range of our data.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"start date"</span>, unemp_data.index.<span class="bu">min</span>())</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"end date"</span>, unemp_data.index.<span class="bu">max</span>())</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"length"</span>, unemp_data.index.<span class="bu">max</span>() <span class="op">-</span> unemp_data.index.<span class="bu">min</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="retrieve-specific-date-range" class="level2">
+<h2 class="anchored" data-anchor-id="retrieve-specific-date-range">Retrieve specific date range</h2>
+<p>Now that the index is a <code>DateTime</code> object, we can easily retrieve specific date range! Let’s say we would like retrieve unemployment rate for during COVID, which will be March 2020 to May 2023.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>unemp_data_covid <span class="op">=</span> unemp_data.loc[<span class="st">'2020-03'</span>:<span class="st">'2023-05'</span>]</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>unemp_data_covid.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="capture-the-month-info-into-a-separate-column" class="level2">
+<h2 class="anchored" data-anchor-id="capture-the-month-info-into-a-separate-column">Capture the month info into a separate column</h2>
+<p>With <code>DateTime</code> object as the index, we can easily capture the month info. This would be useful to see whether certain months tend to have higher unemployment rate based on this data.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>unemp_data[<span class="st">'month'</span>] <span class="op">=</span> unemp_data.index.month</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>unemp_data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="aggregate-statistics" class="level2">
+<h2 class="anchored" data-anchor-id="aggregate-statistics">Aggregate statistics</h2>
+<p>Let’s calculate the average unemployment rate for each month based on this data.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>unemp_permonth <span class="op">=</span> unemp_data.groupby(<span class="st">'month'</span>).mean()</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(unemp_permonth)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="task-5---resampling-to-quarterly-data" class="level2">
+<h2 class="anchored" data-anchor-id="task-5---resampling-to-quarterly-data">Task 5 - Resampling to Quarterly data</h2>
+<p>With time series, we can calculate the quarterly average based on the monthly data with <code>resample()</code></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>quarterly_data <span class="op">=</span> unemp_data.resample(<span class="st">'Q'</span>).mean()</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>quarterly_data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="resampling-to-yearly-data" class="level2">
+<h2 class="anchored" data-anchor-id="resampling-to-yearly-data">Resampling to Yearly data</h2>
+<p>Let’s find out what is the highest unemployment rate for each year!</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>yearly_data <span class="op">=</span> unemp_data.resample(<span class="st">'Y'</span>).<span class="bu">max</span>()</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>yearly_data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="saving-into-a-csv" class="level2">
+<h2 class="anchored" data-anchor-id="saving-into-a-csv">Saving into a CSV</h2>
+<p>Let’s save the quarterly data to a CSV!</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>quarterly_data.to_csv(<span class="st">"data-output/yearly-unemployment-age.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="changing-the-frequency-of-time-series" class="level2">
+<h2 class="anchored" data-anchor-id="changing-the-frequency-of-time-series">Changing the frequency of Time Series</h2>
+<p>Let’s say we would like get a weekly time series. Since our data is a monthly one, there will be rows with empty values if we change the frequency. There are several methods that we can employ here to fill this empty values:</p>
+<ul>
+<li>backfill</li>
+<li>forward fill</li>
+<li>interpolate</li>
+</ul>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>unemp_data_weekly <span class="op">=</span> unemp_data.resample(<span class="st">'1W'</span>).ffill()</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>unemp_data_weekly.tail()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="task-7---visualize-time-series" class="level2">
+<h2 class="anchored" data-anchor-id="task-7---visualize-time-series">Task 7 - Visualize Time Series</h2>
+<p>Let’s plot the entire</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>unemp_data.plot()</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Unemployment Rate for Young Adults'</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Unemployment Rate (%)'</span>)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="calculate-the-changes-for-each-month" class="level2">
+<h2 class="anchored" data-anchor-id="calculate-the-changes-for-each-month">Calculate the changes for each month</h2>
+<p>To capture the direction and magnitude of changes in unemployment rate each month, use <code>diff()</code> function!</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>unemp_data[<span class="st">'changes_ya'</span>] <span class="op">=</span> unemp_data[<span class="st">'young_adults'</span>].diff()</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>unemp_data[<span class="st">'changes_ya'</span>].head(<span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="calculate-yeor-on-year-changes-for-young-adults" class="level2">
+<h2 class="anchored" data-anchor-id="calculate-yeor-on-year-changes-for-young-adults">Calculate yeor-on-year changes for young adults</h2>
+<p>Let’s get the year-on-year change!</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>unemp_data[<span class="st">'ya_YoY_pctchange'</span>] <span class="op">=</span> unemp_data[<span class="st">'young_adults'</span>].pct_change(periods<span class="op">=</span><span class="dv">12</span>) <span class="co"># multiply by 100 to get the %</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>unemp_data.tail()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="visualize-the-changes" class="level2">
+<h2 class="anchored" data-anchor-id="visualize-the-changes">Visualize the changes</h2>
+<p>Let’s quickly visualize the changes:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>unemp_data[<span class="st">'changes_ya'</span>].plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="more-seaborn-scatterplot" class="level2">
+<h2 class="anchored" data-anchor-id="more-seaborn-scatterplot">More Seaborn: Scatterplot</h2>
+<p>Seaborn can do many other visualizations as well. For example, let’s try plotting a scatterplot of ‘young_adults’ and ‘seniors’</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x <span class="op">=</span> <span class="st">'young_adults'</span>, y <span class="op">=</span> <span class="st">'seniors'</span>, data <span class="op">=</span> unemp_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="more-seaborn-boxplot" class="level2">
+<h2 class="anchored" data-anchor-id="more-seaborn-boxplot">More Seaborn: Boxplot</h2>
+<p>Let’s see how unemployment rate fared each month for <code>young_adults</code>. Are there any outliers?</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(x <span class="op">=</span> <span class="st">'month'</span>, y <span class="op">=</span> <span class="st">'young_adults'</span>, data<span class="op">=</span>unemp_data[[<span class="st">'month'</span>, <span class="st">'young_adults'</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="more-seaborn-barplot" class="level2">
+<h2 class="anchored" data-anchor-id="more-seaborn-barplot">More Seaborn: Barplot</h2>
+<p>Which month seems to have the highest unemployment rate on average?</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>sns.barplot(data <span class="op">=</span> unemp_permonth, x <span class="op">=</span> unemp_permonth.index, y <span class="op">=</span> <span class="st">'young_adults'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
-</section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p><a href="https://pandas.pydata.org/" class="uri">https://pandas.pydata.org/</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
