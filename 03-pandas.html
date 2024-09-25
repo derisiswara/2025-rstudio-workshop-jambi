@@ -503,7 +503,7 @@ Bella Ratmelia
 <p><code>pip install pandas</code></p>
 <p><code>pip install seaborn</code></p>
 <p>Remember, we must first import these packages to our notebook / script before we can use them.</p>
-<div id="0f0bc58e" class="cell" data-execution_count="1">
+<div id="263a940f" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -542,7 +542,7 @@ Bella Ratmelia
 </div>
 </div>
 <p>Typically, we load the data from API source (more on this next week!) or external data file such as CSV. Let’s load the <code>unemployment-age.csv</code> now!</p>
-<div id="28b7d9c5" class="cell" data-execution_count="2">
+<div id="e16b7ee5" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>unemp_data <span class="op">=</span> pd.read_csv(<span class="st">'data/unemployment-age.csv'</span>)</span>
 <span id="cb2-2"><a></a><span class="bu">print</span>(unemp_data.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -558,7 +558,7 @@ Bella Ratmelia
 <section id="initial-checks-get-basic-info" class="slide level2">
 <h2>Initial checks: get basic info</h2>
 <p>The first thing that you should always do is check on the dataframe to get an overview of it. The function <code>info()</code> will tell us the data types for each columns, the number of observations, and index info if there’s any.</p>
-<div id="3344da37" class="cell" data-execution_count="3">
+<div id="5feb6569" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a>unemp_data.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -580,7 +580,7 @@ memory usage: 43.3+ KB</code></pre>
 <section id="initial-checks-get-summary-stats" class="slide level2">
 <h2>Initial checks: get summary stats</h2>
 <p>Also get the summary statistics to get a sense of the shape and spread of your data.</p>
-<div id="4dadaf8b" class="cell" data-execution_count="4">
+<div id="5859986a" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a>unemp_data.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <div>
@@ -684,7 +684,7 @@ memory usage: 43.3+ KB</code></pre>
 <section id="initial-checks-column-names" class="slide level2">
 <h2>Initial checks: column names</h2>
 <p>Optional, but you may also want to check on the column names to see how it appears in our environment (useful if you happen to have non UTF-8 characters as your column names)</p>
-<div id="512a0345" class="cell" data-execution_count="5">
+<div id="24d49e6e" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="bu">print</span>(unemp_data.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Index(['date', '16_19yrs', '20_24yrs', '25_54yrs', '55yrs_onwards',
@@ -696,7 +696,7 @@ memory usage: 43.3+ KB</code></pre>
 <section id="dropping-columns" class="slide level2">
 <h2>Dropping columns</h2>
 <p>In some cases, we don’t really need the entire columns. Let’s drop the last column (that looks like an error in the CSV formatting).</p>
-<div id="750a5d87" class="cell" data-execution_count="6">
+<div id="2591ee97" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>unemp_data.drop(unemp_data.columns[<span class="op">-</span><span class="dv">1</span>], axis <span class="op">=</span> <span class="dv">1</span>, inplace<span class="op">=</span> <span class="va">True</span>)</span>
 <span id="cb9-2"><a></a>unemp_data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
@@ -777,7 +777,7 @@ memory usage: 43.3+ KB</code></pre>
 <section id="renaming-columns" class="slide level2">
 <h2>Renaming columns</h2>
 <p>Sometimes the column names are not ideal. In our case, let’s give a name to each age group!</p>
-<div id="61689fa1" class="cell" data-execution_count="7">
+<div id="64057f7b" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a>unemp_data.columns <span class="op">=</span> [<span class="st">'date'</span>, <span class="st">'teenagers'</span>, <span class="st">'young_adults'</span>, <span class="st">'adults'</span>, <span class="st">'seniors'</span>]</span>
 <span id="cb10-2"><a></a><span class="bu">print</span>(unemp_data.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -797,7 +797,7 @@ memory usage: 43.3+ KB</code></pre>
 <section id="task-1---handling-missing-values" class="slide level2">
 <h2>Task 1 - Handling missing values</h2>
 <p>Other than <code>info()</code>, we can also use <code>isnull()</code> to check for null values</p>
-<div id="1027d6d2" class="cell" data-execution_count="8">
+<div id="51dd71ff" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a><span class="co"># Check for missing values</span></span>
 <span id="cb13-2"><a></a><span class="bu">print</span>(unemp_data.isnull().<span class="bu">sum</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -813,7 +813,7 @@ dtype: int64</code></pre>
 <section id="handling-missing-values-drop-or-no-drop" class="slide level2">
 <h2>Handling missing values: drop or no drop?</h2>
 <p>We can drop those rows that contains null values with <code>dropna()</code>…</p>
-<div id="d4163590" class="cell" data-execution_count="9">
+<div id="60b56fe0" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python code-overflow-wrap number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a><span class="co"># Drop rows with missing values (if any)</span></span>
 <span id="cb15-2"><a></a>unemp_data <span class="op">=</span> unemp_data.dropna()</span>
 <span id="cb15-3"><a></a><span class="bu">print</span>(unemp_data.info())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -839,7 +839,7 @@ None</code></pre>
 <section id="task-2---retrieving-columns-a-single-column" class="slide level2">
 <h2>Task 2 - Retrieving columns: a single column</h2>
 <p>As the column names in DataFrame are indexed, we can simply call them by their column names! (Much more intuitive compared to Numpy)</p>
-<div id="0e1fb2ed" class="cell" data-execution_count="10">
+<div id="07f35105" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a></a>ya_unemp <span class="op">=</span> unemp_data[<span class="st">'young_adults'</span>]</span>
 <span id="cb18-2"><a></a>ya_unemp.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -857,7 +857,7 @@ Name: young_adults, dtype: float64</code></pre>
 <section id="retrieving-columns-multiple-columns" class="slide level2">
 <h2>Retrieving columns: multiple columns</h2>
 <p>Similarly, if we want to retrieve multiple columns, we can pass <strong>a list of column names</strong> to the dataframe and save these sliced columns into a new dataframe.</p>
-<div id="7cc6b912" class="cell" data-execution_count="11">
+<div id="9b0cb306" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a>ya_unemp <span class="op">=</span> unemp_data[[<span class="st">'date'</span>, <span class="st">'young_adults'</span>]]</span>
 <span id="cb20-2"><a></a>ya_unemp.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -922,7 +922,7 @@ Name: young_adults, dtype: float64</code></pre>
 <section id="task-3---filtering-rows-without-query" class="slide level2">
 <h2>Task 3 - Filtering row(s): without query()</h2>
 <p>We can do it “raw” or us the <code>query</code> function from pandas. Here is how you can do it without the <code>query()</code> function:</p>
-<div id="0f636d80" class="cell" data-execution_count="12">
+<div id="d9912f01" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a>criteria <span class="op">=</span> unemp_data[<span class="st">"young_adults"</span>] <span class="op">&gt;</span> <span class="dv">10</span></span>
 <span id="cb21-2"><a></a>high_ya_unemp <span class="op">=</span> unemp_data[criteria]</span>
 <span id="cb21-3"><a></a>high_ya_unemp.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1006,7 +1006,7 @@ Name: young_adults, dtype: float64</code></pre>
 <section id="filtering-rows-with-query" class="slide level2">
 <h2>Filtering row(s): with query()</h2>
 <p>And here is how you can do it with the <code>query()</code> function:</p>
-<div id="a226579d" class="cell" data-execution_count="13">
+<div id="24b305ef" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a><span class="bu">print</span>(unemp_data.query(<span class="st">'young_adults &gt; 10'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment" data-execution_count="13">
@@ -1031,7 +1031,7 @@ Name: young_adults, dtype: float64</code></pre>
 <section id="filtering-rows-with-query-and-save-result" class="slide level2">
 <h2>Filtering row(s): with query() and save result</h2>
 <p>Take note that the previous code will simply print out the result! If you want to save the result, make sure to assign the result to a new dataframe.</p>
-<div id="df224608" class="cell" data-execution_count="14">
+<div id="8aad2d0d" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a></a>high_ya_unemp <span class="op">=</span> unemp_data.query(<span class="st">'young_adults &gt; 10'</span>)</span>
 <span id="cb24-2"><a></a>high_ya_unemp.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1114,7 +1114,7 @@ Name: young_adults, dtype: float64</code></pre>
 <section id="task-4---adding-new-columns" class="slide level2">
 <h2>Task 4 - Adding new column(s)</h2>
 <p>Let’s add a new column for total unemployment (sum of all age groups)</p>
-<div id="f0997ec6" class="cell" data-execution_count="15">
+<div id="16e1eee3" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python code-overflow-wrap number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a>unemp_data[<span class="st">'total_unemployment'</span>] <span class="op">=</span> unemp_data[<span class="st">'teenagers'</span>] <span class="op">+</span> unemp_data[<span class="st">'young_adults'</span>] <span class="op">+</span> unemp_data[<span class="st">'adults'</span>] <span class="op">+</span> unemp_data[<span class="st">'seniors'</span>]</span>
 <span id="cb25-2"><a></a>unemp_data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
@@ -1197,6 +1197,27 @@ Name: young_adults, dtype: float64</code></pre>
 </div>
 </div>
 </div>
+</section>
+<section id="learning-check-1" class="slide level2">
+<h2>Learning Check #1</h2>
+<p>Retrieve data where the employment rate for adults are between 9 to 12 inclusive. Save only the <code>date</code> and <code>adults</code> column to a new dataframe called <code>adult_unemp</code></p>
+<div id="95a4653b" class="cell" data-execution_count="16">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a></a>adult_unemp <span class="op">=</span> unemp_data[[<span class="st">'date'</span>, <span class="st">'adults'</span>]].query(<span class="st">'adults &gt;= 9 &amp; adults &lt;= 12'</span>)</span>
+<span id="cb26-2"><a></a><span class="bu">print</span>(adult_unemp.head())</span>
+<span id="cb26-3"><a></a><span class="bu">print</span>(adult_unemp.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>           date  adults
+419  1982-12-01     9.0
+420  1983-01-01     9.7
+421  1983-02-01     9.6
+422  1983-03-01     9.2
+744  2010-01-01     9.6
+(10, 2)</code></pre>
+</div>
+</div>
 </section></section>
 <section>
 <section id="step-2-time-series-analysis" class="title-slide slide level1 center">
@@ -1209,37 +1230,37 @@ Name: young_adults, dtype: float64</code></pre>
 <li>A <code>DateTime</code> object in Python, provided by the <code>datetime</code> module, represents a specific point in time, including the year, month, day, hour, minute, second, and microsecond.</li>
 <li>It can be used to manipulate dates and times, perform arithmetic on dates, and format dates into other string representation e.g.&nbsp;from dd/mm/yyyy to yyyy-mm-dd.</li>
 </ul>
-<div id="765b7834" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
-<span id="cb26-2"><a></a></span>
-<span id="cb26-3"><a></a>now <span class="op">=</span> datetime.now()</span>
-<span id="cb26-4"><a></a><span class="bu">print</span>(<span class="st">"Current Date and Time:"</span>, now)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="996429ac" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
+<span id="cb28-2"><a></a></span>
+<span id="cb28-3"><a></a>now <span class="op">=</span> datetime.now()</span>
+<span id="cb28-4"><a></a><span class="bu">print</span>(<span class="st">"Current Date and Time:"</span>, now)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Current Date and Time: 2024-09-25 15:45:54.970980</code></pre>
+<pre><code>Current Date and Time: 2024-09-25 17:46:40.937151</code></pre>
 </div>
 </div>
 </section>
 <section id="components-of-datetime" class="slide level2">
 <h2>Components of DateTime</h2>
 <p>The <code>DateTime</code> object consists of multiple components that represent different parts of the date and time, such as year, month, day, hour, minute, second, etc. You can access these components individually.</p>
-<div id="363cd0cc" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a></a><span class="co"># Extract year, month, and day from a specific date</span></span>
-<span id="cb28-2"><a></a>now <span class="op">=</span> datetime.now()</span>
-<span id="cb28-3"><a></a></span>
-<span id="cb28-4"><a></a><span class="co"># Access individual components</span></span>
-<span id="cb28-5"><a></a><span class="bu">print</span>(<span class="st">"Year:"</span>, now.year)</span>
-<span id="cb28-6"><a></a><span class="bu">print</span>(<span class="st">"Month:"</span>, now.month)</span>
-<span id="cb28-7"><a></a><span class="bu">print</span>(<span class="st">"Day:"</span>, now.day)</span>
-<span id="cb28-8"><a></a><span class="bu">print</span>(<span class="st">"Hour:"</span>, now.hour)</span>
-<span id="cb28-9"><a></a><span class="bu">print</span>(<span class="st">"Minute:"</span>, now.minute)</span>
-<span id="cb28-10"><a></a><span class="bu">print</span>(<span class="st">"Second:"</span>, now.second)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f9d3e86d" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a></a><span class="co"># Extract year, month, and day from a specific date</span></span>
+<span id="cb30-2"><a></a>now <span class="op">=</span> datetime.now()</span>
+<span id="cb30-3"><a></a></span>
+<span id="cb30-4"><a></a><span class="co"># Access individual components</span></span>
+<span id="cb30-5"><a></a><span class="bu">print</span>(<span class="st">"Year:"</span>, now.year)</span>
+<span id="cb30-6"><a></a><span class="bu">print</span>(<span class="st">"Month:"</span>, now.month)</span>
+<span id="cb30-7"><a></a><span class="bu">print</span>(<span class="st">"Day:"</span>, now.day)</span>
+<span id="cb30-8"><a></a><span class="bu">print</span>(<span class="st">"Hour:"</span>, now.hour)</span>
+<span id="cb30-9"><a></a><span class="bu">print</span>(<span class="st">"Minute:"</span>, now.minute)</span>
+<span id="cb30-10"><a></a><span class="bu">print</span>(<span class="st">"Second:"</span>, now.second)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Year: 2024
 Month: 9
 Day: 25
-Hour: 15
-Minute: 45
-Second: 55</code></pre>
+Hour: 17
+Minute: 46
+Second: 40</code></pre>
 </div>
 </div>
 </section>
@@ -1249,33 +1270,33 @@ Second: 55</code></pre>
 <li>You can perform various operations with DateTime objects, such as calculating the difference between two dates or adding/subtracting time with the help of <code>timedelta</code>.</li>
 <li>These are essential for time series data manipulation, where date-based arithmetic is often required.</li>
 </ul>
-<div id="8749ee17" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a></a><span class="im">from</span> datetime <span class="im">import</span> timedelta</span>
-<span id="cb30-2"><a></a></span>
-<span id="cb30-3"><a></a>now <span class="op">=</span> datetime.now()</span>
-<span id="cb30-4"><a></a></span>
-<span id="cb30-5"><a></a>last_week <span class="op">=</span> now <span class="op">-</span> timedelta(days<span class="op">=</span><span class="dv">7</span>)</span>
-<span id="cb30-6"><a></a><span class="bu">print</span>(<span class="st">"1 week ago:"</span>, last_week)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e151a1a5" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a></a><span class="im">from</span> datetime <span class="im">import</span> timedelta</span>
+<span id="cb32-2"><a></a></span>
+<span id="cb32-3"><a></a>now <span class="op">=</span> datetime.now()</span>
+<span id="cb32-4"><a></a></span>
+<span id="cb32-5"><a></a>last_week <span class="op">=</span> now <span class="op">-</span> timedelta(days<span class="op">=</span><span class="dv">7</span>)</span>
+<span id="cb32-6"><a></a><span class="bu">print</span>(<span class="st">"1 week ago:"</span>, last_week)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>1 week ago: 2024-09-18 15:45:55.060955</code></pre>
+<pre><code>1 week ago: 2024-09-18 17:46:40.981345</code></pre>
 </div>
 </div>
 </section>
 <section id="back-to-main-quest-time-series-with-dataframe" class="slide level2">
 <h2>Back to Main Quest: Time Series with DataFrame</h2>
 <p>Let’s index the rows under <code>date</code> column as a DateTime index.</p>
-<div id="b398d84a" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="annotated-cell-21" data-code-line-numbers="1|2"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-21" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-21-1" class="code-annotation-target"><a href="#annotated-cell-21-1"></a>unemp_data[<span class="st">'date'</span>] <span class="op">=</span> pd.to_datetime(unemp_data[<span class="st">'date'</span>], <span class="bu">format</span><span class="op">=</span><span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">"</span>)</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-21" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-21-2" class="code-annotation-target"><a href="#annotated-cell-21-2"></a>unemp_data.set_index(<span class="st">'date'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="44a9cd17" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="annotated-cell-22" data-code-line-numbers="1|2"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-22" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-22-1" class="code-annotation-target"><a href="#annotated-cell-22-1"></a>unemp_data[<span class="st">'date'</span>] <span class="op">=</span> pd.to_datetime(unemp_data[<span class="st">'date'</span>], <span class="bu">format</span><span class="op">=</span><span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">"</span>)</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-22" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-22-2" class="code-annotation-target"><a href="#annotated-cell-22-2"></a>unemp_data.set_index(<span class="st">'date'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-annotation">
 <dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-21" data-target-annotation="1">1</dt>
+<dt data-target-cell="annotated-cell-22" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-21" data-code-lines="1" data-code-annotation="1">Convert the data type under <code>date</code> column from string to <code>DateTime</code> object</span>
+<span data-code-cell="annotated-cell-22" data-code-lines="1" data-code-annotation="1">Convert the data type under <code>date</code> column from string to <code>DateTime</code> object</span>
 </dd>
-<dt data-target-cell="annotated-cell-21" data-target-annotation="2">2</dt>
+<dt data-target-cell="annotated-cell-22" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-21" data-code-lines="2" data-code-annotation="2">Set the <code>date</code> column as the index.</span>
+<span data-code-cell="annotated-cell-22" data-code-lines="2" data-code-annotation="2">Set the <code>date</code> column as the index.</span>
 </dd>
 </dl>
 </div>
@@ -1287,8 +1308,8 @@ Second: 55</code></pre>
 <section id="datetime-is-the-index-now-what" class="slide level2">
 <h2>DateTime is the index, now what?</h2>
 <p>Let’s check on the dataframe once more, to make sure that it is indexed as intended:</p>
-<div id="bec707d1" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a></a>unemp_data.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="861aec83" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a></a>unemp_data.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
 DatetimeIndex: 920 entries, 1948-01-01 to 2024-08-01
@@ -1309,10 +1330,10 @@ memory usage: 43.1 KB</code></pre>
 <section id="extra-checks-with-time-series" class="slide level2">
 <h2>Extra checks with Time Series</h2>
 <p>Other things that we may want to check with Time Series is the date range of our data.</p>
-<div id="845246c4" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a></a><span class="bu">print</span>(<span class="st">"start date"</span>, unemp_data.index.<span class="bu">min</span>())</span>
-<span id="cb34-2"><a></a><span class="bu">print</span>(<span class="st">"end date"</span>, unemp_data.index.<span class="bu">max</span>())</span>
-<span id="cb34-3"><a></a><span class="bu">print</span>(<span class="st">"length"</span>, unemp_data.index.<span class="bu">max</span>() <span class="op">-</span> unemp_data.index.<span class="bu">min</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="73d1c5b8" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a></a><span class="bu">print</span>(<span class="st">"start date"</span>, unemp_data.index.<span class="bu">min</span>())</span>
+<span id="cb36-2"><a></a><span class="bu">print</span>(<span class="st">"end date"</span>, unemp_data.index.<span class="bu">max</span>())</span>
+<span id="cb36-3"><a></a><span class="bu">print</span>(<span class="st">"length"</span>, unemp_data.index.<span class="bu">max</span>() <span class="op">-</span> unemp_data.index.<span class="bu">min</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>start date 1948-01-01 00:00:00
 end date 2024-08-01 00:00:00
@@ -1323,9 +1344,9 @@ length 27972 days 00:00:00</code></pre>
 <section id="retrieve-specific-date-range" class="slide level2">
 <h2>Retrieve specific date range</h2>
 <p>Now that the index is a <code>DateTime</code> object, we can easily retrieve specific date range! Let’s say we would like retrieve unemployment rate for during COVID, which will be March 2020 to May 2023.</p>
-<div id="c0ad8af9" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a></a>unemp_data_covid <span class="op">=</span> unemp_data.loc[<span class="st">'2020-03'</span>:<span class="st">'2023-05'</span>]</span>
-<span id="cb36-2"><a></a><span class="bu">print</span>(unemp_data_covid.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="9043b06b" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a></a>unemp_data_covid <span class="op">=</span> unemp_data.loc[<span class="st">'2020-03'</span>:<span class="st">'2023-05'</span>]</span>
+<span id="cb38-2"><a></a><span class="bu">print</span>(unemp_data_covid.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            teenagers  young_adults  adults  seniors  total_unemployment
 date                                                                    
@@ -1340,9 +1361,9 @@ date
 <section id="task-5---resampling-to-quarterly-data-and-get-the-quarterly-mean" class="slide level2">
 <h2>Task 5 - Resampling to Quarterly data and get the quarterly mean</h2>
 <p>With time series, we can calculate the quarterly average based on the monthly data with <code>resample()</code></p>
-<div id="e04fefcb" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a></a>quarterly_data <span class="op">=</span> unemp_data.resample(<span class="st">'Q'</span>).mean()</span>
-<span id="cb38-2"><a></a><span class="bu">print</span>(quarterly_data.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="1fb3a6a4" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a></a>quarterly_data <span class="op">=</span> unemp_data.resample(<span class="st">'Q'</span>).mean()</span>
+<span id="cb40-2"><a></a><span class="bu">print</span>(quarterly_data.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            teenagers  young_adults    adults   seniors  total_unemployment
 date                                                                       
@@ -1357,9 +1378,9 @@ date
 <section id="resampling-to-yearly-data" class="slide level2">
 <h2>Resampling to Yearly data</h2>
 <p>Let’s find out what is the highest unemployment rate for each year!</p>
-<div id="b6a9ca0e" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a></a>yearly_data <span class="op">=</span> unemp_data.resample(<span class="st">'Y'</span>).<span class="bu">max</span>()</span>
-<span id="cb40-2"><a></a><span class="bu">print</span>(yearly_data.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="46ef1146" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a></a>yearly_data <span class="op">=</span> unemp_data.resample(<span class="st">'Y'</span>).<span class="bu">max</span>()</span>
+<span id="cb42-2"><a></a><span class="bu">print</span>(yearly_data.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            teenagers  young_adults  adults  seniors  total_unemployment
 date                                                                    
@@ -1374,8 +1395,8 @@ date
 <section id="saving-into-a-csv" class="slide level2">
 <h2>Saving into a CSV</h2>
 <p>Let’s save the quarterly data to a CSV!</p>
-<div id="083c75b0" class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a></a>quarterly_data.to_csv(<span class="st">"data-output/yearly-unemployment-age.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="068604a3" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a></a>quarterly_data.to_csv(<span class="st">"data-output/yearly-unemployment-age.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="changing-the-frequency-of-time-series-more-granular" class="slide level2">
@@ -1386,9 +1407,9 @@ date
 <li>forward fill</li>
 <li>interpolate</li>
 </ul>
-<div id="4156893a" class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a></a>unemp_data_weekly <span class="op">=</span> unemp_data.resample(<span class="st">'1W'</span>).ffill()</span>
-<span id="cb43-2"><a></a><span class="bu">print</span>(unemp_data_weekly.tail())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="edebda0c" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a></a>unemp_data_weekly <span class="op">=</span> unemp_data.resample(<span class="st">'1W'</span>).ffill()</span>
+<span id="cb45-2"><a></a><span class="bu">print</span>(unemp_data_weekly.tail())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            teenagers  young_adults  adults  seniors  total_unemployment
 date                                                                    
@@ -1403,9 +1424,9 @@ date
 <section id="task-6---calculate-year-on-year-changes-for-young-adults" class="slide level2">
 <h2>Task 6 - Calculate year-on-year changes for young adults</h2>
 <p>Let’s get the year-on-year change for young adults age group.</p>
-<div id="3a231fd3" class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a></a>unemp_data[<span class="st">'ya_YoY_pctchange'</span>] <span class="op">=</span> unemp_data[<span class="st">'young_adults'</span>].pct_change(periods<span class="op">=</span><span class="dv">12</span>) <span class="co"># multiply by 100 to get the %</span></span>
-<span id="cb45-2"><a></a><span class="bu">print</span>(unemp_data.tail())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2033872d" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a></a>unemp_data[<span class="st">'ya_YoY_pctchange'</span>] <span class="op">=</span> unemp_data[<span class="st">'young_adults'</span>].pct_change(periods<span class="op">=</span><span class="dv">12</span>) <span class="co"># multiply by 100 to get the %</span></span>
+<span id="cb47-2"><a></a><span class="bu">print</span>(unemp_data.tail())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            teenagers  young_adults  adults  seniors  total_unemployment  \
 date                                                                       
@@ -1428,9 +1449,9 @@ date
 <section id="calculate-the-changes-for-each-month" class="slide level2">
 <h2>Calculate the changes for each month</h2>
 <p>To capture the direction and magnitude of changes in unemployment rate each month, use <code>diff()</code> function.</p>
-<div id="442aa637" class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a></a>unemp_data[<span class="st">'changes_ya'</span>] <span class="op">=</span> unemp_data[<span class="st">'young_adults'</span>].diff()</span>
-<span id="cb47-2"><a></a><span class="bu">print</span>(unemp_data[<span class="st">'changes_ya'</span>].head(<span class="dv">7</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="81b33d2c" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a></a>unemp_data[<span class="st">'changes_ya'</span>] <span class="op">=</span> unemp_data[<span class="st">'young_adults'</span>].diff()</span>
+<span id="cb49-2"><a></a><span class="bu">print</span>(unemp_data[<span class="st">'changes_ya'</span>].head(<span class="dv">7</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>date
 1948-01-01    NaN
@@ -1447,14 +1468,42 @@ Name: changes_ya, dtype: float64</code></pre>
 <section id="visualize-the-changes" class="slide level2">
 <h2>Visualize the changes</h2>
 <p>Pandas is built on top of NumPy and integrates well with Matplotlib, so it is super easy to plot data right away—especially now that we’ve set the index!</p>
-<div id="1e592650" class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a></a>unemp_data[<span class="st">'changes_ya'</span>].plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="349bac17" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a></a>unemp_data[<span class="st">'changes_ya'</span>].plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="03-pandas_files/figure-revealjs/cell-30-output-1.png" width="1164" height="651"></p>
+<p><img data-src="03-pandas_files/figure-revealjs/cell-31-output-1.png" width="1164" height="651"></p>
 </figure>
 </div>
+</div>
+</div>
+</section>
+<section id="learning-check-2" class="slide level2">
+<h2>Learning Check #2</h2>
+<p>Change the frequency of the time series to weekly, and interpolate the numbers. Save this new series into <code>unemp_weekly_interpolate</code></p>
+<div id="40bd74eb" class="cell" data-execution_count="31">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a></a>unemp_weekly_interpolate <span class="op">=</span> unemp_data.resample(<span class="st">'1W'</span>).interpolate()</span>
+<span id="cb52-2"><a></a><span class="bu">print</span>(unemp_weekly_interpolate.tail())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>            teenagers  young_adults  adults  seniors  total_unemployment  \
+date                                                                       
+2024-07-07       13.1           6.6     3.0      2.5                25.2   
+2024-07-14       13.1           6.6     3.0      2.5                25.2   
+2024-07-21       13.1           6.6     3.0      2.5                25.2   
+2024-07-28       13.1           6.6     3.0      2.5                25.2   
+2024-08-04       13.1           6.6     3.0      2.5                25.2   
+
+            ya_YoY_pctchange  changes_ya  
+date                                      
+2024-07-07          0.015385        -0.5  
+2024-07-14          0.015385        -0.5  
+2024-07-21          0.015385        -0.5  
+2024-07-28          0.015385        -0.5  
+2024-08-04          0.015385        -0.5  </code></pre>
 </div>
 </div>
 </section></section>
@@ -1477,32 +1526,124 @@ Name: changes_ya, dtype: float64</code></pre>
 <li>Cheatsheet by Datacamp here: <a href="https://python-graph-gallery.com/cheat-sheets/" class="uri">https://python-graph-gallery.com/cheat-sheets/</a></li>
 </ul>
 </div></div>
+<p>Some setups we can do:</p>
+<div id="54d27bb9" class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb54-2"><a></a>sns.set_style(<span class="st">"whitegrid"</span>)</span>
+<span id="cb54-3"><a></a>sns.set_palette(<span class="st">"husl"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <aside><ol class="aside-footnotes"><li id="fn2"><p><a href="https://seaborn.pydata.org/" class="uri">https://seaborn.pydata.org/</a></p></li></ol></aside></section>
 <section id="task-7---plot-the-entire-time-series" class="slide level2">
 <h2>Task 7 - Plot the entire time series</h2>
 <p>Let’s plot the unemployment rate over the years for each age group!</p>
-<div id="90c6b6de" class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a></a>unemp_data.plot()</span>
-<span id="cb50-2"><a></a>plt.title(<span class="st">'Unemployment Rate for Young Adults'</span>)</span>
-<span id="cb50-3"><a></a>plt.ylabel(<span class="st">'Unemployment Rate (%)'</span>)</span>
-<span id="cb50-4"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="97f28cdf" class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a></a>unemp_data.plot()</span>
+<span id="cb55-2"><a></a>plt.title(<span class="st">'Unemployment Rate for Young Adults'</span>)</span>
+<span id="cb55-3"><a></a>plt.ylabel(<span class="st">'Unemployment Rate (%)'</span>)</span>
+<span id="cb55-4"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 </section>
-<section id="task-7---plot-the-entire-time-series-output" class="slide level2 output-location-slide"><h2>Task 7 - Plot the entire time series</h2><div class="cell output-location-slide" data-execution_count="30">
+<section id="task-7---plot-the-entire-time-series-output" class="slide level2 output-location-slide"><h2>Task 7 - Plot the entire time series</h2><div class="cell output-location-slide" data-execution_count="33">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="03-pandas_files/figure-revealjs/cell-31-output-1.png" width="1180" height="671"></p>
+<p><img data-src="03-pandas_files/figure-revealjs/cell-34-output-1.png" width="1177" height="669"></p>
 </figure>
 </div>
 </div>
-</div></section><section id="making-visualization-easier-capture-month-info-into-a-separate-column" class="slide level2">
+</div></section><section id="plotting-some-parts-of-the-time-series" class="slide level2">
+<h2>Plotting <em>some</em> parts of the time series</h2>
+<p>Clearly, there are some columns that we may want to skip. To do this, we can reshape the data shape into long format using <code>melt()</code>. Let’s say we only want to visualize <code>teenagers</code>, <code>young_adults</code>, and <code>adults</code></p>
+<div id="4c42e669" class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="annotated-cell-36" data-code-line-numbers="1|2|3"><pre class="sourceCode numberSource python code-overflow-wrap code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-36" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-36-1" class="code-annotation-target"><a href="#annotated-cell-36-1"></a>youth_data <span class="op">=</span> unemp_data[[<span class="st">'teenagers'</span>, <span class="st">'young_adults'</span>]]</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-36" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-36-2" class="code-annotation-target"><a href="#annotated-cell-36-2"></a>youth_data <span class="op">=</span> youth_data.reset_index()</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-36" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-36-3" class="code-annotation-target"><a href="#annotated-cell-36-3"></a>youth_data_melted <span class="op">=</span> youth_data.melt(id_vars<span class="op">=</span><span class="st">'date'</span>, value_vars<span class="op">=</span>[<span class="st">'teenagers'</span>, <span class="st">'young_adults'</span>], var_name<span class="op">=</span><span class="st">'age_group'</span>, value_name<span class="op">=</span><span class="st">'unemployment_rate'</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-36" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-36" data-code-lines="1" data-code-annotation="1">Retrieve the columns that we need (index will be automatically included)</span>
+</dd>
+<dt data-target-cell="annotated-cell-36" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-36" data-code-lines="2" data-code-annotation="2">Reset the index, so that it’s back to normal column.</span>
+</dd>
+<dt data-target-cell="annotated-cell-36" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-36" data-code-lines="3" data-code-annotation="3">Use the melt() function to “melt” the wide data into long format</span>
+</dd>
+</dl>
+</div>
+</div>
+</section>
+<section id="wide-data-vs-long-data" class="slide level2">
+<h2>Wide data vs Long data</h2>
+<p>Check out the difference!</p>
+<div class="columns">
+<div class="column">
+<p>Wide Data</p>
+<div id="082718f2" class="cell" data-execution_count="35">
+<div class="cell-output cell-output-stdout">
+<pre><code>            teenagers  young_adults
+date                               
+1948-01-01       10.1           6.6
+1948-02-01       11.5           8.0
+1948-03-01       10.8           8.6
+1948-04-01        8.8           6.8
+1948-05-01        6.9           6.3
+...               ...           ...
+2024-04-01       10.4           6.0
+2024-05-01       12.1           8.0
+2024-06-01       14.4           8.2
+2024-07-01       13.2           8.1
+2024-08-01       14.1           8.0
+
+[920 rows x 2 columns]</code></pre>
+</div>
+</div>
+</div><div class="column">
+<p>Long Data</p>
+<div id="3ceab7e7" class="cell" data-execution_count="36">
+<div class="cell-output cell-output-stdout">
+<pre><code>           date     age_group  unemployment_rate
+0    1948-01-01     teenagers               10.1
+1    1948-02-01     teenagers               11.5
+2    1948-03-01     teenagers               10.8
+3    1948-04-01     teenagers                8.8
+4    1948-05-01     teenagers                6.9
+...         ...           ...                ...
+1835 2024-04-01  young_adults                6.0
+1836 2024-05-01  young_adults                8.0
+1837 2024-06-01  young_adults                8.2
+1838 2024-07-01  young_adults                8.1
+1839 2024-08-01  young_adults                8.0
+
+[1840 rows x 3 columns]</code></pre>
+</div>
+</div>
+</div></div>
+</section>
+<section id="visualizing-is-much-easier-with-long-data" class="slide level2">
+<h2>Visualizing is much easier with long data</h2>
+<p>We can now fit the things we want in a single line like so:</p>
+<div id="4fb50d1f" class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a></a>sns.lineplot(data<span class="op">=</span>youth_data_melted, x<span class="op">=</span><span class="st">'date'</span>, y<span class="op">=</span><span class="st">'unemployment_rate'</span>, hue<span class="op">=</span><span class="st">'age_group'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="03-pandas_files/figure-revealjs/cell-38-output-1.png" width="1177" height="649"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="making-visualization-easier-capture-month-info-into-a-separate-column" class="slide level2">
 <h2>Making visualization easier: Capture month info into a separate column</h2>
 <p>With <code>DateTime</code> object as the index, we can easily capture the month info. This would be useful to see whether certain months tend to have higher unemployment rate based on this data.</p>
-<div id="7f51271c" class="cell" data-execution_count="31">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a></a>unemp_data[<span class="st">'month'</span>] <span class="op">=</span> unemp_data.index.month</span>
-<span id="cb51-2"><a></a><span class="bu">print</span>(unemp_data.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="6a7064ac" class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a></a>unemp_data[<span class="st">'month'</span>] <span class="op">=</span> unemp_data.index.month</span>
+<span id="cb59-2"><a></a><span class="bu">print</span>(unemp_data.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            teenagers  young_adults  adults  seniors  total_unemployment  \
 date                                                                       
@@ -1525,9 +1666,9 @@ date
 <section id="aggregate-statistics" class="slide level2">
 <h2>Aggregate statistics</h2>
 <p>Let’s calculate the average unemployment rate for each month based on this data.</p>
-<div id="0b6c00b8" class="cell" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a></a>unemp_permonth <span class="op">=</span> unemp_data.groupby(<span class="st">'month'</span>).mean()</span>
-<span id="cb53-2"><a></a><span class="bu">print</span>(unemp_permonth)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="9e0726d9" class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a></a>unemp_permonth <span class="op">=</span> unemp_data.groupby(<span class="st">'month'</span>).mean()</span>
+<span id="cb61-2"><a></a><span class="bu">print</span>(unemp_permonth)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       teenagers  young_adults    adults   seniors  total_unemployment  \
 month                                                                    
@@ -1561,15 +1702,15 @@ month
 </div>
 </div>
 </section>
-<section id="task-8---months-where-uenmployment-rate-then-to-be-high" class="slide level2">
-<h2>Task 8 - Months where uenmployment rate then to be high</h2>
+<section id="task-8---months-where-unemployment-rate-then-to-be-high" class="slide level2">
+<h2>Task 8 - Months where unemployment rate then to be high</h2>
 <p>Which month seems to have the highest unemployment rate on average?</p>
-<div id="fe9ad9c1" class="cell" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a></a>sns.barplot(data <span class="op">=</span> unemp_permonth, x <span class="op">=</span> unemp_permonth.index, y <span class="op">=</span> <span class="st">'young_adults'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a1197c09" class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a></a>sns.barplot(data <span class="op">=</span> unemp_permonth, x <span class="op">=</span> unemp_permonth.index, y <span class="op">=</span> <span class="st">'young_adults'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="03-pandas_files/figure-revealjs/cell-34-output-1.png" width="1180" height="651"></p>
+<p><img data-src="03-pandas_files/figure-revealjs/cell-41-output-1.png" width="1177" height="649"></p>
 </figure>
 </div>
 </div>
@@ -1578,12 +1719,12 @@ month
 <section id="task-9---finding-outliers" class="slide level2">
 <h2>Task 9 - Finding outliers</h2>
 <p>Let’s see how unemployment rate fared each month for <code>young_adults</code>. Are there any outliers?</p>
-<div id="81f392f2" class="cell" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a></a>sns.boxplot(x <span class="op">=</span> <span class="st">'month'</span>, y <span class="op">=</span> <span class="st">'young_adults'</span>, data<span class="op">=</span>unemp_data[[<span class="st">'month'</span>, <span class="st">'young_adults'</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b9dffe0f" class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a></a>sns.boxplot(x <span class="op">=</span> <span class="st">'month'</span>, y <span class="op">=</span> <span class="st">'young_adults'</span>, data<span class="op">=</span>unemp_data[[<span class="st">'month'</span>, <span class="st">'young_adults'</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="03-pandas_files/figure-revealjs/cell-35-output-1.png" width="1180" height="651"></p>
+<p><img data-src="03-pandas_files/figure-revealjs/cell-42-output-1.png" width="1177" height="649"></p>
 </figure>
 </div>
 </div>
@@ -1592,12 +1733,43 @@ month
 <section id="more-seaborn-scatterplot" class="slide level2">
 <h2>More Seaborn: Scatterplot</h2>
 <p>Seaborn can do many other visualizations as well. For example, let’s try plotting a scatterplot of <code>young_adults</code> and <code>seniors</code></p>
-<div id="8acf4233" class="cell" data-execution_count="35">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a></a>sns.scatterplot(x <span class="op">=</span> <span class="st">'young_adults'</span>, y <span class="op">=</span> <span class="st">'seniors'</span>, data <span class="op">=</span> unemp_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="33895a1f" class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a></a>sns.scatterplot(x <span class="op">=</span> <span class="st">'young_adults'</span>, y <span class="op">=</span> <span class="st">'seniors'</span>, data <span class="op">=</span> unemp_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="03-pandas_files/figure-revealjs/cell-36-output-1.png" width="1180" height="651"></p>
+<p><img data-src="03-pandas_files/figure-revealjs/cell-43-output-1.png" width="1177" height="649"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="more-seaborn-regplot" class="slide level2">
+<h2>More Seaborn: Regplot</h2>
+<p>Let’s try plotting a regression plot of <code>young_adults</code> and <code>seniors</code></p>
+<div id="d9306a1a" class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a></a>sns.regplot(x <span class="op">=</span> <span class="st">'young_adults'</span>, y <span class="op">=</span> <span class="st">'seniors'</span>, data <span class="op">=</span> unemp_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="03-pandas_files/figure-revealjs/cell-44-output-1.png" width="1177" height="649"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="learning-check-3" class="slide level2">
+<h2>Learning Check #3</h2>
+<p>Plot the unemployment rate fared each month for <code>young_adults</code> with violin plot to see the distribution better.</p>
+<div id="5e7b1730" class="cell" data-execution_count="44">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a></a>sns.violinplot(x <span class="op">=</span> <span class="st">'month'</span>, y <span class="op">=</span> <span class="st">'young_adults'</span>, data<span class="op">=</span>unemp_data[[<span class="st">'month'</span>, <span class="st">'young_adults'</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="03-pandas_files/figure-revealjs/cell-45-output-1.png" width="1177" height="649"></p>
 </figure>
 </div>
 </div>
