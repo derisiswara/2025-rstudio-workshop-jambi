@@ -144,14 +144,14 @@
     "href": "03-pandas.html#overview-for-today",
     "title": "Introduction to Pandas and Seaborn",
     "section": "Overview for today",
-    "text": "Overview for today\n\nWhat and Why Pandas\nVisualization with Seaborn\nDateTime object\nTime Series with Pandas"
+    "text": "Overview for today\nToday, we will cover the typical steps when doing data analysis projects. For this session, we will do simple time series analysis.\n\nStep 1: Loading and pre-processing data (with pandas)\nStep 2: Time Series analysis\nStep 3: Data Visualization (with Seaborn)"
   },
   {
     "objectID": "03-pandas.html#whats-pandas",
     "href": "03-pandas.html#whats-pandas",
     "title": "Introduction to Pandas and Seaborn",
     "section": "What’s Pandas?",
-    "text": "What’s Pandas?\n\n\n\n\n\npandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language. 1 pandas aims to be the fundamental high-level building block for doing practical, real world data analysis in Python.\n\n\nWell-established Python library for data manipulation and analysis\nBuilt on top of NumPy. Unlike Numpy who can be difficult to “read”, Dataframe presents data in tabular format that’s easier for humans to read and perceive.\nProvides DataFrame and Series data structures\n\n\nhttps://pandas.pydata.org/"
+    "text": "What’s Pandas?\n\n\n\n\n\npandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language. pandas aims to be the fundamental high-level building block for doing practical, real world data analysis in Python. 1\n\n\nWell-established Python library for data manipulation and analysis\nBuilt on top of NumPy. Unlike Numpy who can be difficult to “read”, Dataframe presents data in tabular format that’s easier for humans to read and perceive.\nProvides DataFrame and Series data structures\nMany cheatsheets available: https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf or https://python-graph-gallery.com/cheat-sheets/\n\n\nhttps://pandas.pydata.org/"
   },
   {
     "objectID": "03-pandas.html#comparison-to-numpy",
@@ -165,7 +165,7 @@
     "href": "03-pandas.html#installing-and-importing-packages",
     "title": "Introduction to Pandas and Seaborn",
     "section": "Installing and importing packages",
-    "text": "Installing and importing packages\nTo install this package, you can use this command:\npip install pandas\npip install seaborn\nRemember, we must first import these packages to our notebook / script before we can use them.\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n\n\n\n\n\n\n\nPandas Cheatsheet\n\n\nHave this cheatsheet open on another tab as you work through your data: https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf"
+    "text": "Installing and importing packages\nTo install this package, you can use this command:\npip install pandas\npip install seaborn\nRemember, we must first import these packages to our notebook / script before we can use them.\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n\n\n\n\n\n\n\nPandas Cheatsheet\n\n\nHave this cheatsheet open on another tab as you work through your data: https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf or https://python-graph-gallery.com/cheat-sheets/"
   },
   {
     "objectID": "03-pandas.html#load-data-from-csv-to-dataframe",
@@ -277,21 +277,21 @@
     "href": "03-pandas.html#side-quest-datetime-object",
     "title": "Introduction to Pandas and Seaborn",
     "section": "Side quest: DateTime Object",
-    "text": "Side quest: DateTime Object\n\nA DateTime object in Python, provided by the datetime module, represents a specific point in time, including the year, month, day, hour, minute, second, and microsecond.\nIt can be used to manipulate dates and times, perform arithmetic on dates, and format dates into other string representation e.g. from dd/mm/yyyy to yyyy-mm-dd.\n\n\nfrom datetime import datetime\n\nnow = datetime.now()\nprint(\"Current Date and Time:\", now)\n\nCurrent Date and Time: 2024-09-25 11:21:38.149649"
+    "text": "Side quest: DateTime Object\n\nA DateTime object in Python, provided by the datetime module, represents a specific point in time, including the year, month, day, hour, minute, second, and microsecond.\nIt can be used to manipulate dates and times, perform arithmetic on dates, and format dates into other string representation e.g. from dd/mm/yyyy to yyyy-mm-dd.\n\n\nfrom datetime import datetime\n\nnow = datetime.now()\nprint(\"Current Date and Time:\", now)\n\nCurrent Date and Time: 2024-09-25 15:45:54.970980"
   },
   {
     "objectID": "03-pandas.html#components-of-datetime",
     "href": "03-pandas.html#components-of-datetime",
     "title": "Introduction to Pandas and Seaborn",
     "section": "Components of DateTime",
-    "text": "Components of DateTime\nThe DateTime object consists of multiple components that represent different parts of the date and time, such as year, month, day, hour, minute, second, etc. You can access these components individually.\n\n# Extract year, month, and day from a specific date\nnow = datetime.now()\n\n# Access individual components\nprint(\"Year:\", now.year)\nprint(\"Month:\", now.month)\nprint(\"Day:\", now.day)\nprint(\"Hour:\", now.hour)\nprint(\"Minute:\", now.minute)\nprint(\"Second:\", now.second)\n\nYear: 2024\nMonth: 9\nDay: 25\nHour: 11\nMinute: 21\nSecond: 38"
+    "text": "Components of DateTime\nThe DateTime object consists of multiple components that represent different parts of the date and time, such as year, month, day, hour, minute, second, etc. You can access these components individually.\n\n# Extract year, month, and day from a specific date\nnow = datetime.now()\n\n# Access individual components\nprint(\"Year:\", now.year)\nprint(\"Month:\", now.month)\nprint(\"Day:\", now.day)\nprint(\"Hour:\", now.hour)\nprint(\"Minute:\", now.minute)\nprint(\"Second:\", now.second)\n\nYear: 2024\nMonth: 9\nDay: 25\nHour: 15\nMinute: 45\nSecond: 55"
   },
   {
     "objectID": "03-pandas.html#datetime-operations",
     "href": "03-pandas.html#datetime-operations",
     "title": "Introduction to Pandas and Seaborn",
     "section": "DateTime operations",
-    "text": "DateTime operations\n\nYou can perform various operations with DateTime objects, such as calculating the difference between two dates or adding/subtracting time with the help of timedelta.\nThese are essential for time series data manipulation, where date-based arithmetic is often required.\n\n\nfrom datetime import timedelta\n\nnow = datetime.now()\n\nlast_week = now - timedelta(days=7)\nprint(\"1 week ago:\", last_week)\n\n1 week ago: 2024-09-18 11:21:38.174975"
+    "text": "DateTime operations\n\nYou can perform various operations with DateTime objects, such as calculating the difference between two dates or adding/subtracting time with the help of timedelta.\nThese are essential for time series data manipulation, where date-based arithmetic is often required.\n\n\nfrom datetime import timedelta\n\nnow = datetime.now()\n\nlast_week = now - timedelta(days=7)\nprint(\"1 week ago:\", last_week)\n\n1 week ago: 2024-09-18 15:45:55.060955"
   },
   {
     "objectID": "03-pandas.html#back-to-main-quest-time-series-with-dataframe",
@@ -319,7 +319,7 @@
     "href": "03-pandas.html#retrieve-specific-date-range",
     "title": "Introduction to Pandas and Seaborn",
     "section": "Retrieve specific date range",
-    "text": "Retrieve specific date range\nNow that the index is a DateTime object, we can easily retrieve specific date range! Let’s say we would like retrieve unemployment rate for during COVID, which will be March 2020 to May 2023.\n\n unemp_data_covid = unemp_data.loc['2020-03':'2023-05']\n unemp_data_covid.head()\n\n\n\n\n\n\n\n\nteenagers\nyoung_adults\nadults\nseniors\ntotal_unemployment\n\n\ndate\n\n\n\n\n\n\n\n\n\n2020-03-01\n13.7\n8.6\n3.9\n3.5\n29.7\n\n\n2020-04-01\n32.2\n25.0\n12.6\n13.4\n83.2\n\n\n2020-05-01\n30.7\n23.2\n11.2\n11.5\n76.6\n\n\n2020-06-01\n24.5\n20.1\n9.7\n9.7\n64.0\n\n\n2020-07-01\n19.1\n18.2\n9.3\n9.0\n55.6"
+    "text": "Retrieve specific date range\nNow that the index is a DateTime object, we can easily retrieve specific date range! Let’s say we would like retrieve unemployment rate for during COVID, which will be March 2020 to May 2023.\n\nunemp_data_covid = unemp_data.loc['2020-03':'2023-05']\nprint(unemp_data_covid.head())\n\n            teenagers  young_adults  adults  seniors  total_unemployment\ndate                                                                    \n2020-03-01       13.7           8.6     3.9      3.5                29.7\n2020-04-01       32.2          25.0    12.6     13.4                83.2\n2020-05-01       30.7          23.2    11.2     11.5                76.6\n2020-06-01       24.5          20.1     9.7      9.7                64.0\n2020-07-01       19.1          18.2     9.3      9.0                55.6"
   },
   {
     "objectID": "03-pandas.html#capture-the-month-info-into-a-separate-column",
@@ -333,7 +333,7 @@
     "href": "03-pandas.html#aggregate-statistics",
     "title": "Introduction to Pandas and Seaborn",
     "section": "Aggregate statistics",
-    "text": "Aggregate statistics\nLet’s calculate the average unemployment rate for each month based on this data.\n\nunemp_permonth = unemp_data.groupby('month').mean()\nprint(unemp_permonth)\n\n       teenagers  young_adults    adults   seniors  total_unemployment\nmonth                                                                 \n1      16.612987     10.276623  5.159740  4.264935           36.314286\n2      16.648052     10.207792  5.135065  4.290909           36.281818\n3      15.977922      9.727273  4.905195  4.138961           34.749351\n4      15.248052      9.076623  4.589610  3.902597           32.816883\n5      15.981818      9.262338  4.322078  3.631169           33.197403\n6      19.632468      9.836364  4.367532  3.646753           37.483117\n7      16.216883      9.293506  4.528571  3.781818           33.820779\n8      14.025974      8.961039  4.501299  3.703896           31.192208\n9      15.543421      8.925000  4.292105  3.468421           32.228947\n10     15.027632      8.500000  4.178947  3.432895           31.139474\n11     15.502632      8.493421  4.297368  3.618421           31.911842\n12     14.502632      8.522368  4.430263  3.686842           31.142105"
+    "text": "Aggregate statistics\nLet’s calculate the average unemployment rate for each month based on this data.\n\nunemp_permonth = unemp_data.groupby('month').mean()\nprint(unemp_permonth)\n\n       teenagers  young_adults    adults   seniors  total_unemployment  \\\nmonth                                                                    \n1      16.612987     10.276623  5.159740  4.264935           36.314286   \n2      16.648052     10.207792  5.135065  4.290909           36.281818   \n3      15.977922      9.727273  4.905195  4.138961           34.749351   \n4      15.248052      9.076623  4.589610  3.902597           32.816883   \n5      15.981818      9.262338  4.322078  3.631169           33.197403   \n6      19.632468      9.836364  4.367532  3.646753           37.483117   \n7      16.216883      9.293506  4.528571  3.781818           33.820779   \n8      14.025974      8.961039  4.501299  3.703896           31.192208   \n9      15.543421      8.925000  4.292105  3.468421           32.228947   \n10     15.027632      8.500000  4.178947  3.432895           31.139474   \n11     15.502632      8.493421  4.297368  3.618421           31.911842   \n12     14.502632      8.522368  4.430263  3.686842           31.142105   \n\n       ya_YoY_pctchange  changes_ya  \nmonth                                \n1              0.023639    1.802632  \n2              0.027765   -0.068831  \n3              0.023718   -0.480519  \n4              0.056689   -0.650649  \n5              0.053468    0.185714  \n6              0.040224    0.574026  \n7              0.043577   -0.542857  \n8              0.035135   -0.332468  \n9              0.033654   -0.048684  \n10             0.035276   -0.425000  \n11             0.028284   -0.006579  \n12             0.024550    0.028947"
   },
   {
     "objectID": "03-pandas.html#task-5---resampling-to-quarterly-data",
@@ -347,7 +347,7 @@
     "href": "03-pandas.html#resampling-to-yearly-data",
     "title": "Introduction to Pandas and Seaborn",
     "section": "Resampling to Yearly data",
-    "text": "Resampling to Yearly data\nLet’s find out what is the highest unemployment rate for each year!\n\nyearly_data = unemp_data.resample('Y').max()\nyearly_data.head()\n\n\n\n\n\n\n\n\nteenagers\nyoung_adults\nadults\nseniors\ntotal_unemployment\nmonth\n\n\ndate\n\n\n\n\n\n\n\n\n\n\n1948-12-31\n13.4\n8.6\n3.6\n4.0\n27.1\n12\n\n\n1949-12-31\n19.0\n11.2\n5.3\n5.8\n38.4\n12\n\n\n1950-12-31\n17.7\n12.2\n6.4\n7.0\n42.9\n12\n\n\n1951-12-31\n12.2\n5.0\n3.6\n4.9\n23.1\n12\n\n\n1952-12-31\n12.2\n5.4\n3.2\n3.4\n21.7\n12"
+    "text": "Resampling to Yearly data\nLet’s find out what is the highest unemployment rate for each year!\n\nyearly_data = unemp_data.resample('Y').max()\nprint(yearly_data.head())\n\n            teenagers  young_adults  adults  seniors  total_unemployment\ndate                                                                    \n1948-12-31       13.4           8.6     3.6      4.0                27.1\n1949-12-31       19.0          11.2     5.3      5.8                38.4\n1950-12-31       17.7          12.2     6.4      7.0                42.9\n1951-12-31       12.2           5.0     3.6      4.9                23.1\n1952-12-31       12.2           5.4     3.2      3.4                21.7"
   },
   {
     "objectID": "03-pandas.html#saving-into-a-csv",
@@ -382,7 +382,7 @@
     "href": "03-pandas.html#calculate-the-changes-for-each-month",
     "title": "Introduction to Pandas and Seaborn",
     "section": "Calculate the changes for each month",
-    "text": "Calculate the changes for each month\nTo capture the direction and magnitude of changes in unemployment rate each month, use diff() function!\n\nunemp_data['changes_ya'] = unemp_data['young_adults'].diff()\nunemp_data['changes_ya'].head(7)\n\ndate\n1948-01-01    NaN\n1948-02-01    1.4\n1948-03-01    0.6\n1948-04-01   -1.8\n1948-05-01   -0.5\n1948-06-01    0.0\n1948-07-01    0.1\nName: changes_ya, dtype: float64"
+    "text": "Calculate the changes for each month\nTo capture the direction and magnitude of changes in unemployment rate each month, use diff() function.\n\nunemp_data['changes_ya'] = unemp_data['young_adults'].diff()\nprint(unemp_data['changes_ya'].head(7))\n\ndate\n1948-01-01    NaN\n1948-02-01    1.4\n1948-03-01    0.6\n1948-04-01   -1.8\n1948-05-01   -0.5\n1948-06-01    0.0\n1948-07-01    0.1\nName: changes_ya, dtype: float64"
   },
   {
     "objectID": "03-pandas.html#calculate-yeor-on-year-changes-for-young-adults",
@@ -396,14 +396,14 @@
     "href": "03-pandas.html#visualize-the-changes",
     "title": "Introduction to Pandas and Seaborn",
     "section": "Visualize the changes",
-    "text": "Visualize the changes\nLet’s quickly visualize the changes:"
+    "text": "Visualize the changes\nPandas is built on top of NumPy and integrates well with Matplotlib, so it is super easy to plot data right away—especially now that we’ve set the index!\n\nunemp_data['changes_ya'].plot()"
   },
   {
     "objectID": "03-pandas.html#more-seaborn-scatterplot",
     "href": "03-pandas.html#more-seaborn-scatterplot",
     "title": "Introduction to Pandas and Seaborn",
     "section": "More Seaborn: Scatterplot",
-    "text": "More Seaborn: Scatterplot\nSeaborn can do many other visualizations as well. For example, let’s try plotting a scatterplot of ‘young_adults’ and ‘seniors’\n\nsns.scatterplot(x = 'young_adults', y = 'seniors', data = unemp_data)"
+    "text": "More Seaborn: Scatterplot\nSeaborn can do many other visualizations as well. For example, let’s try plotting a scatterplot of young_adults and seniors\n\nsns.scatterplot(x = 'young_adults', y = 'seniors', data = unemp_data)"
   },
   {
     "objectID": "03-pandas.html#more-seaborn-boxplot",
@@ -1531,5 +1531,75 @@
     "title": "Dataframe with Pandas",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nhttps://pandas.pydata.org/↩︎"
+  },
+  {
+    "objectID": "03-pandas.html#data-preparation-analysis-and-visualization-tasks",
+    "href": "03-pandas.html#data-preparation-analysis-and-visualization-tasks",
+    "title": "Introduction to Pandas and Seaborn",
+    "section": "Data preparation, analysis, and visualization tasks",
+    "text": "Data preparation, analysis, and visualization tasks\nData preparation, analysis, and visualization tasks will be different depends on the dataset and your goal. Specifically for our data, we will do the following:\nPrep: 1. Check for and remove all the missing values. 2. We are primarily interested in the young adult unemployment. Separate this data into a new dataframe called ya_unemp. 3. Retrieve the months and years where the young adult rate is more than 10 percent and keep this on high_ya_unemp. 4. Add in a new column that tracks the total unemployment rate for each month.\nSimple Analysis: 5. Calculate the quarterly mean unemployment rate. 6. Calculate the year-on-year change of unemployment rate.\nAnalysis + Visualization: 7. Plot the unemployment rate over the years for each age group. 8. Are there any specific month where the unemployment rate tends to be higher? Plot the data. 9. Are there any outliers in the unemployment rate?"
+  },
+  {
+    "objectID": "03-pandas.html#task-5---resampling-to-quarterly-data-and-get-the-quarterly-mean",
+    "href": "03-pandas.html#task-5---resampling-to-quarterly-data-and-get-the-quarterly-mean",
+    "title": "Introduction to Pandas and Seaborn",
+    "section": "Task 5 - Resampling to Quarterly data and get the quarterly mean",
+    "text": "Task 5 - Resampling to Quarterly data and get the quarterly mean\nWith time series, we can calculate the quarterly average based on the monthly data with resample()\n\nquarterly_data = unemp_data.resample('Q').mean()\nprint(quarterly_data.head())\n\n            teenagers  young_adults    adults   seniors  total_unemployment\ndate                                                                       \n1948-03-31  10.800000      7.733333  3.266667  3.700000           25.500000\n1948-06-30   9.700000      6.466667  2.733333  2.900000           21.800000\n1948-09-30   8.933333      5.500000  2.766667  2.700000           19.900000\n1948-12-31   7.066667      4.933333  2.600000  3.166667           17.766667\n1949-03-31  12.033333      8.700000  4.366667  5.000000           30.100000"
+  },
+  {
+    "objectID": "03-pandas.html#changing-the-frequency-of-time-series-more-granular",
+    "href": "03-pandas.html#changing-the-frequency-of-time-series-more-granular",
+    "title": "Introduction to Pandas and Seaborn",
+    "section": "Changing the frequency of Time Series: More granular",
+    "text": "Changing the frequency of Time Series: More granular\nLet’s say we would like get a weekly time series. Since our data is a monthly one, there will be rows with empty values if we change the frequency. There are several methods that we can employ here to fill this empty values:\n\nbackfill\nforward fill\ninterpolate\n\n\nunemp_data_weekly = unemp_data.resample('1W').ffill()\nprint(unemp_data_weekly.tail())\n\n            teenagers  young_adults  adults  seniors  total_unemployment\ndate                                                                    \n2024-07-07       13.2           8.1     3.8      3.3                28.4\n2024-07-14       13.2           8.1     3.8      3.3                28.4\n2024-07-21       13.2           8.1     3.8      3.3                28.4\n2024-07-28       13.2           8.1     3.8      3.3                28.4\n2024-08-04       14.1           8.0     3.7      3.1                28.9"
+  },
+  {
+    "objectID": "03-pandas.html#task-6---calculate-year-on-year-changes-for-young-adults",
+    "href": "03-pandas.html#task-6---calculate-year-on-year-changes-for-young-adults",
+    "title": "Introduction to Pandas and Seaborn",
+    "section": "Task 6 - Calculate year-on-year changes for young adults",
+    "text": "Task 6 - Calculate year-on-year changes for young adults\nLet’s get the year-on-year change for young adults age group.\n\nunemp_data['ya_YoY_pctchange'] = unemp_data['young_adults'].pct_change(periods=12) # multiply by 100 to get the %\nprint(unemp_data.tail())\n\n            teenagers  young_adults  adults  seniors  total_unemployment  \\\ndate                                                                       \n2024-04-01       10.4           6.0     3.0      2.8                22.2   \n2024-05-01       12.1           8.0     3.1      2.5                25.7   \n2024-06-01       14.4           8.2     3.5      2.9                29.0   \n2024-07-01       13.2           8.1     3.8      3.3                28.4   \n2024-08-01       14.1           8.0     3.7      3.1                28.9   \n\n            ya_YoY_pctchange  \ndate                          \n2024-04-01          0.250000  \n2024-05-01          0.269841  \n2024-06-01          0.223881  \n2024-07-01          0.125000  \n2024-08-01          0.111111"
+  },
+  {
+    "objectID": "03-pandas.html#whats-seaborn",
+    "href": "03-pandas.html#whats-seaborn",
+    "title": "Introduction to Pandas and Seaborn",
+    "section": "What’s Seaborn?",
+    "text": "What’s Seaborn?\n\n\n\n\n\nSeaborn is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics. 1\n\n\nWell-established Python library for data visualization\nCheatsheet by Datacamp here: https://python-graph-gallery.com/cheat-sheets/\n\n\nhttps://seaborn.pydata.org/"
+  },
+  {
+    "objectID": "03-pandas.html#task-7---plot-the-entire-time-series",
+    "href": "03-pandas.html#task-7---plot-the-entire-time-series",
+    "title": "Introduction to Pandas and Seaborn",
+    "section": "Task 7 - Plot the entire time series",
+    "text": "Task 7 - Plot the entire time series\nLet’s plot the unemployment rate over the years for each age group!\n\nunemp_data.plot()\nplt.title('Unemployment Rate for Young Adults')\nplt.ylabel('Unemployment Rate (%)')\nplt.show()"
+  },
+  {
+    "objectID": "03-pandas.html#task-7---plot-the-entire-time-series-output",
+    "href": "03-pandas.html#task-7---plot-the-entire-time-series-output",
+    "title": "Introduction to Pandas and Seaborn",
+    "section": "Task 7 - Plot the entire time series",
+    "text": "Task 7 - Plot the entire time series"
+  },
+  {
+    "objectID": "03-pandas.html#making-visualization-easier-capture-month-info-into-a-separate-column",
+    "href": "03-pandas.html#making-visualization-easier-capture-month-info-into-a-separate-column",
+    "title": "Introduction to Pandas and Seaborn",
+    "section": "Making visualization easier: Capture month info into a separate column",
+    "text": "Making visualization easier: Capture month info into a separate column\nWith DateTime object as the index, we can easily capture the month info. This would be useful to see whether certain months tend to have higher unemployment rate based on this data.\n\nunemp_data['month'] = unemp_data.index.month\nprint(unemp_data.head())\n\n            teenagers  young_adults  adults  seniors  total_unemployment  \\\ndate                                                                       \n1948-01-01       10.1           6.6     3.0      3.6                23.3   \n1948-02-01       11.5           8.0     3.6      4.0                27.1   \n1948-03-01       10.8           8.6     3.2      3.5                26.1   \n1948-04-01        8.8           6.8     3.2      3.2                22.0   \n1948-05-01        6.9           6.3     2.6      2.9                18.7   \n\n            ya_YoY_pctchange  changes_ya  month  \ndate                                             \n1948-01-01               NaN         NaN      1  \n1948-02-01               NaN         1.4      2  \n1948-03-01               NaN         0.6      3  \n1948-04-01               NaN        -1.8      4  \n1948-05-01               NaN        -0.5      5"
+  },
+  {
+    "objectID": "03-pandas.html#task-8---months-where-uenmployment-rate-then-to-be-high",
+    "href": "03-pandas.html#task-8---months-where-uenmployment-rate-then-to-be-high",
+    "title": "Introduction to Pandas and Seaborn",
+    "section": "Task 8 - Months where uenmployment rate then to be high",
+    "text": "Task 8 - Months where uenmployment rate then to be high\nWhich month seems to have the highest unemployment rate on average?\n\nsns.barplot(data = unemp_permonth, x = unemp_permonth.index, y = 'young_adults')"
+  },
+  {
+    "objectID": "03-pandas.html#task-9---finding-outliers",
+    "href": "03-pandas.html#task-9---finding-outliers",
+    "title": "Introduction to Pandas and Seaborn",
+    "section": "Task 9 - Finding outliers",
+    "text": "Task 9 - Finding outliers\nLet’s see how unemployment rate fared each month for young_adults. Are there any outliers?\n\nsns.boxplot(x = 'month', y = 'young_adults', data=unemp_data[['month', 'young_adults']])"
   }
 ]
