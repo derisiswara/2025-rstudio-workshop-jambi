@@ -62,16 +62,9 @@ This workshop will use Visual Studio Code, or VS Code. It is a free, versatile c
 
 4.  Fill up the [**pre-workshop survey**](https://smusg.asia.qualtrics.com/jfe/form/SV_1Nx06jl6oFCnNNY)! Please fill this up before the beginning of session 1.
 
-## Dataset
+## Datasets
 
-For this workshop, we will be using small dataset stored in a CSV file called `sg-gdp.csv`.
-
-```{=html}
-<a href="https://raw.githubusercontent.com/bellaratmelia/2024-python-macroecons/main/data/sg-gdp.csv" type="button" class="btn btn-success">Click here to open sg-gdp.csv, and then Ctrl + S / Cmd + S to save it locally into your data folder</a>
-```
-
-::: {.callout-note appearance="simple"}
-### What is a CSV?
+::: {.callout-note appearance="simple" title="What is a CSV?"}
 
 A CSV (Comma-Separated Values) file is a type of file that stores data in a plain text format. Each line in the file represents a row of data, and within each row, individual pieces of data (like numbers or words) are separated by commas.
 
@@ -79,3 +72,19 @@ This format is commonly used for storing and transferring data, especially in sp
 
 You can open CSV files in Excel, Google Sheets, or even Notepad!
 :::
+
+### Dataset 1: sg-gdp.csv
+
+For session 2 of this workshop, we will be using small dataset stored in a CSV file called `sg-gdp.csv`.
+
+```{=html}
+<a href="https://raw.githubusercontent.com/bellaratmelia/2024-python-macroecons/main/data/sg-gdp.csv" type="button" class="btn btn-success">Click here to open sg-gdp.csv, and then Ctrl + S / Cmd + S to save it locally into your data folder</a>
+```
+
+### Dataset 2: unemployment-age.csv
+
+For session 3 of this workshop, we will be using small dataset stored in a CSV file called `unemployment-age.csv`. This is a time series data that tracks unemployment rate for various age groups in United States, retrieved from [Federal Reserve Economic Data (FRED)](https://fred.stlouisfed.org/).
+
+```{=html}
+<a href="https://raw.githubusercontent.com/bellaratmelia/2024-python-macroecons/main/data/unemployment-age.csv" type="button" class="btn btn-success">Click here to open unemployment-age.csv, and then Ctrl + S / Cmd + S to save it locally into your data folder</a>
+```

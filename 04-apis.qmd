@@ -1,0 +1,36 @@
+---
+title: "Introduction to APIs"
+subtitle: "+ Putting it all together!"
+author: "Bella Ratmelia"
+format: revealjs
+---
+## Recap from yesterday
+
+-  Introduction to Pandas dataframe
+
+-  Datetime in Python and Time Series with Pandas
+
+-  Analyzing and visualizing Time Series dataframe 
+
+## Overview for today
+
+-  Introduction to FRED API
+
+-  Presenting with `.ipynb`
+
+-  Your turn: Select an indicator, analyze it, visualize it, and present it to the class!
+
+# Section 1: Application Programming Interface (API)
+
+## What is it?
+
+## How does it work?
+
+## Federal Reserve Economic Data (FRED) API
+
+## Learning Chech
+
+# Section 2: Presenting with ipynb
+
+# Section 3: Pick an indicator and analyze it!
+

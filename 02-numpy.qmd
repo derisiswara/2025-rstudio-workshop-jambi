@@ -83,7 +83,7 @@ It is a Python library that provides a multidimensional array object, various de
 ## What's a Python library?
 
 -   Python libraries or packages are essentially reusable sets of code that can be imported into your environment to extend functionality.
--   Before using them, most libraries must first be installed and then imported. THis is how you can install a library:
+-   Before using them, most libraries must first be installed and then imported. This is how you can install a library:
 
 ``` python
 pip install numpy
@@ -227,7 +227,7 @@ Most operations we perform on lists can also be done with arrays, including:
 -   Sorting
 -   Creating copies or views (with important differences between them!)
 
-Let's try these!
+Let's try these! Also, you can refer to this handy [Numpy cheat sheet by Datacamp](https://images.datacamp.com/image/upload/v1676302459/Marketing/Blog/Numpy_Cheat_Sheet.pdf)
 
 ## Indexing and Slicing
 
@@ -370,6 +370,16 @@ print("Standard deviation of GDP data:", np.std(gdp_data))
 print("Maximum value in GDP data:", np.amax(gdp_data))
 print("Minimum value in GDP data:", np.amin(gdp_data))
 ```
+
+::: {.callout-note appearance="simple" title="Did you get inf result?"}
+
+You may get `inf` result in one of your calculation. A possible cause is because when we create the array, we declared the data type (`dtype`) as `float16`. This means the array uses 16 bits (2 bytes) for each number, which translates to lower precision (only ~3 decimals), but lower memory usage and storage. 
+
+By default, numpy will use `float64` data type which can gives us higher precision.  Changing the `dtype` to `float64` should fix this issue.
+
+::: 
+
+
 
 ## Axis Operations
 
