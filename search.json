@@ -529,21 +529,21 @@
     "href": "03-pandas.html#side-quest-datetime-object",
     "title": "Introduction to Pandas and Seaborn",
     "section": "Side quest: DateTime Object",
-    "text": "Side quest: DateTime Object\n\nA DateTime object in Python, provided by the datetime module, represents a specific point in time, including the year, month, day, hour, minute, second, and microsecond.\nIt can be used to manipulate dates and times, perform arithmetic on dates, and format dates into other string representation e.g. from dd/mm/yyyy to yyyy-mm-dd.\n\n\nfrom datetime import datetime\n\nnow = datetime.now()\nprint(\"Current Date and Time:\", now)\n\nCurrent Date and Time: 2024-09-25 18:10:37.397881"
+    "text": "Side quest: DateTime Object\n\nA DateTime object in Python, provided by the datetime module, represents a specific point in time, including the year, month, day, hour, minute, second, and microsecond.\nIt can be used to manipulate dates and times, perform arithmetic on dates, and format dates into other string representation e.g. from dd/mm/yyyy to yyyy-mm-dd.\n\n\nfrom datetime import datetime\n\nnow = datetime.now()\nprint(\"Current Date and Time:\", now)\n\nCurrent Date and Time: 2024-09-27 10:32:23.365005"
   },
   {
     "objectID": "03-pandas.html#components-of-datetime",
     "href": "03-pandas.html#components-of-datetime",
     "title": "Introduction to Pandas and Seaborn",
     "section": "Components of DateTime",
-    "text": "Components of DateTime\nThe DateTime object consists of multiple components that represent different parts of the date and time, such as year, month, day, hour, minute, second, etc. You can access these components individually.\n\n# Extract year, month, and day from a specific date\nnow = datetime.now()\n\n# Access individual components\nprint(\"Year:\", now.year)\nprint(\"Month:\", now.month)\nprint(\"Day:\", now.day)\nprint(\"Hour:\", now.hour)\nprint(\"Minute:\", now.minute)\nprint(\"Second:\", now.second)\n\nYear: 2024\nMonth: 9\nDay: 25\nHour: 18\nMinute: 10\nSecond: 37"
+    "text": "Components of DateTime\nThe DateTime object consists of multiple components that represent different parts of the date and time, such as year, month, day, hour, minute, second, etc. You can access these components individually.\n\n# Extract year, month, and day from a specific date\nnow = datetime.now()\n\n# Access individual components\nprint(\"Year:\", now.year)\nprint(\"Month:\", now.month)\nprint(\"Day:\", now.day)\nprint(\"Hour:\", now.hour)\nprint(\"Minute:\", now.minute)\nprint(\"Second:\", now.second)\n\nYear: 2024\nMonth: 9\nDay: 27\nHour: 10\nMinute: 32\nSecond: 23"
   },
   {
     "objectID": "03-pandas.html#datetime-operations",
     "href": "03-pandas.html#datetime-operations",
     "title": "Introduction to Pandas and Seaborn",
     "section": "DateTime operations",
-    "text": "DateTime operations\n\nYou can perform various operations with DateTime objects, such as calculating the difference between two dates or adding/subtracting time with the help of timedelta.\nThese are essential for time series data manipulation, where date-based arithmetic is often required.\n\n\nfrom datetime import timedelta\n\nnow = datetime.now()\n\nlast_week = now - timedelta(days=7)\nprint(\"1 week ago:\", last_week)\n\n1 week ago: 2024-09-18 18:10:37.453603"
+    "text": "DateTime operations\n\nYou can perform various operations with DateTime objects, such as calculating the difference between two dates or adding/subtracting time with the help of timedelta.\nThese are essential for time series data manipulation, where date-based arithmetic is often required.\n\n\nfrom datetime import timedelta\n\nnow = datetime.now()\n\nlast_week = now - timedelta(days=7)\nprint(\"1 week ago:\", last_week)\n\n1 week ago: 2024-09-20 10:32:23.413513"
   },
   {
     "objectID": "03-pandas.html#back-to-main-quest-time-series-with-dataframe",
@@ -1180,7 +1180,7 @@
     "href": "02-numpy.html#numpy-vs-lists-performance-comparison",
     "title": "Introduction to Numpy & Matplotlib",
     "section": "Numpy vs Lists: Performance comparison",
-    "text": "Numpy vs Lists: Performance comparison\nImagine we have a million numbers to square. We’ll store them in both a list and an array, then compare their processing speeds.\n\n\nLists\n\nlist_data = list(range(1000000))\n\nstart = time.time()\nlist_result = [x**2 for x in list_data]\nlist_time = time.time() - start\n\nprint(f\"List took {list_time:.4f} seconds to finish the operation.\")\n\nList took 0.1428 seconds to finish the operation.\n\n\n\nNumpy Arrays\n\nnumpy_data = np.arange(1000000)\n\nstart = time.time()\nnumpy_result = numpy_data**2\nnumpy_time = time.time() - start\n\nprint(f\"NumPy took {numpy_time:.4f} seconds to finish the operation.\")\n\nNumPy took 0.0045 seconds to finish the operation."
+    "text": "Numpy vs Lists: Performance comparison\nImagine we have a million numbers to square. We’ll store them in both a list and an array, then compare their processing speeds.\n\n\nLists\n\nlist_data = list(range(1000000))\n\nstart = time.time()\nlist_result = [x**2 for x in list_data]\nlist_time = time.time() - start\n\nprint(f\"List took {list_time:.4f} seconds to finish the operation.\")\n\nList took 0.1773 seconds to finish the operation.\n\n\n\nNumpy Arrays\n\nnumpy_data = np.arange(1000000)\n\nstart = time.time()\nnumpy_result = numpy_data**2\nnumpy_time = time.time() - start\n\nprint(f\"NumPy took {numpy_time:.4f} seconds to finish the operation.\")\n\nNumPy took 0.0034 seconds to finish the operation."
   },
   {
     "objectID": "02-numpy.html#numpy-vs-lists-sum-and-products",
