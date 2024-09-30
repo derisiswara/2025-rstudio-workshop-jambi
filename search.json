@@ -18,7 +18,7 @@
     "href": "index.html#schedule",
     "title": "SEIC x DSA Python for Macroeconomics Workshop 2024",
     "section": "Schedule",
-    "text": "Schedule\nSlides will be progressively made available below.\n\n\n\n\nDate and Time\nVenue\nTopic & Slides\nQuiz\n\n\n\n\nSat, 7 Sep 2024, 10 AM - 12 PM\nYPHSL Seminar Room 3-12\nPython basics\nQuiz 1\n\n\nSat, 14 Sep 2024, 10 AM - 12 PM\nSOSS/CIS Seminar Room 3-1\nIntroduction to Numpy and Matplotlib\nQuiz 2\n\n\nSat, 28 Sep 2024, 10 AM - 12 PM\nSOSS/CIS Seminar Room 3-1\nData wrangling and timeseries with Dataframe\nQuiz 3\n\n\nSat, 5 Oct 2024, 10 AM - 12 PM\nSOSS/CIS Seminar Room 3-1\nRetrieve data with APIs and putting it all together\n\n\n\n\n\n\n\n\n\n\n\n\nImportant - Please bring your laptop & charger to the workshop\n\n\n\nAs this is a hands-on workshop, please do bring your laptop. Tablets like Surface or iPad will not be sufficient as they could not run Visual Studio Code."
+    "text": "Schedule\nSlides will be progressively made available below.\n\n\n\n\nDate and Time\nVenue\nTopic & Slides\nQuiz\n\n\n\n\nSat, 7 Sep 2024, 10 AM - 12 PM\nYPHSL Seminar Room 3-12\nPython basics\nQuiz 1\n\n\nSat, 14 Sep 2024, 10 AM - 12 PM\nSOSS/CIS Seminar Room 3-1\nIntroduction to Numpy and Matplotlib\nQuiz 2\n\n\nSat, 28 Sep 2024, 10 AM - 12 PM\nSOSS/CIS Seminar Room 3-1\nData wrangling and timeseries with Dataframe\nQuiz 3\n\n\nSat, 5 Oct 2024, 10 AM - 12 PM\nSOSS/CIS Seminar Room 3-1\nRetrieve data with APIs and putting it all together\n-\n\n\n\n\n\n\n\n\n\n\n\nImportant - Please bring your laptop & charger to the workshop\n\n\n\nAs this is a hands-on workshop, please do bring your laptop. Tablets like Surface or iPad will not be sufficient as they could not run Visual Studio Code."
   },
   {
     "objectID": "index.html#pre-workshop-activities",
@@ -33,286 +33,6 @@
     "title": "SEIC x DSA Python for Macroeconomics Workshop 2024",
     "section": "Datasets",
     "text": "Datasets\n\n\n\n\n\n\nWhat is a CSV?\n\n\n\nA CSV (Comma-Separated Values) file is a type of file that stores data in a plain text format. Each line in the file represents a row of data, and within each row, individual pieces of data (like numbers or words) are separated by commas.\nThis format is commonly used for storing and transferring data, especially in spreadsheets and databases. Because it is literally just plain text, it is an ideal format if you have large amount of data.\nYou can open CSV files in Excel, Google Sheets, or even Notepad!\n\n\n\nDataset 1: sg-gdp.csv\nFor session 2 of this workshop, we will be using small dataset stored in a CSV file called sg-gdp.csv.\nClick here to open sg-gdp.csv, and then Ctrl + S / Cmd + S to save it locally into your data folder\n\n\nDataset 2: unemployment-age.csv\nFor session 3 of this workshop, we will be using small dataset stored in a CSV file called unemployment-age.csv. This is a time series data that tracks unemployment rate for various age groups in United States, retrieved from Federal Reserve Economic Data (FRED).\nClick here to open unemployment-age.csv, and then Ctrl + S / Cmd + S to save it locally into your data folder"
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html",
-    "href": "for-tas/03-pandas-notes.html",
-    "title": "Dataframe with Pandas",
-    "section": "",
-    "text": "pandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language. 1 pandas aims to be the fundamental high-level building block for doing practical, real world data analysis in Python.\n\n\nWell-established Python library for data manipulation and analysis\nBuilt on top of NumPy. Unlike Numpy who can be difficult to “read”, Dataframe presents data in tabular format that’s easier for humans to read and perceive.\nProvides DataFrame and Series data structures"
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#whats-pandas",
-    "href": "for-tas/03-pandas-notes.html#whats-pandas",
-    "title": "Dataframe with Pandas",
-    "section": "",
-    "text": "pandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language. 1 pandas aims to be the fundamental high-level building block for doing practical, real world data analysis in Python.\n\n\nWell-established Python library for data manipulation and analysis\nBuilt on top of NumPy. Unlike Numpy who can be difficult to “read”, Dataframe presents data in tabular format that’s easier for humans to read and perceive.\nProvides DataFrame and Series data structures"
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#comparison-to-numpy",
-    "href": "for-tas/03-pandas-notes.html#comparison-to-numpy",
-    "title": "Dataframe with Pandas",
-    "section": "Comparison to Numpy",
-    "text": "Comparison to Numpy\n\n\n\n\n\n\n\n\nFeature\nNumPy Array\npandas DataFrame\n\n\n\n\nData Types\nAll elements must be of the same type (e.g., integers, floats).\nDifferent columns can hold different data types (e.g., integers, floats, strings).\n\n\nPerformance\nFaster for numerical computations due to homogeneity and optimized implementation.\nSlightly slower but more flexible for working with heterogeneous or labeled data.\n\n\nDimensionality\nCan be multi-dimensional (1D, 2D, 3D, etc.).\nAlways two-dimensional with labeled rows and columns.\n\n\nIndexing\nPurely positional indexing (e.g., array[0, 1]).\nLabeled-based indexing (loc), position-based indexing (iloc), access by both labels and positions.\n\n\nUsage\nPrimarily for high-performance numerical and scientific computations.\nPrimarily for data manipulation, analysis, and cleaning, especially for tabular and real-world datasets."
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#installing-and-importing-packages",
-    "href": "for-tas/03-pandas-notes.html#installing-and-importing-packages",
-    "title": "Dataframe with Pandas",
-    "section": "Installing and importing packages",
-    "text": "Installing and importing packages\nTo install this package, you can use this command:\npip install pandas\npip install seaborn\nRemember, we must first import these packages to our notebook / script before we can use them.\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n\n\n\n\n\nPandas Cheatsheet\n\n\n\nHave this cheatsheet open on another tab as you work through your data: https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf"
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#load-data-from-csv-to-dataframe",
-    "href": "for-tas/03-pandas-notes.html#load-data-from-csv-to-dataframe",
-    "title": "Dataframe with Pandas",
-    "section": "Load data from CSV to DataFrame",
-    "text": "Load data from CSV to DataFrame\n\n\n\n\n\n\nBefore we begin…\n\n\n\nRight-click here to open unemployment-age.csv, and then Ctrl + S / Cmd + S to save it locally into your data folder\n\n\nTypically, we load the data from API source (more on this next week!) or external data file such as CSV. Let’s load the unemployment-age.csv now!\nunemp_data = pd.read_csv('data/unemployment-age.csv')\nprint(unemp_data.head())"
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#initial-checks-get-basic-info",
-    "href": "for-tas/03-pandas-notes.html#initial-checks-get-basic-info",
-    "title": "Dataframe with Pandas",
-    "section": "Initial checks: get basic info",
-    "text": "Initial checks: get basic info\nThe first thing that you should always do is check on the dataframe to get an overview of it. The function info() will tell us the data types for each columns, the number of observations, and index info if there’s any.\nunemp_data.info()"
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#initial-checks-get-summary-stats",
-    "href": "for-tas/03-pandas-notes.html#initial-checks-get-summary-stats",
-    "title": "Dataframe with Pandas",
-    "section": "Initial checks: get summary stats",
-    "text": "Initial checks: get summary stats\nAlso get the summary statistics to get a sense of the shape and spread of your data.\nunemp_data.describe()"
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#initial-checks-column-names",
-    "href": "for-tas/03-pandas-notes.html#initial-checks-column-names",
-    "title": "Dataframe with Pandas",
-    "section": "Initial checks: column names",
-    "text": "Initial checks: column names\nOptional, but you may also want to check on the column names to see how it appears in our environment (useful if you happen to have non UTF-8 characters as your column names)\nprint(unemp_data.columns)"
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#dropping-columns",
-    "href": "for-tas/03-pandas-notes.html#dropping-columns",
-    "title": "Dataframe with Pandas",
-    "section": "Dropping columns",
-    "text": "Dropping columns\nIn some cases, we don’t really need the entire columns. Let’s drop the last column (that looks like an error in the CSV formatting).\nunemp_data.drop(unemp_data.columns[-1], axis = 1, inplace= True)\nunemp_data.head()"
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#renaming-columns",
-    "href": "for-tas/03-pandas-notes.html#renaming-columns",
-    "title": "Dataframe with Pandas",
-    "section": "Renaming columns",
-    "text": "Renaming columns\nSometimes the column names are not ideal. In our case, let’s give a name to each age group!\nunemp_data.columns = ['date', 'teenagers', 'young_adults', 'adults', 'seniors']\nprint(unemp_data.columns)\nAlternatively, if you just want to rename specific columns:\nunemp_data.rename(columns={'16_19yrs': 'teenagers', '20_24yrs': 'young_adults'}, inplace = True)"
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#data-wrangling-with-pandas-and-seaborn---scenarios",
-    "href": "for-tas/03-pandas-notes.html#data-wrangling-with-pandas-and-seaborn---scenarios",
-    "title": "Dataframe with Pandas",
-    "section": "Data Wrangling with Pandas and Seaborn - Scenarios",
-    "text": "Data Wrangling with Pandas and Seaborn - Scenarios\nLet’s see if we can complete the following tasks:\n\nRemove all the missing values\nWe are primarily interested in the young adult unemployment. Separate this data into a new dataframe called ya_unemp\nRetrieve the months and years where the young adult rate is more than 10 percent and keep this on high_ya_unemp\nAdd in a new column that tracks the total unemployment rate for each month\nCreate a Quarterly dataset from the current dataframe that captures the mean unemployment rate\nCalculate the year-on-year change of unemployment rate\nVisualize the dataset"
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#task-1---handling-missing-values",
-    "href": "for-tas/03-pandas-notes.html#task-1---handling-missing-values",
-    "title": "Dataframe with Pandas",
-    "section": "Task 1 - Handling missing values",
-    "text": "Task 1 - Handling missing values\nOther than info(), we can also use isnull() to check for null values\n# Check for missing values\nprint(unemp_data.isnull().sum())"
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#handling-missing-values-drop-or-no-drop",
-    "href": "for-tas/03-pandas-notes.html#handling-missing-values-drop-or-no-drop",
-    "title": "Dataframe with Pandas",
-    "section": "Handling missing values: drop or no drop?",
-    "text": "Handling missing values: drop or no drop?\nWe can drop those rows that contains null values with dropna()…\n# Drop rows with missing values (if any)\nunemp_data = unemp_data.dropna()\nprint(unemp_data.info())\n… or we can also fill in the null values with something else, e.g. 0\nuemp_data = unemp_data.fillna(0)"
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#task-2---retrieving-columns-a-single-column",
-    "href": "for-tas/03-pandas-notes.html#task-2---retrieving-columns-a-single-column",
-    "title": "Dataframe with Pandas",
-    "section": "Task 2 - Retrieving columns: a single column",
-    "text": "Task 2 - Retrieving columns: a single column\nAs the column names in DataFrame are indexed, we can simply call them by their column names! (Much more intuitive compared to Numpy)\nya_unemp = unemp_data['young_adults']\nya_unemp.head()"
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#retrieving-columns-multiple-columns",
-    "href": "for-tas/03-pandas-notes.html#retrieving-columns-multiple-columns",
-    "title": "Dataframe with Pandas",
-    "section": "Retrieving columns: multiple columns",
-    "text": "Retrieving columns: multiple columns\nSimilarly, if we want to retrieve multiple columns, we can pass a list of column names to the dataframe and save these sliced columns into a new dataframe.\nya_unemp = unemp_data[['date', 'young_adults']]\nya_unemp.head()"
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#task-3---filtering-rows-without-query",
-    "href": "for-tas/03-pandas-notes.html#task-3---filtering-rows-without-query",
-    "title": "Dataframe with Pandas",
-    "section": "Task 3 - Filtering row(s): without query()",
-    "text": "Task 3 - Filtering row(s): without query()\nWe can do it “raw” or us the query function from pandas. Here is how you can do it without the query() function:\ncriteria = unemp_data[\"young_adults\"] &gt; 10\nhigh_ya_unemp = unemp_data[criteria]\nhigh_ya_unemp.head()"
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#filtering-rows-with-query",
-    "href": "for-tas/03-pandas-notes.html#filtering-rows-with-query",
-    "title": "Dataframe with Pandas",
-    "section": "Filtering row(s): with query()",
-    "text": "Filtering row(s): with query()\nAnd here is how you can do it with the query() function:\nprint(unemp_data.query('young_adults &gt; 10'))"
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#filtering-rows-with-query-and-save-result",
-    "href": "for-tas/03-pandas-notes.html#filtering-rows-with-query-and-save-result",
-    "title": "Dataframe with Pandas",
-    "section": "Filtering row(s): with query() and save result",
-    "text": "Filtering row(s): with query() and save result\nTake note that the previous code will simply print out the result! If you want to save the result, make sure to assign the result to a new dataframe.\nhigh_ya_unemp = unemp_data.query('young_adults &gt; 10')\nhigh_ya_unemp.head()"
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#task-4---adding-new-columns",
-    "href": "for-tas/03-pandas-notes.html#task-4---adding-new-columns",
-    "title": "Dataframe with Pandas",
-    "section": "Task 4 - Adding new column(s)",
-    "text": "Task 4 - Adding new column(s)\nLet’s add a new column for total unemployment (sum of all age groups)\nunemp_data['total_unemployment'] = unemp_data['teenagers'] + unemp_data['young_adults'] + unemp_data['adults'] + unemp_data['seniors']\nunemp_data.head()"
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#side-quest-datetime-object",
-    "href": "for-tas/03-pandas-notes.html#side-quest-datetime-object",
-    "title": "Dataframe with Pandas",
-    "section": "Side quest: DateTime Object",
-    "text": "Side quest: DateTime Object\n\nA DateTime object in Python, provided by the datetime module, represents a specific point in time, including the year, month, day, hour, minute, second, and microsecond.\nIt can be used to manipulate dates and times, perform arithmetic on dates, and format dates into other string representation e.g. from dd/mm/yyyy to yyyy-mm-dd.\n\nfrom datetime import datetime\n\nnow = datetime.now()\nprint(\"Current Date and Time:\", now)"
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#components-of-datetime",
-    "href": "for-tas/03-pandas-notes.html#components-of-datetime",
-    "title": "Dataframe with Pandas",
-    "section": "Components of DateTime",
-    "text": "Components of DateTime\nThe DateTime object consists of multiple components that represent different parts of the date and time, such as year, month, day, hour, minute, second, etc. You can access these components individually.\n# Extract year, month, and day from a specific date\nnow = datetime.now()\n\n# Access individual components\nprint(\"Year:\", now.year)\nprint(\"Month:\", now.month)\nprint(\"Day:\", now.day)\nprint(\"Hour:\", now.hour)\nprint(\"Minute:\", now.minute)\nprint(\"Second:\", now.second)"
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#datetime-operations",
-    "href": "for-tas/03-pandas-notes.html#datetime-operations",
-    "title": "Dataframe with Pandas",
-    "section": "DateTime operations",
-    "text": "DateTime operations\n\nYou can perform various operations with DateTime objects, such as calculating the difference between two dates or adding/subtracting time with the help of timedelta.\nThese are essential for time series data manipulation, where date-based arithmetic is often required.\n\nfrom datetime import timedelta\n\nnow = datetime.now()\n\nlast_week = now - timedelta(days=7)\nprint(\"1 week ago:\", last_week)"
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#back-to-main-quest-time-series-with-dataframe",
-    "href": "for-tas/03-pandas-notes.html#back-to-main-quest-time-series-with-dataframe",
-    "title": "Dataframe with Pandas",
-    "section": "Back to Main Quest: Time Series with DataFrame",
-    "text": "Back to Main Quest: Time Series with DataFrame\nLet’s index the rows under date column as a DateTime index.\n1unemp_data['date'] = pd.to_datetime(unemp_data['date'], format=\"%Y-%m-%d\")\n2unemp_data.set_index('date', inplace=True)\n\n1\n\nConvert the data type under date column from string to DateTime object\n\n2\n\nSet the date column as the index.\n\n\n\n\nYou can refer to this page to see how to format the string expression of DateTime object: https://www.w3schools.com/python/python_datetime.asp"
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#datetime-is-the-index-now-what",
-    "href": "for-tas/03-pandas-notes.html#datetime-is-the-index-now-what",
-    "title": "Dataframe with Pandas",
-    "section": "DateTime is the index, now what?",
-    "text": "DateTime is the index, now what?\nLet’s check on the dataframe once more, to make sure that it is indexed as intended:\nunemp_data.info()\nIf all goes well, the date column should be part of the index now."
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#extra-checks-with-time-series",
-    "href": "for-tas/03-pandas-notes.html#extra-checks-with-time-series",
-    "title": "Dataframe with Pandas",
-    "section": "Extra checks with Time Series",
-    "text": "Extra checks with Time Series\nOther things that we may want to check with Time Series is the date range of our data.\nprint(\"start date\", unemp_data.index.min())\nprint(\"end date\", unemp_data.index.max())\nprint(\"length\", unemp_data.index.max() - unemp_data.index.min())"
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#retrieve-specific-date-range",
-    "href": "for-tas/03-pandas-notes.html#retrieve-specific-date-range",
-    "title": "Dataframe with Pandas",
-    "section": "Retrieve specific date range",
-    "text": "Retrieve specific date range\nNow that the index is a DateTime object, we can easily retrieve specific date range! Let’s say we would like retrieve unemployment rate for during COVID, which will be March 2020 to May 2023.\nunemp_data_covid = unemp_data.loc['2020-03':'2023-05']\nunemp_data_covid.head()"
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#capture-the-month-info-into-a-separate-column",
-    "href": "for-tas/03-pandas-notes.html#capture-the-month-info-into-a-separate-column",
-    "title": "Dataframe with Pandas",
-    "section": "Capture the month info into a separate column",
-    "text": "Capture the month info into a separate column\nWith DateTime object as the index, we can easily capture the month info. This would be useful to see whether certain months tend to have higher unemployment rate based on this data.\nunemp_data['month'] = unemp_data.index.month\nunemp_data.head()"
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#aggregate-statistics",
-    "href": "for-tas/03-pandas-notes.html#aggregate-statistics",
-    "title": "Dataframe with Pandas",
-    "section": "Aggregate statistics",
-    "text": "Aggregate statistics\nLet’s calculate the average unemployment rate for each month based on this data.\nunemp_permonth = unemp_data.groupby('month').mean()\nprint(unemp_permonth)"
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#task-5---resampling-to-quarterly-data",
-    "href": "for-tas/03-pandas-notes.html#task-5---resampling-to-quarterly-data",
-    "title": "Dataframe with Pandas",
-    "section": "Task 5 - Resampling to Quarterly data",
-    "text": "Task 5 - Resampling to Quarterly data\nWith time series, we can calculate the quarterly average based on the monthly data with resample()\nquarterly_data = unemp_data.resample('Q').mean()\nquarterly_data.head()"
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#resampling-to-yearly-data",
-    "href": "for-tas/03-pandas-notes.html#resampling-to-yearly-data",
-    "title": "Dataframe with Pandas",
-    "section": "Resampling to Yearly data",
-    "text": "Resampling to Yearly data\nLet’s find out what is the highest unemployment rate for each year!\nyearly_data = unemp_data.resample('Y').max()\nyearly_data.head()"
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#saving-into-a-csv",
-    "href": "for-tas/03-pandas-notes.html#saving-into-a-csv",
-    "title": "Dataframe with Pandas",
-    "section": "Saving into a CSV",
-    "text": "Saving into a CSV\nLet’s save the quarterly data to a CSV!\nquarterly_data.to_csv(\"data-output/yearly-unemployment-age.csv\")"
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#changing-the-frequency-of-time-series",
-    "href": "for-tas/03-pandas-notes.html#changing-the-frequency-of-time-series",
-    "title": "Dataframe with Pandas",
-    "section": "Changing the frequency of Time Series",
-    "text": "Changing the frequency of Time Series\nLet’s say we would like get a weekly time series. Since our data is a monthly one, there will be rows with empty values if we change the frequency. There are several methods that we can employ here to fill this empty values:\n\nbackfill\nforward fill\ninterpolate\n\nunemp_data_weekly = unemp_data.resample('1W').ffill()\nunemp_data_weekly.tail()"
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#task-7---visualize-time-series",
-    "href": "for-tas/03-pandas-notes.html#task-7---visualize-time-series",
-    "title": "Dataframe with Pandas",
-    "section": "Task 7 - Visualize Time Series",
-    "text": "Task 7 - Visualize Time Series\nLet’s plot the entire\nunemp_data.plot()\nplt.title('Unemployment Rate for Young Adults')\nplt.ylabel('Unemployment Rate (%)')\nplt.show()"
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#calculate-the-changes-for-each-month",
-    "href": "for-tas/03-pandas-notes.html#calculate-the-changes-for-each-month",
-    "title": "Dataframe with Pandas",
-    "section": "Calculate the changes for each month",
-    "text": "Calculate the changes for each month\nTo capture the direction and magnitude of changes in unemployment rate each month, use diff() function!\nunemp_data['changes_ya'] = unemp_data['young_adults'].diff()\nunemp_data['changes_ya'].head(7)"
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#calculate-yeor-on-year-changes-for-young-adults",
-    "href": "for-tas/03-pandas-notes.html#calculate-yeor-on-year-changes-for-young-adults",
-    "title": "Dataframe with Pandas",
-    "section": "Calculate yeor-on-year changes for young adults",
-    "text": "Calculate yeor-on-year changes for young adults\nLet’s get the year-on-year change!\nunemp_data['ya_YoY_pctchange'] = unemp_data['young_adults'].pct_change(periods=12) # multiply by 100 to get the %\nunemp_data.tail()"
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#visualize-the-changes",
-    "href": "for-tas/03-pandas-notes.html#visualize-the-changes",
-    "title": "Dataframe with Pandas",
-    "section": "Visualize the changes",
-    "text": "Visualize the changes\nLet’s quickly visualize the changes:\nunemp_data['changes_ya'].plot()"
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#more-seaborn-scatterplot",
-    "href": "for-tas/03-pandas-notes.html#more-seaborn-scatterplot",
-    "title": "Dataframe with Pandas",
-    "section": "More Seaborn: Scatterplot",
-    "text": "More Seaborn: Scatterplot\nSeaborn can do many other visualizations as well. For example, let’s try plotting a scatterplot of ‘young_adults’ and ‘seniors’\nsns.scatterplot(x = 'young_adults', y = 'seniors', data = unemp_data)"
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#more-seaborn-boxplot",
-    "href": "for-tas/03-pandas-notes.html#more-seaborn-boxplot",
-    "title": "Dataframe with Pandas",
-    "section": "More Seaborn: Boxplot",
-    "text": "More Seaborn: Boxplot\nLet’s see how unemployment rate fared each month for young_adults. Are there any outliers?\nsns.boxplot(x = 'month', y = 'young_adults', data=unemp_data[['month', 'young_adults']])"
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#more-seaborn-barplot",
-    "href": "for-tas/03-pandas-notes.html#more-seaborn-barplot",
-    "title": "Dataframe with Pandas",
-    "section": "More Seaborn: Barplot",
-    "text": "More Seaborn: Barplot\nWhich month seems to have the highest unemployment rate on average?\nsns.barplot(data = unemp_permonth, x = unemp_permonth.index, y = 'young_adults')"
-  },
-  {
-    "objectID": "for-tas/03-pandas-notes.html#footnotes",
-    "href": "for-tas/03-pandas-notes.html#footnotes",
-    "title": "Dataframe with Pandas",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nhttps://pandas.pydata.org/↩︎"
   },
   {
     "objectID": "for-tas/01-basics-notes.html",
@@ -529,21 +249,21 @@
     "href": "03-pandas.html#side-quest-datetime-object",
     "title": "Introduction to Pandas and Seaborn",
     "section": "Side quest: DateTime Object",
-    "text": "Side quest: DateTime Object\n\nA DateTime object in Python, provided by the datetime module, represents a specific point in time, including the year, month, day, hour, minute, second, and microsecond.\nIt can be used to manipulate dates and times, perform arithmetic on dates, and format dates into other string representation e.g. from dd/mm/yyyy to yyyy-mm-dd.\n\n\nfrom datetime import datetime\n\nnow = datetime.now()\nprint(\"Current Date and Time:\", now)\n\nCurrent Date and Time: 2024-09-27 19:47:25.431685"
+    "text": "Side quest: DateTime Object\n\nA DateTime object in Python, provided by the datetime module, represents a specific point in time, including the year, month, day, hour, minute, second, and microsecond.\nIt can be used to manipulate dates and times, perform arithmetic on dates, and format dates into other string representation e.g. from dd/mm/yyyy to yyyy-mm-dd.\n\n\nfrom datetime import datetime\n\nnow = datetime.now()\nprint(\"Current Date and Time:\", now)\n\nCurrent Date and Time: 2024-09-30 16:01:37.784848"
   },
   {
     "objectID": "03-pandas.html#components-of-datetime",
     "href": "03-pandas.html#components-of-datetime",
     "title": "Introduction to Pandas and Seaborn",
     "section": "Components of DateTime",
-    "text": "Components of DateTime\nThe DateTime object consists of multiple components that represent different parts of the date and time, such as year, month, day, hour, minute, second, etc. You can access these components individually.\n\n# Extract year, month, and day from a specific date\nnow = datetime.now()\n\n# Access individual components\nprint(\"Year:\", now.year)\nprint(\"Month:\", now.month)\nprint(\"Day:\", now.day)\nprint(\"Hour:\", now.hour)\nprint(\"Minute:\", now.minute)\nprint(\"Second:\", now.second)\n\nYear: 2024\nMonth: 9\nDay: 27\nHour: 19\nMinute: 47\nSecond: 25"
+    "text": "Components of DateTime\nThe DateTime object consists of multiple components that represent different parts of the date and time, such as year, month, day, hour, minute, second, etc. You can access these components individually.\n\n# Extract year, month, and day from a specific date\nnow = datetime.now()\n\n# Access individual components\nprint(\"Year:\", now.year)\nprint(\"Month:\", now.month)\nprint(\"Day:\", now.day)\nprint(\"Hour:\", now.hour)\nprint(\"Minute:\", now.minute)\nprint(\"Second:\", now.second)\n\nYear: 2024\nMonth: 9\nDay: 30\nHour: 16\nMinute: 1\nSecond: 37"
   },
   {
     "objectID": "03-pandas.html#datetime-operations",
     "href": "03-pandas.html#datetime-operations",
     "title": "Introduction to Pandas and Seaborn",
     "section": "DateTime operations",
-    "text": "DateTime operations\n\nYou can perform various operations with DateTime objects, such as calculating the difference between two dates or adding/subtracting time with the help of timedelta.\nThese are essential for time series data manipulation, where date-based arithmetic is often required.\n\n\nfrom datetime import timedelta\n\nnow = datetime.now()\n\nlast_week = now - timedelta(days=7)\nprint(\"1 week ago:\", last_week)\n\n1 week ago: 2024-09-20 19:47:25.457070"
+    "text": "DateTime operations\n\nYou can perform various operations with DateTime objects, such as calculating the difference between two dates or adding/subtracting time with the help of timedelta.\nThese are essential for time series data manipulation, where date-based arithmetic is often required.\n\n\nfrom datetime import timedelta\n\nnow = datetime.now()\n\nlast_week = now - timedelta(days=7)\nprint(\"1 week ago:\", last_week)\n\n1 week ago: 2024-09-23 16:01:37.815412"
   },
   {
     "objectID": "03-pandas.html#back-to-main-quest-time-series-with-dataframe",
@@ -1180,7 +900,7 @@
     "href": "02-numpy.html#numpy-vs-lists-performance-comparison",
     "title": "Introduction to Numpy & Matplotlib",
     "section": "Numpy vs Lists: Performance comparison",
-    "text": "Numpy vs Lists: Performance comparison\nImagine we have a million numbers to square. We’ll store them in both a list and an array, then compare their processing speeds.\n\n\nLists\n\nlist_data = list(range(1000000))\n\nstart = time.time()\nlist_result = [x**2 for x in list_data]\nlist_time = time.time() - start\n\nprint(f\"List took {list_time:.4f} seconds to finish the operation.\")\n\nList took 0.0780 seconds to finish the operation.\n\n\n\nNumpy Arrays\n\nnumpy_data = np.arange(1000000)\n\nstart = time.time()\nnumpy_result = numpy_data**2\nnumpy_time = time.time() - start\n\nprint(f\"NumPy took {numpy_time:.4f} seconds to finish the operation.\")\n\nNumPy took 0.0030 seconds to finish the operation."
+    "text": "Numpy vs Lists: Performance comparison\nImagine we have a million numbers to square. We’ll store them in both a list and an array, then compare their processing speeds.\n\n\nLists\n\nlist_data = list(range(1000000))\n\nstart = time.time()\nlist_result = [x**2 for x in list_data]\nlist_time = time.time() - start\n\nprint(f\"List took {list_time:.4f} seconds to finish the operation.\")\n\nList took 0.0985 seconds to finish the operation.\n\n\n\nNumpy Arrays\n\nnumpy_data = np.arange(1000000)\n\nstart = time.time()\nnumpy_result = numpy_data**2\nnumpy_time = time.time() - start\n\nprint(f\"NumPy took {numpy_time:.4f} seconds to finish the operation.\")\n\nNumPy took 0.0020 seconds to finish the operation."
   },
   {
     "objectID": "02-numpy.html#numpy-vs-lists-sum-and-products",
@@ -1481,14 +1201,14 @@
     "href": "04-apis.html#recap-from-yesterday",
     "title": "Introduction to APIs",
     "section": "Recap from yesterday",
-    "text": "Recap from yesterday\n\nIntroduction to Pandas dataframe\nDatetime in Python and Time Series with Pandas\nAnalyzing and visualizing Time Series dataframe"
+    "text": "Recap from yesterday\n\nIntroduction to Pandas dataframe\nDatetime in Python and Time Series with Pandas\nVisualizing time series with Seaborn"
   },
   {
     "objectID": "04-apis.html#overview-for-today",
     "href": "04-apis.html#overview-for-today",
     "title": "Introduction to APIs",
     "section": "Overview for today",
-    "text": "Overview for today\n\nIntroduction to FRED API\nPresenting with .ipynb\nYour turn: Select an indicator, analyze it, visualize it, and present it to the class!"
+    "text": "Overview for today\n\nIntroduction to FRED API\nThe statsmodel package for your analysis needs\nYour turn: Select an indicator, analyze it, visualize it, and present it to the class!"
   },
   {
     "objectID": "04-apis.html#what-is-it",
@@ -1512,11 +1232,53 @@
     "text": "Federal Reserve Economic Data (FRED) API"
   },
   {
-    "objectID": "04-apis.html#learning-chech",
-    "href": "04-apis.html#learning-chech",
+    "objectID": "04-apis.html#get-your-api-key",
+    "href": "04-apis.html#get-your-api-key",
     "title": "Introduction to APIs",
-    "section": "Learning Chech",
-    "text": "Learning Chech"
+    "section": "Get your API key",
+    "text": "Get your API key"
+  },
+  {
+    "objectID": "04-apis.html#fred-api-wrapper---fredapi-package",
+    "href": "04-apis.html#fred-api-wrapper---fredapi-package",
+    "title": "Introduction to APIs",
+    "section": "FRED API wrapper - fredapi package",
+    "text": "FRED API wrapper - fredapi package"
+  },
+  {
+    "objectID": "04-apis.html#learning-check",
+    "href": "04-apis.html#learning-check",
+    "title": "Introduction to APIs",
+    "section": "Learning Check",
+    "text": "Learning Check"
+  },
+  {
+    "objectID": "04-apis.html#introduction-and-where-to-find-the-guides",
+    "href": "04-apis.html#introduction-and-where-to-find-the-guides",
+    "title": "Introduction to APIs",
+    "section": "Introduction and where to find the guides",
+    "text": "Introduction and where to find the guides"
+  },
+  {
+    "objectID": "04-apis.html#preparing-our-data-for-anaysis---the-long-format",
+    "href": "04-apis.html#preparing-our-data-for-anaysis---the-long-format",
+    "title": "Introduction to APIs",
+    "section": "Preparing our data for anaysis - the long format",
+    "text": "Preparing our data for anaysis - the long format"
+  },
+  {
+    "objectID": "04-apis.html#lets-try-lm-models",
+    "href": "04-apis.html#lets-try-lm-models",
+    "title": "Introduction to APIs",
+    "section": "Let’s try: lm models",
+    "text": "Let’s try: lm models"
+  },
+  {
+    "objectID": "04-apis.html#lets-try-seasonal_decompose",
+    "href": "04-apis.html#lets-try-seasonal_decompose",
+    "title": "Introduction to APIs",
+    "section": "Let’s try: seasonal_decompose",
+    "text": "Let’s try: seasonal_decompose"
   },
   {
     "objectID": "coc.html",

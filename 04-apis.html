@@ -357,14 +357,14 @@ Bella Ratmelia
 <ul>
 <li><p>Introduction to Pandas dataframe</p></li>
 <li><p>Datetime in Python and Time Series with Pandas</p></li>
-<li><p>Analyzing and visualizing Time Series dataframe</p></li>
+<li><p>Visualizing time series with Seaborn</p></li>
 </ul>
 </section>
 <section id="overview-for-today" class="slide level2">
 <h2>Overview for today</h2>
 <ul>
 <li><p>Introduction to FRED API</p></li>
-<li><p>Presenting with <code>.ipynb</code></p></li>
+<li><p>The <code>statsmodel</code> package for your analysis needs</p></li>
 <li><p>Your turn: Select an indicator, analyze it, visualize it, and present it to the class!</p></li>
 </ul>
 </section>
@@ -382,16 +382,39 @@ Bella Ratmelia
 <section id="federal-reserve-economic-data-fred-api" class="slide level2">
 <h2>Federal Reserve Economic Data (FRED) API</h2>
 </section>
-<section id="learning-chech" class="slide level2">
-<h2>Learning Chech</h2>
+<section id="get-your-api-key" class="slide level2">
+<h2>Get your API key</h2>
+</section>
+<section id="fred-api-wrapper---fredapi-package" class="slide level2">
+<h2>FRED API wrapper - <code>fredapi</code> package</h2>
+</section>
+<section id="learning-check" class="slide level2">
+<h2>Learning Check</h2>
 </section></section>
-<section id="section-2-presenting-with-ipynb" class="title-slide slide level1 center">
-<h1>Section 2: Presenting with ipynb</h1>
+<section>
+<section id="section-2-the-statsmodel-package" class="title-slide slide level1 center">
+<h1>Section 2: The statsmodel package</h1>
 
 </section>
-
+<section id="introduction-and-where-to-find-the-guides" class="slide level2">
+<h2>Introduction and where to find the guides</h2>
+</section>
+<section id="preparing-our-data-for-anaysis---the-long-format" class="slide level2">
+<h2>Preparing our data for anaysis - the long format</h2>
+</section>
+<section id="lets-try-lm-models" class="slide level2">
+<h2>Let’s try: lm models</h2>
+</section>
+<section id="lets-try-seasonal_decompose" class="slide level2">
+<h2>Let’s try: seasonal_decompose</h2>
+</section></section>
 <section id="section-3-pick-an-indicator-and-analyze-it" class="title-slide slide level1 center">
 <h1>Section 3: Pick an indicator and analyze it!</h1>
+<ol type="1">
+<li>Use the <code>fredapi</code> wrapper to search FRED for a suitable data of your own choosing</li>
+<li>Clean and visualize the data with seaborn</li>
+<li>Analyze the model</li>
+</ol>
 
 <div class="quarto-auto-generated-content">
 <p><img src="images/smu logo.png" class="slide-logo"></p>
@@ -699,7 +722,7 @@ Bella Ratmelia
       }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp('/' + window.location.host + '/');
+          var filterRegex = new RegExp("https:\/\/bellaratmelia\.github\.io\/2024-python-macroecons\/");
         var isInternal = (href) => {
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
