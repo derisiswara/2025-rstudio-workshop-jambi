@@ -249,21 +249,21 @@
     "href": "03-pandas.html#side-quest-datetime-object",
     "title": "Introduction to Pandas and Seaborn",
     "section": "Side quest: DateTime Object",
-    "text": "Side quest: DateTime Object\n\nA DateTime object in Python, provided by the datetime module, represents a specific point in time, including the year, month, day, hour, minute, second, and microsecond.\nIt can be used to manipulate dates and times, perform arithmetic on dates, and format dates into other string representation e.g. from dd/mm/yyyy to yyyy-mm-dd.\n\n\nfrom datetime import datetime\n\nnow = datetime.now()\nprint(\"Current Date and Time:\", now)\n\nCurrent Date and Time: 2024-10-02 19:03:45.265760"
+    "text": "Side quest: DateTime Object\n\nA DateTime object in Python, provided by the datetime module, represents a specific point in time, including the year, month, day, hour, minute, second, and microsecond.\nIt can be used to manipulate dates and times, perform arithmetic on dates, and format dates into other string representation e.g. from dd/mm/yyyy to yyyy-mm-dd.\n\n\nfrom datetime import datetime\n\nnow = datetime.now()\nprint(\"Current Date and Time:\", now)\n\nCurrent Date and Time: 2024-10-03 16:48:06.717359"
   },
   {
     "objectID": "03-pandas.html#components-of-datetime",
     "href": "03-pandas.html#components-of-datetime",
     "title": "Introduction to Pandas and Seaborn",
     "section": "Components of DateTime",
-    "text": "Components of DateTime\nThe DateTime object consists of multiple components that represent different parts of the date and time, such as year, month, day, hour, minute, second, etc. You can access these components individually.\n\n# Extract year, month, and day from a specific date\nnow = datetime.now()\n\n# Access individual components\nprint(\"Year:\", now.year)\nprint(\"Month:\", now.month)\nprint(\"Day:\", now.day)\nprint(\"Hour:\", now.hour)\nprint(\"Minute:\", now.minute)\nprint(\"Second:\", now.second)\n\nYear: 2024\nMonth: 10\nDay: 2\nHour: 19\nMinute: 3\nSecond: 45"
+    "text": "Components of DateTime\nThe DateTime object consists of multiple components that represent different parts of the date and time, such as year, month, day, hour, minute, second, etc. You can access these components individually.\n\n# Extract year, month, and day from a specific date\nnow = datetime.now()\n\n# Access individual components\nprint(\"Year:\", now.year)\nprint(\"Month:\", now.month)\nprint(\"Day:\", now.day)\nprint(\"Hour:\", now.hour)\nprint(\"Minute:\", now.minute)\nprint(\"Second:\", now.second)\n\nYear: 2024\nMonth: 10\nDay: 3\nHour: 16\nMinute: 48\nSecond: 6"
   },
   {
     "objectID": "03-pandas.html#datetime-operations",
     "href": "03-pandas.html#datetime-operations",
     "title": "Introduction to Pandas and Seaborn",
     "section": "DateTime operations",
-    "text": "DateTime operations\n\nYou can perform various operations with DateTime objects, such as calculating the difference between two dates or adding/subtracting time with the help of timedelta.\nThese are essential for time series data manipulation, where date-based arithmetic is often required.\n\n\nfrom datetime import timedelta\n\nnow = datetime.now()\n\nlast_week = now - timedelta(days=7)\nprint(\"1 week ago:\", last_week)\n\n1 week ago: 2024-09-25 19:03:45.331067"
+    "text": "DateTime operations\n\nYou can perform various operations with DateTime objects, such as calculating the difference between two dates or adding/subtracting time with the help of timedelta.\nThese are essential for time series data manipulation, where date-based arithmetic is often required.\n\n\nfrom datetime import timedelta\n\nnow = datetime.now()\n\nlast_week = now - timedelta(days=7)\nprint(\"1 week ago:\", last_week)\n\n1 week ago: 2024-09-26 16:48:06.755443"
   },
   {
     "objectID": "03-pandas.html#back-to-main-quest-time-series-with-dataframe",
@@ -900,7 +900,7 @@
     "href": "02-numpy.html#numpy-vs-lists-performance-comparison",
     "title": "Introduction to Numpy & Matplotlib",
     "section": "Numpy vs Lists: Performance comparison",
-    "text": "Numpy vs Lists: Performance comparison\nImagine we have a million numbers to square. We’ll store them in both a list and an array, then compare their processing speeds.\n\n\nLists\n\nlist_data = list(range(1000000))\n\nstart = time.time()\nlist_result = [x**2 for x in list_data]\nlist_time = time.time() - start\n\nprint(f\"List took {list_time:.4f} seconds to finish the operation.\")\n\nList took 0.2472 seconds to finish the operation.\n\n\n\nNumpy Arrays\n\nnumpy_data = np.arange(1000000)\n\nstart = time.time()\nnumpy_result = numpy_data**2\nnumpy_time = time.time() - start\n\nprint(f\"NumPy took {numpy_time:.4f} seconds to finish the operation.\")\n\nNumPy took 0.0040 seconds to finish the operation."
+    "text": "Numpy vs Lists: Performance comparison\nImagine we have a million numbers to square. We’ll store them in both a list and an array, then compare their processing speeds.\n\n\nLists\n\nlist_data = list(range(1000000))\n\nstart = time.time()\nlist_result = [x**2 for x in list_data]\nlist_time = time.time() - start\n\nprint(f\"List took {list_time:.4f} seconds to finish the operation.\")\n\nList took 0.1302 seconds to finish the operation.\n\n\n\nNumpy Arrays\n\nnumpy_data = np.arange(1000000)\n\nstart = time.time()\nnumpy_result = numpy_data**2\nnumpy_time = time.time() - start\n\nprint(f\"NumPy took {numpy_time:.4f} seconds to finish the operation.\")\n\nNumPy took 0.0030 seconds to finish the operation."
   },
   {
     "objectID": "02-numpy.html#numpy-vs-lists-sum-and-products",
@@ -1229,7 +1229,7 @@
     "href": "04-apis.html#what-does-a-json-look-like",
     "title": "Introduction to APIs",
     "section": "What does a JSON look like?",
-    "text": "What does a JSON look like?\nLet’s try calling this Public API URL that will give us random fun & useless facts. This API does not require any parameters.\n\nimport requests\n\napi_url = \"https://uselessfacts.jsph.pl/api/v2/facts/random\" \nresponse = requests.get(api_url) \nif response.status_code == 200:\n    data = response.json()\n\nIf we print data, this is how it should look like:\n\n\n{'id': 'a9210ac834930eee7c77da12108fd0db',\n 'language': 'en',\n 'permalink': 'https://uselessfacts.jsph.pl/api/v2/facts/a9210ac834930eee7c77da12108fd0db',\n 'source': 'djtech.net',\n 'source_url': 'http://www.djtech.net/humor/useless_facts.htm',\n 'text': 'The average person will accidentally eat just under a pound of '\n         'insects every year.'}\n\n\n\n\nIf you click on this API endpoint, it should call the API and returns the JSON object for you in your browser: https://uselessfacts.jsph.pl/api/v2/facts/random."
+    "text": "What does a JSON look like?\nLet’s try calling this Public API URL that will give us random fun & useless facts. This API does not require any parameters.\n\nimport requests\n\napi_url = \"https://uselessfacts.jsph.pl/api/v2/facts/random\" \nresponse = requests.get(api_url) \nif response.status_code == 200:\n    data = response.json()\n\nIf we print data, this is how it should look like:\n\n\n{'id': 'a02866dcba360c387efe2e2da1c7e755',\n 'language': 'en',\n 'permalink': 'https://uselessfacts.jsph.pl/api/v2/facts/a02866dcba360c387efe2e2da1c7e755',\n 'source': 'djtech.net',\n 'source_url': 'http://www.djtech.net/humor/useless_facts.htm',\n 'text': 'A standard slinky measures 87 feet when stretched out.'}\n\n\n\n\nIf you click on this API endpoint, it should call the API and returns the JSON object for you in your browser: https://uselessfacts.jsph.pl/api/v2/facts/random."
   },
   {
     "objectID": "04-apis.html#federal-reserve-economic-data-fred-api",
@@ -1320,28 +1320,133 @@
     "href": "04-apis.html#introduction-and-where-to-find-the-guides",
     "title": "Introduction to APIs",
     "section": "Introduction and where to find the guides",
-    "text": "Introduction and where to find the guides\nStatsmodels is a Python package that provides classes and functions for the estimation of various statistical models, as well as for conducting statistical tests and statistical data exploration.\nTo install, type and then run pip install statsmodels.\nThe documentation gives us a few pointers on how to import this package depending on what we want to use\n\n\nCheck out the documentation here: https://www.statsmodels.org/stable/api.html"
+    "text": "Introduction and where to find the guides\nStatsmodels is a Python package that provides classes and functions for the estimation of various statistical models, as well as for conducting statistical tests and statistical data exploration.\nTo install, type and then run pip install statsmodels.\nThe documentation gives us a few pointers on how to import this package depending on what we want to use:\n\nimport statsmodels.api as sm\nimport statsmodels.tsa.api as tsa\nimport statsmodels.formula.api as smf\n\n# import matplotlib for plotting purposes\nimport matplotlib.pyplot as plt\n\n\n\nCheck out the documentation here: https://www.statsmodels.org/stable/api.html"
   },
   {
     "objectID": "04-apis.html#lets-try-a-simple-regression---ols",
     "href": "04-apis.html#lets-try-a-simple-regression---ols",
     "title": "Introduction to APIs",
     "section": "Let’s try a simple regression - OLS",
-    "text": "Let’s try a simple regression - OLS\n\nimport statsmodels.api as sm\nimport numpy as np\n\nexog_x = usa_unrate['california']\nendo_y = usa_unrate['florida']\n\nusa_model = sm.OLS(endo_y, exog_x).fit()\nprint(usa_model.summary())\n\n\n\n\nOur data is not exactly the right kind for regression. We are doing this for statsmodel demonstration purposes only!"
+    "text": "Let’s try a simple regression - OLS\n\n\n\n\n\n\n\nNote\n\n\nOur data is not exactly the right kind for regression. We are doing this for statsmodel demonstration purposes only.\n\n\n\n\n\nimport statsmodels.api as sm\nimport numpy as np\n\nexog_x = usa_unrate['california']\nendo_y = usa_unrate['florida']\n\nusa_model = sm.OLS(endo_y, exog_x).fit()\nprint(usa_model.summary())"
   },
   {
     "objectID": "04-apis.html#lets-try-a-simple-regression---ols-output",
     "href": "04-apis.html#lets-try-a-simple-regression---ols-output",
     "title": "Introduction to APIs",
     "section": "Let’s try a simple regression - OLS",
-    "text": "Let’s try a simple regression - OLS\n\n                                 OLS Regression Results                                \n=======================================================================================\nDep. Variable:                florida   R-squared (uncentered):                   0.987\nModel:                            OLS   Adj. R-squared (uncentered):              0.987\nMethod:                 Least Squares   F-statistic:                          1.005e+04\nDate:                Wed, 02 Oct 2024   Prob (F-statistic):                   1.05e-125\nTime:                        19:09:45   Log-Likelihood:                         -121.76\nNo. Observations:                 132   AIC:                                      245.5\nDf Residuals:                     131   BIC:                                      248.4\nDf Model:                           1                                                  \nCovariance Type:            nonrobust                                                  \n==============================================================================\n                 coef    std err          t      P&gt;|t|      [0.025      0.975]\n------------------------------------------------------------------------------\ncalifornia     0.8053      0.008    100.238      0.000       0.789       0.821\n==============================================================================\nOmnibus:                       10.327   Durbin-Watson:                   0.167\nProb(Omnibus):                  0.006   Jarque-Bera (JB):               11.018\nSkew:                          -0.680   Prob(JB):                      0.00405\nKurtosis:                       2.609   Cond. No.                         1.00\n==============================================================================\n\nNotes:\n[1] R² is computed without centering (uncentered) since the model does not contain a constant.\n[2] Standard Errors assume that the covariance matrix of the errors is correctly specified."
+    "text": "Let’s try a simple regression - OLS\n\n                                 OLS Regression Results                                \n=======================================================================================\nDep. Variable:                florida   R-squared (uncentered):                   0.987\nModel:                            OLS   Adj. R-squared (uncentered):              0.987\nMethod:                 Least Squares   F-statistic:                          1.005e+04\nDate:                Thu, 03 Oct 2024   Prob (F-statistic):                   1.05e-125\nTime:                        16:48:35   Log-Likelihood:                         -121.76\nNo. Observations:                 132   AIC:                                      245.5\nDf Residuals:                     131   BIC:                                      248.4\nDf Model:                           1                                                  \nCovariance Type:            nonrobust                                                  \n==============================================================================\n                 coef    std err          t      P&gt;|t|      [0.025      0.975]\n------------------------------------------------------------------------------\ncalifornia     0.8053      0.008    100.238      0.000       0.789       0.821\n==============================================================================\nOmnibus:                       10.327   Durbin-Watson:                   0.167\nProb(Omnibus):                  0.006   Jarque-Bera (JB):               11.018\nSkew:                          -0.680   Prob(JB):                      0.00405\nKurtosis:                       2.609   Cond. No.                         1.00\n==============================================================================\n\nNotes:\n[1] R² is computed without centering (uncentered) since the model does not contain a constant.\n[2] Standard Errors assume that the covariance matrix of the errors is correctly specified."
   },
   {
-    "objectID": "04-apis.html#lets-try-seasonal_decompose",
-    "href": "04-apis.html#lets-try-seasonal_decompose",
+    "objectID": "04-apis.html#ols-from-formula-sub-package",
+    "href": "04-apis.html#ols-from-formula-sub-package",
     "title": "Introduction to APIs",
-    "section": "Let’s try: seasonal_decompose",
-    "text": "Let’s try: seasonal_decompose\nThe seasonal_decompose function in statsmodels allows you to decompose time series data into trend, seasonal, and residual components. Let’s try to decompose the unemployment rate for Michigan.\nRemember, all of the time series formulas are inside the tsa sub-package of statsmodels\n\nmi_result = tsa.seasonal_decompose(usa_unrate['michigan'], model='additive')\nmi_result.plot()"
+    "section": "OLS from formula sub-package",
+    "text": "OLS from formula sub-package\nWe can also call upon the formula sub-pacakge if we want to specify the exact formula for our OLS like so:\n\nimport statsmodels.formula.api as smf\n\nusa_model_form = smf.ols(\"florida ~ california\", data = usa_unrate).fit()\nprint(usa_model_form.summary())"
+  },
+  {
+    "objectID": "04-apis.html#ols-from-formula-sub-package-output",
+    "href": "04-apis.html#ols-from-formula-sub-package-output",
+    "title": "Introduction to APIs",
+    "section": "OLS from formula sub-package",
+    "text": "OLS from formula sub-package\n\n                            OLS Regression Results                            \n==============================================================================\nDep. Variable:                florida   R-squared:                       0.917\nModel:                            OLS   Adj. R-squared:                  0.917\nMethod:                 Least Squares   F-statistic:                     1440.\nDate:                Thu, 03 Oct 2024   Prob (F-statistic):           3.48e-72\nTime:                        16:48:35   Log-Likelihood:                -119.67\nNo. Observations:                 132   AIC:                             243.3\nDf Residuals:                     130   BIC:                             249.1\nDf Model:                           1                                         \nCovariance Type:            nonrobust                                         \n==============================================================================\n                 coef    std err          t      P&gt;|t|      [0.025      0.975]\n------------------------------------------------------------------------------\nIntercept     -0.3024      0.148     -2.044      0.043      -0.595      -0.010\ncalifornia     0.8480      0.022     37.942      0.000       0.804       0.892\n==============================================================================\nOmnibus:                       15.139   Durbin-Watson:                   0.159\nProb(Omnibus):                  0.001   Jarque-Bera (JB):               17.879\nSkew:                          -0.894   Prob(JB):                     0.000131\nKurtosis:                       2.767   Cond. No.                         19.0\n==============================================================================\n\nNotes:\n[1] Standard Errors assume that the covariance matrix of the errors is correctly specified."
+  },
+  {
+    "objectID": "04-apis.html#lets-try-some-time-series-analysis",
+    "href": "04-apis.html#lets-try-some-time-series-analysis",
+    "title": "Introduction to APIs",
+    "section": "Let’s try some Time Series analysis",
+    "text": "Let’s try some Time Series analysis\nstatsmodels comes with a wide range of functions that we can use to conduct common time series analysis such as:\n\nStationarity test (ADF)\nSeasonal Decomposition\nCorrelation Matrix\nARIMA Modelling (single variable)\n\nAll of the time series analysis functions are inside the tsa sub-package of statsmodels. Let’s try these!"
+  },
+  {
+    "objectID": "04-apis.html#stationarity-test-adf",
+    "href": "04-apis.html#stationarity-test-adf",
+    "title": "Introduction to APIs",
+    "section": "Stationarity test (ADF)",
+    "text": "Stationarity test (ADF)\n\nmi_stt = tsa.adfuller(usa_unrate['michigan'])\nprint(\"results:\", mi_stt)\nprint(\"ADF statistic:\", mi_stt[0])\nprint(\"p-value:\", mi_stt[1])\nprint(\"critical values:\")\nfor key, value in mi_stt[4].items():\n    print(key, value)\n\nresults: (-4.040152272716747, 0.0012142572247144069, 0, 131, {'1%': -3.481281802271349, '5%': -2.883867891664528, '10%': -2.5786771965503177}, 468.54200914983454)\nADF statistic: -4.040152272716747\np-value: 0.0012142572247144069\ncritical values:\n1% -3.481281802271349\n5% -2.883867891664528\n10% -2.5786771965503177\n\n\nThe result indicates that the ADF statistics is lower than all critical values and p-value &lt; 0.05, which means we reject null hypothesis (\\(H_0\\): The time series is non-stationary). The time series for Michigan appears to be stationary."
+  },
+  {
+    "objectID": "04-apis.html#seasonal-decomposition",
+    "href": "04-apis.html#seasonal-decomposition",
+    "title": "Introduction to APIs",
+    "section": "Seasonal Decomposition",
+    "text": "Seasonal Decomposition\nThe seasonal_decomposition function in statsmodels allows us to decompose a time series into its underlying components: trend (long term movement), seasonal, and residual (or irregular).\nLet’s decompose the time series data for Michigan! (It is stationary so this step is not strictly necessary, but let’s do it anyway!)\n\nimport statsmodels.tsa.api as tsa\n\nmi_result = tsa.seasonal_decompose(usa_unrate['michigan'], model='additive')\nmi_result.plot()\nplt.show()"
+  },
+  {
+    "objectID": "04-apis.html#seasonal-decomposition-output",
+    "href": "04-apis.html#seasonal-decomposition-output",
+    "title": "Introduction to APIs",
+    "section": "Seasonal Decomposition",
+    "text": "Seasonal Decomposition"
+  },
+  {
+    "objectID": "04-apis.html#individually-retrieve-trends-season-and-residuals",
+    "href": "04-apis.html#individually-retrieve-trends-season-and-residuals",
+    "title": "Introduction to APIs",
+    "section": "Individually retrieve trends, season, and residuals",
+    "text": "Individually retrieve trends, season, and residuals\nTo retrieve them individually:\n\nTrend: mi_result.trend.plot()\nSeasonality: mi_result.seasonal.plot()\nResiduals: mi_result.resid.plot()\n\n\nmi_result.seasonal.plot()\nplt.show()"
+  },
+  {
+    "objectID": "04-apis.html#correlation-matrix",
+    "href": "04-apis.html#correlation-matrix",
+    "title": "Introduction to APIs",
+    "section": "Correlation Matrix",
+    "text": "Correlation Matrix\nLet’s assume that just like the Michigan series, the California and Florida time series are also stationary. With this assumption, let’s compute the correlation matrix of these three series.\n\ncorrelation_matrix = usa_unrate.corr()\nprint(correlation_matrix)\n\n            california  michigan   florida\ncalifornia    1.000000  0.944712  0.957694\nmichigan      0.944712  1.000000  0.948046\nflorida       0.957694  0.948046  1.000000\n\n\nIt seems like they are strongly and positively correlated with each other!"
+  },
+  {
+    "objectID": "04-apis.html#arima-modelling-single-variable",
+    "href": "04-apis.html#arima-modelling-single-variable",
+    "title": "Introduction to APIs",
+    "section": "ARIMA Modelling (single variable)",
+    "text": "ARIMA Modelling (single variable)\nSince our time series is stationary, we can apply ARIMA model to forecast the Michigan unemployment rate! for the order paramater, we will input 1, 0, 1 for p (autoregressive term or AR), d (differencing), and q (moving average term or MA). d is 0 here because we’ve ascertained in the previous slide that our time series is stationary.\n\nmi_model = tsa.ARIMA(usa_unrate['michigan'], order=(1,0,1)).fit() \nprint(mi_model.summary())"
+  },
+  {
+    "objectID": "04-apis.html#arima-modelling-single-variable-output",
+    "href": "04-apis.html#arima-modelling-single-variable-output",
+    "title": "Introduction to APIs",
+    "section": "ARIMA Modelling (single variable)",
+    "text": "ARIMA Modelling (single variable)\n\n                               SARIMAX Results                                \n==============================================================================\nDep. Variable:               michigan   No. Observations:                  132\nModel:                 ARIMA(1, 0, 1)   Log Likelihood                -254.685\nDate:                Thu, 03 Oct 2024   AIC                            517.371\nTime:                        16:48:38   BIC                            528.902\nSample:                    01-01-2013   HQIC                           522.056\n                         - 12-01-2023                                         \nCovariance Type:                  opg                                         \n==============================================================================\n                 coef    std err          z      P&gt;|z|      [0.025      0.975]\n------------------------------------------------------------------------------\nconst          5.7663      1.922      3.000      0.003       1.999       9.534\nar.L1          0.7556      0.143      5.277      0.000       0.475       1.036\nma.L1          0.0695      0.264      0.263      0.793      -0.449       0.588\nsigma2         2.7560      0.184     14.990      0.000       2.396       3.116\n===================================================================================\nLjung-Box (L1) (Q):                   0.00   Jarque-Bera (JB):             72308.74\nProb(Q):                              0.96   Prob(JB):                         0.00\nHeteroskedasticity (H):               0.85   Skew:                            10.42\nProb(H) (two-sided):                  0.61   Kurtosis:                       115.75\n===================================================================================\n\nWarnings:\n[1] Covariance matrix calculated using the outer product of gradients (complex-step)."
+  },
+  {
+    "objectID": "04-apis.html#arima---potential-interpretation",
+    "href": "04-apis.html#arima---potential-interpretation",
+    "title": "Introduction to APIs",
+    "section": "ARIMA - potential interpretation",
+    "text": "ARIMA - potential interpretation\nThe constant terms is statistically significant, indicating a base unemployment level of around 5.77%. The ar.L1 is statistically significant (p &lt; 0.05), which indicates strong autocorrelation with previous month’s rate. However, the ma.L1 is not statistically significant (p = 0.79), which suggests that this component may not be necessary for our model. Residuals diagnostics indicates that the residuals is homoeskedastic, but the high skewness and kurtosis indicates that there may be outliers.\nSince the MA component may not be necessary, we should consider re-running ARIMA with 1, 0, 0 order.\nNow that we have our ARIMA model, let’s use it to forecast future values of unemployment rate in Michigan."
+  },
+  {
+    "objectID": "04-apis.html#forecast-future-value",
+    "href": "04-apis.html#forecast-future-value",
+    "title": "Introduction to APIs",
+    "section": "Forecast future value",
+    "text": "Forecast future value\nLet’s predict the unemployment rate for Michigan for the next 6 months from the end of the time series\n\nmi_forecast = mi_model.get_forecast(steps=6)\nprint(mi_forecast.predicted_mean)\n\n2024-01-01    4.481162\n2024-02-01    4.795229\n2024-03-01    5.032543\n2024-04-01    5.211861\n2024-05-01    5.347357\n2024-06-01    5.449740\nFreq: MS, Name: predicted_mean, dtype: float64"
+  },
+  {
+    "objectID": "04-apis.html#confidence-intervals-of-forecast",
+    "href": "04-apis.html#confidence-intervals-of-forecast",
+    "title": "Introduction to APIs",
+    "section": "Confidence Intervals of forecast",
+    "text": "Confidence Intervals of forecast\nLet’s see the confidence intervals of these forecast.\n\nprint(mi_forecast.conf_int())\n\n            lower michigan  upper michigan\n2024-01-01        1.227412        7.734912\n2024-02-01        0.576927        9.013531\n2024-03-01        0.351832        9.713253\n2024-04-01        0.286567       10.137155\n2024-05-01        0.287716       10.406998\n2024-06-01        0.314969       10.584510"
+  },
+  {
+    "objectID": "04-apis.html#prediction-instead-of-forecast",
+    "href": "04-apis.html#prediction-instead-of-forecast",
+    "title": "Introduction to APIs",
+    "section": "Prediction instead of forecast",
+    "text": "Prediction instead of forecast\nWe could also try to get our model to predict values within the sample (i.e. in-sample testing). Let’s see the model’s prediction for 2014.\n\nprediction = mi_model.predict(start=12, end=23)\n\n\n\n\nprint(prediction)\n\n2014-01-01    7.633507\n2014-02-01    7.562088\n2014-03-01    7.484541\n2014-04-01    7.407419\n2014-05-01    7.247760\n2014-06-01    7.093834\n2014-07-01    7.022019\n2014-08-01    6.861991\n2014-09-01    6.708091\n2014-10-01    6.553765\n2014-11-01    6.399469\n2014-12-01    6.245171\nFreq: MS, Name: predicted_mean, dtype: float64\n\n\n\n\nprint(usa_unrate.loc['2014', 'michigan'])\n\n2014-01-01    8.1\n2014-02-01    8.0\n2014-03-01    7.9\n2014-04-01    7.7\n2014-05-01    7.5\n2014-06-01    7.4\n2014-07-01    7.2\n2014-08-01    7.0\n2014-09-01    6.8\n2014-10-01    6.6\n2014-11-01    6.4\n2014-12-01    6.2\nName: michigan, dtype: float64"
+  },
+  {
+    "objectID": "04-apis.html#key-things-to-remember",
+    "href": "04-apis.html#key-things-to-remember",
+    "title": "Introduction to APIs",
+    "section": "Key things to remember",
+    "text": "Key things to remember\n\nOrganize your files and folders neatly: A tidy workspace enhances productivity by reducing potential sources of error, such as “file not found” bugs.\nFamiliarize yourself with essential packages: While there are many packages available, certain core libraries like numpy, pandas, matplotlib, seaborn, and statsmodels are must-haves for data analysis.\nAlways check the documentation: Every API is different, so do consult the documentation to understand how to use it correctly.\nThe most common type of errors are typo errors."
+  },
+  {
+    "objectID": "04-apis.html#post-workshop-survey",
+    "href": "04-apis.html#post-workshop-survey",
+    "title": "Introduction to APIs",
+    "section": "Post-workshop survey",
+    "text": "Post-workshop survey\nPlease scan this QR code or click on the link below to fill in the post-workshop survey. It should not take more than 2-3 minutes.\nSurvey link: https://smusg.asia.qualtrics.com/jfe/form/SV_0VeOJo3H5bWy7P0\n\n\n\n\n\nSEIC x DSA Python for Macroeconomics"
   },
   {
     "objectID": "coc.html",
@@ -1384,12 +1489,5 @@
     "title": "Introduction to Numpy & Matplotlib",
     "section": "Section 4: Visualizing Array contents (Matplotlib)",
     "text": "Section 4: Visualizing Array contents (Matplotlib)\nSimple Lineplot\nplt.plot(gdp_data)\nplt.xlabel('Values')\nplt.ylabel('Sectors')\nplt.title('Values Over Quarters')\nplt.legend()\nplt.grid()\nplt.show()\nLineplot for each sector\ntransposed = gdp_data.T\nfor sector in range(7):\n    plt.plot(transposed[:, sector], label=f'Sector {sector + 1}')\n\nplt.legend()\nplt.grid()\nplt.show()\nBoxplot\ntransposed = gdp_data.T\n\nplt.boxplot(transposed)\nplt.grid()\nplt.show()"
-  },
-  {
-    "objectID": "04-apis.html#lets-try-seasonal_decompose-output",
-    "href": "04-apis.html#lets-try-seasonal_decompose-output",
-    "title": "Introduction to APIs",
-    "section": "Let’s try: seasonal_decompose",
-    "text": "Let’s try: seasonal_decompose"
   }
 ]
