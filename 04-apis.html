@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.5.55">
 
   <meta name="author" content="Bella Ratmelia">
-  <title>Python for Macroeconomics – Introduction to APIs</title>
+  <title>Python for Macroeconomics – Introduction to APIs and statsmodels</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -408,7 +408,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Introduction to APIs</h1>
+  <h1 class="title">Introduction to APIs and statsmodels</h1>
   <p class="subtitle">+ Putting it all together!</p>
 
 <div class="quarto-title-authors">
@@ -484,7 +484,7 @@ Bella Ratmelia
 <section id="what-does-a-json-look-like" class="slide level2">
 <h2>What does a JSON look like?</h2>
 <p>Let’s try calling this Public API URL that will give us random fun &amp; useless facts. This API does not require any parameters.</p>
-<div id="1cf0ea68" class="cell" data-execution_count="1">
+<div id="0113fed2" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> requests</span>
 <span id="cb1-2"><a></a></span>
 <span id="cb1-3"><a></a>api_url <span class="op">=</span> <span class="st">"https://uselessfacts.jsph.pl/api/v2/facts/random"</span> </span>
@@ -493,16 +493,14 @@ Bella Ratmelia
 <span id="cb1-6"><a></a>    data <span class="op">=</span> response.json()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If we print <code>data</code>, this is how it should look like:</p>
-<div id="98848be3" class="cell" data-execution_count="2">
+<div id="15cd4a74" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-stdout">
-<pre><code>{'id': 'fe4e5b02071c024e48c7cca52f3cfb69',
+<pre><code>{'id': '6f1efaa84020a9f7da0e0443c4d7fb8a',
  'language': 'en',
- 'permalink': 'https://uselessfacts.jsph.pl/api/v2/facts/fe4e5b02071c024e48c7cca52f3cfb69',
+ 'permalink': 'https://uselessfacts.jsph.pl/api/v2/facts/6f1efaa84020a9f7da0e0443c4d7fb8a',
  'source': 'djtech.net',
  'source_url': 'http://www.djtech.net/humor/useless_facts.htm',
- 'text': 'Crocodiles and alligators are surprisingly fast on land.\xa0 '
-         'Although they are rapid, they are not agile.\xa0 So, if being chased '
-         'by one, run in a zigzag line to lose him or her.'}</code></pre>
+ 'text': 'A giraffe can go without water longer than a camel.'}</code></pre>
 </div>
 </div>
 
@@ -551,7 +549,7 @@ Bella Ratmelia
 <section id="reading-the-api-key-from-plain-text" class="slide level2">
 <h2>Reading the api key from plain text</h2>
 <p>Let’s read our <code>api_key</code> from the plain text file we just created.</p>
-<div id="0d357ec1" class="cell" data-execution_count="3">
+<div id="fb1b89ef" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="annotated-cell-3"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-3-1" class="code-annotation-target"><a href="#annotated-cell-3-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'api_key.txt'</span>, <span class="st">'r'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-3-2" class="code-annotation-target"><a href="#annotated-cell-3-2"></a>    fred_key <span class="op">=</span> <span class="bu">file</span>.read().strip()</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-annotation">
@@ -571,7 +569,7 @@ Bella Ratmelia
 <section id="interacting-with-fred-api" class="slide level2">
 <h2>Interacting with FRED API</h2>
 <p>let’s retrieve the GDP data from 2010 to 2020 from FRED! Based on the documentation, other than <code>api_key</code> and <code>series_id</code> parameter, these are other params that we can supply to FRED API: <code>observation_start</code>, and <code>observation_end</code>. We want the API to return the result as JSON, so we will provide tell the API as such.</p>
-<div id="462ffad0" class="cell" data-execution_count="4">
+<div id="87563311" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>fred_url <span class="op">=</span> <span class="st">"https://api.stlouisfed.org/fred/series/observations"</span></span>
 <span id="cb3-2"><a></a></span>
 <span id="cb3-3"><a></a>fred_params <span class="op">=</span> {</span>
@@ -599,7 +597,7 @@ Bella Ratmelia
 <section id="check-out-the-result" class="slide level2">
 <h2>Check out the result!</h2>
 <p>Let’s use <code>pprint</code> (pretty print) package so that the JSON is more readable to human eyes.</p>
-<div id="d6559c01" class="cell" data-execution_count="5">
+<div id="ec27267c" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="im">import</span> pprint</span>
 <span id="cb5-2"><a></a>pprint.pprint(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1150,7 +1148,7 @@ Bella Ratmelia
 <section id="sieve-results-and-save-to-csv" class="slide level2">
 <h2>Sieve results and save to CSV</h2>
 <p>What we want to save is the <code>observations</code>, specifically the <code>date</code> and <code>value</code> columns.</p>
-<div id="e0140398" class="cell" data-execution_count="6">
+<div id="c4900e02" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="annotated-cell-6"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-6-1"><a href="#annotated-cell-6-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="annotated-cell-6-2"><a href="#annotated-cell-6-2"></a></span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-6" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-6-3" class="code-annotation-target"><a href="#annotated-cell-6-3"></a>unemployment_df <span class="op">=</span> pd.DataFrame(data[<span class="st">'observations'</span>])</span>
@@ -1178,7 +1176,7 @@ Bella Ratmelia
 <h2>The easier way: FRED API wrapper, <code>fredapi</code> package</h2>
 <p>The <code>fredapi</code> package is a Python wrapper for the FRED API, making it easier to interact with FRED data in Python. i.e., it can do what we just did in a fewer lines of code.</p>
 <p>To install this package, type in <code>pip install fredapi</code></p>
-<div id="3636d898" class="cell" data-execution_count="7">
+<div id="01701eeb" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="im">from</span> fredapi <span class="im">import</span> Fred</span>
 <span id="cb7-2"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb7-3"><a></a></span>
@@ -1247,7 +1245,7 @@ Bella Ratmelia
 <h2>Merging two (or more) dataframes</h2>
 <p>When working with multiple data series from FRED, you might need to merge them into a single dataframe for analysis or to save it for later. This is especially important if the API usage costs money (Fortunately FRED is free)</p>
 <p>Example: retrieve unemployment rate for California, Michigan, and Florida.</p>
-<div id="34064b95" class="cell" data-execution_count="8">
+<div id="c062fdfe" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a>start <span class="op">=</span> <span class="st">"2013-01-01"</span></span>
 <span id="cb8-2"><a></a>end <span class="op">=</span> <span class="st">"2023-12-31"</span></span>
 <span id="cb8-3"><a></a></span>
@@ -1360,7 +1358,7 @@ Bella Ratmelia
 </div>
 </div></section><section id="plot-them" class="slide level2">
 <h2>Plot them!</h2>
-<div id="12857129" class="cell" data-execution_count="9">
+<div id="657f6413" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>usa_unrate.plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -1385,7 +1383,7 @@ Bella Ratmelia
 <li>Explore the FRED database and retrieve the Personal Consumption Expenditure for the last 2 decades (2003 to 2023)</li>
 <li>Plot the series.</li>
 </ol>
-<div id="9c9e5f6a" class="cell" data-execution_count="10">
+<div id="e46a66f4" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a>pce_data <span class="op">=</span> fred.get_series(<span class="st">'PCE'</span>, observation_start <span class="op">=</span> <span class="st">"2003-01-01"</span>, observation_end <span class="op">=</span> <span class="st">"2023-12-31"</span>)</span>
@@ -1411,7 +1409,7 @@ Bella Ratmelia
 <p>Statsmodels is a Python package that provides classes and functions for the estimation of various statistical models, as well as for conducting statistical tests and statistical data exploration.</p>
 <p>To install, type and then run <code>pip install statsmodels</code>.</p>
 <p>The documentation gives us a few pointers on how to import this package depending on what we want to use:</p>
-<div id="d4cf8f5b" class="cell" data-execution_count="11">
+<div id="412a33f4" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
 <span id="cb11-2"><a></a><span class="im">import</span> statsmodels.tsa.api <span class="im">as</span> tsa</span>
 <span id="cb11-3"><a></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span>
@@ -1440,7 +1438,7 @@ Bella Ratmelia
 </div>
 </div>
 </div>
-<div id="83daaa16" class="cell" data-execution_count="12">
+<div id="4f666b86" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
 <span id="cb12-2"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb12-3"><a></a></span>
@@ -1460,7 +1458,7 @@ Dep. Variable:                florida   R-squared (uncentered):                 
 Model:                            OLS   Adj. R-squared (uncentered):              0.987
 Method:                 Least Squares   F-statistic:                          1.005e+04
 Date:                Fri, 04 Oct 2024   Prob (F-statistic):                   1.05e-125
-Time:                        14:40:22   Log-Likelihood:                         -121.76
+Time:                        14:53:49   Log-Likelihood:                         -121.76
 No. Observations:                 132   AIC:                                      245.5
 Df Residuals:                     131   BIC:                                      248.4
 Df Model:                           1                                                  
@@ -1483,7 +1481,7 @@ Notes:
 </div></section><section id="ols-from-formula-sub-package" class="slide level2">
 <h2>OLS from <code>formula</code> sub-package</h2>
 <p>We can also call upon the <code>formula</code> sub-pacakge if we want to specify the exact formula for our OLS like so:</p>
-<div id="cd030424" class="cell" data-execution_count="13">
+<div id="4e228b2e" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span>
 <span id="cb14-2"><a></a></span>
 <span id="cb14-3"><a></a>usa_model_form <span class="op">=</span> smf.ols(<span class="st">"florida ~ california"</span>, data <span class="op">=</span> usa_unrate).fit()</span>
@@ -1499,7 +1497,7 @@ Dep. Variable:                florida   R-squared:                       0.917
 Model:                            OLS   Adj. R-squared:                  0.917
 Method:                 Least Squares   F-statistic:                     1440.
 Date:                Fri, 04 Oct 2024   Prob (F-statistic):           3.48e-72
-Time:                        14:40:22   Log-Likelihood:                -119.67
+Time:                        14:53:49   Log-Likelihood:                -119.67
 No. Observations:                 132   AIC:                             243.3
 Df Residuals:                     130   BIC:                             249.1
 Df Model:                           1                                         
@@ -1532,7 +1530,7 @@ Notes:
 </section>
 <section id="stationarity-test-adf" class="slide level2">
 <h2>Stationarity test (ADF)</h2>
-<div id="dd7a48ec" class="cell" data-execution_count="14">
+<div id="ca87a3b6" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a>mi_stt <span class="op">=</span> tsa.adfuller(usa_unrate[<span class="st">'michigan'</span>])</span>
 <span id="cb16-2"><a></a><span class="bu">print</span>(<span class="st">"results:"</span>, mi_stt)</span>
 <span id="cb16-3"><a></a><span class="bu">print</span>(<span class="st">"ADF statistic:"</span>, mi_stt[<span class="dv">0</span>])</span>
@@ -1556,7 +1554,7 @@ critical values:
 <h2>Seasonal Decomposition</h2>
 <p>The <code>seasonal_decomposition</code> function in statsmodels allows us to decompose a time series into its underlying components: trend (long term movement), seasonal, and residual (or irregular).</p>
 <p>Let’s decompose the time series data for Michigan! (It is stationary so this step is not strictly necessary, but let’s do it anyway!)</p>
-<div id="430a76e9" class="cell" data-execution_count="15">
+<div id="6ebfb39c" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a></a><span class="im">import</span> statsmodels.tsa.api <span class="im">as</span> tsa</span>
 <span id="cb18-2"><a></a></span>
 <span id="cb18-3"><a></a>mi_result <span class="op">=</span> tsa.seasonal_decompose(usa_unrate[<span class="st">'michigan'</span>], model<span class="op">=</span><span class="st">'additive'</span>)</span>
@@ -1581,7 +1579,7 @@ critical values:
 <li>Seasonality: <code>mi_result.seasonal.plot()</code></li>
 <li>Residuals: <code>mi_result.resid.plot()</code></li>
 </ul>
-<div id="786f196d" class="cell" data-execution_count="16">
+<div id="2c8b4980" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a>mi_result.seasonal.plot()</span>
 <span id="cb19-2"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -1596,7 +1594,7 @@ critical values:
 <section id="correlation-matrix" class="slide level2">
 <h2>Correlation Matrix</h2>
 <p>Let’s assume that just like the Michigan series, the California and Florida time series are also stationary. With this assumption, let’s compute the correlation matrix of these three series.</p>
-<div id="ca8f3f20" class="cell" data-execution_count="17">
+<div id="c0637754" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a>correlation_matrix <span class="op">=</span> usa_unrate.corr()</span>
 <span id="cb20-2"><a></a><span class="bu">print</span>(correlation_matrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1611,7 +1609,7 @@ florida       0.957694  0.948046  1.000000</code></pre>
 <section id="arima-modelling-single-variable" class="slide level2">
 <h2>ARIMA Modelling (single variable)</h2>
 <p>Since our time series is stationary, we can apply ARIMA model to forecast the Michigan unemployment rate! for the <code>order</code> paramater, we will input <code>1, 0, 1</code> for <code>p</code> (autoregressive term or AR), <code>d</code> (differencing), and <code>q</code> (moving average term or MA). <code>d</code> is 0 here because we’ve ascertained in the previous slide that our time series is stationary.</p>
-<div id="ca38e3a3" class="cell" data-execution_count="18">
+<div id="bb15fb38" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a>mi_model <span class="op">=</span> tsa.ARIMA(usa_unrate[<span class="st">'michigan'</span>], order<span class="op">=</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>)).fit() </span>
 <span id="cb22-2"><a></a><span class="bu">print</span>(mi_model.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1624,7 +1622,7 @@ florida       0.957694  0.948046  1.000000</code></pre>
 Dep. Variable:               michigan   No. Observations:                  132
 Model:                 ARIMA(1, 0, 1)   Log Likelihood                -254.685
 Date:                Fri, 04 Oct 2024   AIC                            517.371
-Time:                        14:40:24   BIC                            528.902
+Time:                        14:53:51   BIC                            528.902
 Sample:                    01-01-2013   HQIC                           522.056
                          - 12-01-2023                                         
 Covariance Type:                  opg                                         
@@ -1654,7 +1652,7 @@ Warnings:
 <section id="forecast-future-value" class="slide level2">
 <h2>Forecast future value</h2>
 <p>Let’s predict the unemployment rate for Michigan for the next 6 months from the end of the time series</p>
-<div id="3970669d" class="cell" data-execution_count="19">
+<div id="aa555607" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a></a>mi_forecast <span class="op">=</span> mi_model.get_forecast(steps<span class="op">=</span><span class="dv">6</span>)</span>
 <span id="cb24-2"><a></a><span class="bu">print</span>(mi_forecast.predicted_mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1671,7 +1669,7 @@ Freq: MS, Name: predicted_mean, dtype: float64</code></pre>
 <section id="confidence-intervals-of-forecast" class="slide level2">
 <h2>Confidence Intervals of forecast</h2>
 <p>Let’s see the confidence intervals of these forecast.</p>
-<div id="ce632f9f" class="cell" data-execution_count="20">
+<div id="94a9c1c4" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a></a><span class="bu">print</span>(mi_forecast.conf_int())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            lower michigan  upper michigan
@@ -1687,12 +1685,12 @@ Freq: MS, Name: predicted_mean, dtype: float64</code></pre>
 <section id="prediction-instead-of-forecast" class="slide level2">
 <h2>Prediction instead of forecast</h2>
 <p>We could also try to get our model to predict values within the sample (i.e.&nbsp;in-sample testing). Let’s see the model’s prediction for 2014.</p>
-<div id="dbe85044" class="cell" data-execution_count="21">
+<div id="f9f02a40" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a></a>prediction <span class="op">=</span> mi_model.predict(start<span class="op">=</span><span class="dv">12</span>, end<span class="op">=</span><span class="dv">23</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="columns">
 <div class="column">
-<div id="38b07324" class="cell" data-execution_count="22">
+<div id="a8a836fd" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a></a><span class="bu">print</span>(prediction)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>2014-01-01    7.633507
@@ -1711,7 +1709,7 @@ Freq: MS, Name: predicted_mean, dtype: float64</code></pre>
 </div>
 </div>
 </div><div class="column">
-<div id="a06f0305" class="cell" data-execution_count="23">
+<div id="e01892b6" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a></a><span class="bu">print</span>(usa_unrate.loc[<span class="st">'2014'</span>, <span class="st">'michigan'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>2014-01-01    8.1
