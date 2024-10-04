@@ -14,28 +14,32 @@ format: revealjs
 
 ## Overview for today
 
-- What and Why Pandas
-- Visualization with Seaborn
-- DateTime object 
-- Time Series with Pandas 
+Today, we will cover the typical steps when doing data analysis projects. For this session, we will do simple time series analysis.
+
+- Step 1: Loading and pre-processing data (with pandas)
+- Step 2: Time Series analysis
+- Step 3: Data Visualization (with Seaborn)
+
+# Step 1: Loading and pre-processing data (with pandas)
 
 ## What's Pandas?
 
 :::: {.columns}
 
-::: {.column width="40%"}
+::: {.column width="30%"}
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Giant_Panda_Eating.jpg/1024px-Giant_Panda_Eating.jpg)
 :::
 
-::: {.column width="60%"}
+::: {.column width="70%"}
 > `pandas` is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool,
-built on top of the Python programming language. [^1] `pandas` aims to be the fundamental high-level building block for doing practical, real world data analysis in Python. 
+built on top of the Python programming language. `pandas` aims to be the fundamental high-level building block for doing practical, real world data analysis in Python. [^1] 
 
 [^1]: <https://pandas.pydata.org/>
 
 - Well-established Python library for data manipulation and analysis
 - Built on top of NumPy. Unlike Numpy who can be difficult to "read", Dataframe presents data in tabular format that's easier for humans to read and perceive. 
 - Provides DataFrame and Series data structures
+- Many cheatsheets available: <https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf> or <https://python-graph-gallery.com/cheat-sheets/>
 :::
 
 :::: 
@@ -70,10 +74,16 @@ import seaborn as sns
 ```
 
 ::: {.callout-note appearance="simple" title="Pandas Cheatsheet"}
-Have this cheatsheet open on another tab as you work through your data: <https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf>
+Have this cheatsheet open on another tab as you work through your data: <https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf> or <https://python-graph-gallery.com/cheat-sheets/>
 :::
 
 ## Load data from CSV to DataFrame
+
+::: {.callout-important appearance="simple" title="Before we begin..."}
+
+[Right-click here to open `unemployment-age.csv`](https://raw.githubusercontent.com/bellaratmelia/2024-python-macroecons/main/data/unemployment-age.csv), and then Ctrl + S / Cmd + S to save it locally into your data folder
+
+:::
 
 Typically, we load the data from API source (more on this next week!) or external data file such as CSV. Let's load the `unemployment-age.csv` now!
 
@@ -142,17 +152,19 @@ Alternatively, if you just want to rename specific columns:
 unemp_data.rename(columns={'16_19yrs': 'teenagers', '20_24yrs': 'young_adults'}, inplace = True)
 ```
 
-## Data Wrangling with Pandas and Seaborn - Scenarios
+## Data preparation, analysis, and visualization tasks
 
-Let’s see if we can complete the following tasks:
+Data preparation, analysis, and visualization tasks will be different depends on the dataset and your goal. Specifically for our data, we will do the following:
 
-1. Remove all the missing values 
-2. We are primarily interested in the young adult unemployment. Separate this data into a new dataframe called `ya_unemp`
-3. Retrieve the months and years where the young adult rate is more than 10 percent and keep this on `high_ya_unemp`
-4. Add in a new column that tracks the total unemployment rate for each month
-5. Create a Quarterly dataset from the current dataframe that captures the mean unemployment rate
-6. Calculate the year-on-year change of unemployment rate
-7. Visualize the dataset
+1. Check for and remove all the missing values.
+2. We are primarily interested in the young adult unemployment. Separate this data into a new dataframe called `ya_unemp`.
+3. Retrieve the months and years where the young adult rate is more than 10 percent and keep this on `high_ya_unemp`.
+4. Add in a new column that tracks the total unemployment rate for each month.
+5. Calculate the quarterly mean unemployment rate. 
+6. Calculate the year-on-year change of unemployment rate.
+7. Plot the unemployment rate over the years for each age group.
+8. Are there any specific month where the unemployment rate tends to be higher? Plot the data.
+9. Are there any outliers in the unemployment rate?
 
 ## Task 1 - Handling missing values
 
@@ -256,6 +268,22 @@ unemp_data['total_unemployment'] = unemp_data['teenagers'] + unemp_data['young_a
 unemp_data.head()
 ```
 
+## Learning Check #1
+
+Retrieve data where the employment rate for adults are between 9 to 12 inclusive. Save only the `date` and `adults` column to a new dataframe called `adult_unemp`
+
+```{python}
+#| echo: true
+#| code-fold: true
+
+adult_unemp = unemp_data[['date', 'adults']].query('adults >= 9 & adults <= 12')
+print(adult_unemp.head())
+print(adult_unemp.shape)
+
+```
+
+# Step 2: Time Series Analysis
+
 ## Side quest: DateTime Object 
 
 - A `DateTime` object in Python, provided by the `datetime` module, represents a specific point in time, including the year, month, day, hour, minute, second, and microsecond. 
@@ -355,12 +383,202 @@ Now that the index is a `DateTime` object, we can easily retrieve specific date 
 ```{python}
 #| echo: true
 
- unemp_data_covid = unemp_data.loc['2020-03':'2023-05']
- unemp_data_covid.head()
+unemp_data_covid = unemp_data.loc['2020-03':'2023-05']
+print(unemp_data_covid.head())
 ```
 
 
-## Capture the month info into a separate column
+## Task 5 - Resampling to Quarterly data and get the quarterly mean
+
+With time series, we can calculate the quarterly average based on the monthly data with `resample()`
+
+```{python}
+#| echo: true
+
+quarterly_data = unemp_data.resample('Q').mean()
+print(quarterly_data.head())
+```
+
+## Resampling to Yearly data 
+
+Let's find out what is the highest unemployment rate for each year!
+
+```{python}
+#| echo: true
+
+yearly_data = unemp_data.resample('Y').max()
+print(yearly_data.head())
+```
+
+## Saving into a CSV
+
+Let's save the quarterly data to a CSV!
+
+```{python}
+#| echo: true
+
+quarterly_data.to_csv("data-output/yearly-unemployment-age.csv")
+```
+
+## Changing the frequency of Time Series: More granular
+
+Let's say we would like get a weekly time series. Since our data is a monthly one, there will be rows with empty values if we change the frequency. There are several methods that we can employ here to fill this empty values:
+
+- backfill
+- forward fill
+- interpolate
+
+```{python}
+#| echo: true
+
+unemp_data_weekly = unemp_data.resample('1W').ffill()
+print(unemp_data_weekly.tail())
+```
+
+## Task 6 - Calculate year-on-year changes for young adults
+
+Let's get the year-on-year change for young adults age group.
+
+```{python}
+#| echo: true
+
+unemp_data['ya_YoY_pctchange'] = unemp_data['young_adults'].pct_change(periods=12) # multiply by 100 to get the %
+print(unemp_data.tail())
+```
+
+## Calculate the changes for each month
+
+To capture the direction and magnitude of changes in unemployment rate each month, use `diff()` function.
+
+```{python}
+#| echo: true
+
+unemp_data['changes_ya'] = unemp_data['young_adults'].diff()
+print(unemp_data['changes_ya'].head(7))
+```
+
+## Visualize the changes
+
+Pandas is built on top of NumPy and integrates well with Matplotlib, so it is super easy to plot data right away—especially now that we've set the index!
+
+```{python}
+#| echo: true
+
+unemp_data['changes_ya'].plot()
+```
+
+## Learning Check #2
+
+Change the frequency of the time series to weekly, and interpolate the numbers. Save this new series into `unemp_weekly_interpolate`
+
+```{python}
+#| echo: true
+#| code-fold: true
+
+unemp_weekly_interpolate = unemp_data.resample('1W').interpolate()
+print(unemp_weekly_interpolate.tail())
+
+```
+
+# Step 3: Data visualization
+
+## What's Seaborn?
+
+:::: {.columns}
+
+::: {.column width="40%"}
+![](https://seaborn.pydata.org/_static/logo-wide-lightbg.svg)
+:::
+
+::: {.column width="60%"}
+> Seaborn is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics. [^2]  
+
+[^2]: <https://seaborn.pydata.org/>
+
+- Well-established Python library for data visualization
+- Cheatsheet by Datacamp here: <https://python-graph-gallery.com/cheat-sheets/>
+:::
+
+:::: 
+
+Some setups we can do:
+
+```{python}
+#| echo: true
+
+import seaborn as sns
+sns.set_style("whitegrid")
+sns.set_palette("husl")
+```
+
+## Task 7 - Plot the entire time series
+
+Let's plot the unemployment rate over the years for each age group! 
+
+```{python}
+#| echo: true
+#| output-location: slide
+
+unemp_data.plot()
+plt.title('Unemployment Rate for Young Adults')
+plt.ylabel('Unemployment Rate (%)')
+plt.show()
+```
+
+## Plotting *some* parts of the time series
+
+Clearly, there are some columns that we may want to skip. To do this, we can reshape the data shape into long format using `melt()`. 
+
+Let's say we only want to visualize `teenagers` and `young_adults`.
+
+```{python}
+#| echo: true
+#| output: false
+#| code-overflow: wrap
+#| code-line-numbers: 1|2|3
+
+youth_data = unemp_data[['teenagers', 'young_adults']] # <1>
+youth_data = youth_data.reset_index() # <2>
+youth_data_melted = youth_data.melt(id_vars='date', value_vars=['teenagers', 'young_adults'], var_name='age_group', value_name='unemployment_rate') # <3>
+
+```
+
+1. Retrieve the columns that we need (index will be automatically included)
+2. Reset the index, so that it's back to normal column.
+3. Use the melt() function to "melt" the wide data into long format
+
+## Wide data vs Long data
+
+Check out the difference!
+
+::: {.columns}
+::: {.column}
+Wide Data
+
+```{python}
+print(unemp_data[['teenagers', 'young_adults']])
+```
+:::
+::: {.column}
+Long Data
+
+```{python}
+print(youth_data_melted)
+```
+:::
+::: 
+
+## Visualizing is much easier with long data
+
+We can now fit the things we want in a single line like so:
+
+```{python}
+#| echo: true
+
+sns.lineplot(data=youth_data_melted, x='date', y='unemployment_rate', hue='age_group')
+```
+
+## Making visualization easier: Capture month info into a separate column
 
 With `DateTime` object as the index, we can easily capture the month info. This would be useful to see whether certain months tend to have higher unemployment rate based on this data. 
 
@@ -368,7 +586,7 @@ With `DateTime` object as the index, we can easily capture the month info. This 
 #| echo: true
 
 unemp_data['month'] = unemp_data.index.month
-unemp_data.head()
+print(unemp_data.head())
 ```
 
 ## Aggregate statistics
@@ -382,108 +600,18 @@ unemp_permonth = unemp_data.groupby('month').mean()
 print(unemp_permonth)
 ```
 
-## Task 5 - Resampling to Quarterly data 
 
-With time series, we can calculate the quarterly average based on the monthly data with `resample()`
+## Task 8 - Months where unemployment rate then to be high
 
-```{python}
-#| echo: true
-
-quarterly_data = unemp_data.resample('Q').mean()
-quarterly_data.head()
-```
-
-## Resampling to Yearly data 
-
-Let's find out what is the highest unemployment rate for each year!
-
-```{python}
-#| echo: true
-
-yearly_data = unemp_data.resample('Y').max()
-yearly_data.head()
-```
-
-## Saving into a CSV
-
-Let's save the quarterly data to a CSV!
-
-```{python}
-#| echo: true
-
-quarterly_data.to_csv("data-output/yearly-unemployment-age.csv")
-```
-
-## Changing the frequency of Time Series
-
-Let's say we would like get a weekly time series. Since our data is a monthly one, there will be rows with empty values if we change the frequency. There are several methods that we can employ here to fill this empty values:
-
-- backfill
-- forward fill
-- interpolate
-
-```{python}
-#| echo: true
-
-unemp_data_weekly = unemp_data.resample('1W').ffill()
-unemp_data_weekly.tail()
-```
-
-## Task 7 - Visualize Time Series
-
-Let's plot the entire
-
-```{python}
-#| echo: true
-#| output-location: slide
-
-unemp_data.plot()
-plt.title('Unemployment Rate for Young Adults')
-plt.ylabel('Unemployment Rate (%)')
-plt.show()
-```
-
-## Calculate the changes for each month
-
-To capture the direction and magnitude of changes in unemployment rate each month, use `diff()` function!
-
-```{python}
-#| echo: true
-
-unemp_data['changes_ya'] = unemp_data['young_adults'].diff()
-unemp_data['changes_ya'].head(7)
-```
-
-## Calculate yeor-on-year changes for young adults
-
-Let's get the year-on-year change!
-
-```{python}
-#| echo: true
-
-unemp_data['ya_YoY_pctchange'] = unemp_data['young_adults'].pct_change(periods=12) # multiply by 100 to get the %
-unemp_data.tail()
-```
-
-## Visualize the changes
-
-Let's quickly visualize the changes:
-
-```{python}
-unemp_data['changes_ya'].plot()
-```
-
-## More Seaborn: Scatterplot
-
-Seaborn can do many other visualizations as well. For example, let's try plotting a scatterplot of 'young_adults' and 'seniors'
+Which month seems to have the highest unemployment rate on average?
 
 ``` {python}
 #| echo: true
 
-sns.scatterplot(x = 'young_adults', y = 'seniors', data = unemp_data)
+sns.barplot(data = unemp_permonth, x = unemp_permonth.index, y = 'young_adults')
 ```
 
-## More Seaborn: Boxplot
+## Task 9 - Finding outliers
 
 Let's see how unemployment rate fared each month for `young_adults`. Are there any outliers?
 
@@ -493,12 +621,39 @@ Let's see how unemployment rate fared each month for `young_adults`. Are there a
 sns.boxplot(x = 'month', y = 'young_adults', data=unemp_data[['month', 'young_adults']])
 ```
 
-## More Seaborn: Barplot
+## More Seaborn: Scatterplot
 
-Which month seems to have the highest unemployment rate on average?
+Seaborn can do many other visualizations as well. For example, let's try plotting a scatterplot of `young_adults` and `seniors`
 
 ``` {python}
 #| echo: true
 
-sns.barplot(data = unemp_permonth, x = unemp_permonth.index, y = 'young_adults')
+sns.scatterplot(x = 'young_adults', y = 'seniors', data = unemp_data)
 ```
+
+## More Seaborn: Regplot
+
+Let's try plotting a regression plot of `young_adults` and `seniors`
+
+``` {python}
+#| echo: true
+
+sns.regplot(x = 'young_adults', y = 'seniors', data = unemp_data)
+```
+
+
+## Learning Check #3
+
+Plot the unemployment rate fared each month for `young_adults` with violin plot to see the distribution better. 
+
+```{python}
+#| echo: true
+#| code-fold: true
+
+sns.violinplot(x = 'month', y = 'young_adults', data=unemp_data[['month', 'young_adults']])
+
+```
+
+# End of Session 3!
+ 
+We have covered pandas and Seaborn! 

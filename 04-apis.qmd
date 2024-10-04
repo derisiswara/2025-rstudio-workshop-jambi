@@ -1,22 +1,22 @@
 ---
-title: "Introduction to APIs"
+title: "Introduction to APIs and statsmodels"
 subtitle: "+ Putting it all together!"
 author: "Bella Ratmelia"
 format: revealjs
 ---
-## Recap from yesterday
+## Recap from last week
 
 -  Introduction to Pandas dataframe
 
 -  Datetime in Python and Time Series with Pandas
 
--  Analyzing and visualizing Time Series dataframe 
+-  Visualizing time series with Seaborn
 
 ## Overview for today
 
 -  Introduction to FRED API
 
--  Presenting with `.ipynb`
+-  The `statsmodel` package for your analysis needs
 
 -  Your turn: Select an indicator, analyze it, visualize it, and present it to the class!
 
@@ -24,13 +24,500 @@ format: revealjs
 
 ## What is it?
 
-## How does it work?
+- API (Application Programming Interface) is a set of protocols and tools for building software applications. It defines how different applications interact and communicate.
+- APIs send requests to servers and receive responses.
+- Common HTTP methods include GET, POST, PUT, and DELETE. For our use cases, we will primarily use GET.
+
+![](images/api-explained.png)
+
+## How to do it in Python
+
+The exact implementations will differ for each API, but this is what it will look like most of the time:
+
+```python
+import requests
+api_url = "https://api.example.com/data" # <1>
+api_parameters = {                  # <2>
+        "query": "hello world",     # <2>
+        "api_key": 12345            # <2>
+    }                               # <2>
+
+response = requests.get(api_url, params = api_parameters) # <3>
+data = response.json() # <4>
+```
+1. The API URL or "endpoint"
+2. API Parameters. This varies by API and are typically formatted as a `dictionary`. When combined with the endpoint URL, the result looks like: `https://api.example.com/data?api_key=12345&query=hello%20world`
+3. Calling the API by passing the api endpoint and the parameters, if any. 
+4. The api result will be returned in JSON (JavaScript Object Notation) format, which resembles the `dictionary` data structure in Python.
+
+
+## What does a JSON look like?
+
+Let's try calling this Public API URL that will give us random fun & useless facts. This API does not require any parameters. 
+
+```{python}
+#| echo: true
+
+import requests
+
+api_url = "https://uselessfacts.jsph.pl/api/v2/facts/random" 
+response = requests.get(api_url) 
+if response.status_code == 200:
+    data = response.json()
+```
+
+If we print `data`, this is how it should look like:
+```{python}
+import pprint
+
+pprint.pprint(data)
+```
+
+::: aside
+
+If you click on this API endpoint, it should call the API and returns the JSON object for you in your browser: <https://uselessfacts.jsph.pl/api/v2/facts/random>. 
+
+:::
 
 ## Federal Reserve Economic Data (FRED) API
 
-## Learning Chech
+::: {.columns}
+::: {.column width="30%"}
 
-# Section 2: Presenting with ipynb
+![](images/fred-logo.jpg)
 
-# Section 3: Pick an indicator and analyze it!
+:::
+::: {.column width="70%"}
+
+[FRED](https://fred.stlouisfed.org/) (Federal Reserve Economic Data) is a database maintained by the Federal Reserve Bank of St. Louis, providing access to a wide range of economic data series. 
+
+The FRED API allows programmatic access to this data.
+
+:::
+::: 
+
+
+**Required: Get your API key**
+
+To use the FRED API, you need to create an account and obtain an API key from the FRED website. This key authenticates your requests to the API. [Click here to create an account and get your key](https://fredaccount.stlouisfed.org/apikeys).
+
+
+::: {.callout-note appearance="simple" title="Always refer to documentation!"}
+
+The documentation for FRED API is available here: <https://fred.stlouisfed.org/docs/api/fred/> 
+
+Remember, different API will have their own documentation. Other APIs such as EconDB or SingStat will have their own specifications, so be sure to check the documentation.
+
+:::
+
+## Best Practice: How to store your API key
+
+Generally, it is best to save your API key in a separate file or in your environment variables. For now, let's save it in a plain text file. 
+
+1. In VS Code, click on `File` > `New Text File`
+2. Paste the API key in the newly opened file
+3. Save this file as `api_key.txt`
+4. Check that it is located in the same folder level with the rest of your `ipynb` files. 
+
+ ![](images/apikey-file-location.jpg)
+
+## Reading the api key from plain text
+
+Let's read our `api_key` from the plain text file we just created. 
+
+```{python}
+#| echo: true
+with open('api_key.txt', 'r') as file:  # <1>
+    fred_key = file.read().strip()      # <2>
+```
+
+1. Open the plain text file in 'read' mode (hence the 'r')
+2. Read the entire file (which contains the api key) and save the api key into a variable called `fred_key`
+
+
+## Interacting with FRED API
+let's retrieve the GDP data from 2010 to 2020 from FRED! Based on the documentation, other than `api_key` and `series_id` parameter, these are other params that we can supply to FRED API: `observation_start`, and `observation_end`. We want the API to return the result as JSON, so we will provide tell the API as such.
+
+```{python}
+#| echo: true
+
+fred_url = "https://api.stlouisfed.org/fred/series/observations"
+
+fred_params = {
+    "series_id": "UNRATE",
+    "api_key": fred_key,
+    "file_type": "json",
+    "observation_start": "2013-01-01",
+    "observation_end": "2023-12-31"
+}
+
+response = requests.get(fred_url, params = fred_params)
+
+if response.status_code == 200:
+    data = response.json()
+    print("succesful!")
+```
+
+## Anatomy of an API request
+
+![](images/anatomy-of-api.jpg)
+
+## Check out the result!
+
+Let's use `pprint` (pretty print) package so that the JSON is more readable to human eyes.
+
+```{python}
+#| echo: true
+import pprint
+pprint.pprint(data)
+```
+
+The API returns a lot of information, but what we want to save is the `observations`, specifically the `date` and `value` columns.
+
+## Sieve results and save to CSV
+
+What we want to save is the `observations`, specifically the `date` and `value` columns.
+
+```{python}
+#| echo: true
+
+import pandas as pd
+
+unemployment_df = pd.DataFrame(data['observations'])    # <1>
+unemployment_df = unemployment_df.drop(['realtime_start', 'realtime_end'], axis=1)  # <2>
+unemployment_df.to_csv("data/unemployment-via-api.csv") # <3>
+```
+
+1. Get the values stored under `observations` label and save it into `unemployment_df` dataframe.
+2. As there are extra columns that we don't need, drop them.
+3. Save the api result into a CSV for reuse later.  
+
+## The easier way: FRED API wrapper, `fredapi` package
+
+The `fredapi` package is a Python wrapper for the FRED API, making it easier to interact with FRED data in Python. i.e., it can do what we just did in a fewer lines of code.
+
+To install this package, type in `pip install fredapi`
+
+```{python}
+#| echo: true
+#| output-location: slide
+
+from fredapi import Fred
+import pandas as pd
+
+fred = Fred(api_key=fred_key)
+
+data = fred.get_series('UNRATE', observation_start="2013-01-01", observation_end="2023-12-31")
+df_wrapper = pd.DataFrame(data, columns=['value'])
+df_wrapper.tail()
+```
+
+::: aside
+
+Documentation available here: <https://github.com/mortada/fredapi>
+
+:::
+
+## Merging two (or more) dataframes 
+
+When working with multiple data series from FRED, you might need to merge them into a single dataframe for analysis or to save it for later. This is especially important if the API usage costs money (Fortunately FRED is free)
+
+Example: retrieve unemployment rate for California, Michigan, and Florida. 
+
+```{python}
+#| echo: true
+#| output-location: slide
+
+start = "2013-01-01"
+end = "2023-12-31"
+
+ca_data = fred.get_series('CAUR', observation_start = start, observation_end = end)
+mi_data = fred.get_series('MIUR', observation_start = start, observation_end = end)
+fl_data = fred.get_series('FLUR', observation_start = start, observation_end = end)
+
+ca_unrate = pd.DataFrame(ca_data, columns=['california'])
+mi_unrate = pd.DataFrame(mi_data, columns=['michigan'])
+fl_unrate = pd.DataFrame(fl_data, columns=['florida'])
+
+usa_unrate = pd.merge(ca_unrate, mi_unrate, left_index=True, right_index=True, how='inner')
+usa_unrate = pd.merge(usa_unrate, fl_unrate, left_index=True, right_index=True, how='inner')
+
+usa_unrate.tail(10)
+```
+
+## Plot them!
+
+```{python}
+#| echo: true
+usa_unrate.plot()
+```
+
+## More APIs to try
+
+Go to [Public API](https://github.com/public-apis/public-apis?tab=readme-ov-file#try-public-apis-for-free) GitHub page to see various free public apis to explore! 
+
+- [Economics and Finance-related APIs](https://github.com/public-apis/public-apis?tab=readme-ov-file#finance) such as Alpaca, FRED, Yahoo Finance
+- [Government Open Data](https://github.com/public-apis/public-apis?tab=readme-ov-file#government) like Census.gov
+
+## Learning Check {.scrollable}
+
+1. Explore the FRED database and retrieve the Personal Consumption Expenditure for the last 2 decades (2003 to 2023)
+2. Plot the series. 
+
+```{python}
+#| code-fold: true
+#| echo: true
+
+pce_data = fred.get_series('PCE', observation_start = "2003-01-01", observation_end = "2023-12-31")
+pce = pd.DataFrame(pce_data, columns = ["pce"])
+pce.plot()
+```
+
+# Section 2: The statsmodel package
+
+## Introduction and where to find the guides
+
+Statsmodels is a Python package that provides classes and functions for the estimation of various statistical models, as well as for conducting statistical tests and statistical data exploration.
+
+To install, type and then run `pip install statsmodels`.
+
+The documentation gives us a few pointers on how to import this package depending on what we want to use:
+
+```{python}
+#| echo: true
+
+import statsmodels.api as sm
+import statsmodels.tsa.api as tsa
+import statsmodels.formula.api as smf
+
+# import matplotlib for plotting purposes
+import matplotlib.pyplot as plt
+```
+
+::: aside
+
+Check out the documentation here: <https://www.statsmodels.org/stable/api.html>
+
+:::
+
+
+## Let's try a simple regression - OLS
+
+::: {.callout-note appearance="simple" title="Note"}
+
+Our data is not exactly the right kind for regression. We are doing this for `statsmodel` demonstration purposes only.
+
+:::
+
+```{python}
+#| echo: true
+#| output-location: slide
+import statsmodels.api as sm
+import numpy as np
+
+exog_x = usa_unrate['california']
+endo_y = usa_unrate['florida']
+
+usa_model = sm.OLS(endo_y, exog_x).fit()
+print(usa_model.summary())
+```
+
+## OLS from `formula` sub-package
+
+We can also call upon the `formula` sub-pacakge if we want to specify the exact formula for our OLS like so:
+
+```{python}
+#| echo: true
+#| output-location: slide
+import statsmodels.formula.api as smf
+
+usa_model_form = smf.ols("florida ~ california", data = usa_unrate).fit()
+print(usa_model_form.summary())
+```
+
+## Let's try some Time Series analysis {.scrollable}
+
+`statsmodels` comes with a wide range of functions that we can use to conduct common time series analysis such as:
+
+1. Stationarity test (ADF)
+2. Seasonal Decomposition
+3. Correlation Matrix
+4. ARIMA Modelling (single variable)
+
+All of the time series analysis functions are inside the `tsa` sub-package of `statsmodels`. Let's try these!
+
+## Stationarity test (ADF)
+
+```{python}
+#| echo: true
+
+mi_stt = tsa.adfuller(usa_unrate['michigan'])
+print("results:", mi_stt)
+print("ADF statistic:", mi_stt[0])
+print("p-value:", mi_stt[1])
+print("critical values:")
+for key, value in mi_stt[4].items():
+    print(key, value)
+```
+
+The result indicates that the ADF statistics is lower than all critical values and p-value < 0.05, which means we reject null hypothesis ($H_0$: The time series is non-stationary). The time series for Michigan appears to be stationary. 
+
+## Seasonal Decomposition
+
+The `seasonal_decomposition` function in statsmodels allows us to decompose a time series into its underlying components: trend (long term movement), seasonal, and residual (or irregular). 
+
+Let's decompose the time series data for Michigan! (It is stationary so this step is not strictly necessary, but let's do it anyway!)
+ 
+```{python}
+#| echo: true
+#| output-location: slide
+import statsmodels.tsa.api as tsa
+
+mi_result = tsa.seasonal_decompose(usa_unrate['michigan'], model='additive')
+mi_result.plot()
+plt.show()
+```
+
+## Individually retrieve trends, season, and residuals {.scrollable}
+
+To retrieve them individually:
+
+- Trend: `mi_result.trend.plot()`
+- Seasonality: `mi_result.seasonal.plot()`
+- Residuals: `mi_result.resid.plot()`
+
+```{python}
+#| echo: true
+
+mi_result.seasonal.plot()
+plt.show()
+```
+
+## Correlation Matrix
+
+Let's assume that just like the Michigan series, the California and Florida time series are also stationary. With this assumption, let's compute the correlation matrix of these three series.
+
+```{python}
+#| echo: true
+
+correlation_matrix = usa_unrate.corr()
+print(correlation_matrix)
+```
+
+It seems like they are strongly and positively correlated with each other!
+
+## ARIMA Modelling (single variable)
+
+Since our time series is stationary, we can apply ARIMA model to forecast the Michigan unemployment rate! for the `order` paramater, we will input `1, 0, 1` for `p` (autoregressive term or AR), `d` (differencing), and `q` (moving average term or MA). `d` is 0 here because we've ascertained in the previous slide that our time series is stationary. 
+
+```{python}
+#| echo: true
+#| output-location: slide
+
+mi_model = tsa.ARIMA(usa_unrate['michigan'], order=(1,0,1)).fit() 
+print(mi_model.summary())
+```
+
+## ARIMA - potential interpretation
+
+*The constant terms is statistically significant, indicating a base unemployment level of around 5.77%. The `ar.L1` is statistically significant (p < 0.05), which indicates strong autocorrelation with previous month's rate. However, the `ma.L1` is not statistically significant (p = 0.79), which suggests that this component may not be necessary for our model. Residuals diagnostics indicates that the residuals is homoeskedastic, but the high skewness and kurtosis indicates that there may be outliers.*
+
+Since the MA component may not be necessary, we should consider re-running ARIMA with `1, 0, 0` order. 
+
+Now that we have our ARIMA model, let's use it to forecast future values of unemployment rate in Michigan.
+
+##  Forecast future value
+
+Let's predict the unemployment rate for Michigan for the next 6 months from the end of the time series
+
+```{python}
+#| echo: true
+
+mi_forecast = mi_model.get_forecast(steps=6)
+print(mi_forecast.predicted_mean)
+```
+
+## Confidence Intervals of forecast
+
+Let's see the confidence intervals of these forecast. 
+
+```{python}
+#| echo: true
+
+print(mi_forecast.conf_int())
+```
+
+## Prediction instead of forecast
+
+We could also try to get our model to predict values within the sample (i.e. in-sample testing). Let's see the model's prediction for 2014.
+
+```{python}
+#| echo: true
+
+prediction = mi_model.predict(start=12, end=23)
+```
+
+::: {.columns}
+::: {.column}
+
+```{python}
+#| echo: true
+
+print(prediction)
+```
+
+:::
+::: {.column}
+
+```{python}
+#| echo: true
+
+print(usa_unrate.loc['2014', 'michigan'])
+```
+
+:::
+::: 
+
+# Section 3: Putting it all together
+
+**Pick an indicator and analyze or visualize it!**
+
+1. Use the `fredapi` wrapper to search FRED for a suitable data of your own choosing
+2. Clean and visualize the data with seaborn
+3. Use `statsmodels` package to perform a suitable analysis of your choice. 
+4. Present to the class!
+
+## Key things to remember
+
+1. **Organize your files and folders neatly**: A tidy workspace enhances productivity by reducing potential sources of error, such as "file not found" bugs.
+2. **Familiarize yourself with essential packages**: While there are many packages available, certain core libraries like `numpy`, `pandas`, `matplotlib`, `seaborn`, and `statsmodels` are must-haves for data analysis.
+3. **Always check the documentation**: Every API is different, so do consult the documentation to understand how to use it correctly.
+4. **The most common type of errors are typo errors.**
+
+
+# Thank you for your participation! 😄
+
+:::: {.columns}
+
+::: {.column width="35%"}
+![](images/grate-job.webp)
+:::
+
+::: {.column width="65%"}
+All the best for your studies! 
+
+*(Manifesting academic prosperity and high-paying job after graduation to everyone who attended the workshop!)*
+
+If you need help with Python, my email is [bellar@smu.edu.sg](mailto:bellar@smu.edu.sg)
+:::
+
+::::
+
+## Post-workshop survey
+
+Please scan this QR code or click on the link below to fill in the post-workshop survey. It should not take more than 2-3 minutes.
+
+Survey link: <https://smusg.asia.qualtrics.com/jfe/form/SV_0VeOJo3H5bWy7P0>
+
+![](images/post-workshop-qr.png){width="500"}
 

@@ -3,10 +3,11 @@ project:
 
 website:
   title: "Python for Macroeconomics"
-  page-footer: "Made with love and [Quarto](https://quarto.org/) by [Bella Ratmelia](https://bellaratmelia.github.io/) - Licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)."
+  page-footer: "Made with love and [Quarto](https://quarto.org/) by [Bella Ratmelia](https://bellaratmelia.github.io/) - [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)."
   google-analytics:
     tracking-id: "G-Y8S6TK2GEH"
     anonymize-ip: true
+    storage: none
   navbar:
     left:
       - href: index.qmd

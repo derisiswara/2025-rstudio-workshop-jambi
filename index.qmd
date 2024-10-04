@@ -26,8 +26,8 @@ This site serves as a repository for the slides and codes developed for the 'Mac
 |-----------------|-----------------|---------------------|-----------------|
 | Sat, 7 Sep 2024, 10 AM - 12 PM | YPHSL Seminar Room 3-12 | [Python basics](01-basics.html) | [Quiz 1](https://forms.gle/1QAdCiqtpPX6zGBn9){target="_blank"} |
 | Sat, 14 Sep 2024, 10 AM - 12 PM | SOSS/CIS Seminar Room 3-1 | [Introduction to Numpy and Matplotlib](02-numpy.html) | [Quiz 2](https://forms.gle/AEXQi2hScPRTPtFh8){target="_blank"} |
-| Sat, 28 Sep 2024, 10 AM - 12 PM | SOSS/CIS Seminar Room 3-1 | Data wrangling and timeseries with Dataframe |  |
-| Sat, 5 Oct 2024, 10 AM - 12 PM | SOSS/CIS Seminar Room 3-1 | Retrieve data with APIs and putting it all together |  |
+| Sat, 28 Sep 2024, 10 AM - 12 PM | SOSS/CIS Seminar Room 3-1 | [Data wrangling and timeseries with Dataframe](03-pandas.html) | [Quiz 3](https://forms.gle/JSNcorbKADQmkg4Z8) |
+| Sat, 5 Oct 2024, 10 AM - 12 PM | SOSS/CIS Seminar Room 3-1 | [Retrieve data with APIs and analyze with statsmodels](04-apis.html) | - |
 :::
 
 <style type="text/css">
