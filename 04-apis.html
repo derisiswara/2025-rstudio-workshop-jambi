@@ -484,23 +484,24 @@ Bella Ratmelia
 <section id="what-does-a-json-look-like" class="slide level2">
 <h2>What does a JSON look like?</h2>
 <p>Let’s try calling this Public API URL that will give us random fun &amp; useless facts. This API does not require any parameters.</p>
-<div id="0113fed2" class="cell" data-execution_count="1">
+<div id="221dd915" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> requests</span>
 <span id="cb1-2"><a></a></span>
 <span id="cb1-3"><a></a>api_url <span class="op">=</span> <span class="st">"https://uselessfacts.jsph.pl/api/v2/facts/random"</span> </span>
 <span id="cb1-4"><a></a>response <span class="op">=</span> requests.get(api_url) </span>
-<span id="cb1-5"><a></a><span class="cf">if</span> response.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
+<span id="cb1-5"><a></a><span class="cf">if</span> response.status_code <span class="op">==</span> <span class="dv">200</span>: <span class="co"># making sure the call is succesful. Any other status beside 200 means the API call failed.</span></span>
 <span id="cb1-6"><a></a>    data <span class="op">=</span> response.json()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If we print <code>data</code>, this is how it should look like:</p>
-<div id="15cd4a74" class="cell" data-execution_count="2">
+<div id="72d1efae" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-stdout">
-<pre><code>{'id': '6f1efaa84020a9f7da0e0443c4d7fb8a',
+<pre><code>{'id': '583be934245210ba8bdb30e604746b09',
  'language': 'en',
- 'permalink': 'https://uselessfacts.jsph.pl/api/v2/facts/6f1efaa84020a9f7da0e0443c4d7fb8a',
+ 'permalink': 'https://uselessfacts.jsph.pl/api/v2/facts/583be934245210ba8bdb30e604746b09',
  'source': 'djtech.net',
  'source_url': 'http://www.djtech.net/humor/useless_facts.htm',
- 'text': 'A giraffe can go without water longer than a camel.'}</code></pre>
+ 'text': 'The word "Checkmate" in chess comes from the Persian phrase "Shah '
+         'Mat," which means "the king is dead."'}</code></pre>
 </div>
 </div>
 
@@ -537,10 +538,10 @@ Bella Ratmelia
 </section>
 <section id="best-practice-how-to-store-your-api-key" class="slide level2">
 <h2>Best Practice: How to store your API key</h2>
-<p>Generally, it is best to save your API key in a separate file or in your environment variables. For now, let’s save it in a plain text file.</p>
+<p>Generally, it is best to save your API key in a separate file or in your environment variables. For now, let’s save it in a plain text file (.txt).</p>
 <ol type="1">
 <li>In VS Code, click on <code>File</code> &gt; <code>New Text File</code></li>
-<li>Paste the API key in the newly opened file</li>
+<li>Paste just the API key in the newly opened file. The file should contain just the API key and nothing else.</li>
 <li>Save this file as <code>api_key.txt</code></li>
 <li>Check that it is located in the same folder level with the rest of your <code>ipynb</code> files.</li>
 </ol>
@@ -549,7 +550,7 @@ Bella Ratmelia
 <section id="reading-the-api-key-from-plain-text" class="slide level2">
 <h2>Reading the api key from plain text</h2>
 <p>Let’s read our <code>api_key</code> from the plain text file we just created.</p>
-<div id="fb1b89ef" class="cell" data-execution_count="3">
+<div id="65b97371" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="annotated-cell-3"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-3-1" class="code-annotation-target"><a href="#annotated-cell-3-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'api_key.txt'</span>, <span class="st">'r'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-3-2" class="code-annotation-target"><a href="#annotated-cell-3-2"></a>    fred_key <span class="op">=</span> <span class="bu">file</span>.read().strip()</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-annotation">
@@ -568,8 +569,8 @@ Bella Ratmelia
 </section>
 <section id="interacting-with-fred-api" class="slide level2">
 <h2>Interacting with FRED API</h2>
-<p>let’s retrieve the GDP data from 2010 to 2020 from FRED! Based on the documentation, other than <code>api_key</code> and <code>series_id</code> parameter, these are other params that we can supply to FRED API: <code>observation_start</code>, and <code>observation_end</code>. We want the API to return the result as JSON, so we will provide tell the API as such.</p>
-<div id="87563311" class="cell" data-execution_count="4">
+<p>let’s retrieve the GDP data from 2010 to 2020 from FRED! Based on the documentation, other than <code>api_key</code> and <code>series_id</code> parameter, these are other params that we can supply to FRED API: <code>observation_start</code>, and <code>observation_end</code>. We want the API to return the result as JSON, so we tell the API about this through the <code>file_type</code> parameter.</p>
+<div id="838150d0" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>fred_url <span class="op">=</span> <span class="st">"https://api.stlouisfed.org/fred/series/observations"</span></span>
 <span id="cb3-2"><a></a></span>
 <span id="cb3-3"><a></a>fred_params <span class="op">=</span> {</span>
@@ -596,8 +597,8 @@ Bella Ratmelia
 <img data-src="images/anatomy-of-api.jpg" class="r-stretch"></section>
 <section id="check-out-the-result" class="slide level2">
 <h2>Check out the result!</h2>
-<p>Let’s use <code>pprint</code> (pretty print) package so that the JSON is more readable to human eyes.</p>
-<div id="ec27267c" class="cell" data-execution_count="5">
+<p>Let’s use <code>pprint</code> (pretty print) package so that the JSON is more readable to human eyes. To install this package, type <code>pip install pprint</code></p>
+<div id="60c8495d" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="im">import</span> pprint</span>
 <span id="cb5-2"><a></a>pprint.pprint(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -607,538 +608,538 @@ Bella Ratmelia
  'observation_end': '2023-12-31',
  'observation_start': '2013-01-01',
  'observations': [{'date': '2013-01-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '8.0'},
                   {'date': '2013-02-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '7.7'},
                   {'date': '2013-03-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '7.5'},
                   {'date': '2013-04-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '7.6'},
                   {'date': '2013-05-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '7.5'},
                   {'date': '2013-06-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '7.5'},
                   {'date': '2013-07-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '7.3'},
                   {'date': '2013-08-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '7.2'},
                   {'date': '2013-09-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '7.2'},
                   {'date': '2013-10-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '7.2'},
                   {'date': '2013-11-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '6.9'},
                   {'date': '2013-12-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '6.7'},
                   {'date': '2014-01-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '6.6'},
                   {'date': '2014-02-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '6.7'},
                   {'date': '2014-03-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '6.7'},
                   {'date': '2014-04-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '6.2'},
                   {'date': '2014-05-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '6.3'},
                   {'date': '2014-06-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '6.1'},
                   {'date': '2014-07-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '6.2'},
                   {'date': '2014-08-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '6.1'},
                   {'date': '2014-09-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '5.9'},
                   {'date': '2014-10-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '5.7'},
                   {'date': '2014-11-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '5.8'},
                   {'date': '2014-12-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '5.6'},
                   {'date': '2015-01-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '5.7'},
                   {'date': '2015-02-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '5.5'},
                   {'date': '2015-03-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '5.4'},
                   {'date': '2015-04-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '5.4'},
                   {'date': '2015-05-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '5.6'},
                   {'date': '2015-06-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '5.3'},
                   {'date': '2015-07-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '5.2'},
                   {'date': '2015-08-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '5.1'},
                   {'date': '2015-09-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '5.0'},
                   {'date': '2015-10-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '5.0'},
                   {'date': '2015-11-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '5.1'},
                   {'date': '2015-12-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '5.0'},
                   {'date': '2016-01-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '4.8'},
                   {'date': '2016-02-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '4.9'},
                   {'date': '2016-03-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '5.0'},
                   {'date': '2016-04-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '5.1'},
                   {'date': '2016-05-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '4.8'},
                   {'date': '2016-06-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '4.9'},
                   {'date': '2016-07-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '4.8'},
                   {'date': '2016-08-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '4.9'},
                   {'date': '2016-09-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '5.0'},
                   {'date': '2016-10-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '4.9'},
                   {'date': '2016-11-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '4.7'},
                   {'date': '2016-12-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '4.7'},
                   {'date': '2017-01-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '4.7'},
                   {'date': '2017-02-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '4.6'},
                   {'date': '2017-03-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '4.4'},
                   {'date': '2017-04-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '4.4'},
                   {'date': '2017-05-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '4.4'},
                   {'date': '2017-06-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '4.3'},
                   {'date': '2017-07-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '4.3'},
                   {'date': '2017-08-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '4.4'},
                   {'date': '2017-09-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '4.3'},
                   {'date': '2017-10-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '4.2'},
                   {'date': '2017-11-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '4.2'},
                   {'date': '2017-12-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '4.1'},
                   {'date': '2018-01-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '4.0'},
                   {'date': '2018-02-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '4.1'},
                   {'date': '2018-03-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '4.0'},
                   {'date': '2018-04-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '4.0'},
                   {'date': '2018-05-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.8'},
                   {'date': '2018-06-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '4.0'},
                   {'date': '2018-07-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.8'},
                   {'date': '2018-08-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.8'},
                   {'date': '2018-09-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.7'},
                   {'date': '2018-10-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.8'},
                   {'date': '2018-11-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.8'},
                   {'date': '2018-12-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.9'},
                   {'date': '2019-01-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '4.0'},
                   {'date': '2019-02-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.8'},
                   {'date': '2019-03-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.8'},
                   {'date': '2019-04-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.7'},
                   {'date': '2019-05-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.6'},
                   {'date': '2019-06-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.6'},
                   {'date': '2019-07-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.7'},
                   {'date': '2019-08-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.6'},
                   {'date': '2019-09-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.5'},
                   {'date': '2019-10-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.6'},
                   {'date': '2019-11-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.6'},
                   {'date': '2019-12-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.6'},
                   {'date': '2020-01-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.6'},
                   {'date': '2020-02-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.5'},
                   {'date': '2020-03-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '4.4'},
                   {'date': '2020-04-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '14.8'},
                   {'date': '2020-05-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '13.2'},
                   {'date': '2020-06-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '11.0'},
                   {'date': '2020-07-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '10.2'},
                   {'date': '2020-08-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '8.4'},
                   {'date': '2020-09-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '7.8'},
                   {'date': '2020-10-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '6.8'},
                   {'date': '2020-11-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '6.7'},
                   {'date': '2020-12-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '6.7'},
                   {'date': '2021-01-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '6.4'},
                   {'date': '2021-02-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '6.2'},
                   {'date': '2021-03-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '6.1'},
                   {'date': '2021-04-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '6.1'},
                   {'date': '2021-05-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '5.8'},
                   {'date': '2021-06-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '5.9'},
                   {'date': '2021-07-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '5.4'},
                   {'date': '2021-08-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '5.1'},
                   {'date': '2021-09-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '4.7'},
                   {'date': '2021-10-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '4.5'},
                   {'date': '2021-11-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '4.1'},
                   {'date': '2021-12-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.9'},
                   {'date': '2022-01-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '4.0'},
                   {'date': '2022-02-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.8'},
                   {'date': '2022-03-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.6'},
                   {'date': '2022-04-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.7'},
                   {'date': '2022-05-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.6'},
                   {'date': '2022-06-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.6'},
                   {'date': '2022-07-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.5'},
                   {'date': '2022-08-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.6'},
                   {'date': '2022-09-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.5'},
                   {'date': '2022-10-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.6'},
                   {'date': '2022-11-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.6'},
                   {'date': '2022-12-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.5'},
                   {'date': '2023-01-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.4'},
                   {'date': '2023-02-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.6'},
                   {'date': '2023-03-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.5'},
                   {'date': '2023-04-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.4'},
                   {'date': '2023-05-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.7'},
                   {'date': '2023-06-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.6'},
                   {'date': '2023-07-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.5'},
                   {'date': '2023-08-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.8'},
                   {'date': '2023-09-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.8'},
                   {'date': '2023-10-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.8'},
                   {'date': '2023-11-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.7'},
                   {'date': '2023-12-01',
-                   'realtime_end': '2024-10-01',
-                   'realtime_start': '2024-10-01',
+                   'realtime_end': '2024-10-10',
+                   'realtime_start': '2024-10-10',
                    'value': '3.7'}],
  'offset': 0,
  'order_by': 'observation_date',
  'output_type': 1,
- 'realtime_end': '2024-10-01',
- 'realtime_start': '2024-10-01',
+ 'realtime_end': '2024-10-10',
+ 'realtime_start': '2024-10-10',
  'sort_order': 'asc',
  'units': 'lin'}</code></pre>
 </div>
@@ -1148,7 +1149,7 @@ Bella Ratmelia
 <section id="sieve-results-and-save-to-csv" class="slide level2">
 <h2>Sieve results and save to CSV</h2>
 <p>What we want to save is the <code>observations</code>, specifically the <code>date</code> and <code>value</code> columns.</p>
-<div id="c4900e02" class="cell" data-execution_count="6">
+<div id="1ee4928f" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="annotated-cell-6"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-6-1"><a href="#annotated-cell-6-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="annotated-cell-6-2"><a href="#annotated-cell-6-2"></a></span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-6" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-6-3" class="code-annotation-target"><a href="#annotated-cell-6-3"></a>unemployment_df <span class="op">=</span> pd.DataFrame(data[<span class="st">'observations'</span>])</span>
@@ -1176,7 +1177,7 @@ Bella Ratmelia
 <h2>The easier way: FRED API wrapper, <code>fredapi</code> package</h2>
 <p>The <code>fredapi</code> package is a Python wrapper for the FRED API, making it easier to interact with FRED data in Python. i.e., it can do what we just did in a fewer lines of code.</p>
 <p>To install this package, type in <code>pip install fredapi</code></p>
-<div id="01701eeb" class="cell" data-execution_count="7">
+<div id="e15d3dc8" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="im">from</span> fredapi <span class="im">import</span> Fred</span>
 <span id="cb7-2"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb7-3"><a></a></span>
@@ -1243,9 +1244,9 @@ Bella Ratmelia
 </div>
 </div></section><section id="merging-two-or-more-dataframes" class="slide level2">
 <h2>Merging two (or more) dataframes</h2>
-<p>When working with multiple data series from FRED, you might need to merge them into a single dataframe for analysis or to save it for later. This is especially important if the API usage costs money (Fortunately FRED is free)</p>
+<p>When working with multiple data series from FRED, you may want to merge them into a single dataframe for analysis or to save it for later. This is especially important if the API usage costs money (Fortunately FRED is free)</p>
 <p>Example: retrieve unemployment rate for California, Michigan, and Florida.</p>
-<div id="c062fdfe" class="cell" data-execution_count="8">
+<div id="e358a27a" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a>start <span class="op">=</span> <span class="st">"2013-01-01"</span></span>
 <span id="cb8-2"><a></a>end <span class="op">=</span> <span class="st">"2023-12-31"</span></span>
 <span id="cb8-3"><a></a></span>
@@ -1358,7 +1359,7 @@ Bella Ratmelia
 </div>
 </div></section><section id="plot-them" class="slide level2">
 <h2>Plot them!</h2>
-<div id="657f6413" class="cell" data-execution_count="9">
+<div id="14ee5d4c" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>usa_unrate.plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -1383,7 +1384,7 @@ Bella Ratmelia
 <li>Explore the FRED database and retrieve the Personal Consumption Expenditure for the last 2 decades (2003 to 2023)</li>
 <li>Plot the series.</li>
 </ol>
-<div id="e46a66f4" class="cell" data-execution_count="10">
+<div id="2677e675" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a>pce_data <span class="op">=</span> fred.get_series(<span class="st">'PCE'</span>, observation_start <span class="op">=</span> <span class="st">"2003-01-01"</span>, observation_end <span class="op">=</span> <span class="st">"2023-12-31"</span>)</span>
@@ -1406,13 +1407,13 @@ Bella Ratmelia
 </section>
 <section id="introduction-and-where-to-find-the-guides" class="slide level2">
 <h2>Introduction and where to find the guides</h2>
-<p>Statsmodels is a Python package that provides classes and functions for the estimation of various statistical models, as well as for conducting statistical tests and statistical data exploration.</p>
-<p>To install, type and then run <code>pip install statsmodels</code>.</p>
+<p><code>statsmodels</code> is a Python package that provides classes and functions for the estimation of various statistical models, as well as for conducting statistical tests and statistical data exploration.</p>
+<p>To install, type <code>pip install statsmodels</code> and execute it.</p>
 <p>The documentation gives us a few pointers on how to import this package depending on what we want to use:</p>
-<div id="412a33f4" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
-<span id="cb11-2"><a></a><span class="im">import</span> statsmodels.tsa.api <span class="im">as</span> tsa</span>
-<span id="cb11-3"><a></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span>
+<div id="74e51a9b" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm            <span class="co"># for linear regressions, logit, probit models, etc</span></span>
+<span id="cb11-2"><a></a><span class="im">import</span> statsmodels.tsa.api <span class="im">as</span> tsa       <span class="co"># Time series models</span></span>
+<span id="cb11-3"><a></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf   <span class="co"># Use this if you want to specify the formula directly</span></span>
 <span id="cb11-4"><a></a></span>
 <span id="cb11-5"><a></a><span class="co"># import matplotlib for plotting purposes</span></span>
 <span id="cb11-6"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1438,7 +1439,7 @@ Bella Ratmelia
 </div>
 </div>
 </div>
-<div id="4f666b86" class="cell" data-execution_count="12">
+<div id="8b23dde1" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
 <span id="cb12-2"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb12-3"><a></a></span>
@@ -1457,8 +1458,8 @@ Bella Ratmelia
 Dep. Variable:                florida   R-squared (uncentered):                   0.987
 Model:                            OLS   Adj. R-squared (uncentered):              0.987
 Method:                 Least Squares   F-statistic:                          1.005e+04
-Date:                Fri, 04 Oct 2024   Prob (F-statistic):                   1.05e-125
-Time:                        14:53:49   Log-Likelihood:                         -121.76
+Date:                Thu, 10 Oct 2024   Prob (F-statistic):                   1.05e-125
+Time:                        16:37:10   Log-Likelihood:                         -121.76
 No. Observations:                 132   AIC:                                      245.5
 Df Residuals:                     131   BIC:                                      248.4
 Df Model:                           1                                                  
@@ -1481,7 +1482,7 @@ Notes:
 </div></section><section id="ols-from-formula-sub-package" class="slide level2">
 <h2>OLS from <code>formula</code> sub-package</h2>
 <p>We can also call upon the <code>formula</code> sub-pacakge if we want to specify the exact formula for our OLS like so:</p>
-<div id="4e228b2e" class="cell" data-execution_count="13">
+<div id="e57b60fa" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span>
 <span id="cb14-2"><a></a></span>
 <span id="cb14-3"><a></a>usa_model_form <span class="op">=</span> smf.ols(<span class="st">"florida ~ california"</span>, data <span class="op">=</span> usa_unrate).fit()</span>
@@ -1496,8 +1497,8 @@ Notes:
 Dep. Variable:                florida   R-squared:                       0.917
 Model:                            OLS   Adj. R-squared:                  0.917
 Method:                 Least Squares   F-statistic:                     1440.
-Date:                Fri, 04 Oct 2024   Prob (F-statistic):           3.48e-72
-Time:                        14:53:49   Log-Likelihood:                -119.67
+Date:                Thu, 10 Oct 2024   Prob (F-statistic):           3.48e-72
+Time:                        16:37:10   Log-Likelihood:                -119.67
 No. Observations:                 132   AIC:                             243.3
 Df Residuals:                     130   BIC:                             249.1
 Df Model:                           1                                         
@@ -1530,7 +1531,7 @@ Notes:
 </section>
 <section id="stationarity-test-adf" class="slide level2">
 <h2>Stationarity test (ADF)</h2>
-<div id="ca87a3b6" class="cell" data-execution_count="14">
+<div id="39437ee8" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a>mi_stt <span class="op">=</span> tsa.adfuller(usa_unrate[<span class="st">'michigan'</span>])</span>
 <span id="cb16-2"><a></a><span class="bu">print</span>(<span class="st">"results:"</span>, mi_stt)</span>
 <span id="cb16-3"><a></a><span class="bu">print</span>(<span class="st">"ADF statistic:"</span>, mi_stt[<span class="dv">0</span>])</span>
@@ -1554,7 +1555,7 @@ critical values:
 <h2>Seasonal Decomposition</h2>
 <p>The <code>seasonal_decomposition</code> function in statsmodels allows us to decompose a time series into its underlying components: trend (long term movement), seasonal, and residual (or irregular).</p>
 <p>Let’s decompose the time series data for Michigan! (It is stationary so this step is not strictly necessary, but let’s do it anyway!)</p>
-<div id="6ebfb39c" class="cell" data-execution_count="15">
+<div id="c0c69dcd" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a></a><span class="im">import</span> statsmodels.tsa.api <span class="im">as</span> tsa</span>
 <span id="cb18-2"><a></a></span>
 <span id="cb18-3"><a></a>mi_result <span class="op">=</span> tsa.seasonal_decompose(usa_unrate[<span class="st">'michigan'</span>], model<span class="op">=</span><span class="st">'additive'</span>)</span>
@@ -1579,7 +1580,7 @@ critical values:
 <li>Seasonality: <code>mi_result.seasonal.plot()</code></li>
 <li>Residuals: <code>mi_result.resid.plot()</code></li>
 </ul>
-<div id="2c8b4980" class="cell" data-execution_count="16">
+<div id="fdd32671" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a>mi_result.seasonal.plot()</span>
 <span id="cb19-2"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -1594,7 +1595,7 @@ critical values:
 <section id="correlation-matrix" class="slide level2">
 <h2>Correlation Matrix</h2>
 <p>Let’s assume that just like the Michigan series, the California and Florida time series are also stationary. With this assumption, let’s compute the correlation matrix of these three series.</p>
-<div id="c0637754" class="cell" data-execution_count="17">
+<div id="136853ca" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a>correlation_matrix <span class="op">=</span> usa_unrate.corr()</span>
 <span id="cb20-2"><a></a><span class="bu">print</span>(correlation_matrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1608,8 +1609,9 @@ florida       0.957694  0.948046  1.000000</code></pre>
 </section>
 <section id="arima-modelling-single-variable" class="slide level2">
 <h2>ARIMA Modelling (single variable)</h2>
-<p>Since our time series is stationary, we can apply ARIMA model to forecast the Michigan unemployment rate! for the <code>order</code> paramater, we will input <code>1, 0, 1</code> for <code>p</code> (autoregressive term or AR), <code>d</code> (differencing), and <code>q</code> (moving average term or MA). <code>d</code> is 0 here because we’ve ascertained in the previous slide that our time series is stationary.</p>
-<div id="bb15fb38" class="cell" data-execution_count="18">
+<p>Since our time series is stationary, we can apply ARIMA model to forecast the Michigan unemployment rate!</p>
+<p>For the <code>order</code> paramater, we will input <code>1, 0, 1</code> for <code>p</code> (autoregressive term or AR), <code>d</code> (differencing), and <code>q</code> (moving average term or MA). <code>d</code> is 0 here because we’ve ascertained in the previous slide that our time series is stationary.</p>
+<div id="1aeeae7d" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a>mi_model <span class="op">=</span> tsa.ARIMA(usa_unrate[<span class="st">'michigan'</span>], order<span class="op">=</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>)).fit() </span>
 <span id="cb22-2"><a></a><span class="bu">print</span>(mi_model.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1621,8 +1623,8 @@ florida       0.957694  0.948046  1.000000</code></pre>
 ==============================================================================
 Dep. Variable:               michigan   No. Observations:                  132
 Model:                 ARIMA(1, 0, 1)   Log Likelihood                -254.685
-Date:                Fri, 04 Oct 2024   AIC                            517.371
-Time:                        14:53:51   BIC                            528.902
+Date:                Thu, 10 Oct 2024   AIC                            517.371
+Time:                        16:37:12   BIC                            528.902
 Sample:                    01-01-2013   HQIC                           522.056
                          - 12-01-2023                                         
 Covariance Type:                  opg                                         
@@ -1651,8 +1653,8 @@ Warnings:
 </section>
 <section id="forecast-future-value" class="slide level2">
 <h2>Forecast future value</h2>
-<p>Let’s predict the unemployment rate for Michigan for the next 6 months from the end of the time series</p>
-<div id="aa555607" class="cell" data-execution_count="19">
+<p>Let’s predict the unemployment rate for Michigan for the next 6 months from the end of the time series.</p>
+<div id="cd2a648a" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a></a>mi_forecast <span class="op">=</span> mi_model.get_forecast(steps<span class="op">=</span><span class="dv">6</span>)</span>
 <span id="cb24-2"><a></a><span class="bu">print</span>(mi_forecast.predicted_mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1668,8 +1670,8 @@ Freq: MS, Name: predicted_mean, dtype: float64</code></pre>
 </section>
 <section id="confidence-intervals-of-forecast" class="slide level2">
 <h2>Confidence Intervals of forecast</h2>
-<p>Let’s see the confidence intervals of these forecast.</p>
-<div id="94a9c1c4" class="cell" data-execution_count="20">
+<p>Let’s see the confidence intervals of the forecast.</p>
+<div id="9a79a392" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a></a><span class="bu">print</span>(mi_forecast.conf_int())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            lower michigan  upper michigan
@@ -1685,12 +1687,12 @@ Freq: MS, Name: predicted_mean, dtype: float64</code></pre>
 <section id="prediction-instead-of-forecast" class="slide level2">
 <h2>Prediction instead of forecast</h2>
 <p>We could also try to get our model to predict values within the sample (i.e.&nbsp;in-sample testing). Let’s see the model’s prediction for 2014.</p>
-<div id="f9f02a40" class="cell" data-execution_count="21">
+<div id="de07c6b2" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a></a>prediction <span class="op">=</span> mi_model.predict(start<span class="op">=</span><span class="dv">12</span>, end<span class="op">=</span><span class="dv">23</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="columns">
 <div class="column">
-<div id="a8a836fd" class="cell" data-execution_count="22">
+<div id="4112a233" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a></a><span class="bu">print</span>(prediction)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>2014-01-01    7.633507
@@ -1709,7 +1711,7 @@ Freq: MS, Name: predicted_mean, dtype: float64</code></pre>
 </div>
 </div>
 </div><div class="column">
-<div id="e01892b6" class="cell" data-execution_count="23">
+<div id="fbecf92a" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a></a><span class="bu">print</span>(usa_unrate.loc[<span class="st">'2014'</span>, <span class="st">'michigan'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>2014-01-01    8.1
