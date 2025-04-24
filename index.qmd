@@ -55,21 +55,19 @@ Workshop ini akan menggunakan RStudio, sebuah lingkungan pengembangan terintegra
 
 4.  Kenali antarmuka RStudio dengan menjelajahi panel-panelnya (Console, Environment, Files, Plots, dll.).
 
-5.  Isi [**survei pra-workshop**](https://smusg.asia.qualtrics.com/jfe/form/SV_1Nx06jl6oFCnNNY)! Harap selesaikan ini sebelum sesi 1 dimulai.
-
 ## Datasets
 
 ::: {.callout-note appearance="simple" title="What is a CSV?"}
-A CSV (Comma-Separated Values) file is a type of file that stores data in a plain text format. Each line in the file represents a row of data, and within each row, individual pieces of data (like numbers or words) are separated by commas.
+File CSV (Comma-Separated Values) adalah jenis file yang menyimpan data dalam format teks biasa. Setiap baris dalam file mewakili satu baris data, dan di dalam setiap baris, potongan data individu (seperti angka atau kata) dipisahkan oleh koma.
 
-This format is commonly used for storing and transferring data, especially in spreadsheets and databases. Because it is literally just plain text, it is an ideal format if you have large amount of data.
+Format ini sering digunakan untuk menyimpan dan mentransfer data, terutama dalam spreadsheet dan basis data. Karena hanya berupa teks biasa, format ini sangat ideal jika Anda memiliki jumlah data yang besar.
 
-You can open CSV files in Excel, Google Sheets, or even Notepad!
+Anda dapat membuka file CSV di Excel, Google Sheets, atau bahkan Notepad!
 :::
 
 ### Dataset 1: sg-gdp.csv
 
-For session 2 of this workshop, we will be using small dataset stored in a CSV file called `sg-gdp.csv`.
+Untuk sesi 2 workshop ini, kita akan menggunakan dataset kecil yang disimpan dalam file CSV bernama `sg-gdp.csv`.
 
 ```{=html}
 <a href="https://raw.githubusercontent.com/bellaratmelia/2024-python-macroecons/main/data/sg-gdp.csv" type="button" class="btn btn-success">Click here to open sg-gdp.csv, and then Ctrl + S / Cmd + S to save it locally into your data folder</a>
@@ -77,7 +75,7 @@ For session 2 of this workshop, we will be using small dataset stored in a CSV f
 
 ### Dataset 2: unemployment-age.csv
 
-For session 3 of this workshop, we will be using small dataset stored in a CSV file called `unemployment-age.csv`. This is a time series data that tracks unemployment rate for various age groups in United States, retrieved from [Federal Reserve Economic Data (FRED)](https://fred.stlouisfed.org/).
+Untuk sesi 3 workshop ini, kita akan menggunakan dataset kecil yang disimpan dalam file CSV bernama `unemployment-age.csv`. Dataset ini adalah data deret waktu yang melacak tingkat pengangguran untuk berbagai kelompok usia di Amerika Serikat, yang diambil dari [Federal Reserve Economic Data (FRED)](https://fred.stlouisfed.org/).
 
 ```{=html}
 <a href="https://raw.githubusercontent.com/bellaratmelia/2024-python-macroecons/main/data/unemployment-age.csv" type="button" class="btn btn-success">Click here to open unemployment-age.csv, and then Ctrl + S / Cmd + S to save it locally into your data folder</a>
