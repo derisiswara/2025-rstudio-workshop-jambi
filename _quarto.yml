@@ -2,20 +2,16 @@ project:
   type: website
 
 website:
-  title: "Python for Macroeconomics"
-  page-footer: "Made with love and [Quarto](https://quarto.org/) by [Bella Ratmelia](https://bellaratmelia.github.io/) - [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)."
-  google-analytics:
-    tracking-id: "G-Y8S6TK2GEH"
-    anonymize-ip: true
-    storage: none
+  title: "Workshop R"
+  page-footer: "Made with [Quarto](https://quarto.org/) by [Deri Siswara](https://derisiswara.org/about.html) - [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)."
   navbar:
     left:
       - href: index.qmd
         text: Home
-      - href: about.qmd
-        text: About
-      - href: coc.qmd
-        text: Code of Conduct
+#      - href: about.qmd
+#        text: About
+#      - href: coc.qmd
+#        text: Code of Conduct
 
 format:
   html:

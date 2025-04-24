@@ -1,35 +1,28 @@
 ---
-title: "SEIC x DSA Python for Macroeconomics Workshop 2024"
+title: "RStudio Workshop 2025"
 format: html
 ---
 
-## Welcome!
+## Peningkatan Research Quality dengan RStudio
 
-This site serves as a repository for the slides and codes developed for the 'Macroeconomics with Python Workshop' for SEIC x DSA club members at [SMU](https://www.smu.edu.sg/).
+Situs ini berfungsi sebagai repositori untuk slide dan kode (sintaks) untuk peserta workshop RStudio, di Universitas Jambi, 6 Mei 2025.
 
-**Instructor**: Bella Ratmelia, Research & Data Services, SMU Libraries
+**Speaker**: Prof. Dr. Muhammad Firdaus (Pengurus Pusat ISEI Bidang V & Atdikbud KBRI Kuala Lumpur)
 
-**Teaching Assistants**:
-
--  Rein Alfri (SOE)
--  Anya Dharsan (SCIS)
--  Somesh Balamurugan (SOE)
--  Tay Mui Yen (SMU Libraries)
--  Tee Lip Hwee (SMU Libraries)
+**Instructor**: Deri Siswara (IPB University)
 
 ## Schedule
 
-*Slides will be progressively made available below.*
+*Slide dan sintaks akan tersedia secara bertahap di bawah ini.*
 
-::: table-schedule
-| Date and Time | Venue | Topic & Slides | Quiz |
-|-----------------|-----------------|---------------------|-----------------|
-| Sat, 7 Sep 2024, 10 AM - 12 PM | YPHSL Seminar Room 3-12 | [Python basics](01-basics.html) | [Quiz 1](https://forms.gle/1QAdCiqtpPX6zGBn9){target="_blank"} |
-| Sat, 14 Sep 2024, 10 AM - 12 PM | SOSS/CIS Seminar Room 3-1 | [Introduction to Numpy and Matplotlib](02-numpy.html) | [Quiz 2](https://forms.gle/AEXQi2hScPRTPtFh8){target="_blank"} |
-| Sat, 28 Sep 2024, 10 AM - 12 PM | SOSS/CIS Seminar Room 3-1 | [Data wrangling and timeseries with Dataframe](03-pandas.html) | [Quiz 3](https://forms.gle/JSNcorbKADQmkg4Z8) |
-| Sat, 5 Oct 2024, 10 AM - 12 PM | SOSS/CIS Seminar Room 3-1 | [Retrieve data with APIs and analyze with statsmodels](04-apis.html) | - |
-:::
+::::: table-schedule
+| Session | Material | Quiz |
+|----------------------|---------------------------|----------------------|
+| Sesi 1 | [Menulis Artikel Jurnal](01-basics.html) | \- |
+| Sesi 2 | [Ekonometrika di RStudio](02-numpy.html) | [Quiz 1](https://forms.gle/AEXQi2hScPRTPtFh8){target="_blank"} |
+| Sesi 3 | [Metode Kuantitatif di RStudio](03-pandas.html) | [Quiz 2](https://forms.gle/JSNcorbKADQmkg4Z8) |
 
+```{=html}
 <style type="text/css">
     .table-schedule table thead tr {width: 100%;}
     .table-schedule table thead tr th:nth-child(1) { width: 22%; }
@@ -37,35 +30,36 @@ This site serves as a repository for the slides and codes developed for the 'Mac
     .table-schedule table thead tr th:nth-child(3) { width: 30%; }
     .table-schedule table thead tr th:nth-child(4) { width: 20%; }
 </style>
+```
+:::::
 
 ::: {.callout-note appearance="simple"}
-## Important - Please bring your laptop & charger to the workshop
+**Important - Jangan lupa membawa laptop Anda!**
 
-As this is a hands-on workshop, please do bring your laptop. Tablets like Surface or iPad will not be sufficient as they could not run Visual Studio Code.
+Di workshop ini, bawa laptop yang sudah terinstal RStudio. Pastikan Anda sudah menginstal R dan RStudio di laptop Anda sebelum workshop dimulai. Cara menginstal R dan RStudio dapat ditemukan di **Pre-workshop activities**
 :::
 
 ## Pre-workshop activities
 
-This workshop will use Visual Studio Code, or VS Code. It is a free, versatile code editor that supports many programming languages, including Python. It offers a user-friendly interface for writing and running Python code, and with the right extensions, it can also handle Jupyter notebooks!
+Workshop ini akan menggunakan RStudio, sebuah lingkungan pengembangan terintegrasi (IDE) gratis dan open-source untuk R.
 
-**Please install the following things in your laptop before the workshop:**
+**Silakan instal hal-hal berikut di laptop Anda sebelum workshop dimulai:**
 
-1.  Download and install the latest [python3](https://www.python.org/downloads/) for your machine (should be version 3.12 or thereabouts).
+1.  Unduh dan instal versi terbaru dari [R](https://cran.r-project.org/) sesuai dengan sistem operasi Anda.
 
-    -   If you are on Windows, at the start of the installation, **tick the "Add Python 3.12 to PATH"**.
+    -   Jika Anda menggunakan Windows, selama instalasi, pastikan untuk memilih opsi untuk menambahkan R ke PATH sistem Anda.
 
-2.  Download and install [Visual Studio Code](https://code.visualstudio.com/Download). Check out the setup instructions for [Windows](https://code.visualstudio.com/docs/setup/windows) and [macOS](https://code.visualstudio.com/docs/setup/mac)
+2.  Unduh dan instal [RStudio](https://posit.co/download/rstudio-desktop/), IDE untuk R.
 
-3.  Once you've installed Visual Studio code, start it up. Open the **Extension** tab on the left sidebar (`Ctrl + Shift + X` on Windows or `Cmd + Shift + X` on macOS) and install the [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and [Jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) extension. (The extension creator should be Microsoft)
+3.  Setelah Anda menginstal RStudio, buka dan pastikan bahwa RStudio mengenali instalasi R Anda. Anda dapat memeriksanya dengan pergi ke `Tools > Global Options > General` dan memverifikasi versi R.
 
-![](images/vscode-extension-tab.jpg)
+4.  Kenali antarmuka RStudio dengan menjelajahi panel-panelnya (Console, Environment, Files, Plots, dll.).
 
-4.  Fill up the [**pre-workshop survey**](https://smusg.asia.qualtrics.com/jfe/form/SV_1Nx06jl6oFCnNNY)! Please fill this up before the beginning of session 1.
+5.  Isi [**survei pra-workshop**](https://smusg.asia.qualtrics.com/jfe/form/SV_1Nx06jl6oFCnNNY)! Harap selesaikan ini sebelum sesi 1 dimulai.
 
 ## Datasets
 
 ::: {.callout-note appearance="simple" title="What is a CSV?"}
-
 A CSV (Comma-Separated Values) file is a type of file that stores data in a plain text format. Each line in the file represents a row of data, and within each row, individual pieces of data (like numbers or words) are separated by commas.
 
 This format is commonly used for storing and transferring data, especially in spreadsheets and databases. Because it is literally just plain text, it is an ideal format if you have large amount of data.
