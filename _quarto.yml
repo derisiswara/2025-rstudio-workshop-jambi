@@ -3,7 +3,7 @@ project:
 
 website:
   title: "Workshop R"
-  page-footer: "Made with [Quarto](https://quarto.org/) by [Deri Siswara](https://derisiswara.org/about.html) - [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)."
+  page-footer: "Created with [Quarto](https://quarto.org/) by [Deri Siswara](https://derisiswara.org/about.html) - Licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - Template by [Bella Ratmelia](https://bellaratmelia.github.io/)"
   navbar:
     left:
       - href: index.qmd
