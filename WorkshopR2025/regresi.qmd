@@ -1,0 +1,199 @@
+---
+title: "Latihan Analisis Regresi OLS"
+author: "Deri Siswara"
+format: html
+toc: true
+execute:
+  warning: false
+  
+---
+
+## Eksplorasi Data
+
+**Import Data**
+```{r}
+datareg <- read.csv('data/wagedata.csv')
+head(datareg)
+```
+
+**Deskripsi Data**
+
+*Case study* pelatihan analisis regresi OLS dengan RStudio menggunakan data CPS1988 yang dikumpulkan dalam Survei Penduduk (Current Population Survey, CPS) pada bulan Maret 1988 oleh Biro Sensus AS dan dianalisis oleh Bierens dan Ginther (2001).
+
+Data ini merupakan data *cross-section* dari pria berusia 18 hingga 70 tahun dengan pendapatan tahunan positif lebih dari US\$ 50 pada tahun 1992, yang bekerja untuk perusahaan atau organisasi dan menerima gaji atau upah sebagai karyawan.
+
+Salah satu masalah dengan data CPS adalah bahwa data ini tidak menyediakan pengalaman kerja yang sebenarnya. Oleh karena itu, biasanya pengalaman kerja dihitung sebagai *usia - pendidikan - 6* (seperti yang dilakukan oleh Bierens dan Ginther, 2001), yang dapat dianggap sebagai pengalaman potensial. Akibatnya, beberapa responden memiliki pengalaman negatif.
+
+**Keterangan Data**
+
+| Variabel | Jenis | Deskripsi |
+|-------------------|-------------------|----------------------------------|
+| wage | num | Upah (dalam dolar per minggu). |
+| education | int | Jumlah tahun pendidikan. |
+| experience | int | Jumlah tahun pengalaman kerja potensial. |
+| ethnicity | factor | Suku. Faktor dengan level "cauc" (Kaukasia) dan "afam" (Afrika-Amerika). |
+| area_type | factor | Tinggal di area urban (perkotaan) atau rural (pedesaan). |
+| region | factor | Wilayah bekerja. Faktor dengan level "northeast" (Timur Laut), "midwest" (Midwest), "south" (Selatan), dan "west" (Barat). |
+| parttime | factor | Apakah bekerja paruh waktu? (yes/no). |
+
+```{r}
+str(datareg)
+```
+```{r}
+datareg$ethnicity <- as.factor(datareg$ethnicity)
+datareg$area_type <- as.factor(datareg$area_type)
+datareg$region <- as.factor(datareg$region)
+datareg$parttime <- as.factor(datareg$parttime)
+str(datareg)
+```
+
+```{r}
+summary(datareg)
+```
+**Distribusi data untuk peubah numerik**
+```{r}
+hist(datareg$wage)
+hist(datareg$education)
+hist(datareg$experience)
+```
+**Barplot untuk peubah kategori**
+```{r}
+barplot(table(datareg$ethnicity))
+barplot(table(datareg$area_type))
+barplot(table(datareg$region))
+barplot(table(datareg$parttime))
+```
+**Analisis Korelasi**
+```{r}
+kordata <- cor(datareg[,1:3])
+round(kordata, 2)
+```
+
+## Regresi OLS
+
+$$ wage_i = \beta_0 + \beta*experiece_i + \epsilon_i $$
+**Regresi linier sederhana**
+```{r}
+model1 <- wage ~ experience
+reg1 <- lm(model1, data = datareg)
+```
+
+```{r}
+summary(reg1)
+```
+
+$$ log(wage_i) = \beta_0 + \beta*experiece_i + \epsilon_i $$
+**Regresi linier sederhana dnegan transformasi log**
+```{r}
+model2 <- log(wage) ~ experience
+reg2 <- lm(model2, data = datareg)
+summary(reg2)
+```
+![](https://www.kdnuggets.com/wp-content/uploads/r-glm-table-1.png)
+
+**Regresi linier berganda**
+```{r}
+model3 <- log(wage) ~ experience + area_type
+reg3 <- lm(model3, data = datareg)
+summary(reg3)
+```
+
+**Ubah baseline kategori**
+```{r}
+datareg$area_type <- relevel(datareg$area_type, ref = "urban")
+
+model3 <- log(wage) ~ experience + area_type
+reg3 <- lm(model3, data = datareg)
+summary(reg3)
+```
+
+## Pengujian Asumsi Residual
+
+**QQPLOT**
+```{r}
+qqnorm(reg3$residuals)
+qqline(reg3$residuals)
+```
+```{r}
+shapiro.test(reg3$residuals)
+```
+Install Package:  `install.packages("lmtest")`
+```{r}
+library(lmtest)
+```
+
+**Uji Heteroskedastisitas**
+```{r}
+bptest(reg3) 
+```
+**Uji Multikolinieritas**
+
+Install Package: `install.packages("car")`
+```{r}
+library(car)
+```
+```{r}
+vif(reg3)
+```
+**Uji Autokorelasi**
+```{r}
+dwtest(reg3)
+```
+
+## Tambahan
+
+**Visualisasi data**
+
+```{r}
+# Boxplot
+boxplot(wage ~ area_type, data = datareg, 
+        main = "Upah Berdasarkan Tipe Area", 
+        xlab = "Tipe Area", 
+        ylab = "Dolar per Minggu", 
+        col = "orange")
+```
+
+```{r}
+# Scatterplot
+plot(datareg$experience, datareg$wage, 
+     main = "Upah Berdasarkan Pengalaman Kerja", 
+     xlab = "Pengalaman Kerja", 
+     ylab = "Log Dolar per Minggu", 
+     col = "blue")
+line
+```
+
+```{r}
+# Scatterplot
+plot(datareg$experience, log(datareg$wage), 
+     main = "Upah Berdasarkan Pengalaman Kerja", 
+     xlab = "Pengalaman Kerja", 
+     ylab = "Log Dolar per Minggu", 
+     col = "blue")
+line
+```
+
+```{r}
+# Plot log(wage) terhadap experience
+plot(log(datareg$wage) ~ datareg$experience,
+     main = "Hubungan Upah dan Pengalaman Kerja",
+     ylab = "Dolar per Minggu (Log)",
+     xlab = "Pengalaman Kerja",
+     pch = 20)
+
+# Garis regresi pertama
+abline(a = 5, b = 0.01, col = "blue", lty = 2) # lt = 2: garis putus-putus
+
+# Garis regresi kedua dengan fungsi lm() atau OLS
+abline(lm(log(wage) ~ experience, data = datareg), col = "red")
+
+# Tambahkan label untuk kedua garis
+legend("bottomright",
+       legend = c("Garis Regresi: a = 5, b = 0.1", 
+                  "Garis Regresi: OLS"),
+       col = c("blue", "red"), # Warna garis
+       lty = c(2, 1), # Jenis garis
+       bty = "n") # Tidak ada kotak di sekitar legend
+```
+
+

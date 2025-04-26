@@ -1,0 +1,2 @@
+quarto publish quarto-pub regresi.qmd
+quarto publish quarto-pub sem.qmd

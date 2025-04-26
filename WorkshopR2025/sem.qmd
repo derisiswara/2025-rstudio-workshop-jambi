@@ -1,0 +1,29 @@
+---
+title: "Pemodelan SEM (Structural Equation Modeling) dan PLS SEM"
+format: html
+---
+
+## SEM
+
+```{r}
+# Import data
+datasem <- read.csv('data/data_sem.csv')
+head(datasem)
+```
+
+```{r}
+# install.packages("lavaan")
+library(lavaan)
+```
+
+## PLS SEM
+
+```{r}
+# Import data
+# install.packages("readxl")
+library(readxl)
+datapls <- read_excel('data/data_pls_sem.xlsx')
+head(datapls)
+```
+
+
