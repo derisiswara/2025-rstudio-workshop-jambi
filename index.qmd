@@ -19,8 +19,8 @@ Situs ini berfungsi sebagai repositori untuk slide dan kode (sintaks) untuk pese
 | Session | Material | Quiz |
 |----------------------|---------------------------|----------------------|
 | Sesi 1 | [Menulis Artikel Jurnal](01-basics.html) | \- |
-| Sesi 2 | [Ekonometrika di RStudio](02-numpy.html) | [Quiz 1](https://forms.gle/AEXQi2hScPRTPtFh8){target="_blank"} |
-| Sesi 3 | [Metode Kuantitatif di RStudio](03-pandas.html) | [Quiz 2](https://forms.gle/JSNcorbKADQmkg4Z8) |
+| Sesi 2 | [Ekonometrika di RStudio](WorkshopR2025/regresi.html) | [Quiz 1](https://forms.gle/AEXQi2hScPRTPtFh8){target="_blank"} |
+| Sesi 3 | [Metode Kuantitatif di RStudio](WorkshopR2025/sem.html) | [Quiz 2](https://forms.gle/JSNcorbKADQmkg4Z8) |
 
 ```{=html}
 <style type="text/css">
