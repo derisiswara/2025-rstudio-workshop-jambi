@@ -1,29 +1,220 @@
 ---
 title: "Pemodelan SEM (Structural Equation Modeling) dan PLS SEM"
+author: "Deri Siswara"
 format: html
+toc: true
+execute:
+  warning: false
+  message: false
 ---
 
 ## SEM
 
+### Eksplorasi Data
+
+**Import Data**
 ```{r}
-# Import data
 datasem <- read.csv('data/data_sem.csv')
 head(datasem)
 ```
 
 ```{r}
-# install.packages("lavaan")
+str(datasem)
+```
+
+**Deskripsi Data**
+
+*Case study* pelatihan analisis SEM dengan RStudio menggunakan dataset [PoliticalDemocracy](https://rdrr.io/cran/lavaan/man/PoliticalDemocracy.html). 
+
+*Industrialization and Political Democracy*
+
+Dataset *Industrialization and Political Democracy*—sering disebut “dataset terkenal” dalam buku **Kenneth A. Bollen (1989)**—berisi beragam indikator demokrasi politik dan industrialisasi di negara-negara berkembang.
+
+- **75 observasi** × **11 variabel**  
+- Setiap baris mewakili satu negara.
+
+| Indikator | Keterangan |
+|------|--------------------|
+| y1 | Penilaian pakar atas kebebasan pers (1960) |
+| y2 | Kebebasan oposisi politik (1960) |
+| y3 | Kejujuran pemilu (1960) |
+| y4 | Efektivitas legislatif terpilih (1960) |
+| y5 | Penilaian pakar atas kebebasan pers (1965) |
+| y6 | Kebebasan oposisi politik (1965) |
+| y7 | Kejujuran pemilu (1965) |
+| y8 | Efektivitas legislatif terpilih (1965) |
+| x1 | Produk Nasional Bruto (PNB) per kapita (1960) |
+| x2 | Konsumsi energi inanimat per kapita (1960) |
+| x3 | Persentase tenaga kerja di industri (1960) |
+
+> **Catatan:** Variabel *y1–y8* mengukur aspek-aspek demokrasi politik pada dua titik waktu (1960 & 1965), sementara *x1–x3* menggambarkan tingkat industrialisasi pada 1960.
+
+Pertanyaan penelitian sebagai dasar pemodelan SEM yaitu “Sejauh mana tingkat industrialisasi pada tahun 1960 memengaruhi tingkat demokrasi politik pada tahun 1960, dan bagaimana pengaruh demokrasi politik tahun 1960 tersebut menerus pada tingkat demokrasi politik tahun 1965?”
+
+Atau jika digambarkan dalam diagram jalur (path), model SEM yang diusulkan adalah sebagai berikut:
+
+![](img/sem.png) 
+
+### Pemodelan
+
+Di R, pemodelan SEM dapat dilakukan dengan menggunakan paket R `lavaan`. `lavaan` kepanjangan dari *Latent Variable Analysis*.
+
+**install.packages("lavaan")**. Muat**lavaan** dengan perintah `library`.
+```{r}
 library(lavaan)
 ```
 
-## PLS SEM
+```{r}
+myModel <- ' 
+ # latent variables 
+   ind60 =~ x1 + x2 + x3 
+   dem60 =~ y1 + y2 + y3 + y4 
+   dem65 =~ y5 + y6 + y7 + y8 
+ # regressions
+   dem60 ~ ind60 
+   dem65 ~ ind60 + dem60 
+ # residual covariance
+   y1 ~~ y5
+   y2 ~~ y4 + y6 
+   y3 ~~ y7 
+   y4 ~~ y8
+   y6 ~~ y8
+'
+fit <- sem(model = myModel, data = PoliticalDemocracy) 
+```
+
+**Keterangan:**
+
+1. **Definisi variabel laten** (`=~`)  
+2. **Rumus regresi** (`~`)  
+3. **Rumus (ko)varians** (`~~`)
+
+**install.packages("semPlot")**. Membuat path diagram dengan menggunakan paket `semPlot`.
+```{r}
+library(semPlot)
+semPaths(fit)
+```
+```{r}
+semPaths(fit, what = 'std', edge.label.cex=.9, curvePivot = TRUE)
+```
+
+**Output Model:**
+
+Argumen `standardized=TRUE` untuk menampilkan hasil analisis dengan koefisien standar (standardized coefficients).
+Dengan koefisien standar, kita dapat membandingkan kekuatan pengaruh antar variabel laten. Semakin besar nilai koefisien standar, semakin besar pengaruh variabel tersebut terhadap variabel lainnya.
 
 ```{r}
-# Import data
-# install.packages("readxl")
+summary(fit, standardized=TRUE)
+```
+
+Memperoleh GOF (Goodness of Fit) model SEM.
+```{r}
+fitMeasures(fit)
+```
+Contoh trashold fit measures yang diterima:
+
+![](https://passingthroughresearcher.wordpress.com/wp-content/uploads/2015/07/goodness-2.png)
+
+**Catatan**
+Penentuan model koragam residual (residual covariance) pada model SEM ini dilakukan dengan mengeksplorasi melalui analisis korelasi.
+```{r}
+round(cor(PoliticalDemocracy),2)
+```
+Belajar lebih lanjut tentang pemodelan SEM dengan menggunakan paket `lavaan` dapat diakses di [sini](https://lavaan.ugent.be/tutorial/).
+
+## PLS SEM
+
+### Eksplorasi Data
+
+**Import Data**. Jangan lupa untuk menginstall package **readxl** terlebih dahulu karena data yang digunakan adalah file dengan ekstensi .xlsx.
+```{r}
 library(readxl)
 datapls <- read_excel('data/data_pls_sem.xlsx')
 head(datapls)
+```
+
+```{r}
+str(datapls)
+```
+
+Dataset ini berisi 6 variabel laten dan 44 indikator. Laten dan indikator yang digunakan dalam model PLS-SEM adalah sebagai berikut:
+
+- faktor =~ A1 + A2 + A3 + A4
+
+- permintaan =~ B1 + B2  
+
+- industri =~ C1 + C2  
+
+- strategi =~ D1 + D2 + D3 + D4
+
+- regulasi =~ E1 + E2 + E3 + E4 + E5 + E6
+
+- kesempatan =~ F1 + F2 + F3 + F4
+
+
+Data ini adalah data survey dengan isian **likert** untuk setiap indikatornya. Data likert cocok untuk dianalisis dengan PLS-SEM. Pertanyaan utama dalam penelitian ini adalah “Apakah faktor-faktor yang mempengaruhi kesempatan kerja di Indonesia?”.
+
+### Pemodelan 
+
+Untuk PLS-SEM, kita menggunakan paket `plspm`. Instal paket `plspm` dengan perintah **install.packages("plspm")**. Spesifikasi model jalur (path) dilakukan dengan cara berbeda dengan SEM di paket `lavaan`.
+
+```{r}
+# Spesifikasi Model
+library(plspm)
+
+fkt <- c(0, 0, 0, 0, 0, 0)
+prm <- c(0, 0, 0, 0, 0, 0)
+ind <- c(0, 0, 0, 0, 0, 0)
+str <- c(0, 0, 0, 0, 0, 0)
+rgl <- c(0, 0, 0, 0, 0, 0)
+ksm <- c(1, 1, 1, 1, 1, 0)
+
+
+model_path <- data.frame(rbind(fkt, prm, ind, str, rgl, ksm))
+colnames(model_path) <- rownames(model_path)
+model_path <- as.matrix(model_path)
+model_path
+```
+```{r}
+# Path diagram PLS SEM 
+innerplot(model_path)
+```
+```{r}
+colnames(datapls)
+```
+
+```{r}
+# define latent variable associated with
+model_blocks <- list(4:11, 13:14, 16:17, 19:22, 24:35, 37:44)
+
+# run plspm analysis
+model_pls <- plspm(Data = datapls, path_matrix = model_path, blocks = model_blocks)
+model_pls
+```
+```{r}
+plot(model_pls, what = "loadings")
+```
+```{r}
+# Loadings and Communilaties
+model_pls$outer_model
+```
+```{r}
+# Coefficient of Determination
+dt <- data.frame(model_pls$inner_model)
+dt[,1] <- round(dt[,1], 2)
+dt[,2] <- round(dt[,2], 2)
+dt[,3] <- round(dt[,3], 2)
+dt[,4] <- round(dt[,4], 2)
+dt
+```
+
+Strategi dan regulasi secara signifikan mempengaruhi kesempatan kerja.
+
+```{r}
+model_pls$inner_summary
+```
+```{r}
+plot(model_pls, what = "inner", colpos = "#6890c4BB", colneg = "#f9675dBB", txt.col = "black", arr.tcol="black")
 ```
 
 

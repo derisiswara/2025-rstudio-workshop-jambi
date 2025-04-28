@@ -4,6 +4,9 @@ project:
 website:
   title: "Workshop R"
   page-footer: "Created with [Quarto](https://quarto.org/) by [Deri Siswara](https://derisiswara.org/about.html) - Licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) - Template by [Bella Ratmelia](https://bellaratmelia.github.io/)"
+  repo-url: https://github.com/derisiswara/2025-rstudio-workshop-jambi
+  repo-actions:
+    - source
   navbar:
     left:
       - href: index.qmd
