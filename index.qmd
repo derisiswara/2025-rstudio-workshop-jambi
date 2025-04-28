@@ -55,6 +55,8 @@ Workshop ini akan menggunakan RStudio, sebuah lingkungan pengembangan terintegra
 
 4.  Kenali antarmuka RStudio dengan menjelajahi panel-panelnya (Console, Environment, Files, Plots, dll.).
 
+{{< video https://www.youtube.com/watch?v=G5uGSPiuaBo >}}
+
 ## Datasets
 
 ::: {.callout-note appearance="simple" title="What is a CSV?"}
