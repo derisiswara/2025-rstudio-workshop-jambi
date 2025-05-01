@@ -151,8 +151,9 @@ Dataset ini berisi 6 variabel laten dan 44 indikator. Laten dan indikator yang d
 
 - kesempatan =~ F1 + F2 + F3 + F4
 
+![](img/plssem.png)
 
-Data ini adalah data survey dengan isian **likert** untuk setiap indikatornya. Data likert cocok untuk dianalisis dengan PLS-SEM. Pertanyaan utama dalam penelitian ini adalah “Apakah faktor-faktor yang mempengaruhi kesempatan kerja di Indonesia?”.
+Data ini adalah data survey dengan isian **likert** untuk setiap indikatornya. Data likert cocok untuk dianalisis dengan PLS-SEM. Pertanyaan utama dalam penelitian ini adalah “Apakah faktor-faktor yang mempengaruhi kesempatan pelaku usaha ekspansi keluar pulau jawa”.
 
 ### Pemodelan 
 
