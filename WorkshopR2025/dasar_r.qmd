@@ -1,0 +1,660 @@
+---
+title: "Pengenalan R dan RStudio"
+author: "oleh Deri Siswara"
+format: html
+---
+
+## 1. Install R dan RStudio
+
+Modul ini akan membahas pengenalan, cara install, dan dasar-dasar penggunaan R dan RStudio untuk analisis data.
+
+> **Definisi**
+
+R adalah **bahasa pemrograman** yang digunakan untuk mengolah data dan melakukan analisis statistik. Dengan R, kita bisa menghitung, menganalisis, dan membuat grafik dari data yang kita miliki. RStudio adalah **perangkat lunak** yang membantu kita menggunakan R dengan lebih mudah. Ini adalah tempat di mana kita bisa menulis, menjalankan, dan melihat hasil kode R dengan cara yang sederhana dan teratur. R dan RStudio bersifat *open-source* atau gratis, tidak memerlukan lisensi penggunaan.
+
+> **Cara Install**
+
+Unduh R dan RStudio melalui link di bawah ini :
+
+**Link :** https://posit.co/download/rstudio-desktop/
+
+![](img/Pasted%20image%2020240919153310.png)
+
+Klik ***download...*** pada link di atas untuk mengunduh R dan RStudio
+
+Langkah untuk mengunduh R dan RStudio untuk laptop OS windows (OS lainnya dapat memilih menyesuaikan).
+
+1.  R
+
+Download R for Windows -\> install R for the first time -\> Download R-4.4...
+
+![](img/Pasted%20image%2020240919153328.png)
+
+![](img/Pasted%20image%2020240919153345.png)
+
+![](img/Pasted%20image%2020240919153355.png)
+
+2.  RStudio
+
+Klik download pada website posit sebelumnya dan secara otomatis pada terunduh.
+
+Aplikasi R dan RStudio yang sudah terunduh akan terlihat seperti pada gambar di bawah ini :
+
+![](img/Pasted%20image%2020240919155023.png)
+
+Install kedua aplikasi tersebut seperti menginstall aplikasi pada umumnya.
+
+![](img/Pasted%20image%2020240919155553.png)
+
+R dan RStudio yang sudah berhasil terinstall akan tercantum pada list aplikasi di PC/ Laptop. Pengguna cukup membuka aplikasi RStudio untuk melakukan pekerjaan seperti analisis data.
+
+Tampilan antarmuka pertama aplikasi RStudio akan terlihat seperti ini.
+
+![](img/Pasted%20image%2020240919160137.png)
+
+## 2. Lembar Kerja Quarto Document di RStudio
+
+Ada berbagai cara menjalankan R di RStudio, misalnya menggunakan media console, R script, dan terbaru adalah Quarto Document. Pelatihan ini akan berfokus pada Quarto Document, dengan kelebihan antarmuka yang paling user-friendly.
+
+Langkah-langkah memulai lembar kerja Quarto :
+
+-   Untuk membuat file baru Quarto Document, pada pojok kiri RStudio klik/pilih icon ![](img/Pasted%20image%2020240919162335.png)Kemudian pilih *Quarto Document*
+
+![](img/Pasted%20image%2020240919162437.png)
+
+-   Akan muncul jendela seperti di bawah ini. Hapus ceklis pada baris Editor, kemudian pilih create.
+
+![](img/Pasted%20image%2020240919162528.png)
+
+-   Klik Install
+
+    ![](img/installrm.jpg)
+
+-   Tampilan akhir Quarto Document yang siap digunakan adalah sebagai berikut :
+
+![](img/Pasted%20image%2020240919162808.png)
+
+Keterangan :
+
+Bagian di atas disebut sebagai YAML Header. Ini adalah bagian dari dokumen Quarto yang menyediakan metadata dokumen. Informasi ini digunakan untuk mengendalikan bagaimana dokumen dirender. Namun, pada pelatihan ini tidak akan dibahas mengenai render dan publikasi menggunakan quarto dokumen.
+
+![](img/Pasted%20image%2020240919163012.png)
+
+Quarto pada dasarnya adalah dokumen yang menggabungkan teks naratif dan kode yang dapat dijalankan untuk menghasilkan dokumen akhir yang diformat dengan baik. Bagian di atas adalah bagian teks, untuk menuliskan catatan dan outline. Tanda \## adalah fungsi header. \# heading 1, \## heading 2, \### heading 3, dan seterusnya.
+
+![](img/Pasted%20image%2020240919163047.png)
+
+Terkahir, bagian di atas merupakan yang paling utama, yaitu disebut chunk kode R dalam dokumen Quarto. Sebuah chunk adalah bagian dari kode yang dapat dijalankan dalam dokumen.
+
+![](img/Pasted%20image%2020240919163138.png)
+
+Klik icon  ![](img/Pasted%20image%2020240919163607.png) di bagian kanan atas chunk untuk menjalankan kode sehingga output di bawah akan muncul seperti pada gambar. kita bisa membuat chunk baru secara manual ditulis atau alternatif lainnya dengan cara klik icon ![](img/Pasted%20image%2020240919164042.png) di bagian kanan atas RStudio.
+
+**Menyimpan Lembar Kerja**
+
+Melalui file -\> Save **atau** Ctrl + S
+
+![](img/Pasted%20image%2020240919165317.png)
+
+File akan tersimpan dengan ekstensi **.qmd**. File ini dapat dibuka kembali di RStudio dengan cara membuka file -\> Open File atau seperti membuka file pada umumnya.
+
+![](img/clipboard-4032837948.png)
+
+## 3. Pengantar Dasar-Dasar Pemrograman Bahasa R
+
+Pada bagian ini, kita akan belajar bahasa R dan praktik pada RStudio menggunakan *Quarto Document*. Perlu diingat kembali, tuliskan atau ketikkan serta jalankan semua kode pada *chunk*. Kode pada modul ini terdapat pada *blocktext* yang berwarna abu-abu dan diikuti dengan output-nya. Selamat mencoba.
+
+### R Sebagai Kalkulator
+
+```{r}
+2 + 2  
+```
+
+```{r}
+2 * 2  
+```
+
+**Operator Aritmatika dalam R**
+
+-   `+` : Penjumlahan
+-   `-` : Pengurangan
+-   `*` : Perkalian
+-   `/` : Pembagian
+-   `^` atau `**` : Perpangkatan
+-   `%%` : Modulus (Sisa hasil bagi)
+-   `%/%` : Pembagian bulat
+
+### Ragam Fungsi Simbol Pagar (#)
+
+```{r}
+2 * 2 # Contoh Perkalian
+```
+
+Di atas adalah contoh (#) sebagai komentar, artinya teks yang mengikuti tanda pagar tidak akan dieksekusi sebagai kode.
+
+```{r}
+# 2 - 2 , Kode ini tidak bisa dieksekusi (run) atau tidak memiliki arti apapun.
+```
+
+Sementara itu, simbol \# di luar chunk adalah fungsi header. \# heading 1, \## heading 2, \### heading 3, dan seterusnya. Berfungsi untuk membuat outline dokumen yang memudahkan mengakses seluruh bagian pada lembar kerja
+
+![](img/Pasted%20image%2020240925104721.png)
+
+### Deklarasi Variabel (Assignment)
+
+Terdapat 3 (tiga) cara deklarasi variabel dalam R, yaitu dengan simbol `<-`, `=`, dan `->`.
+
+Simbol `<-` adalah simbol yang paling sering digunakan dalam R.
+
+Contoh :
+
+```{r}
+A <- 2  
+```
+
+Mengeluarkan (*print*) output dari variabel A
+
+```{r}
+print(A)
+```
+
+Atau bisa juga dengan cara sederhana
+
+```{r}
+A
+```
+
+Cara lain deklarasi variabel
+
+```{r}
+3 -> A
+A
+```
+
+Atau
+
+```{r}
+A = 4
+A
+```
+
+Nilai varibel non-numerik harus diapit oleh tanda kutip
+
+```{r}
+B <- "Halo Semua"
+B
+```
+
+### Case Sensitive
+
+-   R bersifat case sensitive, artinya huruf besar dan huruf kecil dianggap berbeda.
+
+```{r}
+A <- 2
+A
+```
+
+```{r}
+a <- 3
+A
+```
+
+-   R tidak sensitif terhadap spasi, artinya spasi tidak dianggap sebagai karakter khusus kecuali jika digunakan di dalam fungsi atau nama variabel. Sebagai contoh, spasi tidak boleh digunakan dalam penamaan fungsi seperti `c()` atau nama variabel seperti `regresi1`, tidak boleh `regresi 1`, sebagai alternatif `regresi_1`
+
+-   Deklarasi variabel dengan nama yang sama akan menggantikan nilai variabel sebelumnya.
+
+```{r}
+A_1<-2
+A_1
+```
+
+```{r}
+A_1 <- 3
+A_1
+```
+
+-   Penamaan variabel tidak boleh diawali dengan angka, tetapi boleh diikuti dengan angka.
+
+```{r}
+# Ini contoh nama variabel yang salah : 1A <- 2
+```
+
+```{r}
+# Ini contoh nama variabel yang benar 
+A1 <- 2
+A1
+```
+
+### Operasi Logika
+
+```{r}
+x <- 5
+y <- 3
+```
+
+```{r}
+x > y # Lebih besar     
+x < y # Lebih kecil     
+x == y # Sama dengan    
+x >= y # Lebih besar sama dengan    
+x <= y # Lebih kecil sama dengan    
+```
+
+### Warning dan Error
+
+-   Warnings adalah pesan peringatan yang dikeluarkan oleh R ketika ada sesuatu yang tidak beres dalam kode yang dijalankan. Warnings tidak menghentikan proses eksekusi kode.
+-   Errors adalah pesan kesalahan yang dikeluarkan oleh R ketika ada kesalahan dalam kode yang dijalankan. Error menghentikan proses eksekusi kode.
+
+## 4. Tipe Variabel atau Objek
+
+Secara linguistik, penggunaan istilah "variabel" dan "objek" sangat relatif dan bergantung pada konteks. Misalnya, dalam ekonometrika, "variabel" sering merujuk pada variabel dependen dan independen, sedangkan dalam pemrograman, "variabel" lebih sering merujuk pada objek. Dalam konteks ini, tidak perlu memperdebatkan istilah tersebut, yang penting adalah memahami bahwa variabel atau objek adalah tempat penyimpanan data. Data tersebut dapat berupa angka, karakter, vektor, matriks, data frame, dan lain sebagainya.
+
+![](img/dataStructuresNew.png)
+
+Sumber : http://venus.ifca.unican.es/Rintro/dataStruct.html
+
+-   **Vector**: Struktur data satu dimensi yang digunakan untuk menyimpan kumpulan data. Semua elemen di dalam vektor harus memiliki tipe data yang sama.
+
+    -   Contoh vektor:
+        -   Vektor Numerik
+        -   Vektor Karakter atau string teks
+
+-   **Matrix:** Struktur data dua dimensi yang digunakan untuk menyimpan kumpulan. Matriks terdiri dari baris dan kolom, dan setiap elemen di dalam matriks diakses menggunakan dua indeks bilangan bulat. Matriks adalah perpanjangan dari vektor ke dalam dua dimensi.
+
+-   **Array**: Struktur data multi-dimensi (lebih dari dua dimensi) yang digunakan untuk menyimpan data. Array adalah generalisasi dari matriks ke dalam dimensi yang lebih tinggi. Sebagai contoh, array tiga dimensi dapat dianggap sebagai kumpulan dari beberapa matriks.
+
+-   **Data Frame**: Generalisasi dari matriks, di mana setiap kolom dapat menyimpan tipe data yang berbeda. Data frame sering digunakan untuk menyimpan data tabular di R, dengan kolom yang bisa berupa tipe data yang berbeda (misalnya, kolom pertama numerik dan kolom kedua karakter).
+
+-   **List**: Kumpulan objek yang berurutan di mana elemen-elemen tersebut bisa memiliki tipe data yang berbeda. Berbeda dengan vektor atau matriks, list dapat menyimpan berbagai tipe data di dalamnya, seperti numerik, karakter, vector, dll.
+
+### Vector
+
+Fungsi yang paling sering digunakan untuk membuat sebuah vector adalah dengan menggunakan fungsi `c()`. Fungsi `c()` adalah singkatan dari *combine* atau *concatenate*. Fungsi adalah kumpulan perintah yang diberi nama dan dapat digunakan kembali. Contoh lain fungsi misalnya `sum()` untuk menjumlahkan, `mean()` untuk menghitung rata-rata, `sd()` untuk menghitung standar deviasi, dan lain sebagainya.
+
+```{r}
+a1 <- c(2,4,7,3) # Numeric vector
+a2 <- c("one","two","three") # Character vector
+```
+
+Pemanggilan elemen vector
+
+```{r}
+a1 # Mengeluarkan vector a1
+a2[c(1,3)] # Mengeluarkan elemen pertama dan ketiga dari vector a2
+a1[-1] # Mengeluarkan elemen pertama dari vector a1       
+a1[2:4] # Mengeluarkan elemen kedua sampai keempat dari vector a1      
+```
+
+Operasi aritmatika pada vector
+
+```{r}
+a <- c(1, 2, 3)
+b <- c(4, 5, 6)
+d <- a + b        
+d                 
+```
+
+```{r}
+e <- a - b
+e
+```
+
+Cara lain membuat vector
+
+```{r}
+a3 <- 1:10 # 1 sampai 10
+a3
+```
+
+```{r}
+a4 <- seq(1, 10, by = 2) # 1 sampai 10 dengan interval 2
+a4
+```
+
+`by` adalah contoh argumen dalam fungsi. Argumen adalah `option` pada fungsi untuk melakukan sesuatu. Dalam hal ini, argumen `by` digunakan untuk menentukan interval antara dua angka dalam vektor.
+
+```{r}
+a5 <- rep(1, 10) # 1 sebanyak 10 kali
+a5
+```
+
+```{r}
+# Letters
+a6 <- LETTERS[1:5]
+a6
+```
+
+### Matrix
+
+Matriks dapat dibuat dengan menggunakan fungsi `matrix()`. Fungsi ini memiliki beberapa argumen, di antaranya adalah vektor yang akan diubah menjadi matriks, jumlah baris, dan jumlah kolom. Jika jumlah baris atau kolom tidak ditentukan, maka fungsi `matrix()` akan mengisi baris atau kolom secara otomatis.
+
+```{r}
+a4 <- 1:4 
+b1 <- matrix(a4, nrow = 2, ncol = 2)
+b1
+```
+
+```{r}
+b2 <- matrix(1:12,3,4)
+b3 <- matrix(a4,3,4,byrow=TRUE) 
+b4 <- matrix(1:14,4,4)
+
+b2
+b3
+b4
+```
+
+```{r}
+b2[2,3] # Mengeluarkan elemen baris kedua dan kolom ketiga dari matriks b2   
+```
+
+```{r}
+b2[1:2,]  # Mengeluarkan baris pertama dan kedua dari matriks b2
+```
+
+```{r}
+b2[c(1,3),-2] # Mengeluarkan baris pertama dan ketiga, dan kolom pertama dan ketiga dari matriks b2
+```
+
+Operasi matriks
+
+```{r}
+m1 <- matrix(c(1, 2, 3, 4, 5, 6), nrow = 2, ncol = 3)
+m2 <- matrix(c(7, 8, 9, 10, 11, 12), nrow = 2, ncol = 3)
+
+m3 <- m1 + m2
+m3
+```
+
+```{r}
+m4 <- m1 %*% t(m2)
+m4
+```
+
+### Factor
+
+-   **Factor**: Vektor yang digunakan untuk menyimpan variabel kategori. Faktor digunakan untuk mengelompokkan variabel kategori dan biasanya digunakan dalam analisis statistik.
+
+```{r}
+a5 <- c("A","B","AB","O")
+d1 <- factor(a5) 
+levels(d1)
+```
+
+```{r}
+levels(d1) <- c("Darah A","Darah AB","Darah B","Darah O")
+d1
+```
+
+```{r}
+a6 <- c("SMA","SD","SMP","SMA","SMA","SMA","SMA","SMA","SMA","SMA","SMA","SMA","SMA")
+d5 <- factor(a6, levels=c("SD","SMP","SMA"))
+levels(d5) 
+```
+
+```{r}
+d5
+```
+
+### List
+
+```{r}
+a1; b2; d1
+```
+
+```{r}
+e1 <- list(a1,b2,d1)
+e2 <- list(vect=a1,mat=b2,fac=d1) 
+e1
+e2
+```
+
+```{r}
+e1[[1]][2] # Mengeluarkan elemen kedua dari list e1 
+e2$fac # Mengeluarkan elemen fac dari list e2
+e2[2] # Mengeluarkan elemen kedua dari list e2
+names(e2) # Mengeluarkan nama elemen dari list e2
+```
+
+### Data Frame
+
+```{r}
+Angka <- 11:15
+Huruf <- factor(LETTERS[6:10])
+f1 <- data.frame(Angka,Huruf)
+f1
+```
+
+```{r}
+f1[1,2] # Mengeluarkan elemen baris pertama dan kolom kedua dari data frame f1 
+f1$Angka  # Mengeluarkan elemen atau kita sebut variabel Angka dari data frame f1
+f1[,"Huruf"] # Mengeluarkan elemen atau kita sebut variabel Huruf dari data frame f1
+colnames(f1) # Mengeluarkan nama kolom dari data frame f1  
+```
+
+```{r}
+str(f1)
+```
+
+-   **Integer (`int`)**: Menyimpan bilangan bulat.
+-   Contoh: `1`, `2`, `3`
+-   **Character (`chr`)**: Menyimpan teks atau string.
+-   Contoh: `"A"`, `"Hello, world!"`, `"1234"`
+-   **Numeric**: Menyimpan angka (baik bulat maupun desimal).
+-   Contoh: `3.14`, `42`
+
+## 5. Import dan Manipulasi Data
+
+### Package R dan Fungsi R
+
+> **Package**:
+
+Paket dalam R adalah kumpulan fungsi, data, dan dokumentasi yang dikemas bersama untuk memudahkan pengguna dalam melakukan tugas.
+
+```{r}
+# install.packages("readxl") - Kode untuk menginstall package readxl
+# Hapus simbol (#) untuk menjalankan
+library(readxl) # fungsi library() digunakan untuk memuat package yang terinstall
+```
+
+`readxl` adalah package yang digunakan untuk membaca file excel. Package ini memiliki fungsi `read_excel()`
+
+```{r}
+#install.packages("dplyr")
+library(dplyr)
+```
+
+`dplyr` adalah package yang digunakan untuk memanipulasi data. Package ini memiliki fungsi-fungsi seperti `select()`, `filter()`, `mutate()`, `summarise()`, dan `arrange()`.
+
+Untuk mengetahui fungsi-fungsi yang ada di dalam package `dplyr`, kita dapat menggunakan fungsi `help()`.
+
+`help(package = "dplyr")`
+
+Help di R untuk fungsi, misal untuk mengetahui cara penggunaan fungsi `read_excel` :
+
+`?read_excel`
+
+### Import Data
+
+R dapat mengimpor data dari berbagai sumber, seperti file .xlsx, file .csv, file .txt, .dta (STATA), dan lain sebagainya.
+
+Import data dari file excel :
+
+```{r}
+library(readxl)
+# read_excel("data/iris.xlsx")
+data(iris) # Untuk latihan kita pakai data sample bawaan R
+df1 <- iris
+head(df1)
+```
+
+-   File csv dapat diimpor dengan menggunakan fungsi `read.csv()` dari package `utils` (default atau bawaan di R).
+-   File dta dapat diimpor dengan menggunakan fungsi `read_dta()` dari package `haven`.
+
+### Manipulating Data dengan `dplyr`
+
+#### `mutate()`
+
+Fungsi ini digunakan untuk menambahkan kolom baru ke data frame.
+
+```{r}
+df2  <- mutate(df1, sepal2 = Sepal.Length + Sepal.Width)
+head(df2) # Menampilkan 6 baris pertama dari data frame df2
+```
+
+#### `filter()`
+
+Fungsi ini digunakan untuk memfilter baris berdasarkan kondisi tertentu.
+
+```{r}
+df1_setosa <- filter(df1, Species=="setosa")
+head(df1_setosa)
+```
+
+```{r}
+df1$Species <- as.factor(df1$Species)
+levels(df1$Species)
+```
+
+```{r}
+df3 <- filter(df1, Species=="setosa"& Petal.Length==1.3)
+head(df3)
+```
+
+```{r}
+df3 <- filter(df1, Species=="setosa" | Petal.Length==1.3)
+head(df3)
+```
+
+#### `select()`
+
+Fungsi ini digunakan untuk memilih kolom tertentu dari data frame.
+
+```{r}
+df4 <- select(df1, Sepal.Length, Species)
+head(df4)
+```
+
+#### `arrange()`
+
+Fungsi ini digunakan untuk mengurutkan baris berdasarkan kolom tertentu.
+
+```{r}
+# mengurutkan data berdasarkan Petal.Width secara ascending
+df5 <- arrange(df1, Petal.Width)
+head(df5)
+```
+
+```{r}
+# Mengurutkan data berdasarkan Species dan Petal.Width secara descending
+df6 <- arrange(df1, Species, desc(Petal.Width)) 
+head(df6)
+```
+
+#### `rename()`
+
+Fungsi ini digunakan untuk mengubah nama kolom.
+
+```{r}
+df1 <- rename(df1, panjang_sepal = Sepal.Length)
+head(df1)
+```
+
+#### Operarot Pipe `|>` di dplyr
+
+operator pipe `|>` digunakan untuk memudahkan penulisan kode dalam dplyr untuk memanipulasi data dengan beberapa fungsi sekaligus.
+
+```{r}
+df2 <- df1 |> 
+  group_by(Species) |> 
+  summarise(rata2_Sepal.Width = mean(Sepal.Width))
+df2
+```
+
+Kode di atas akan menghitung rata-rata Sepal.Width berdasarkan Species dengan fungsi `group_by()` dan `summarise()`.
+
+```{r}
+df2 <- df1 %>%
+  filter(Species == "setosa") %>%  # Filter spesies setosa
+  select(panjang_sepal, Sepal.Width) %>%  # Pilih kolom Sepal.Length dan Sepal.Width
+  arrange(desc(panjang_sepal))  # Urutkan berdasarkan Sepal.Length secara menurun
+head(df2)
+```
+
+Kode di atas akan memfilter data yang hanya memiliki spesies setosa, memilih kolom Sepal.Length dan Sepal.Width, dan mengurutkan data berdasarkan Sepal.Length secara menurun.
+
+## 6. Visualisasi Data
+
+### Histogram
+
+```{r}
+hist(df1$panjang_sepal)
+```
+
+### Box Plot
+
+```{r}
+boxplot(df1$Petal.Width)
+```
+
+### Barplot
+
+```{r}
+barplot(table(df1$Species))
+```
+
+### Pie Chart
+
+```{r}
+pie(table(df1$Species))
+```
+
+### Scatter Plot
+
+```{r}
+plot(df1$Petal.Length, df1$Petal.Width)
+```
+
+```{r}
+plot(df1$panjang_sepal, df1$Sepal.Width, 
+     main = "Sepal Length vs. Sepal Width", 
+     xlab = "Sepal Length", ylab = "Sepal Width", col = "red")
+```
+
+## 7. Latihan
+
+1.  Buatlah objek beri nama `latihan1` yang memiliki input berupa angka `6` dan munculkan outputnya.
+
+2.  Buatlah objek beri nama `latihan2` yang memiliki input karakter ’Halo Indonesia” dan munculkan outputnya.
+
+3.  Buatlah vektor beri nama `provinsi`yang berisi elemen "Aceh, DKI Jakarta, Sumatera Barat, Riau, Jawa Barat"
+
+4.  Buatlah vektor beri nama `luas_wilayah` yang berisi elemen 57682,72156, 42152, 87833, 50604
+
+5.  Buatlah factor beri nama `pulau` yang berisi elemen/data Jawa dan Sumatera (Sesuaikan dengan vektor `provinsi`)
+
+6.  Gabungkan menjadi tabel/data frame dari tiga objek di atas beri nama `latihan3`.
+
+7.  Tampilkan output dari tabel di atas
+
+8.  Tampilkan hanya variabel/kolom pulau
+
+9.  Gunakan data iris, buat peubah/variabel baru dengan nama `sepal1001` yang merupakan data Sepal.Length dikali 100. Jadikan tabel atau data frame baru beri nama `dflat1`
+
+10. Tampilkan 6 baris pertama
+
+11. Filter data hanya spesies “setosa“ dan “virginica“. Buat jadi tabel baru beri nama `dflat2`
+
+12. Tampilkan 6 baris terakhir
+
+13. Buat Histogram dan Box Plot dari data iris, berikan argumen seperti memberi judul plot dan warna. Bebas, tidak ada ketentuan.
+
+## 8. Tips dan Referensi
+
+-   Membaca banyak dokumentasi R misal di rpubs dan github
+-   Integrasi AI: Chat GPT, Copilot, Gemini
+-   Buku
+
+![](img/clipboard-4256474047.png)
+
+Pemesanan: [https://bit.ly/buku-jurnal-rstudio2](#0)
