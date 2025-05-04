@@ -21,7 +21,7 @@ Situs ini berfungsi sebagai repositori untuk slide dan kode (sintaks) untuk pese
 | Sesi 0 | [Dasar-Dasar R](WorkshopR2025/dasar_r.html) |
 | Sesi 1 | [Menulis Artikel Jurnal](about.html) |
 | Sesi 2 | [Ekonometrika di RStudio: Korelasi dan Regresi OLS](WorkshopR2025/regresi.html) |
-| Sesi 3 | [Metode Kuantitatif di RStudio: SEM dan PLS SEM](WorkshopR2025/sem.html) |
+| Sesi 3 | [Metode Kuantitatif di RStudio: SEM](WorkshopR2025/sem_v2.html) |
 
 ```{=html}
 <style type="text/css">
@@ -64,16 +64,11 @@ Untuk sesi 2 workshop ini, kita akan menggunakan dataset yang disimpan dalam fil
 <a href="https://drive.google.com/file/d/156tWtVGHyLA4ERiTe_7Oa6E7dGJGWWqW/view?usp=drive_link" type="button" class="btn btn-success"> Klik di sini mengunduh data</a>
 ```
 
-### Dataset 2: SEM dan PLS SEM
+### Dataset 2: SEM (Structural Equation Modeling)
 
-Untuk sesi 3 workshop ini, kita akan menggunakan dua dataset yang yang bernama `data_sem.csv` dan `data_pls_sem.xlsx`
-
-```{=html}
-<a href="https://drive.google.com/file/d/155bqX6Q4_9Jk5mM2_eqwquwWJBhU0CUu/view?usp=drive_link" type="button" class="btn btn-success"> Klik di sini mengunduh data untuk SEM</a>
-```
+Untuk sesi 3 workshop ini, kita akan menggunakan dataset yang yang bernama `datasem.xlsx`
 
 ```{=html}
-<a href="https://docs.google.com/spreadsheets/d/155_b69_sFwpMprSissq0IjfNL1q95Zli/edit?usp=drive_link&ouid=102650298931671998321&rtpof=true&sd=true" type="button" class="btn btn-success"> Klik di sini mengunduh data untuk PLS SEM</a>
+<a href="https://docs.google.com/spreadsheets/d/1Q8YawgY4rLmb68q-75EvmxmppszG5k1s/edit?usp=sharing&ouid=102650298931671998321&rtpof=true&sd=true" type="button" class="btn btn-success"> Klik di sini mengunduh data untuk SEM</a>
 ```
-
 

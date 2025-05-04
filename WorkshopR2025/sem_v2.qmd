@@ -1,0 +1,148 @@
+---
+title: "Pemodelan SEM (Structural Equation Modeling)"
+author: "Deri Siswara"
+format: html
+toc: true
+execute:
+  warning: false
+  message: false
+---
+
+## Eksplorasi Data
+
+**Import Data**. Jangan lupa untuk menginstall package **readxl** terlebih dahulu karena data yang digunakan adalah file dengan ekstensi .xlsx.
+```{r}
+library(readxl)
+datasem <- read_excel('data/datasem.xlsx')
+head(datasem)
+```
+
+```{r}
+str(datasem)
+```
+
+Dataset ini berisi 6 variabel laten dan 44 indikator. Laten dan indikator yang digunakan dalam model PLS-SEM adalah sebagai berikut:
+
+- faktor =~ A1 + A2 + A3 + A4
+
+- permintaan =~ B1 + B2  
+
+- industri =~ C1 + C2  
+
+- strategi =~ D1 + D2 + D3 + D4
+
+- regulasi =~ E1 + E2 + E3 + E4 + E5 + E6
+
+- kesempatan =~ F1 + F2 + F3 + F4
+
+![](img/plssem.png)
+
+Data ini adalah data survey dengan isian **likert** untuk setiap indikatornya. Pertanyaan utama dalam penelitian ini adalah “Apakah faktor-faktor yang mempengaruhi kesempatan pelaku usaha ekspansi keluar pulau jawa”. Model SEM ini didasarkan pada teori *Porter's Five Forces*.
+
+## Model 1 
+
+install package **lavaan** dan **semPlot** untuk analisis SEM. Paket `lavaan` digunakan untuk analisis SEM, sedangkan paket `semPlot` digunakan untuk memvisualisasikan model SEM.
+
+`install.packages("lavaan")` dan `install.packages("semPlot")`.
+```{r}
+library(lavaan)
+library(semPlot)
+```
+
+**Membuat Spefisikasi Model**.
+```{r}
+sem.model = "
+faktor =~ A1 + A2 + A3 + A4
+permintaan =~ B1 + B2  
+industri =~ C1 + C2  
+strategi =~ D1 + D2 + D3 + D4
+regulasi =~ E1 + E2 + E3 + E4 + E5 + E6
+kesempatan =~ F1 + F2 + F3 + F4
+
+kesempatan ~ faktor + permintaan + industri + strategi + regulasi"
+```
+
+**Keterangan:**
+
+1. **Definisi variabel laten** (`=~`)  
+2. **Rumus regresi** (`~`)  
+3. **Rumus (ko)varians** (`~~`)
+
+**Estimasi Model**. 
+
+Untuk estimasi model SEM, kita menggunakan fungsi `sem()` dari paket `lavaan`. Fungsi ini akan mengestimasi model sudah kita buat.
+```{r}
+sem.fit = sem(sem.model, data = datasem)
+```
+
+Sebelum melihat hasil output estimasi, kita dapat melihar secara visual model SEM yang telah kita buat dengan menggunakan fungsi `semPaths()` dari paket `semPlot`.
+```{r}
+semPaths(sem.fit)
+```
+**Output Model:**
+
+Argumen `standardized=TRUE` untuk menampilkan hasil analisis dengan koefisien standar (standardized coefficients).
+Dengan koefisien standar, kita dapat membandingkan kekuatan hubungan antar variabel laten. Semakin besar nilai koefisien standar, semakin besar hubungan variabel tersebut terhadap variabel lainnya.
+
+```{r}
+summary(sem.fit, standardized=TRUE)
+```
+
+Memperoleh GOF (Goodness of Fit) model SEM.
+```{r}
+fitMeasures(sem.fit)
+```
+Contoh trashold fit measures yang diterima:
+
+![](https://passingthroughresearcher.wordpress.com/wp-content/uploads/2015/07/goodness-2.png)
+
+Atau kita bisa mengeluarkan fit measures tertentu saja, misalnya:
+
+```{r}
+fitMeasures(sem.fit)[c(3,5,9, 10, 23, 42,43)]
+```
+
+Visualisi dengan koefisien.
+
+```{r}
+semPaths(sem.fit, "std", color = list(lat = "green", man = "yellow"), 
+         edge.color="black", fade=FALSE)
+```
+
+```{r}
+semPaths(sem.fit, "std", color = list(lat = "green", man = "yellow"), 
+         edge.color="black", fade=FALSE, residuals=FALSE, exoCov=FALSE)
+```
+
+## Model 2 
+
+
+```{r}
+sem.model2 = "
+faktor =~ A1 + A2 + A3 + A4
+permintaan =~ B1 + B2  
+industri =~ C1 + C2  
+strategi =~ D1 + D2 + D3 + D4
+regulasi =~ E1 + E2 + E3 + E4 + E5 + E6
+kesempatan =~ F1 + F2 + F3 + F4
+
+kesempatan ~ faktor + permintaan + industri + strategi + regulasi
+
+A1	~~	A2
+"
+```
+
+```{r}
+sem.fit2 = sem(sem.model2, data = datasem)
+```
+
+Terdapat perbaikan fit measures pada model.
+
+```{r}
+fitMeasures(sem.fit2)[c(3,5,9, 10, 23, 42,43)]
+```
+**Output**
+```{r}
+summary(sem.fit2, standardized=TRUE)
+```
+
