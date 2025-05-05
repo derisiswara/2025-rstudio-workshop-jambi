@@ -18,8 +18,8 @@ Situs ini berfungsi sebagai repositori untuk slide dan kode (sintaks) untuk pese
 ::::: table-schedule
 | Session | Material |
 |----------------------|---------------------------|
-| Sesi 0 | [Dasar-Dasar R](WorkshopR2025/dasar_r.html) |
-| Sesi 1 | [Menulis Artikel Jurnal](about.html) |
+| Sesi 0 | [Dasar-Dasar R](WorkshopR2025/dasar_r.html) 📂 [Slides](https://drive.google.com/file/d/1hp_4ou7BkMDjBA7lUHm2p118LOwvpQ23/view?usp=drive_link) |
+| Sesi 1 | [Menulis Artikel Jurnal](https://drive.google.com/file/d/1hqP5EDanURwVy9fK4nZELjcGOrgOJnM7/view?usp=drive_link) |
 | Sesi 2 | [Ekonometrika di RStudio: Korelasi dan Regresi OLS](WorkshopR2025/regresi.html) |
 | Sesi 3 | [Metode Kuantitatif di RStudio: SEM](WorkshopR2025/sem_v2.html) |
 
